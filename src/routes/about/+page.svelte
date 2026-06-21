@@ -39,8 +39,8 @@
 		<div class="mt-12 grid max-w-[1400px] grid-cols-1 gap-8 px-8 sm:grid-cols-2 lg:grid-cols-3">
 			{#each about.team as member}
 				<div class="flex flex-col items-center gap-2 px-4">
-					<div class="mb-4 size-72 overflow-hidden rounded-full" style={member.wrapperStyle}>
-						<img src={member.image} alt="" class="h-full w-full {member.imageStyle ? '' : 'object-cover'}" style={member.imageStyle} />
+					<div class="mb-4 size-72 overflow-hidden rounded-full bg-zinc-950" style={member.wrapperStyle}>
+						<img src={member.image} alt="" class="h-full w-full object-contain" style={member.imageStyle} />
 					</div>
 					<h1 class="font-serif text-3xl tracking-tighter">{member.name}</h1>
 					<h2 class="text-base font-medium text-indigo-600">{member.position}</h2>

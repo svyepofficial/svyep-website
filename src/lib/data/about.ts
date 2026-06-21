@@ -5,8 +5,7 @@ const about = {
 			position: 'Position Title',
 			description:
 				'Isabella Liang is a junior at Saint Francis High School in California. She is a dedicated volleyball player with a strong interest in business, investing, and entrepreneurship. Through SVYEP, Isabella hopes to help more students explore their ideas, connect with inspiring leaders, and gain the confidence to create something of their own.',
-			image: '/images/about/isabella-l.webp',
-			imageStyle: 'object-fit: cover; transform: scaleX(-1);'
+			image: '/images/about/isabella-l.webp'
 		},
 		{
 			name: 'Camille Wang',
@@ -19,17 +18,14 @@ const about = {
 			position: 'Position Title',
 			description:
 				'Anthony is a senior at Stratford Preparatory Blackford in San Jose, California. He is a competitive tennis player with strong interests in entrepreneurship, data science, physics, and day trading. In his free time, he enjoys powerlifting, playing piano, and reading. For the past three years, Anthony has been devoted to providing new opportunities and connections for high school students across the world through SVYEP.',
-			image: '/images/about/anthony-w.webp',
-			imageStyle: 'object-fit: contain;',
-			wrapperStyle: 'background: #09090b;'
+			image: '/images/about/anthony-w.webp'
 		},
 		{
 			name: 'Ethan Hao',
 			position: 'Position Title',
 			description:
 				'Ethan Hao is a sophomore at The Harker School in California with a strong interest in AI, robotics, and business. Outside of the classroom, he is involved in his school\'s robotics club and swim team, where he enjoys challenging himself and working with others. Through SVYEP, he hopes to build meaningful connections, grow as a leader, and support other students\' interests in exploring entrepreneurship.',
-			image: '/images/about/ethan-h.webp',
-			imageStyle: 'object-fit: cover; object-position: center 65%; transform: scale(1.2);'
+			image: '/images/about/ethan-h.webp'
 		},
 		{
 			name: 'Elaine Luo',
@@ -41,16 +37,14 @@ const about = {
 			name: 'Tyrone Tan',
 			position: 'Position Title',
 			description: 'Member bio coming soon.',
-			image: '/images/about/tyrone-t.webp',
-			imageStyle: 'object-fit: cover; object-position: center 65%; transform: scale(1.2);'
+			image: '/images/about/tyrone-t.webp'
 		},
 		{
 			name: 'Ethan Chen',
 			position: 'Position Title',
 			description:
 				'Ethan C is a student at The Harker School in San Jose, California. He is a very committed swimmer and enjoys cooking, participating in DECA and doing triathlons in his free time. Through SVYEP, he hopes to further develop his leadership and communication skills while inspiring students by providing them with meaningful opportunities to learn, grow, and achieve their goals.',
-			image: '/images/about/ethan-c.webp',
-			imageStyle: 'object-fit: cover; object-position: center 65%; transform: scale(1.2);'
+			image: '/images/about/ethan-c.webp'
 		},
 		{
 			name: 'Jack Li',
@@ -68,8 +62,7 @@ const about = {
 			name: 'Isabella Xia',
 			position: 'Position Title',
 			description: 'Member bio coming soon.',
-			image: '/images/about/isabella-x.webp',
-			imageStyle: 'object-fit: cover; object-position: center 65%; transform: scale(1.2);'
+			image: '/images/about/isabella-x.webp'
 		},
 		{
 			name: 'Cindy Zhang',
@@ -82,8 +75,7 @@ const about = {
 			position: 'Position Title',
 			description:
 				'Aiden is a student at University Preparatory Academy in San Jose, California. He is very passionate about game design and boy scouts, and participates in sports such as track & field and swimming. Through SVYEP, he hopes to develop more visual design and entrepreneurial skills to both inspire and support others.',
-			image: '/images/about/aiden-x.webp',
-			imageStyle: 'object-fit: cover; object-position: center 65%; transform: scale(1.2);'
+			image: '/images/about/aiden-x.webp'
 		}
 	],
 	previous_members: [
