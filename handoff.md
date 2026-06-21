@@ -95,16 +95,22 @@ done purely via the CSS `imageStyle` transform (scale to zoom, translateY to shi
 - Isabella Xia: `transform: scale(2.15);`
 - Aiden Xue: `transform: scale(2.5) translateY(7%);`
 
-**Page background:** Isabella Liang's photo (`isabella-l.webp`) is set as a fixed full-viewport
-background on the About page via `class="fixed inset-0 -z-20 h-full w-full object-fill"` (object-fill
-deliberately stretches the portrait wide / compresses it vertically, per request).
+**Team circles are transparent** (no `bg-zinc-950` on the wrapper) — same look as the advisors /
+previous-members circles. Since the photos have transparent backgrounds, whatever is behind the page
+(the StarsBackground) shows through the non-subject areas. There is currently **no** full-page photo
+background (an Isabella-Liang `object-fill` backdrop was tried and removed per request).
+
+> **DEPLOY POLICY (user standing order, 2026-06-20):** ALWAYS auto-deploy whenever changes are made —
+> i.e. after any change, commit + push to `main` (which auto-deploys to Vercel) without waiting to be
+> asked. Don't commit the stray `package-lock.json` (bun-only project).
 
 ## Done recently
-- **About page photo tuning + bg (2026-06-20, latest)**: team grid uses `object-contain` (no crop);
-  per-member `imageStyle` transforms tuned interactively (see "Current per-member adjustments");
-  grid spacing settled at `max-w-[1200px] gap-8` card `px-4`; added Isabella Liang as a stretched
-  full-viewport About-page background (`object-fill`); added Isabella Xia's bio; removed the large
-  `teamphoto.webp` block above Advisors. Deployed to Vercel.
+- **About page polish + deploy (2026-06-20, latest)**: made team circles transparent (removed
+  `bg-zinc-950` wrapper, matches advisors/previous); removed the `bg-zinc-950` highlight behind
+  "Our Vision" + its description; removed the Isabella-Liang full-page background that was briefly
+  added. Per-member `imageStyle` transforms tuned interactively (see "Current per-member
+  adjustments"); grid spacing settled at `max-w-[1200px] gap-8` card `px-4`. Earlier: added Isabella
+  Xia's bio; removed the large `teamphoto.webp` block above Advisors.
 - **(superseded) Team grid no-crop layout (2026-06-20)**: reverted the earlier square-crop experiment
   to original uncropped photos. Removed the large `teamphoto.webp` block above
   Advisors; added Isabella Xia's bio. Source webp files were restored from git (originals untouched).

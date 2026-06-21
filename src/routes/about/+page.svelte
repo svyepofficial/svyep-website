@@ -8,14 +8,9 @@
 </svelte:head>
 
 <div class="relative flex h-full flex-col items-center gap-20 pt-40">
-	<img
-		src="/images/about/isabella-l.webp"
-		alt=""
-		class="fixed inset-0 -z-20 h-full w-full object-fill"
-	/>
 	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
 	<StarsBackground starDensity={0.00003} class="-z-10" />
-	<div class="flex w-full max-w-[1200px] flex-col bg-zinc-950 px-4 text-white">
+	<div class="flex w-full max-w-[1200px] flex-col px-4 text-white">
 		<h1
 			class="text-shadow-glow-white font-serif text-5xl leading-loose tracking-tighter sm:text-7xl"
 		>
@@ -44,7 +39,7 @@
 		<div class="mt-12 grid max-w-[1200px] grid-cols-1 gap-8 px-8 sm:grid-cols-2 lg:grid-cols-3">
 			{#each about.team as member}
 				<div class="flex flex-col items-center gap-2 px-4">
-					<div class="mb-4 size-72 overflow-hidden rounded-full bg-zinc-950" style={member.wrapperStyle}>
+					<div class="mb-4 size-72 overflow-hidden rounded-full" style={member.wrapperStyle}>
 						<img src={member.image} alt="" class="h-full w-full object-contain" style={member.imageStyle} />
 					</div>
 					<h1 class="font-serif text-3xl tracking-tighter">{member.name}</h1>
