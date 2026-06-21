@@ -18,14 +18,16 @@ const about = {
 			position: 'Position Title',
 			description:
 				'Anthony is a senior at Stratford Preparatory Blackford in San Jose, California. He is a competitive tennis player with strong interests in entrepreneurship, data science, physics, and day trading. In his free time, he enjoys powerlifting, playing piano, and reading. For the past three years, Anthony has been devoted to providing new opportunities and connections for high school students across the world through SVYEP.',
-			image: '/images/about/anthony-w.webp'
+			image: '/images/about/anthony-w.webp',
+			imageStyle: 'transform: scale(0.85) translateY(12%);'
 		},
 		{
 			name: 'Ethan Hao',
 			position: 'Position Title',
 			description:
 				'Ethan Hao is a sophomore at The Harker School in California with a strong interest in AI, robotics, and business. Outside of the classroom, he is involved in his school\'s robotics club and swim team, where he enjoys challenging himself and working with others. Through SVYEP, he hopes to build meaningful connections, grow as a leader, and support other students\' interests in exploring entrepreneurship.',
-			image: '/images/about/ethan-h.webp'
+			image: '/images/about/ethan-h.webp',
+			imageStyle: 'transform: scale(1.25);'
 		},
 		{
 			name: 'Elaine Luo',
@@ -75,7 +77,8 @@ const about = {
 			position: 'Position Title',
 			description:
 				'Aiden is a student at University Preparatory Academy in San Jose, California. He is very passionate about game design and boy scouts, and participates in sports such as track & field and swimming. Through SVYEP, he hopes to develop more visual design and entrepreneurial skills to both inspire and support others.',
-			image: '/images/about/aiden-x.webp'
+			image: '/images/about/aiden-x.webp',
+			imageStyle: 'transform: scale(1.25);'
 		}
 	],
 	previous_members: [

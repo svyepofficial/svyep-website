@@ -39,7 +39,9 @@
 		<div class="grid max-w-[1400px] grid-cols-1 gap-16 px-8 sm:grid-cols-2 lg:grid-cols-3">
 			{#each about.team as member}
 				<div class="flex flex-col items-center gap-2 px-4">
-					<img src={member.image} alt="" class="mb-4 size-72 rounded-full object-cover" />
+					<div class="mb-4 size-72 overflow-hidden rounded-full">
+						<img src={member.image} alt="" class="h-full w-full object-cover" style={member.imageStyle} />
+					</div>
 					<h1 class="font-serif text-3xl tracking-tighter">{member.name}</h1>
 					<h2 class="text-base font-medium text-indigo-600">{member.position}</h2>
 					<p class="mt-2 text-center text-sm font-extralight text-gray-400">
