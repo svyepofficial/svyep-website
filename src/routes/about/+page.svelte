@@ -36,13 +36,13 @@
 		<h1 class="text-shadow-glow-white text-center font-serif text-6xl tracking-tighter sm:text-9xl">
 			Meet the Team<span class="text-indigo-600 text-shadow-none">.</span>
 		</h1>
-		<div class="flex max-w-[1200px] flex-wrap justify-center gap-12">
+		<div class="grid max-w-[1400px] grid-cols-1 gap-16 px-8 sm:grid-cols-2 lg:grid-cols-3">
 			{#each about.team as member}
-				<div class="flex max-w-80 flex-col items-center px-2">
-					<img src={member.image} alt="" class="mb-4 size-56 rounded-full object-cover" />
-					<h1 class="font-serif text-2xl tracking-tighter">{member.name}</h1>
-					<h2 class="font-medium text-indigo-600">{member.position}</h2>
-					<p class="mt-4 text-justify text-sm font-extralight text-gray-400">
+				<div class="flex flex-col items-center gap-2 px-4">
+					<img src={member.image} alt="" class="mb-4 size-72 rounded-full object-cover" />
+					<h1 class="font-serif text-3xl tracking-tighter">{member.name}</h1>
+					<h2 class="text-base font-medium text-indigo-600">{member.position}</h2>
+					<p class="mt-2 text-center text-sm font-extralight text-gray-400">
 						{member.description}
 					</p>
 				</div>
@@ -54,7 +54,7 @@
 		alt=""
 		class="shadow-glow-blue hover:shadow-glow-blue-hover w-[1000px] rounded-3xl transition-all"
 	/>
-	<div class="mb-32 flex h-full w-10/12 flex-col items-center text-white">
+	<div class="flex h-full w-10/12 flex-col items-center text-white">
 		<h1 class="font-serif text-6xl tracking-tighter sm:text-9xl">
 			Advisors<span class="text-indigo-600">.</span>
 		</h1>
@@ -67,6 +67,21 @@
 					<p class="mt-4 text-justify text-sm font-extralight text-gray-400">
 						{advisor.description}
 					</p>
+				</div>
+			{/each}
+		</div>
+	</div>
+
+	<div class="mb-32 flex h-full w-10/12 flex-col items-center text-white">
+		<h1 class="font-serif text-6xl tracking-tighter sm:text-9xl">
+			Previous Members<span class="text-indigo-600">.</span>
+		</h1>
+		<div class="flex max-w-[1200px] flex-wrap justify-center gap-12">
+			{#each about.previous_members as member}
+				<div class="flex max-w-80 flex-col items-center px-2">
+					<img src={member.image} alt="" class="mb-4 size-56 rounded-full object-cover" />
+					<h1 class="font-serif text-2xl tracking-tighter">{member.name}</h1>
+					<h2 class="font-medium text-indigo-600">{member.position}</h2>
 				</div>
 			{/each}
 		</div>

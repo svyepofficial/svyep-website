@@ -59,12 +59,5 @@
 	</div>
 	<div class="m-2 flex flex-col text-center text-xs text-gray-500">
 		<p>© 2025 by the Silicon Valley Youth Entrepreneur Program</p>
-		<p>
-			Designed & Developed by <a
-				class="text-white hover:underline"
-				href="https://github.com/jiminn-lee"
-				target="_blank">Jimin Lee</a
-			>
-		</p>
 	</div>
 </footer>

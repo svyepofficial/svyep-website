@@ -1,38 +1,101 @@
-# sv
+# SVYEP — Silicon Valley Youth Entrepreneurship Program
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+The official website for the **Silicon Valley Youth Entrepreneurship Program (SVYEP)**, a student-run nonprofit connecting high school students with entrepreneurship resources, networking events, internships, and industry professionals across Silicon Valley and beyond.
 
-## Creating a project
+🌐 **Live site:** [svyep.org](https://svyep.org)
 
-If you're seeing this, you've probably already done this step. Congrats!
+---
+
+## About SVYEP
+
+SVYEP empowers the next generation of entrepreneurs by providing:
+ 
+- **Connections** — In-person speaker events, networking sessions, and Zoom webinars with industry leaders
+- **Experience** — Paid internships, volunteer opportunities at local Silicon Valley startups, and hands-on work with professionals
+- **Education** — Student-led workshops and access to a nationwide network of schools
+
+**By the numbers:**
+- 1,900+ members
+- $305,000+ raised
+- 215,000+ students impacted
+- 25+ internships facilitated
+- 60+ businesses partnered with
+
+---
+
+## Tech Stack
+
+- **Framework:** [SvelteKit](https://kit.svelte.dev/) (Svelte 5)
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Language:** TypeScript
+- **Animations:** [Motion](https://motion.dev/), [Lottie](https://lottiefiles.com/)
+- **Content:** MDsveX (Markdown)
+- **Deployment:** [Vercel](https://vercel.com/)
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js `v20.19` or higher
+- npm
+
+### Installation
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+npm install --legacy-peer-deps
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Development
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+Then open [http://localhost:5173](http://localhost:5173) in your browser.
 
-To create a production version of your app:
+### Build
 
 ```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+### Preview Production Build
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```bash
+npm run preview
+```
+
+---
+
+## Project Structure
+
+```
+src/
+├── lib/
+│   ├── articles/        # Markdown article files
+│   ├── components/      # Reusable Svelte components
+│   ├── data/            # Static site data (team, events, stats)
+│   └── logos/           # Partner and sponsor logos
+├── routes/              # SvelteKit pages
+│   ├── about/
+│   ├── articles/
+│   ├── events/
+│   ├── impact/
+│   ├── join/
+│   ├── donate/
+│   └── partner/
+static/
+└── images/              # Static images and assets
+```
+
+---
+
+## Deployment
+
+The site is deployed on **Vercel**. Pushing to the `main` branch triggers an automatic deployment.
+
+---
+
+© 2025 Silicon Valley Youth Entrepreneurship Program
