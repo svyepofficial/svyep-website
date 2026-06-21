@@ -17,7 +17,7 @@ left off:
 > **Pushing to `main` auto-deploys to the live site (Vercel).** The user has approved committing and pushing — just
 > do it. Commit + push to `main` is the deploy step. No separate action needed.
 
-Last updated: 2026-06-20.
+Last updated: 2026-06-20 (evening).
 
 ## What this is
 Public marketing/info site for SVYEP (Silicon Valley Youth Entrepreneurship Program). Pages: Home, About, Articles,
@@ -65,26 +65,38 @@ Live at https://svyep.org — DNS is managed separately; Vercel handles the buil
 
 ## Team roster (about page)
 `src/lib/data/about.ts` exports `{ team, previous_members, advisors }`, each an array of
-`{ name, position, description, image }`. To add a member: drop `static/images/about/<slug>.webp` and add an entry
-pointing `image` at `/images/about/<slug>.webp`. `description: 'Member bio coming soon.'` is the placeholder for a
-blank bio.
+`{ name, position, description, image, imageStyle?, wrapperStyle? }`. To add a member: drop
+`static/images/about/<slug>.webp` and add an entry pointing `image` at `/images/about/<slug>.webp`.
+`description: 'Member bio coming soon.'` is the placeholder for a blank bio.
 
 **Image naming convention:** `firstname-lastinitial.webp` (e.g. `anthony-w.webp`, `isabella-l.webp`).
 **The image filename in the data must exactly match the file on disk** — this is the most common breakage.
 
-Members without a photo currently use `/images/about/placeholder.svg` (a grey silhouette) until a real headshot
-is provided.
+Members without a photo use `/images/about/placeholder.svg` (a grey silhouette) until a headshot is provided.
+
+### Per-member photo adjustments
+The template in `src/routes/about/+page.svelte` supports two optional fields per member:
+- `imageStyle` — inline style on the `<img>` (e.g. `transform: scale(1.25)` to zoom in, `object-fit: contain` to
+  prevent cropping). Overrides the default `object-cover` class.
+- `wrapperStyle` — inline style on the circle wrapper `<div>`. Use `background: #09090b` when scaling down so the
+  gap between the image and circle edge is invisible (matches page background).
+
+**Current adjustments in use:**
+- Ethan Hao, Aiden Xue: `imageStyle: 'transform: scale(1.25);'` (zoom in — photos were too far out)
+- Anthony Wang: `imageStyle: 'object-fit: contain; transform: scale(0.68) translateY(10%);'` +
+  `wrapperStyle: 'background: #09090b;'` (zoom out + shift down; contain prevents source photo cropping)
 
 ## Done recently
 - **About page overhaul (2026-06-20)**: added bios for Aiden Xue, Isabella Liang, Anthony Wang; renamed all headshot
-  files to `firstname-lastinitial` convention; fixed all `about.ts` image paths to match; added `placeholder.svg`
-  for the 6 members still without photos; added Previous Members section to `+page.svelte`; updated README; removed
-  designer credit from Footer. Committed and pushed (`b33063e`).
-- **Anthony Wang headshot updated (2026-06-20)**: new photo committed and pushed.
+  files to `firstname-lastinitial` convention; fixed all `about.ts` image paths; added `placeholder.svg` for 6 members
+  without photos; added Previous Members section; updated README; removed designer credit from Footer (`b33063e`).
+- **Anthony Wang headshot updated + photo adjustments (2026-06-20)**: new photo committed. Added `imageStyle` /
+  `wrapperStyle` support to the about template. Ethan Hao and Aiden Xue zoomed in (scale 1.25); Anthony Wang zoomed
+  out with contain + translateY to prevent cropping (`5cda1bf`).
+- **Vercel deployment fixed (2026-06-20)**: repo was private (blocking Hobby plan deploys) — made public. Vercel
+  Authentication ("Require Log In") was enabled — disabled it. Auto-deploy on push to `main` now works.
 
 ## Open / not done
-- **Vercel deployment not reflecting latest push** — the push landed on GitHub (`b33063e` on origin/main) but svyep.org
-  hasn't updated as of 2026-06-20. Check Vercel dashboard for a failed build or trigger a manual redeploy.
 - **6 members still have placeholder images** (no real photo provided yet): Elaine Luo, Jack Li, Michael Huang,
   Cindy Zhang, Lotus Wu, Leana Zhou. Drop `static/images/about/<firstname-lastinitial>.webp` and update `about.ts`.
 - **Position titles**: all current team members show "Position Title" — real titles not yet provided.
