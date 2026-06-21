@@ -19,7 +19,7 @@ const about = {
 			description:
 				'Anthony is a senior at Stratford Preparatory Blackford in San Jose, California. He is a competitive tennis player with strong interests in entrepreneurship, data science, physics, and day trading. In his free time, he enjoys powerlifting, playing piano, and reading. For the past three years, Anthony has been devoted to providing new opportunities and connections for high school students across the world through SVYEP.',
 			image: '/images/about/anthony-w.webp',
-			imageStyle: 'transform: scale(0.72) translateY(12%);'
+			imageStyle: 'transform: scale(0.55);'
 		},
 		{
 			name: 'Ethan Hao',
