@@ -81,12 +81,34 @@ The template in `src/routes/about/+page.svelte` supports two optional fields per
 - `wrapperStyle` — inline style on the circle wrapper `<div>`. Use `background: #09090b` when scaling down so the
   gap between the image and circle edge is invisible (matches page background).
 
-**Current adjustments in use:**
-- Ethan Hao, Aiden Xue: `imageStyle: 'transform: scale(1.25);'` (zoom in — photos were too far out)
-- Anthony Wang: `imageStyle: 'object-fit: contain; transform: scale(0.68) translateY(10%);'` +
-  `wrapperStyle: 'background: #09090b;'` (zoom out + shift down; contain prevents source photo cropping)
+**Approach: NO cropping of source files.** The team grid uses `object-contain` (no base zoom on the
+`<img>` class), so every headshot is shown whole inside the circle (transparent bg blends with
+`bg-zinc-950`). Do NOT crop the source images — full subjects must stay visible. Per-member framing is
+done purely via the CSS `imageStyle` transform (scale to zoom, translateY to shift). The full-torso
+9:16 shots need big scale values to bring the face up to size; tight 3:4 shots need little/none.
+
+**Current per-member adjustments** (tuned interactively with the user):
+- Anthony Wang: `transform: translateY(6%);`
+- Ethan Hao: `transform: scale(2.4) translateY(9%);`
+- Tyrone Tan: `transform: scale(2.12);`
+- Ethan Chen: `transform: scale(2.15) translateY(-2%);`
+- Isabella Xia: `transform: scale(2.15);`
+- Aiden Xue: `transform: scale(2.5) translateY(7%);`
+
+**Page background:** Isabella Liang's photo (`isabella-l.webp`) is set as a fixed full-viewport
+background on the About page via `class="fixed inset-0 -z-20 h-full w-full object-fill"` (object-fill
+deliberately stretches the portrait wide / compresses it vertically, per request).
 
 ## Done recently
+- **About page photo tuning + bg (2026-06-20, latest)**: team grid uses `object-contain` (no crop);
+  per-member `imageStyle` transforms tuned interactively (see "Current per-member adjustments");
+  grid spacing settled at `max-w-[1200px] gap-8` card `px-4`; added Isabella Liang as a stretched
+  full-viewport About-page background (`object-fill`); added Isabella Xia's bio; removed the large
+  `teamphoto.webp` block above Advisors. Deployed to Vercel.
+- **(superseded) Team grid no-crop layout (2026-06-20)**: reverted the earlier square-crop experiment
+  to original uncropped photos. Removed the large `teamphoto.webp` block above
+  Advisors; added Isabella Xia's bio. Source webp files were restored from git (originals untouched).
+  Build verified.
 - **About page overhaul (2026-06-20)**: added bios for Aiden Xue, Isabella Liang, Anthony Wang; renamed all headshot
   files to `firstname-lastinitial` convention; fixed all `about.ts` image paths; added `placeholder.svg` for 6 members
   without photos; added Previous Members section; updated README; removed designer credit from Footer (`b33063e`).
@@ -100,4 +122,6 @@ The template in `src/routes/about/+page.svelte` supports two optional fields per
 - **6 members still have placeholder images** (no real photo provided yet): Elaine Luo, Jack Li, Michael Huang,
   Cindy Zhang, Lotus Wu, Leana Zhou. Drop `static/images/about/<firstname-lastinitial>.webp` and update `about.ts`.
 - **Position titles**: all current team members show "Position Title" — real titles not yet provided.
-- **Bios missing** for: Camille Wang, Tyrone Tan, Jack Li, Michael Huang, Isabella Xia, Cindy Zhang, Elaine Luo.
+- **Bios missing** for: Camille Wang, Tyrone Tan, Jack Li, Michael Huang, Cindy Zhang, Elaine Luo.
+- **Big team photo removed** from the About page (was above Advisors) per request — re-add if a good
+  group photo becomes available.

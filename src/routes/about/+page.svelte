@@ -8,6 +8,11 @@
 </svelte:head>
 
 <div class="relative flex h-full flex-col items-center gap-20 pt-40">
+	<img
+		src="/images/about/isabella-l.webp"
+		alt=""
+		class="fixed inset-0 -z-20 h-full w-full object-fill"
+	/>
 	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
 	<StarsBackground starDensity={0.00003} class="-z-10" />
 	<div class="flex w-full max-w-[1200px] flex-col bg-zinc-950 px-4 text-white">
@@ -36,7 +41,7 @@
 		<h1 class="text-shadow-glow-white text-center font-serif text-6xl tracking-tighter sm:text-9xl">
 			Meet the Team<span class="text-indigo-600 text-shadow-none">.</span>
 		</h1>
-		<div class="mt-12 grid max-w-[1400px] grid-cols-1 gap-8 px-8 sm:grid-cols-2 lg:grid-cols-3">
+		<div class="mt-12 grid max-w-[1200px] grid-cols-1 gap-8 px-8 sm:grid-cols-2 lg:grid-cols-3">
 			{#each about.team as member}
 				<div class="flex flex-col items-center gap-2 px-4">
 					<div class="mb-4 size-72 overflow-hidden rounded-full bg-zinc-950" style={member.wrapperStyle}>
@@ -51,11 +56,6 @@
 			{/each}
 		</div>
 	</div>
-	<img
-		src="/images/about/teamphoto.webp"
-		alt=""
-		class="shadow-glow-blue hover:shadow-glow-blue-hover w-[1000px] rounded-3xl transition-all"
-	/>
 	<div class="flex h-full w-10/12 flex-col items-center text-white">
 		<h1 class="font-serif text-6xl tracking-tighter sm:text-9xl">
 			Advisors<span class="text-indigo-600">.</span>
