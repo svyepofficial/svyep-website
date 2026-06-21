@@ -27,7 +27,7 @@ const about = {
 			description:
 				'Ethan Hao is a sophomore at The Harker School in California with a strong interest in AI, robotics, and business. Outside of the classroom, he is involved in his school\'s robotics club and swim team, where he enjoys challenging himself and working with others. Through SVYEP, he hopes to build meaningful connections, grow as a leader, and support other students\' interests in exploring entrepreneurship.',
 			image: '/images/about/ethan-h.webp',
-			imageStyle: 'transform: scale(2.4) translateY(9%);'
+			imageStyle: 'transform: scale(2.2) translateY(9%);'
 		},
 		{
 			name: 'Elaine Luo',
@@ -40,7 +40,7 @@ const about = {
 			position: 'Position Title',
 			description: 'Member bio coming soon.',
 			image: '/images/about/tyrone-t.webp',
-			imageStyle: 'transform: scale(2.12);'
+			imageStyle: 'transform: scale(1.95);'
 		},
 		{
 			name: 'Ethan Chen',
@@ -48,7 +48,7 @@ const about = {
 			description:
 				'Ethan C is a student at The Harker School in San Jose, California. He is a very committed swimmer and enjoys cooking, participating in DECA and doing triathlons in his free time. Through SVYEP, he hopes to further develop his leadership and communication skills while inspiring students by providing them with meaningful opportunities to learn, grow, and achieve their goals.',
 			image: '/images/about/ethan-c.webp',
-			imageStyle: 'transform: scale(2.15) translateY(-2%);'
+			imageStyle: 'transform: scale(2.0) translateY(-2%);'
 		},
 		{
 			name: 'Jack Li',
@@ -68,7 +68,7 @@ const about = {
 			description:
 				'Isabella is a senior at Saint Francis High School in Mountain View, CA. She plays club volleyball and is also passionate about art. She is interested in pursuing business, engineering, and design. She aims to help students work towards their goals through the many opportunities SVYEP offers.',
 			image: '/images/about/isabella-x.webp',
-			imageStyle: 'transform: scale(2.15);'
+			imageStyle: 'transform: scale(2.0);'
 		},
 		{
 			name: 'Cindy Zhang',
@@ -82,7 +82,7 @@ const about = {
 			description:
 				'Aiden is a student at University Preparatory Academy in San Jose, California. He is very passionate about game design and boy scouts, and participates in sports such as track & field and swimming. Through SVYEP, he hopes to develop more visual design and entrepreneurial skills to both inspire and support others.',
 			image: '/images/about/aiden-x.webp',
-			imageStyle: 'transform: scale(2.5) translateY(7%);'
+			imageStyle: 'transform: scale(2.3) translateY(7%);'
 		}
 	],
 	previous_members: [
