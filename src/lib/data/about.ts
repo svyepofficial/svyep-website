@@ -32,7 +32,8 @@ const about = {
 		{
 			name: 'Elaine Luo',
 			position: '-',
-			description: 'Member bio coming soon.',
+			description:
+				'Elaine is a junior at Saratoga High School in California who is involved in competitive speech, dance, and yearbook writing. Her background focuses heavily on communication and storytelling, which fuels her interest in exploring leadership and community impact. By participating in SVYEP, she aims to connect with a motivated network of peers, build a supportive environment for fresh ideas, and help young leaders drive meaningful change.',
 			image: '/images/about/placeholder.svg'
 		},
 		{
@@ -53,7 +54,8 @@ const about = {
 		{
 			name: 'Jack Li',
 			position: '-',
-			description: 'Member bio coming soon.',
+			description:
+				'Jack Li is a freshman at Saratoga High School in California. He enjoys music, entrepreneurship, and technology, and spends much of his free time playing drums and performing with his band. Through SVYEP, he hopes to develop his leadership skills and connect with other motivated students.',
 			image: '/images/about/placeholder.svg'
 		},
 		{
