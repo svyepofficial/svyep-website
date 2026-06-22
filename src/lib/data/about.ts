@@ -71,15 +71,14 @@ const about = {
 			image: '/images/about/jack-l.webp',
 			imageStyle: 'transform: scale(1.7) translateY(18%);'
 		},
+		// --- Awaiting a bio and/or photo (moved to the end until complete) ---
 		{
 			name: 'Cindy Zhang',
 			position: '-',
 			description:
 				'Cindy is a junior at Palo Alto High School with an emphasized interest in the usage of Artificial Intelligence in business operations. Through SVYEP, she aims to help younger audiences with an interest in business explore their passions. Outside of school, she enjoys staying involved in her community, attending workout classes, traveling, and hanging out with friends.',
-			image: '/images/about/cindy-z.webp',
-			imageStyle: 'transform: scale(2.7) rotate(-18deg) translateY(11%);'
+			image: '/images/about/placeholder.svg'
 		},
-		// --- Awaiting a bio and/or photo (moved to the end until complete) ---
 		{
 			name: 'Tyrone Tan',
 			position: '-',
