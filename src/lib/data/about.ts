@@ -61,7 +61,7 @@ const about = {
 			description:
 				'Elaine is a junior at Saratoga High School in California who is involved in competitive speech, dance, and yearbook writing. Her background focuses heavily on communication and storytelling, which fuels her interest in exploring leadership and community impact. By participating in SVYEP, she aims to connect with a motivated network of peers, build a supportive environment for fresh ideas, and help young leaders drive meaningful change.',
 			image: '/images/about/elaine-l.webp',
-			imageStyle: 'transform: scale(1.15);'
+			imageStyle: 'transform: scale(1.05) translateY(10%);'
 		},
 		{
 			name: 'Jack Li',
@@ -69,7 +69,7 @@ const about = {
 			description:
 				'Jack Li is a freshman at Saratoga High School in California. He enjoys music, entrepreneurship, and technology, and spends much of his free time playing drums and performing with his band. Through SVYEP, he hopes to develop his leadership skills and connect with other motivated students.',
 			image: '/images/about/jack-l.webp',
-			imageStyle: 'transform: scale(1.95) translateY(12%);'
+			imageStyle: 'transform: scale(1.7) translateY(18%);'
 		},
 		{
 			name: 'Cindy Zhang',
@@ -77,7 +77,7 @@ const about = {
 			description:
 				'Cindy is a junior at Palo Alto High School with an emphasized interest in the usage of Artificial Intelligence in business operations. Through SVYEP, she aims to help younger audiences with an interest in business explore their passions. Outside of school, she enjoys staying involved in her community, attending workout classes, traveling, and hanging out with friends.',
 			image: '/images/about/cindy-z.webp',
-			imageStyle: 'transform: scale(2.7) rotate(5deg) translateY(11%);'
+			imageStyle: 'transform: scale(2.7) rotate(-18deg) translateY(11%);'
 		},
 		// --- Awaiting a bio and/or photo (moved to the end until complete) ---
 		{
