@@ -139,9 +139,9 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 
 ## Open / not done
 ### Team
-- **Placeholder images** (no real photo yet): Elaine Luo, Jack Li, Michael Huang, Cindy Zhang, Lotus
-  Wu, Leana Zhou. Drop `static/images/about/<firstname-lastinitial>.webp` and update `about.ts` (then
-  move them up out of the end-of-list "incomplete" group).
+- **Placeholder images** (no real photo yet): Michael Huang, Lotus Wu, Leana Zhou. Drop
+  `static/images/about/<firstname-lastinitial>.webp` and update `about.ts` (then move them up out of
+  the end-of-list "incomplete" group). (Cindy/Elaine/Jack photos added 2026-06-22.)
 - **Bios missing** for: Camille Wang, Tyrone Tan, Michael Huang. (Cindy/Elaine/Jack now have bios.)
 - **Position titles**: all current team show a dash (`-`) — real titles not yet provided.
 - **Big team photo** removed from About (was above Advisors) — re-add if a good group photo appears.
