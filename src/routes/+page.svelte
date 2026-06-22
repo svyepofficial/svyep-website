@@ -201,18 +201,18 @@
 				<AnimateNumber value={home.statistics.impacted_students} />+
 			</h1>
 			<h2
-				class="w-full text-center font-serif text-5xl leading-16 font-medium tracking-tighter text-indigo-600 italic lg:w-[200px] lg:text-7xl"
+				class="w-full text-center font-serif text-5xl leading-16 font-medium tracking-tighter text-indigo-600 italic lg:w-[260px] lg:text-7xl"
 			>
-				impacted students.
+				students & attendees reached.
 			</h2>
 		</div>
 		<p class="max-w-[500px] px-2 text-center text-sm text-gray-400 lg:text-base">
 			<span class="text-white">
-				We've <span class="bg-indigo-700 font-serif text-white italic">impacted</span> hundreds of thousands
-				of students and professionals by providing them with access to career-building opportunities
-				and large events.
-			</span> Most notably this year, SVYEP cohosted the largest pitch event in Silicon Valley with thousands
-			of attendees, 350+ VCs, and 100+ investors.
+				This is the total <span class="bg-indigo-700 font-serif text-white italic">reach</span> of the
+				events and pitch competitions we've hosted and co-hosted — the students, professionals, and
+				audiences we've connected to opportunity.
+			</span> Most notably this year, SVYEP co-hosted the largest pitch event in Silicon Valley, drawing
+			thousands of attendees, 350+ VCs, and 100+ investors.
 		</p>
 	</div>
 	<img

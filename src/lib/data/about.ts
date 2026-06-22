@@ -1,4 +1,6 @@
 const about = {
+	// Members with a complete bio + real photo come first (current order preserved);
+	// members still missing a bio or photo are grouped at the end until provided.
 	team: [
 		{
 			name: 'Isabella Liang',
@@ -6,12 +8,6 @@ const about = {
 			description:
 				'Isabella Liang is a junior at Saint Francis High School in California. She is a dedicated volleyball player with a strong interest in business, investing, and entrepreneurship. Through SVYEP, Isabella hopes to help more students explore their ideas, connect with inspiring leaders, and gain the confidence to create something of their own.',
 			image: '/images/about/isabella-l.webp'
-		},
-		{
-			name: 'Camille Wang',
-			position: '-',
-			description: 'Member bio coming soon.',
-			image: '/images/about/camille-w.webp'
 		},
 		{
 			name: 'Anthony Wang',
@@ -30,39 +26,12 @@ const about = {
 			imageStyle: 'transform: scale(2.2) translateY(9%);'
 		},
 		{
-			name: 'Elaine Luo',
-			position: '-',
-			description:
-				'Elaine is a junior at Saratoga High School in California who is involved in competitive speech, dance, and yearbook writing. Her background focuses heavily on communication and storytelling, which fuels her interest in exploring leadership and community impact. By participating in SVYEP, she aims to connect with a motivated network of peers, build a supportive environment for fresh ideas, and help young leaders drive meaningful change.',
-			image: '/images/about/placeholder.svg'
-		},
-		{
-			name: 'Tyrone Tan',
-			position: '-',
-			description: 'Member bio coming soon.',
-			image: '/images/about/tyrone-t.webp',
-			imageStyle: 'transform: scale(1.95);'
-		},
-		{
 			name: 'Ethan Chen',
 			position: '-',
 			description:
 				'Ethan C is a student at The Harker School in San Jose, California. He is a very committed swimmer and enjoys cooking, participating in DECA and doing triathlons in his free time. Through SVYEP, he hopes to further develop his leadership and communication skills while inspiring students by providing them with meaningful opportunities to learn, grow, and achieve their goals.',
 			image: '/images/about/ethan-c.webp',
 			imageStyle: 'transform: scale(2.0) translateY(-2%);'
-		},
-		{
-			name: 'Jack Li',
-			position: '-',
-			description:
-				'Jack Li is a freshman at Saratoga High School in California. He enjoys music, entrepreneurship, and technology, and spends much of his free time playing drums and performing with his band. Through SVYEP, he hopes to develop his leadership skills and connect with other motivated students.',
-			image: '/images/about/placeholder.svg'
-		},
-		{
-			name: 'Michael Huang',
-			position: '-',
-			description: 'Member bio coming soon.',
-			image: '/images/about/placeholder.svg'
 		},
 		{
 			name: 'Isabella Xia',
@@ -73,24 +42,59 @@ const about = {
 			imageStyle: 'transform: scale(2.0);'
 		},
 		{
-			name: 'Cindy Zhang',
-			position: '-',
-			description: 'Member bio coming soon.',
-			image: '/images/about/placeholder.svg'
-		},
-		{
 			name: 'Aiden Xue',
 			position: '-',
 			description:
 				'Aiden is a student at University Preparatory Academy in San Jose, California. He is very passionate about game design and boy scouts, and participates in sports such as track & field and swimming. Through SVYEP, he hopes to develop more visual design and entrepreneurial skills to both inspire and support others.',
 			image: '/images/about/aiden-x.webp',
 			imageStyle: 'transform: scale(2.3) translateY(7%);'
+		},
+		// --- Awaiting a bio and/or photo (moved to the end until complete) ---
+		{
+			name: 'Cindy Zhang',
+			position: '-',
+			description:
+				'Cindy is a junior at Palo Alto High School with an emphasized interest in the usage of Artificial Intelligence in business operations. Through SVYEP, she aims to help younger audiences with an interest in business explore their passions. Outside of school, she enjoys staying involved in her community, attending workout classes, traveling, and hanging out with friends.',
+			image: '/images/about/placeholder.svg'
+		},
+		{
+			name: 'Elaine Luo',
+			position: '-',
+			description:
+				'Elaine is a junior at Saratoga High School in California who is involved in competitive speech, dance, and yearbook writing. Her background focuses heavily on communication and storytelling, which fuels her interest in exploring leadership and community impact. By participating in SVYEP, she aims to connect with a motivated network of peers, build a supportive environment for fresh ideas, and help young leaders drive meaningful change.',
+			image: '/images/about/placeholder.svg'
+		},
+		{
+			name: 'Jack Li',
+			position: '-',
+			description:
+				'Jack Li is a freshman at Saratoga High School in California. He enjoys music, entrepreneurship, and technology, and spends much of his free time playing drums and performing with his band. Through SVYEP, he hopes to develop his leadership skills and connect with other motivated students.',
+			image: '/images/about/placeholder.svg'
+		},
+		{
+			name: 'Camille Wang',
+			position: '-',
+			description: 'Member bio coming soon.',
+			image: '/images/about/camille-w.webp'
+		},
+		{
+			name: 'Tyrone Tan',
+			position: '-',
+			description: 'Member bio coming soon.',
+			image: '/images/about/tyrone-t.webp',
+			imageStyle: 'transform: scale(1.95);'
+		},
+		{
+			name: 'Michael Huang',
+			position: '-',
+			description: 'Member bio coming soon.',
+			image: '/images/about/placeholder.svg'
 		}
 	],
 	previous_members: [
 		{
 			name: 'Bretton Lam',
-			position: 'Co-Founder and CEO',
+			position: '-',
 			description:
 				'Bretton is a senior at Basis Independent Silicon Valley in San Jose, California. He is very passionate about business and entrepreneurship and also enjoys playing sports such as basketball. Through SVYEP, he hopes to further develop his entrepreneurial skills while inspiring future generations by providing them with unique opportunities to network with successful business leaders.',
 			image: '/images/about/bretton-l.webp'
@@ -150,12 +154,6 @@ const about = {
 			description:
 				'Jeremy is a freshman at The University of Chicago. He keenly enjoys the vitality of business, which he believes he can harness through his skills in writing and critical thinking. Jeremy wants to become an effective leader for SVYEP on its mission to guide youth into the professional world.',
 			image: '/images/about/jeremy-p.webp'
-		},
-		{
-			name: 'Wanting Chen',
-			position: '',
-			description: '',
-			image: '/images/about/wanting-c.webp'
 		}
 	]
 };
