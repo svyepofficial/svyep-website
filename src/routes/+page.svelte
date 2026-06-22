@@ -4,6 +4,9 @@
 	import Button from '$lib/components/Button.svelte';
 	import home from '$lib/data/home';
 	import CaretDown from 'phosphor-svelte/lib/CaretDown';
+	import Star from 'phosphor-svelte/lib/Star';
+	import HandCoins from 'phosphor-svelte/lib/HandCoins';
+	import Envelope from 'phosphor-svelte/lib/Envelope';
 	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import AnimateNumber from '$lib/components/AnimateNumber.svelte';
 	import AnimateText from '$lib/components/AnimateText.svelte';
@@ -112,10 +115,63 @@
 					entrepreneurs.
 				</AnimateText>
 			</div>
+			<p
+				class="max-w-[460px] text-center text-base text-gray-300 sm:text-right sm:text-lg xl:text-right"
+			>
+				A community for high school students who want to use business as a force for good — connecting
+				them to the mentors, internships, and ideas to turn ambition into real-world
+				<span class="font-serif text-indigo-400 italic">impact</span>.
+			</p>
 			<Button href="/join" size="lg">Get started</Button>
 		</div>
 	</div>
 </main>
+
+<!-- what you get -->
+<section class="relative flex flex-col items-center gap-10 px-4 pb-24">
+	<StarsBackground starDensity={0.00003} class="-z-10" />
+	<div class="flex max-w-[760px] flex-col items-center gap-4 text-center">
+		<h2
+			class="text-shadow-glow-white text-4xl tracking-tighter text-white sm:text-6xl"
+		>
+			What you get as a <span class="font-serif text-indigo-600 italic">member</span>.
+		</h2>
+		<p class="max-w-[560px] text-base text-gray-300 sm:text-lg">
+			SVYEP is a community for high school students. Members get hands-on experience and a network
+			built to help them launch ventures that matter.
+		</p>
+	</div>
+	<div class="flex flex-wrap justify-center gap-4">
+		<div
+			class="shadow-glow-gray z-10 flex w-[300px] flex-col items-center justify-center gap-3 rounded-3xl border-2 border-white/5 bg-gray-800/80 p-6 text-white transition-all hover:border-white/50 hover:bg-gray-700"
+		>
+			<HandCoins size={50} weight="fill" />
+			<h3 class="text-center text-lg leading-5 font-medium">AI internship opportunities</h3>
+			<p class="text-center text-sm text-gray-400">
+				Real, paid work at AI and tech startups across Silicon Valley.
+			</p>
+		</div>
+		<div
+			class="shadow-glow-gray z-10 flex w-[300px] flex-col items-center justify-center gap-3 rounded-3xl border-2 border-white/5 bg-gray-800/80 p-6 text-white transition-all hover:border-white/50 hover:bg-gray-700"
+		>
+			<Star size={50} weight="fill" />
+			<h3 class="text-center text-lg leading-5 font-medium">Interviews with industry leaders</h3>
+			<p class="text-center text-sm text-gray-400">
+				Exclusive conversations with founders, investors, and changemakers.
+			</p>
+		</div>
+		<div
+			class="shadow-glow-gray z-10 flex w-[300px] flex-col items-center justify-center gap-3 rounded-3xl border-2 border-white/5 bg-gray-800/80 p-6 text-white transition-all hover:border-white/50 hover:bg-gray-700"
+		>
+			<Envelope size={50} />
+			<h3 class="text-center text-lg leading-5 font-medium">Invites to SVYEP events</h3>
+			<p class="text-center text-sm text-gray-400">
+				Speaker nights, workshops, and the biggest pitch events in the Valley.
+			</p>
+		</div>
+	</div>
+	<Button href="/join" size="lg">Become a member</Button>
+</section>
 
 <!-- section-1 -->
 <section class="relative mt-40 flex h-full flex-col items-center gap-44 sm:mt-0 sm:gap-36">
@@ -379,6 +435,10 @@
 			>
 		</div>
 	</div> -->
+	<p class="-mt-12 mb-16 max-w-[640px] px-4 text-center text-base text-gray-300 sm:text-lg">
+		Everything we offer points the same direction — giving students the connections, experience, and
+		education to build ventures that make a real difference in their communities.
+	</p>
 	<div class="flex flex-wrap justify-center">
 		<div class="m-8 flex flex-col">
 			<div class="z-10 flex flex-col sm:flex-row">
@@ -466,7 +526,14 @@
 	>
 		Get started <span class="text-shadow-glow-blue font-bold text-indigo-600">TODAY.</span>
 	</h1>
-	<Button href="/join" size="lg">Join Us</Button>
+	<Button href="/join" size="lg">Join as a student</Button>
+	<div class="flex flex-col items-center gap-3">
+		<p class="text-sm text-gray-400">Not a student?</p>
+		<div class="flex flex-wrap justify-center gap-4">
+			<Button href="/partner" variant="secondary">Partner with us</Button>
+			<Button href="/donate" variant="secondary">Donate</Button>
+		</div>
+	</div>
 	<Marquee class="mt-10 [--duration:60s]" reverse={true}>
 		{#each new Array(7) as item, i}
 			<img

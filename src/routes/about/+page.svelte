@@ -28,7 +28,11 @@
 			<span class="font-serif font-medium text-indigo-600 italic">entrepreneurs</span>
 			and <span class="font-serif font-medium text-indigo-600 italic">industry professionals</span>,
 			and supporting every step of their professional and career development
-			<span class="font-serif font-medium text-indigo-600 italic">journey</span>.
+			<span class="font-serif font-medium text-indigo-600 italic">journey</span>. We believe the next
+			generation of entrepreneurs should build with
+			<span class="font-serif font-medium text-indigo-600 italic">purpose</span> — turning ambition
+			into businesses that give back to their
+			<span class="font-serif font-medium text-indigo-600 italic">communities</span>.
 		</p>
 	</div>
 

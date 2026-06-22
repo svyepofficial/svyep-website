@@ -23,7 +23,7 @@
 			>
 		</h1>
 		<h2
-			class="max-w-[1000px] text-center font-serif text-lg tracking-tighter text-gray-400 sm:text-2xl"
+			class="max-w-[1000px] text-center font-serif text-lg tracking-tighter text-gray-200 sm:text-2xl"
 		>
 			As a member, students will receive <span class="text-white">exclusive</span> resources and opportunities
 			only available to them.
