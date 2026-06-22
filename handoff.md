@@ -89,11 +89,15 @@ done purely via the CSS `imageStyle` transform (scale to zoom, translateY to shi
 
 **Current per-member adjustments** (tuned interactively with the user):
 - Anthony Wang: `transform: translateY(6%);`
-- Ethan Hao: `transform: scale(2.4) translateY(9%);`
-- Tyrone Tan: `transform: scale(2.12);`
-- Ethan Chen: `transform: scale(2.15) translateY(-2%);`
-- Isabella Xia: `transform: scale(2.15);`
-- Aiden Xue: `transform: scale(2.5) translateY(7%);`
+- Ethan Hao: `transform: scale(2.2) translateY(9%);`
+- Tyrone Tan: `transform: scale(1.95);`
+- Ethan Chen: `transform: scale(2.0) translateY(-2%);`
+- Isabella Xia: `transform: scale(2.0);`
+- Aiden Xue: `transform: scale(2.3) translateY(7%);`
+
+**Team ordering rule:** in `about.ts`, members with a complete bio **and** a real photo are listed
+first (original order preserved); anyone still missing a bio or photo is grouped at the end until
+provided. Keep this when adding content.
 
 **Team circles are transparent** (no `bg-zinc-950` on the wrapper) — same look as the advisors /
 previous-members circles. Since the photos have transparent backgrounds, whatever is behind the page
@@ -105,6 +109,15 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > asked. Don't commit the stray `package-lock.json` (bun-only project).
 
 ## Done recently
+- **Website feedback pass (2026-06-22)**: (1) Stats fixed in `home.ts` — `raised` 305k→**120k**
+  (true value, headline+body share the var so they match); `impacted_students` (215k) **reframed** on
+  the homepage as "students & attendees reached" with copy explaining it counts event/pitch reach,
+  not members. (2) Homepage: added a "What you get as a member" section near the top (the 3 Join cards
+  — AI internships / leader interviews / event invites) + early student CTA; hero subhead added;
+  three-pillars intro + About vision rewritten to thread the **social-impact mission**; closing CTA
+  split into "Join as a student" vs secondary Partner/Donate. (3) Team: reordered (complete profiles
+  first), added Cindy Zhang's bio, removed advisor Wanting Chen, dropped Bretton Lam's "Co-Founder and
+  CEO" title. (4) Join form subhead readability bump. Commits `4b42259`, `8e13507`.
 - **About page polish + deploy (2026-06-20, latest)**: made team circles transparent (removed
   `bg-zinc-950` wrapper, matches advisors/previous); removed the `bg-zinc-950` highlight behind
   "Our Vision" + its description; removed the Isabella-Liang full-page background that was briefly
@@ -125,10 +138,24 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   Authentication ("Require Log In") was enabled — disabled it. Auto-deploy on push to `main` now works.
 
 ## Open / not done
-- **6 members still have placeholder images** (no real photo provided yet): Elaine Luo, Jack Li, Michael Huang,
-  Cindy Zhang, Lotus Wu, Leana Zhou. Drop `static/images/about/<firstname-lastinitial>.webp` and update `about.ts`.
-- **Position titles**: all current team members show a dash (`-`) as a placeholder — real titles not
-  yet provided (the old "Position Title" placeholder was replaced with `-`).
-- **Bios missing** for: Camille Wang, Tyrone Tan, Michael Huang, Cindy Zhang.
-- **Big team photo removed** from the About page (was above Advisors) per request — re-add if a good
-  group photo becomes available.
+### Team
+- **Placeholder images** (no real photo yet): Elaine Luo, Jack Li, Michael Huang, Cindy Zhang, Lotus
+  Wu, Leana Zhou. Drop `static/images/about/<firstname-lastinitial>.webp` and update `about.ts` (then
+  move them up out of the end-of-list "incomplete" group).
+- **Bios missing** for: Camille Wang, Tyrone Tan, Michael Huang. (Cindy/Elaine/Jack now have bios.)
+- **Position titles**: all current team show a dash (`-`) — real titles not yet provided.
+- **Big team photo** removed from About (was above Advisors) — re-add if a good group photo appears.
+
+### Website-feedback items still BLOCKED on user-provided content (2026-06-22)
+- **"How it works" basics** — homepage says "community for high school students" but does NOT yet
+  state: is membership **free**? **eligibility** (anywhere / Bay Area only / grade levels)? **time
+  commitment**? Need these facts to add a proper short "How it works" line. (I avoided asserting
+  "free" without confirmation.)
+- **Trust signals (not started, need assets):**
+  - Org / nonprofit details: legal name, 501(c)(3) status, EIN — for the footer/about/donate.
+  - A real **contact** beyond the Gmail address (official email and/or mailing address).
+  - **Partner logos** — site name-drops Google Fiber + investors but shows no logos. Need logo image
+    files to build a partners strip (good fit for the homepage `businesses worked with` section).
+  - **Student testimonials** — 2–3 quotes + names/schools to add a testimonial section.
+- **UX (partially done):** added an early CTA + value section near the top; homepage is still long and
+  animation-heavy below the fold — could trim further if desired (subjective, left for direction).
