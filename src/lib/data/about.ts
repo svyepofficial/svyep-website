@@ -10,6 +10,12 @@ const about = {
 			image: '/images/about/isabella-l.webp'
 		},
 		{
+			name: 'Camille Wang',
+			position: '-',
+			description: 'Member bio coming soon.',
+			image: '/images/about/camille-w.webp'
+		},
+		{
 			name: 'Anthony Wang',
 			position: '-',
 			description:
@@ -74,12 +80,6 @@ const about = {
 			imageStyle: 'transform: scale(3.0) translateY(11%);'
 		},
 		// --- Awaiting a bio and/or photo (moved to the end until complete) ---
-		{
-			name: 'Camille Wang',
-			position: '-',
-			description: 'Member bio coming soon.',
-			image: '/images/about/camille-w.webp'
-		},
 		{
 			name: 'Tyrone Tan',
 			position: '-',
