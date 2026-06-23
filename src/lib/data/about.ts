@@ -72,6 +72,14 @@ const about = {
 			image: '/images/about/jack-l.webp',
 			imageStyle: 'transform: scale(1.7) translateY(18%);'
 		},
+		{
+			name: 'Tyrone Tan',
+			position: '-',
+			description:
+				'Tyrone is a sophomore at Monta Vista High School in Cupertino, California. He is a passionate baseball player who has an interest in business. Through SVYEP, he hopes to build a foundation in business, obtain innovation skills, and to make an impact on other high schoolers.',
+			image: '/images/about/tyrone-t.webp',
+			imageStyle: 'transform: scale(1.95);'
+		},
 		// --- Awaiting a bio and/or photo (moved to the end until complete) ---
 		{
 			name: 'Cindy Zhang',
@@ -79,13 +87,6 @@ const about = {
 			description:
 				'Cindy is a junior at Palo Alto High School with an emphasized interest in the usage of Artificial Intelligence in business operations. Through SVYEP, she aims to help younger audiences with an interest in business explore their passions. Outside of school, she enjoys staying involved in her community, attending workout classes, traveling, and hanging out with friends.',
 			image: '/images/about/placeholder.svg'
-		},
-		{
-			name: 'Tyrone Tan',
-			position: '-',
-			description: 'Member bio coming soon.',
-			image: '/images/about/tyrone-t.webp',
-			imageStyle: 'transform: scale(1.95);'
 		},
 		{
 			name: 'Michael Huang',
