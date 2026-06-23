@@ -12,7 +12,8 @@ const about = {
 		{
 			name: 'Camille Wang',
 			position: '-',
-			description: 'Member bio coming soon.',
+			description:
+				'Camille Wang is a senior at Castilleja High School in California. With interests in sociology, education, and entrepreneurship, she enjoys finding ways to support students and make opportunities more accessible. Outside of school, she is involved in water polo, robotics, and community projects. Through SVYEP, Camille hopes to help more students explore their ideas and create meaningful impact.',
 			image: '/images/about/camille-w.webp'
 		},
 		{
