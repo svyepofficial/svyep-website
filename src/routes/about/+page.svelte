@@ -17,22 +17,32 @@
 			Our Vision<span class="text-indigo-600 text-shadow-none">.</span>
 		</h1>
 		<p class="text-center text-3xl font-extralight tracking-tight sm:text-justify sm:text-5xl">
-			At SVYEP, we <span class="font-serif font-medium text-indigo-600 italic">empower</span> high
-			school students by providing
-			<span class="font-serif font-medium text-indigo-600 italic">access</span>
-			to real-world business
-			<span class="font-serif font-medium text-indigo-600 italic">resources</span>, creating
-			meaningful
-			<span class="font-serif font-medium text-indigo-600 italic">connections</span>
-			with
-			<span class="font-serif font-medium text-indigo-600 italic">entrepreneurs</span>
-			and <span class="font-serif font-medium text-indigo-600 italic">industry professionals</span>,
-			and supporting every step of their professional and career development
-			<span class="font-serif font-medium text-indigo-600 italic">journey</span>. We believe the next
-			generation of entrepreneurs should build with
-			<span class="font-serif font-medium text-indigo-600 italic">purpose</span> — turning ambition
-			into businesses that give back to their
-			<span class="font-serif font-medium text-indigo-600 italic">communities</span>.
+			To inspire and empower the next generation of
+			<span class="font-serif font-medium text-indigo-600 italic">purpose-driven</span> entrepreneurs
+			who create <span class="font-serif font-medium text-indigo-600 italic">innovative</span> ventures,
+			lead with <span class="font-serif font-medium text-indigo-600 italic">integrity</span>, and build
+			businesses that generate lasting
+			<span class="font-serif font-medium text-indigo-600 italic">social impact</span> in their
+			communities and beyond.
+		</p>
+	</div>
+
+	<div class="flex w-full max-w-[1200px] flex-col px-4 text-white">
+		<h1
+			class="text-shadow-glow-white font-serif text-5xl leading-loose tracking-tighter sm:text-7xl"
+		>
+			Our Mission<span class="text-indigo-600 text-shadow-none">.</span>
+		</h1>
+		<p class="text-center text-2xl font-extralight tracking-tight sm:text-justify sm:text-4xl">
+			At SVYEP, we empower high school students to become
+			<span class="font-serif font-medium text-indigo-600 italic">social entrepreneurs</span> who
+			identify real-world challenges, develop
+			<span class="font-serif font-medium text-indigo-600 italic">innovative and sustainable solutions</span>,
+			and create <span class="font-serif font-medium text-indigo-600 italic">meaningful impact</span> in
+			their communities. Through mentorship, real-world experiences, industry partnerships, and
+			entrepreneurial education, we equip students with the leadership, business, and problem-solving
+			skills to build ventures that create both
+			<span class="font-serif font-medium text-indigo-600 italic">economic value and positive social change</span>.
 		</p>
 	</div>
 
