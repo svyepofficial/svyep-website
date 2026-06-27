@@ -3,8 +3,10 @@
 Living handoff for the SVYEP marketing site. Read this first when you pick up the project, then keep it current.
 
 ## ⚠️ Instructions for the Claude session reading this (keep this file alive)
+
 This is the living handoff. **You must keep it current** so the next session (after a context clear) starts where you
 left off:
+
 - **Before you start**: read this whole file. Trust "Open / not done" over any stale assumption.
 - **As you finish each meaningful change** (and before ending your turn / running low on context): update this file.
   Edit `Last updated`, move finished items out of "Open / not done", add new work under "Done recently", and record
@@ -17,14 +19,16 @@ left off:
 > **Pushing to `main` auto-deploys to the live site (Vercel).** The user has approved committing and pushing — just
 > do it. Commit + push to `main` is the deploy step. No separate action needed.
 
-Last updated: 2026-06-20 (evening).
+Last updated: 2026-06-27.
 
 ## What this is
+
 Public marketing/info site for SVYEP (Silicon Valley Youth Entrepreneurship Program). Pages: Home, About, Articles,
 Events, Impact, Donate, Join, Partner. Content is **data-driven** — most page content lives in plain TS data files,
 not hardcoded in components, so copy/roster/stats edits happen in `src/lib/data/*.ts`.
 
 ## Stack
+
 - **SvelteKit** (Svelte 5 runes) + **Vite 7** + **TypeScript**
 - **Tailwind CSS v4** (`@tailwindcss/vite`) + `@tailwindcss/typography`; `tailwind-variants` / `tailwind-merge` / `clsx`
 - **mdsvex** (`.md` as Svelte components — used for articles), `phosphor-svelte` icons, `motion` (animations),
@@ -36,6 +40,7 @@ not hardcoded in components, so copy/roster/stats edits happen in `src/lib/data/
 ## Run / build / deploy
 
 ### Local dev — KNOWN ISSUE with `vite dev`
+
 `bun run dev` / `npm run dev` has a Vite 7 SSR module-runner bug on this machine: Vite starts and reports "ready"
 but every page request returns a 60-second timeout error (`transport invoke timed out`). **Use the preview workflow instead:**
 
@@ -49,7 +54,9 @@ If `npm run dev` silently hangs (starts, no port, no output): there's a stale `n
 folder from a prior interrupted run. Fix: `rm -rf node_modules/.vite && npm run dev --force`.
 
 ### Deploy / refresh the live site
+
 Vercel auto-deploys on every push to `main`. If the site doesn't update after a push:
+
 1. Check the Vercel dashboard for a failed build (build log will explain why).
 2. To force a redeploy without a code change: **Vercel dashboard → project → Deployments → "..." menu → Redeploy**.
 3. Or trigger via CLI (if logged into the svyep Vercel account): `vercel --prod`.
@@ -57,6 +64,7 @@ Vercel auto-deploys on every push to `main`. If the site doesn't update after a 
 Live at https://svyep.org — DNS is managed separately; Vercel handles the build + CDN.
 
 ## Layout
+
 - `src/routes/<page>/+page.svelte` — one folder per page (about, articles, events, impact, donate, join, partner).
   `+layout.svelte` is the shared shell. Some pages have `+page.ts` / `+page.server.ts` loaders (articles, impact).
 - `src/lib/data/*.ts` — **page content** (`about.ts`, `events.ts`, `home.ts`, `impact.ts`). Edit copy/rosters/stats here.
@@ -64,6 +72,7 @@ Live at https://svyep.org — DNS is managed separately; Vercel handles the buil
 - `static/images/about/<slug>.webp` — team headshots, referenced from `about.ts` as `/images/about/<slug>.webp`.
 
 ## Team roster (about page)
+
 `src/lib/data/about.ts` exports `{ team, previous_members, advisors }`, each an array of
 `{ name, position, description, image, imageStyle?, wrapperStyle? }`. To add a member: drop
 `static/images/about/<slug>.webp` and add an entry pointing `image` at `/images/about/<slug>.webp`.
@@ -75,7 +84,9 @@ Live at https://svyep.org — DNS is managed separately; Vercel handles the buil
 Members without a photo use `/images/about/placeholder.svg` (a grey silhouette) until a headshot is provided.
 
 ### Per-member photo adjustments
+
 The template in `src/routes/about/+page.svelte` supports two optional fields per member:
+
 - `imageStyle` — inline style on the `<img>` (e.g. `transform: scale(1.25)` to zoom in, `object-fit: contain` to
   prevent cropping). Overrides the default `object-cover` class.
 - `wrapperStyle` — inline style on the circle wrapper `<div>`. Use `background: #09090b` when scaling down so the
@@ -88,6 +99,7 @@ done purely via the CSS `imageStyle` transform (scale to zoom, translateY to shi
 9:16 shots need big scale values to bring the face up to size; tight 3:4 shots need little/none.
 
 **Current per-member adjustments** (tuned interactively with the user):
+
 - Anthony Wang: `transform: translateY(6%);`
 - Ethan Hao: `transform: scale(2.2) translateY(9%);`
 - Tyrone Tan: `transform: scale(1.95);`
@@ -109,6 +121,14 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > asked. Don't commit the stray `package-lock.json` (bun-only project).
 
 ## Done recently
+
+- **About page hero compaction (2026-06-27)**: reduced the Vision/Mission headings and body copy, tightened
+  vertical gaps, and lowered the "Meet the Team" heading size so part of the first team-photo row is visible
+  above the fold in the local preview. Added a small top-padding bump after review so "Our Vision" has more
+  breathing room below the navbar. Verified with `npm run build` and `npm run preview` at
+  `http://127.0.0.1:4173/about`; build still shows the pre-existing article-route Svelte warning.
+- **Michael Huang bio added (2026-06-27)**: replaced his placeholder bio in `src/lib/data/about.ts`; he still
+  uses the placeholder image until a real photo is provided.
 - **Website feedback pass (2026-06-22)**: (1) Stats fixed in `home.ts` — `raised` 305k→**120k**
   (true value, headline+body share the var so they match); `impacted_students` (215k) **reframed** on
   the homepage as "students & attendees reached" with copy explaining it counts event/pitch reach,
@@ -138,15 +158,18 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   Authentication ("Require Log In") was enabled — disabled it. Auto-deploy on push to `main` now works.
 
 ## Open / not done
+
 ### Team
+
 - **Placeholder images** (no real photo yet): Michael Huang, Lotus Wu, Leana Zhou. Drop
   `static/images/about/<firstname-lastinitial>.webp` and update `about.ts` (then move them up out of
   the end-of-list "incomplete" group). (Cindy/Elaine/Jack photos added 2026-06-22.)
-- **Bios missing** for: Camille Wang, Tyrone Tan, Michael Huang. (Cindy/Elaine/Jack now have bios.)
+- **Bios missing**: none currently known. (Cindy/Elaine/Jack/Michael now have bios.)
 - **Position titles**: all current team show a dash (`-`) — real titles not yet provided.
 - **Big team photo** removed from About (was above Advisors) — re-add if a good group photo appears.
 
 ### Website-feedback items still BLOCKED on user-provided content (2026-06-22)
+
 - **"How it works" basics** — homepage says "community for high school students" but does NOT yet
   state: is membership **free**? **eligibility** (anywhere / Bay Area only / grade levels)? **time
   commitment**? Need these facts to add a proper short "How it works" line. (I avoided asserting

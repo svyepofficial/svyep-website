@@ -7,16 +7,16 @@
 	<title>About Us • SVYEP</title>
 </svelte:head>
 
-<div class="relative flex h-full flex-col items-center gap-20 pt-40">
+<div class="relative flex h-full flex-col items-center gap-6 pt-32">
 	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
 	<StarsBackground starDensity={0.00003} class="-z-10" />
 	<div class="flex w-full max-w-[1200px] flex-col px-4 text-white">
 		<h1
-			class="text-shadow-glow-white font-serif text-5xl leading-loose tracking-tighter sm:text-7xl"
+			class="text-shadow-glow-white font-serif text-3xl leading-tight tracking-tighter sm:text-6xl"
 		>
 			Our Vision<span class="text-indigo-600 text-shadow-none">.</span>
 		</h1>
-		<p class="text-center text-3xl font-extralight tracking-tight sm:text-justify sm:text-5xl">
+		<p class="text-center text-base leading-snug font-extralight tracking-tight sm:text-justify sm:text-3xl">
 			To inspire and empower the next generation of
 			<span class="font-serif font-medium text-indigo-600 italic">purpose-driven</span> entrepreneurs
 			who create <span class="font-serif font-medium text-indigo-600 italic">innovative</span> ventures,
@@ -29,11 +29,11 @@
 
 	<div class="flex w-full max-w-[1200px] flex-col px-4 text-white">
 		<h1
-			class="text-shadow-glow-white font-serif text-5xl leading-loose tracking-tighter sm:text-7xl"
+			class="text-shadow-glow-white font-serif text-3xl leading-tight tracking-tighter sm:text-6xl"
 		>
 			Our Mission<span class="text-indigo-600 text-shadow-none">.</span>
 		</h1>
-		<p class="text-center text-2xl font-extralight tracking-tight sm:text-justify sm:text-4xl">
+		<p class="text-center text-sm leading-snug font-extralight tracking-tight sm:text-justify sm:text-2xl">
 			At SVYEP, we empower high school students to become
 			<span class="font-serif font-medium text-indigo-600 italic">social entrepreneurs</span> who
 			identify real-world challenges, develop
@@ -47,10 +47,10 @@
 	</div>
 
 	<div class=" flex h-full flex-col items-center text-white">
-		<h1 class="text-shadow-glow-white text-center font-serif text-6xl tracking-tighter sm:text-9xl">
+		<h1 class="text-shadow-glow-white text-center font-serif text-4xl tracking-tighter sm:text-8xl">
 			Meet the Team<span class="text-indigo-600 text-shadow-none">.</span>
 		</h1>
-		<div class="mt-12 grid max-w-[1300px] grid-cols-1 gap-6 px-8 sm:grid-cols-2 lg:grid-cols-3">
+		<div class="mt-6 grid max-w-[1300px] grid-cols-1 gap-6 px-8 sm:grid-cols-2 lg:grid-cols-3">
 			{#each about.team as member}
 				<div class="flex flex-col items-center gap-2 px-3">
 					<div class="mb-4 size-[22rem] overflow-hidden rounded-full" style={member.wrapperStyle}>

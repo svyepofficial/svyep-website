@@ -28,7 +28,7 @@ const about = {
 			name: 'Ethan Hao',
 			position: '-',
 			description:
-				'Ethan Hao is a sophomore at The Harker School in California with a strong interest in AI, robotics, and business. Outside of the classroom, he is involved in his school\'s robotics club and swim team, where he enjoys challenging himself and working with others. Through SVYEP, he hopes to build meaningful connections, grow as a leader, and support other students\' interests in exploring entrepreneurship.',
+				"Ethan Hao is a sophomore at The Harker School in California with a strong interest in AI, robotics, and business. Outside of the classroom, he is involved in his school's robotics club and swim team, where he enjoys challenging himself and working with others. Through SVYEP, he hopes to build meaningful connections, grow as a leader, and support other students' interests in exploring entrepreneurship.",
 			image: '/images/about/ethan-h.webp',
 			imageStyle: 'transform: scale(2.2) translateY(9%);'
 		},
@@ -91,7 +91,8 @@ const about = {
 		{
 			name: 'Michael Huang',
 			position: '-',
-			description: 'Member bio coming soon.',
+			description:
+				'Michael Huang is a freshman at BASIS Independent Silicon Valley and a member of the varsity basketball team. He has a strong interest in artificial intelligence and long-term investing, which has inspired him to explore innovation and entrepreneurship. Through SVYEP, he hopes to develop and demonstrate his leadership skills while working alongside other motivated students. He is excited to collaborate with young entrepreneurs, contribute meaningful ideas, and gain valuable experience solving real-world challenges in a team environment.',
 			image: '/images/about/placeholder.svg'
 		}
 	],
