@@ -19,7 +19,7 @@ left off:
 > **Pushing to `main` auto-deploys to the live site (Vercel).** The user has approved committing and pushing — just
 > do it. Commit + push to `main` is the deploy step. No separate action needed.
 
-Last updated: 2026-06-27.
+Last updated: 2026-07-11.
 
 ## What this is
 
@@ -102,14 +102,31 @@ done purely via the CSS `imageStyle` transform (scale to zoom, translateY to shi
 
 - Anthony Wang: `transform: translateY(6%);`
 - Ethan Hao: `transform: scale(2.2) translateY(9%);`
-- Tyrone Tan: `transform: scale(1.95);`
 - Ethan Chen: `transform: scale(2.0) translateY(-2%);`
 - Isabella Xia: `transform: scale(2.0);`
 - Aiden Xue: `transform: scale(2.3) translateY(7%);`
+- Elaine Luo: `transform: scale(1.05) translateY(10%);`
+- Jack Li: `transform: scale(1.7) translateY(18%);`
+- Tyrone Tan: `transform: scale(1.95);`
+- Camille Wang: none (photo frames fine with plain `object-contain`).
+- Cindy Zhang: photo currently removed (placeholder). Her `cindy-z.webp` is still in the repo; when
+  re-enabled it needed `transform: scale(2.7) rotate(-18deg) translateY(11%);` (source photo is slanted,
+  hence the CCW rotate). `rotate()` works inside the transform — good tool for tilted source photos.
+
+**Tuning workflow (useful, reused a lot):** to pick `scale`/`translateY`/`rotate` without guessing,
+run a Python (Pillow + optional OpenCV Haar face-detect) script from `static/images/about/` that
+simulates `object-contain` + the CSS transform inside a circular mask and writes a contact sheet;
+`Read` the PNG to eyeball, then set the `imageStyle`. Face-height ~0.46–0.5 of the circle and face
+center ~0.45 vertically matches the rest of the team. Scratch scripts lived in `/tmp/`.
+
+**Grid sizing (current):** circles `size-[22rem]`, grid `max-w-[1300px] gap-6 px-8`, card `px-3`, bio
+text `text-base`. (Larger circles get tight at ~1024–1150px where it's still 3 columns — watch for
+crowding if bumping further.)
 
 **Team ordering rule:** in `about.ts`, members with a complete bio **and** a real photo are listed
 first (original order preserved); anyone still missing a bio or photo is grouped at the end until
-provided. Keep this when adding content.
+provided. Keep this when adding content. (Exception the user requested: **Camille Wang** is pinned to
+her original spot right after Isabella Liang even while her content was being filled in.)
 
 **Team circles are transparent** (no `bg-zinc-950` on the wrapper) — same look as the advisors /
 previous-members circles. Since the photos have transparent backgrounds, whatever is behind the page
@@ -121,7 +138,6 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > asked. Don't commit the stray `package-lock.json` (bun-only project).
 
 ## Done recently
-
 - **About page hero compaction (2026-06-27)**: reduced the Vision/Mission headings and body copy, tightened
   vertical gaps, and lowered the "Meet the Team" heading size so part of the first team-photo row is visible
   above the fold in the local preview. Added a small top-padding bump after review so "Our Vision" has more
@@ -129,6 +145,14 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   `http://127.0.0.1:4173/about`; build still shows the pre-existing article-route Svelte warning.
 - **Michael Huang bio added (2026-06-27)**: replaced his placeholder bio in `src/lib/data/about.ts`; he still
   uses the placeholder image until a real photo is provided.
+- **About Vision/Mission + team content (2026-07-11)**: rewrote the About **"Our Vision"**
+  statement and added a new **"Our Mission"** section below it (`591efb0`; Mission is one size smaller
+  than Vision for hierarchy — later further compacted, see above). Added real photos for **Elaine, Jack,
+  Cindy** (then **removed Cindy's** per request — back to placeholder, moved to end). Added bios for
+  **Cindy, Camille, Tyrone** and moved each into the complete group as they filled in; **Camille** pinned
+  to her original spot. Enlarged team circles to `size-[22rem]` and bio text to `text-base`, tightened
+  grid to `gap-6`/`max-w-[1300px]`. Tuned framing (zoom/lower/rotate) for the new photos. Note: homepage
+  hero word **"future"** is `text-indigo-600` = **#4F46E5**.
 - **Website feedback pass (2026-06-22)**: (1) Stats fixed in `home.ts` — `raised` 305k→**120k**
   (true value, headline+body share the var so they match); `impacted_students` (215k) **reframed** on
   the homepage as "students & attendees reached" with copy explaining it counts event/pitch reach,
@@ -158,13 +182,12 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   Authentication ("Require Log In") was enabled — disabled it. Auto-deploy on push to `main` now works.
 
 ## Open / not done
-
-### Team
-
-- **Placeholder images** (no real photo yet): Michael Huang, Lotus Wu, Leana Zhou. Drop
-  `static/images/about/<firstname-lastinitial>.webp` and update `about.ts` (then move them up out of
-  the end-of-list "incomplete" group). (Cindy/Elaine/Jack photos added 2026-06-22.)
-- **Bios missing**: none currently known. (Cindy/Elaine/Jack/Michael now have bios.)
+### Team (end-of-list "awaiting content" group is now just Cindy + Michael)
+- **Placeholder images** (no real photo yet): **Cindy Zhang** (had one, user removed it — `cindy-z.webp`
+  still in repo, re-enable with `transform: scale(2.7) rotate(-18deg) translateY(11%);`), **Michael
+  Huang**, Lotus Wu, Leana Zhou. Drop `static/images/about/<firstname-lastinitial>.webp`, point
+  `about.ts` at it, and move the member up out of the end "incomplete" group.
+- **Bios missing**: none currently known. (Elaine, Jack, Cindy, Camille, Tyrone, Michael all have bios.)
 - **Position titles**: all current team show a dash (`-`) — real titles not yet provided.
 - **Big team photo** removed from About (was above Advisors) — re-add if a good group photo appears.
 
