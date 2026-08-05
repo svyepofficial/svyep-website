@@ -16,10 +16,11 @@ left off:
 - **Keep it tight**: this is a pointer, not a changelog. Prune stale items. Carry this section forward — never delete it.
 - Use the real current date for `Last updated`.
 
-> **Pushing to `main` auto-deploys to the live site (Vercel).** The user has approved committing and pushing — just
-> do it. Commit + push to `main` is the deploy step. No separate action needed.
+> **Pushing to `main` auto-deploys to the live site (Vercel).** Current user rule: do not push changes until a local
+> preview has been opened and the user confirms it looks fine. Commit + push to `main` is the deploy step after that
+> approval. Don't commit the stray `package-lock.json` (bun-only project).
 
-Last updated: 2026-07-11.
+Last updated: 2026-08-05.
 
 ## What this is
 
@@ -133,11 +134,14 @@ previous-members circles. Since the photos have transparent backgrounds, whateve
 (the StarsBackground) shows through the non-subject areas. There is currently **no** full-page photo
 background (an Isabella-Liang `object-fill` backdrop was tried and removed per request).
 
-> **DEPLOY POLICY (user standing order, 2026-06-20):** ALWAYS auto-deploy whenever changes are made —
-> i.e. after any change, commit + push to `main` (which auto-deploys to Vercel) without waiting to be
-> asked. Don't commit the stray `package-lock.json` (bun-only project).
+> **DEPLOY POLICY (updated user standing order, 2026-06-27):** Do not push changes until a local preview has been
+> opened and the user confirms it looks fine. Push to `main` only after approval; Vercel auto-deploys that push.
 
 ## Done recently
+
+- **Bretton Lam advisor move (2026-08-05)**: moved Bretton from `previous_members` to `advisors` in
+  `src/lib/data/about.ts` and changed his role to `Co-Founder and Former CEO`. Local preview was approved before
+  push per current user rule.
 - **About page hero compaction (2026-06-27)**: reduced the Vision/Mission headings and body copy, tightened
   vertical gaps, and lowered the "Meet the Team" heading size so part of the first team-photo row is visible
   above the fold in the local preview. Added a small top-padding bump after review so "Our Vision" has more

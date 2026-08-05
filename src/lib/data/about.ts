@@ -98,13 +98,6 @@ const about = {
 	],
 	previous_members: [
 		{
-			name: 'Bretton Lam',
-			position: '-',
-			description:
-				'Bretton is a senior at Basis Independent Silicon Valley in San Jose, California. He is very passionate about business and entrepreneurship and also enjoys playing sports such as basketball. Through SVYEP, he hopes to further develop his entrepreneurial skills while inspiring future generations by providing them with unique opportunities to network with successful business leaders.',
-			image: '/images/about/bretton-l.webp'
-		},
-		{
 			name: 'Kevin Tang',
 			position: 'Chief Sales Officer',
 			description:
@@ -146,6 +139,13 @@ const about = {
 		}
 	],
 	advisors: [
+		{
+			name: 'Bretton Lam',
+			position: 'Co-Founder and Former CEO',
+			description:
+				'Bretton is a senior at Basis Independent Silicon Valley in San Jose, California. He is very passionate about business and entrepreneurship and also enjoys playing sports such as basketball. Through SVYEP, he hopes to further develop his entrepreneurial skills while inspiring future generations by providing them with unique opportunities to network with successful business leaders.',
+			image: '/images/about/bretton-l.webp'
+		},
 		{
 			name: 'Jun Liu',
 			position: 'Lead Coach',
