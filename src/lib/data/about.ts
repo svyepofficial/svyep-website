@@ -142,9 +142,14 @@ const about = {
 		{
 			name: 'Bretton Lam',
 			position: 'Co-Founder and Former CEO',
-			description:
-				'Bretton is a senior at Basis Independent Silicon Valley in San Jose, California. He is very passionate about business and entrepreneurship and also enjoys playing sports such as basketball. Through SVYEP, he hopes to further develop his entrepreneurial skills while inspiring future generations by providing them with unique opportunities to network with successful business leaders.',
+			description: '',
 			image: '/images/about/bretton-l.webp'
+		},
+		{
+			name: 'Rian Caesar',
+			position: 'Advisor',
+			description: '',
+			image: '/images/about/placeholder.svg'
 		},
 		{
 			name: 'Jun Liu',

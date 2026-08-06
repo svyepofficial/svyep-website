@@ -69,15 +69,19 @@
 		<h1 class="font-serif text-6xl tracking-tighter sm:text-9xl">
 			Advisors<span class="text-indigo-600">.</span>
 		</h1>
-		<div class="flex max-w-[1200px] flex-wrap justify-center gap-12">
+		<div class="grid w-full max-w-[1300px] grid-cols-1 gap-8 px-8 sm:grid-cols-2 xl:grid-cols-4">
 			{#each about.advisors as advisor}
-				<div class="flex w-80 flex-col items-center">
-					<img src={advisor.image} alt="" class="mb-4 size-56 rounded-full object-cover" />
+				<div class="flex w-full max-w-72 flex-col items-center justify-self-center">
+					{#if advisor.image}
+						<img src={advisor.image} alt="" class="mb-4 size-56 rounded-full object-cover" />
+					{/if}
 					<h1 class="font-serif text-2xl tracking-tighter">{advisor.name}</h1>
 					<h2 class="font-medium text-indigo-600">{advisor.position}</h2>
-					<p class="mt-4 text-justify text-sm font-extralight text-gray-400">
-						{advisor.description}
-					</p>
+					{#if advisor.description}
+						<p class="mt-4 text-justify text-sm font-extralight text-gray-400">
+							{advisor.description}
+						</p>
+					{/if}
 				</div>
 			{/each}
 		</div>
