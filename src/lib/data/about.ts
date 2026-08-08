@@ -80,19 +80,20 @@ const about = {
 			image: '/images/about/tyrone-t.webp',
 			imageStyle: 'transform: scale(1.95);'
 		},
+		{
+			name: 'Michael Huang',
+			position: '-',
+			description:
+				'Michael Huang is a freshman at BASIS Independent Silicon Valley and a member of the varsity basketball team. He has a strong interest in artificial intelligence and long-term investing, which has inspired him to explore innovation and entrepreneurship. Through SVYEP, he hopes to develop and demonstrate his leadership skills while working alongside other motivated students. He is excited to collaborate with young entrepreneurs, contribute meaningful ideas, and gain valuable experience solving real-world challenges in a team environment.',
+			image: '/images/about/michael-h.webp',
+			imageStyle: 'transform: scale(1.10) translateY(-5%);'
+		},
 		// --- Awaiting a bio and/or photo (moved to the end until complete) ---
 		{
 			name: 'Cindy Zhang',
 			position: '-',
 			description:
 				'Cindy is a junior at Palo Alto High School with an emphasized interest in the usage of Artificial Intelligence in business operations. Through SVYEP, she aims to help younger audiences with an interest in business explore their passions. Outside of school, she enjoys staying involved in her community, attending workout classes, traveling, and hanging out with friends.',
-			image: '/images/about/placeholder.svg'
-		},
-		{
-			name: 'Michael Huang',
-			position: '-',
-			description:
-				'Michael Huang is a freshman at BASIS Independent Silicon Valley and a member of the varsity basketball team. He has a strong interest in artificial intelligence and long-term investing, which has inspired him to explore innovation and entrepreneurship. Through SVYEP, he hopes to develop and demonstrate his leadership skills while working alongside other motivated students. He is excited to collaborate with young entrepreneurs, contribute meaningful ideas, and gain valuable experience solving real-world challenges in a team environment.',
 			image: '/images/about/placeholder.svg'
 		}
 	],
@@ -142,7 +143,8 @@ const about = {
 		{
 			name: 'Bretton Lam',
 			position: 'Co-Founder and Former CEO',
-			description: '',
+			description:
+				'Bretton Lam is a freshman at Carnegie Mellon University and the co-founder of SVYEP, dedicated toward expanding business development opportunities for students around the world. Outside of SVYEP, he enjoys playing basketball and golf, cooking new recipes in the kitchen, and traveling to new destinations.',
 			image: '/images/about/bretton-l.webp'
 		},
 		{

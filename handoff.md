@@ -20,7 +20,7 @@ left off:
 > preview has been opened and the user confirms it looks fine. Commit + push to `main` is the deploy step after that
 > approval. Don't commit the stray `package-lock.json` (bun-only project).
 
-Last updated: 2026-08-06.
+Last updated: 2026-08-08.
 
 ## What this is
 
@@ -143,6 +143,11 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   added Rian Caesar as `Advisor` using `/images/about/placeholder.svg`, made advisor image/description rendering
   conditional in `src/routes/about/+page.svelte`, and changed Advisors to a four-column desktop grid so all four
   advisors sit on one row. Local preview was approved before push per current user rule.
+- **Michael Huang headshot + Bretton bio (2026-08-08)**: created
+  `static/images/about/michael-h.webp` from `/Users/angelahe/Downloads/IMG_0168.heic`, removed the wall background,
+  pointed Michael's team entry at the new image with `transform: scale(1.10) translateY(-5%);`, moved him out of
+  the end placeholder group, and added Bretton Lam's advisor description. Local preview was approved before push per
+  current user rule.
 - **Bretton Lam advisor move (2026-08-05)**: moved Bretton from `previous_members` to `advisors` in
   `src/lib/data/about.ts` and changed his role to `Co-Founder and Former CEO`. Local preview was approved before
   push per current user rule.
@@ -191,12 +196,12 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 
 ## Open / not done
 
-### Team (end-of-list "awaiting content" group is now just Cindy + Michael)
+### Team (end-of-list "awaiting content" group is now just Cindy)
 
 - **Placeholder images** (no real photo yet): **Cindy Zhang** (had one, user removed it — `cindy-z.webp`
-  still in repo, re-enable with `transform: scale(2.7) rotate(-18deg) translateY(11%);`), **Michael
-  Huang**, Lotus Wu, Leana Zhou. Drop `static/images/about/<firstname-lastinitial>.webp`, point
-  `about.ts` at it, and move the member up out of the end "incomplete" group.
+  still in repo, re-enable with `transform: scale(2.7) rotate(-18deg) translateY(11%);`). Previous members
+  Lotus Wu and Leana Zhou also use placeholders. Drop `static/images/about/<firstname-lastinitial>.webp`, point
+  `about.ts` at it, and move the member up out of the end "incomplete" group if they are in `team`.
 - **Bios missing**: none currently known. (Elaine, Jack, Cindy, Camille, Tyrone, Michael all have bios.)
 - **Position titles**: all current team show a dash (`-`) — real titles not yet provided.
 - **Big team photo** removed from About (was above Advisors) — re-add if a good group photo appears.
