@@ -1,4 +1,4 @@
-# Handoff — SVYEP website (svyep.org)
+# Handoff — SVYEP website (svyep.com)
 
 Living handoff for the SVYEP marketing site. Read this first when you pick up the project, then keep it current.
 
@@ -19,6 +19,10 @@ left off:
 > **Pushing to `main` auto-deploys to the live site (Vercel).** Current user rule: do not push changes until a local
 > preview has been opened and the user confirms it looks fine. Commit + push to `main` is the deploy step after that
 > approval. Don't commit the stray `package-lock.json` (bun-only project).
+>
+> **The live site is https://svyep.com, NOT svyep.org.** `svyep.org` is a different organisation's site
+> ("Silicon Valley Young Entrepreneurs and Professionals") on Apache — nothing to do with this repo. Older
+> notes in this file that say svyep.org are wrong; verify deploys against **svyep.com**.
 
 Last updated: 2026-08-21.
 
@@ -62,7 +66,7 @@ Vercel auto-deploys on every push to `main`. If the site doesn't update after a 
 2. To force a redeploy without a code change: **Vercel dashboard → project → Deployments → "..." menu → Redeploy**.
 3. Or trigger via CLI (if logged into the svyep Vercel account): `vercel --prod`.
 
-Live at https://svyep.org — DNS is managed separately; Vercel handles the build + CDN.
+Live at https://svyep.com — DNS is managed separately; Vercel handles the build + CDN.
 
 ## Layout
 
@@ -120,9 +124,12 @@ simulates `object-contain` + the CSS transform inside a circular mask and writes
 `Read` the PNG to eyeball, then set the `imageStyle`. Face-height ~0.46–0.5 of the circle and face
 center ~0.45 vertically matches the rest of the team. Scratch scripts lived in `/tmp/`.
 
-**Grid sizing (current):** circles `size-[22rem]`, grid `max-w-[1300px] gap-6 px-8`, card `px-3`, bio
-text `text-base`. (Larger circles get tight at ~1024–1150px where it's still 3 columns — watch for
-crowding if bumping further.)
+**Grid sizing (current):** circles are **fluid** — `aspect-square w-full max-w-[22rem]`, NOT a fixed
+`size-[22rem]`. Grid `max-w-[1300px] gap-x-6 gap-y-16 px-8`, card `px-3 pb-2`, bio text `text-base`.
+**Gotcha (fixed 2026-08-21):** the old fixed `size-[22rem]` (352px) was *wider than its grid column*
+between ~1024–1150px (column pitch there is ~328px), so adjacent circles physically overlapped, and on
+375px mobile the circle spilled past its card to the viewport edges. Keep the circle fluid — if you ever
+put a fixed size back, re-check 1024px and 375px.
 
 **Team ordering rule:** in `about.ts`, members with a complete bio **and** a real photo are listed
 first (original order preserved); anyone still missing a bio or photo is grouped at the end until
@@ -138,6 +145,22 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > opened and the user confirms it looks fine. Push to `main` only after approval; Vercel auto-deploys that push.
 
 ## Done recently
+- **About spacing fix + roster update, YBVC page rework (2026-08-21)**: **About** — the "too close /
+  overlapping" report was two separate things: (a) every section heading sat flush against its own
+  body copy and against the next section (`gap-6` at the page root, no `mb` on any heading), and
+  (b) the fixed-size team circles genuinely overlapped at ~1024–1150px (see the Grid sizing gotcha
+  above). Fixed both: root `gap-16 pt-40 sm:gap-24 sm:pt-44`, `mb-4 sm:mb-6` on Vision/Mission
+  headings, `mb-12` on Advisors/Previous Members, `leading-[1.15] pb-2` on the big serif headings so
+  descenders stop clipping, grid `mt-12 gap-y-16`, and fluid circles. Advisors also switched from a
+  4-col grid to centred flex-wrap — with only 2 advisors left the grid pinned them to the left half.
+  **Roster** — Bretton Lam + Jeremy Peng moved from `advisors` to `previous_members` (advisors is now
+  just Rian Caesar + Jun Liu); added Derek Meng, Arun Banerjee, Leo Shi, Jaden Zhao, Lori Ji to `team`
+  (placeholder photo + "Member bio coming soon.", in the end group per the ordering rule). Team is now
+  17. **YBVC page** (`src/routes/ybvc/+page.svelte`) — removed the "YBVC" `<h1>`, reordered so 2025 is
+  the left card and 2026 the right, swapped 2025's Google-Drive iframe for
+  `/images/articles/ybvc/2025.webp`, rewrote 2025's blurb to past tense, and added a
+  `ybvcompetition.org` link under the cards. Verified in `npm run preview` at 375/1024/1150/1280px:
+  no horizontal overflow, no circle overlap, all pages 200, no broken images.
 
 - **Partner logo wall experiment (2026-08-21, local pending review)**: pulled latest `main` (already up to date),
   confirmed 44 existing company/organization logos, then locally replaced the moving Partner page marquee with a
@@ -216,15 +239,36 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 
 ## Open / not done
 
-### Team (end-of-list "awaiting content" group is now just Cindy)
+### Team (end-of-list "awaiting content" group: Cindy, Derek, Arun, Leo, Jaden, Lori)
 
-- **Placeholder images** (no real photo yet): **Cindy Zhang** (had one, user removed it — `cindy-z.webp`
-  still in repo, re-enable with `transform: scale(2.7) rotate(-18deg) translateY(11%);`). Previous members
-  Lotus Wu and Leana Zhou also use placeholders. Drop `static/images/about/<firstname-lastinitial>.webp`, point
-  `about.ts` at it, and move the member up out of the end "incomplete" group if they are in `team`.
-- **Bios missing**: none currently known. (Elaine, Jack, Cindy, Camille, Tyrone, Michael all have bios.)
+- **Placeholder images + bios needed**: **Derek Meng, Arun Banerjee, Leo Shi, Jaden Zhao, Lori Ji**
+  (added 2026-08-21, no photo and no bio yet) and **Cindy Zhang** (bio done; had a photo, user removed
+  it — `cindy-z.webp` still in repo, re-enable with `transform: scale(2.7) rotate(-18deg) translateY(11%);`).
+  Previous members Lotus Wu and Leana Zhou also use placeholders. Drop
+  `static/images/about/<firstname-lastinitial>.webp`, point `about.ts` at it, and move the member up out of
+  the end "incomplete" group if they are in `team`.
+- **Two names to confirm with the user** (raised 2026-08-21, not yet answered): the roster they sent said
+  **"Michael Hung"** but the site has **Michael Huang** (photo + bio) — left as Huang pending confirmation;
+  and **Jack Li** is on the site but was *not* on their list — left in place, since they only asked for
+  additions plus the two explicit moves.
+- **Advisor Rian Caesar** has no photo and no bio (empty `description`).
+- **Events page still shows the 2025 Google-Drive video** (`src/lib/data/events.ts`) even though the /ybvc
+  page now uses `2025.webp`. Left as-is — only the /ybvc page was in scope. Swap for consistency if wanted.
 - **Position titles**: all current team show a dash (`-`) — real titles not yet provided.
 - **Big team photo** removed from About (was above Advisors) — re-add if a good group photo appears.
+
+### Site-wide issues spotted 2026-08-21 (reported, not fixed — all pre-existing)
+
+- **Article pages have no `<title>`**: `src/routes/articles/[slug]/+page.svelte` has no `<svelte:head>`,
+  so every `/articles/NNN` tab shows the raw URL. One-line fix, just needs the go-ahead.
+- **No `<meta name="description">` anywhere** on the site (nor OG/Twitter cards) — hurts search snippets
+  and link previews.
+- **`/impact` is client-render only** (globe.gl), so its SSR HTML is ~1KB with no title. Intentional, but
+  it means crawlers see an empty page.
+- **Footer has no YBVC link** — the navbar links `/ybvc` in all three menus, the footer column doesn't.
+- **Prettier is broken in this repo**: `npx prettier` on any `.svelte` file throws
+  `TypeError: getVisitorKeys is not a function` (prettier / prettier-plugin-svelte version mismatch).
+  `npm run build` is unaffected. Format `.ts` files only until the plugin is bumped.
 
 ### Website-feedback items still BLOCKED on user-provided content (2026-06-22)
 

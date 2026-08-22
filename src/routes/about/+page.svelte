@@ -7,12 +7,12 @@
 	<title>About Us • SVYEP</title>
 </svelte:head>
 
-<div class="relative flex h-full flex-col items-center gap-6 pt-32">
+<div class="relative flex h-full flex-col items-center gap-16 pt-40 sm:gap-24 sm:pt-44">
 	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
 	<StarsBackground starDensity={0.00003} class="-z-10" />
 	<div class="flex w-full max-w-[1200px] flex-col px-4 text-white">
 		<h1
-			class="text-shadow-glow-white font-serif text-3xl leading-tight tracking-tighter sm:text-6xl"
+			class="text-shadow-glow-white mb-4 font-serif text-3xl leading-tight tracking-tighter sm:mb-6 sm:text-6xl"
 		>
 			Our Vision<span class="text-indigo-600 text-shadow-none">.</span>
 		</h1>
@@ -29,7 +29,7 @@
 
 	<div class="flex w-full max-w-[1200px] flex-col px-4 text-white">
 		<h1
-			class="text-shadow-glow-white font-serif text-3xl leading-tight tracking-tighter sm:text-6xl"
+			class="text-shadow-glow-white mb-4 font-serif text-3xl leading-tight tracking-tighter sm:mb-6 sm:text-6xl"
 		>
 			Our Mission<span class="text-indigo-600 text-shadow-none">.</span>
 		</h1>
@@ -47,13 +47,20 @@
 	</div>
 
 	<div class=" flex h-full flex-col items-center text-white">
-		<h1 class="text-shadow-glow-white text-center font-serif text-4xl tracking-tighter sm:text-8xl">
+		<h1
+			class="text-shadow-glow-white pb-2 text-center font-serif text-4xl leading-[1.15] tracking-tighter sm:text-8xl"
+		>
 			Meet the Team<span class="text-indigo-600 text-shadow-none">.</span>
 		</h1>
-		<div class="mt-6 grid max-w-[1300px] grid-cols-1 gap-6 px-8 sm:grid-cols-2 lg:grid-cols-3">
+		<div
+			class="mt-12 grid max-w-[1300px] grid-cols-1 gap-x-6 gap-y-16 px-8 sm:grid-cols-2 lg:grid-cols-3"
+		>
 			{#each about.team as member}
-				<div class="flex flex-col items-center gap-2 px-3">
-					<div class="mb-4 size-[22rem] overflow-hidden rounded-full" style={member.wrapperStyle}>
+				<div class="flex flex-col items-center gap-2 px-3 pb-2">
+					<div
+						class="mb-4 aspect-square w-full max-w-[22rem] overflow-hidden rounded-full"
+						style={member.wrapperStyle}
+					>
 						<img src={member.image} alt="" class="h-full w-full object-contain" style={member.imageStyle} />
 					</div>
 					<h1 class="font-serif text-3xl tracking-tighter">{member.name}</h1>
@@ -66,12 +73,14 @@
 		</div>
 	</div>
 	<div class="flex h-full w-10/12 flex-col items-center text-white">
-		<h1 class="font-serif text-6xl tracking-tighter sm:text-9xl">
+		<h1
+			class="mb-12 pb-2 text-center font-serif text-6xl leading-[1.15] tracking-tighter sm:text-9xl"
+		>
 			Advisors<span class="text-indigo-600">.</span>
 		</h1>
-		<div class="grid w-full max-w-[1300px] grid-cols-1 gap-8 px-8 sm:grid-cols-2 xl:grid-cols-4">
+		<div class="flex w-full max-w-[1300px] flex-wrap justify-center gap-x-8 gap-y-16 px-8">
 			{#each about.advisors as advisor}
-				<div class="flex w-full max-w-72 flex-col items-center justify-self-center">
+				<div class="flex w-full max-w-72 flex-col items-center">
 					{#if advisor.image}
 						<img src={advisor.image} alt="" class="mb-4 size-56 rounded-full object-cover" />
 					{/if}
@@ -88,10 +97,12 @@
 	</div>
 
 	<div class="mb-32 flex h-full w-10/12 flex-col items-center text-white">
-		<h1 class="font-serif text-6xl tracking-tighter sm:text-9xl">
+		<h1
+			class="mb-12 pb-2 text-center font-serif text-5xl leading-[1.15] tracking-tighter sm:text-9xl"
+		>
 			Previous Members<span class="text-indigo-600">.</span>
 		</h1>
-		<div class="flex max-w-[1200px] flex-wrap justify-center gap-12">
+		<div class="flex max-w-[1200px] flex-wrap justify-center gap-x-12 gap-y-14">
 			{#each about.previous_members as member}
 				<div class="flex max-w-80 flex-col items-center px-2">
 					<img src={member.image} alt="" class="mb-4 size-56 rounded-full object-cover" />

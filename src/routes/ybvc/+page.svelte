@@ -14,21 +14,21 @@
 
 	const competitions: Competition[] = [
 		{
+			title: 'Youth Business Venture Challenge 2025',
+			subtitle: '(in partnership with Berkeley Summit House)',
+			description:
+				'A global pitch competition for high school students. Participants submitted proposals for a chance to win over $10,000 in prize money and pitch live at Stanford.',
+			image: '/images/articles/ybvc/2025.webp',
+			article: '024',
+			photosUrl: 'https://lightroom.adobe.com/shares/b68ae08650da484d8485673e59c454e3'
+		},
+		{
 			title: 'Youth Business Venture Competition 2026',
 			subtitle: 'Stanford University',
 			description:
 				'Fifteen student startup teams gathered at Stanford to pitch ventures, receive professional feedback, and explore the future of business innovation.',
 			image: '/images/articles/ybvc-2026/ArticleMainPhoto.webp',
 			article: '026'
-		},
-		{
-			title: 'Youth Business Venture Challenge 2025',
-			subtitle: '(in partnership with Berkeley Summit House)',
-			description:
-				'A global pitch competition for high school students. Submit your proposal for a chance to win over $10,000 in prize money and a chance to pitch live at Stanford.',
-			video: 'https://drive.google.com/file/d/1JimBjldxlsyK5QZZoebvYjo1qKg8dm0s/preview',
-			article: '024',
-			photosUrl: 'https://lightroom.adobe.com/shares/b68ae08650da484d8485673e59c454e3'
 		}
 	];
 </script>
@@ -37,17 +37,11 @@
 	<title>YBVC • SVYEP</title>
 </svelte:head>
 
-<div class="relative flex flex-col items-center gap-8 px-6 pt-28 pb-20 sm:pt-32">
+<div class="relative flex flex-col items-center gap-8 px-6 pt-36 pb-20 sm:pt-44">
 	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
 	<StarsBackground starDensity={0.00003} class="-z-10" />
 
-	<section class="flex w-full max-w-[1120px] flex-col items-center gap-7">
-		<h1
-			class="text-shadow-glow-white text-center text-6xl tracking-tighter text-white select-none sm:text-7xl"
-		>
-			<span class="text-shadow-glow-blue font-serif text-indigo-600 italic">YBVC</span>
-		</h1>
-
+	<section class="flex w-full max-w-[1120px] flex-col items-center gap-8">
 		<div class="grid w-full gap-6 lg:grid-cols-2">
 			{#each competitions as competition}
 				<article
@@ -93,5 +87,16 @@
 				</article>
 			{/each}
 		</div>
+
+		<p class="text-center text-base font-light text-gray-400 sm:text-lg">
+			For more information about the competition, visit
+			<a
+				href="https://ybvcompetition.org"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="text-indigo-400 underline underline-offset-4 transition hover:text-indigo-300"
+				>ybvcompetition.org</a
+			>.
+		</p>
 	</section>
 </div>

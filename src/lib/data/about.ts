@@ -95,9 +95,53 @@ const about = {
 			description:
 				'Cindy is a junior at Palo Alto High School with an emphasized interest in the usage of Artificial Intelligence in business operations. Through SVYEP, she aims to help younger audiences with an interest in business explore their passions. Outside of school, she enjoys staying involved in her community, attending workout classes, traveling, and hanging out with friends.',
 			image: '/images/about/placeholder.svg'
+		},
+		{
+			name: 'Derek Meng',
+			position: '-',
+			description: 'Member bio coming soon.',
+			image: '/images/about/placeholder.svg'
+		},
+		{
+			name: 'Arun Banerjee',
+			position: '-',
+			description: 'Member bio coming soon.',
+			image: '/images/about/placeholder.svg'
+		},
+		{
+			name: 'Leo Shi',
+			position: '-',
+			description: 'Member bio coming soon.',
+			image: '/images/about/placeholder.svg'
+		},
+		{
+			name: 'Jaden Zhao',
+			position: '-',
+			description: 'Member bio coming soon.',
+			image: '/images/about/placeholder.svg'
+		},
+		{
+			name: 'Lori Ji',
+			position: '-',
+			description: 'Member bio coming soon.',
+			image: '/images/about/placeholder.svg'
 		}
 	],
 	previous_members: [
+		{
+			name: 'Bretton Lam',
+			position: 'Co-Founder and Former CEO',
+			description:
+				'Bretton Lam is a freshman at Carnegie Mellon University and the co-founder of SVYEP, dedicated toward expanding business development opportunities for students around the world. Outside of SVYEP, he enjoys playing basketball and golf, cooking new recipes in the kitchen, and traveling to new destinations.',
+			image: '/images/about/bretton-l.webp'
+		},
+		{
+			name: 'Jeremy Peng',
+			position: 'Co-Founder and Assistant Coach',
+			description:
+				'Jeremy is a freshman at The University of Chicago. He keenly enjoys the vitality of business, which he believes he can harness through his skills in writing and critical thinking. Jeremy wants to become an effective leader for SVYEP on its mission to guide youth into the professional world.',
+			image: '/images/about/jeremy-p.webp'
+		},
 		{
 			name: 'Kevin Tang',
 			position: 'Chief Sales Officer',
@@ -141,13 +185,6 @@ const about = {
 	],
 	advisors: [
 		{
-			name: 'Bretton Lam',
-			position: 'Co-Founder and Former CEO',
-			description:
-				'Bretton Lam is a freshman at Carnegie Mellon University and the co-founder of SVYEP, dedicated toward expanding business development opportunities for students around the world. Outside of SVYEP, he enjoys playing basketball and golf, cooking new recipes in the kitchen, and traveling to new destinations.',
-			image: '/images/about/bretton-l.webp'
-		},
-		{
 			name: 'Rian Caesar',
 			position: 'Advisor',
 			description: '',
@@ -159,13 +196,6 @@ const about = {
 			description:
 				'Wharton Alum. Founder of the 7EDU Impact Academy and Leadways School. An education reformer with over 20 years of experience in K-G12 education.',
 			image: '/images/about/jun-l.webp'
-		},
-		{
-			name: 'Jeremy Peng',
-			position: 'Co-Founder and Assistant Coach',
-			description:
-				'Jeremy is a freshman at The University of Chicago. He keenly enjoys the vitality of business, which he believes he can harness through his skills in writing and critical thinking. Jeremy wants to become an effective leader for SVYEP on its mission to guide youth into the professional world.',
-			image: '/images/about/jeremy-p.webp'
 		}
 	]
 };
