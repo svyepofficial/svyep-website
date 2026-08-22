@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
 	import StarsBackground from '$lib/components/StarsBackground.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 
 	type Competition = {
 		title: string;
@@ -33,9 +34,11 @@
 	];
 </script>
 
-<svelte:head>
-	<title>YBVC • SVYEP</title>
-</svelte:head>
+<Seo
+	title="YBVC"
+	description="The Youth Business Venture Competition — a global student pitch competition hosted by SVYEP at Stanford University."
+	image="/images/articles/ybvc-2026/ArticleMainPhoto.webp"
+/>
 
 <div class="relative flex flex-col items-center gap-8 px-6 pt-36 pb-20 sm:pt-44">
 	<StarsBackground class="fixed -z-10" starDensity={0.00003} />

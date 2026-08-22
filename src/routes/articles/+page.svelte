@@ -1,14 +1,16 @@
 <script lang="ts">
 	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import { cn } from '$lib/utils/cn.js';
+	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
 	let selectedTab = $state('All');
 </script>
 
-<svelte:head>
-	<title>Articles • SVYEP</title>
-</svelte:head>
+<Seo
+	title="Articles"
+	description="Interviews with founders and investors, event recaps, and entrepreneurship writing from the SVYEP team."
+/>
 
 <div
 	class="relative mr-auto ml-auto flex min-h-screen flex-col items-center pt-30 text-white sm:pt-40"

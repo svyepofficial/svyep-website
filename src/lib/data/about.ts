@@ -81,10 +81,10 @@ const about = {
 			imageStyle: 'transform: scale(1.95);'
 		},
 		{
-			name: 'Michael Huang',
+			name: 'Michael Hung',
 			position: '-',
 			description:
-				'Michael Huang is a freshman at BASIS Independent Silicon Valley and a member of the varsity basketball team. He has a strong interest in artificial intelligence and long-term investing, which has inspired him to explore innovation and entrepreneurship. Through SVYEP, he hopes to develop and demonstrate his leadership skills while working alongside other motivated students. He is excited to collaborate with young entrepreneurs, contribute meaningful ideas, and gain valuable experience solving real-world challenges in a team environment.',
+				'Michael Hung is a freshman at BASIS Independent Silicon Valley and a member of the varsity basketball team. He has a strong interest in artificial intelligence and long-term investing, which has inspired him to explore innovation and entrepreneurship. Through SVYEP, he hopes to develop and demonstrate his leadership skills while working alongside other motivated students. He is excited to collaborate with young entrepreneurs, contribute meaningful ideas, and gain valuable experience solving real-world challenges in a team environment.',
 			image: '/images/about/michael-h.webp',
 			imageStyle: 'transform: scale(1.10) translateY(-5%);'
 		},

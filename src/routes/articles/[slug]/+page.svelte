@@ -1,10 +1,18 @@
 <script lang="ts">
 	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import ArrowLeft from 'phosphor-svelte/lib/ArrowLeft';
+	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
 	const { metadata, article: Article } = data;
 </script>
+
+<Seo
+	title={metadata.title}
+	description={metadata.subtitle}
+	image={metadata.images?.[0] ?? '/logo.png'}
+	type="article"
+/>
 
 <StarsBackground class="-z-10" starDensity={0.00003} />
 <article

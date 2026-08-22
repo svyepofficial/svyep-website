@@ -5,6 +5,7 @@
 	import GlobeMarker from '$lib/components/GlobeMarker.svelte';
 	import { HandPointing, MouseScroll } from 'phosphor-svelte';
 	import { selectedLocation } from './state.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 
 	let globeElement: HTMLElement;
 
@@ -41,9 +42,10 @@
 	});
 </script>
 
-<svelte:head>
-	<title>Impact • SVYEP</title>
-</svelte:head>
+<Seo
+	title="Impact"
+	description="The reach of SVYEP's work so far — students and attendees reached, funds raised, and the events and partnerships behind those numbers."
+/>
 
 <div class="relative flex flex-col items-center justify-center pt-40">
 	<StarsBackground class="fixed -z-10" starDensity={0.00003} />

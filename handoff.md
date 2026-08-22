@@ -41,6 +41,29 @@ not hardcoded in components, so copy/roster/stats edits happen in `src/lib/data/
 - `@sveltejs/adapter-auto` (Vercel auto-detected at build)
 - Package manager: **bun** (`bun.lock` is the committed lockfile). A stray untracked `package-lock.json` may appear if
   npm was run — prefer bun. Don't commit `package-lock.json`.
+- **bun is NOT installed on this machine.** `npm` works for running scripts, but it will not update
+  `bun.lock`. If you must change a dependency, grab a throwaway bun binary rather than installing it
+  system-wide:
+  `curl -fsSL -o bun.zip https://github.com/oven-sh/bun/releases/latest/download/bun-darwin-aarch64.zip`
+  (unzip it in a temp dir, then run `<dir>/bun-darwin-aarch64/bun add ...` with cwd set to the project).
+  Afterwards **always** confirm with `bun install --frozen-lockfile` — Vercel installs from `bun.lock`,
+  so a lockfile out of sync with `package.json` can fail the production build.
+
+### Prettier (fixed 2026-08-21 — was broken for months)
+
+`npx prettier` used to die on every `.svelte` file with
+`TypeError: getVisitorKeys is not a function`. Cause: **`prettier-plugin-tailwindcss@0.6.14`** was
+incompatible with the installed prettier / `prettier-plugin-svelte`. Fix was a three-package bump
+(`prettier-plugin-tailwindcss` 0.6.14 → **0.8.1**, `prettier` 3.6.2 → **3.9.6**,
+`prettier-plugin-svelte` 3.4.0 → **3.5.2**). Notes for next time:
+- Bumping only `prettier-plugin-tailwindcss` swaps the crash for
+  `TypeError: e.charCodeAt is not a function` — the other two must move with it.
+- Reordering the `plugins` array so tailwind comes first *does* stop the crash, but it **silently
+  disables Tailwind class sorting**. Don't do that. `prettier-plugin-tailwindcss` must stay last.
+- Formatting rewrote CRLF → LF on the many files originally committed with CRLF, producing whole-file
+  diffs. A **`.gitattributes`** (`* text=auto eol=lf`) now pins LF so this doesn't recur. Files still
+  on CRLF get converted as they're next touched — expect the odd large-but-whitespace-only diff;
+  review those with `git diff --ignore-all-space`.
 
 ## Run / build / deploy
 
@@ -145,6 +168,22 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > opened and the user confirms it looks fine. Push to `main` only after approval; Vercel auto-deploys that push.
 
 ## Done recently
+- **SEO pass, prettier fix, roster/name corrections (2026-08-21, later same day)**:
+  **New `src/lib/components/Seo.svelte`** — renders title, `meta description`, canonical, and
+  OG/Twitter card tags; takes `title` (the " • SVYEP" suffix is added inside), `description`, optional
+  `image` (root-relative; converted to absolute, since crawlers reject relative OG images) and
+  `type`. **Every** route now uses it, including `articles/[slug]`, which previously had no
+  `<svelte:head>` at all so article tabs showed the raw URL. Article pages feed it `metadata.title` /
+  `metadata.subtitle` / `metadata.images[0]`.
+  **`/impact` now server-renders**: `+page.server.ts` had `export const ssr = false`, so crawlers got a
+  ~1KB empty shell. globe.gl is already lazily imported inside `onMount`, so it never touches the
+  server — flipping to `ssr = true` gives a ~14KB SSR page and the globe still mounts fine (verified
+  visually in preview).
+  **Prettier is fixed** — see the Prettier section below.
+  **Events page** now shows `2025.webp` for YBVC 2025 instead of the Drive iframe, matching /ybvc.
+  **Footer** gained the missing `/ybvc` link. **Michael Huang → Michael Hung** (user confirmed the
+  correct spelling); `michael-h.webp` is unchanged since the convention is firstname-lastinitial.
+  Jack Li stays on the team (user confirmed).
 - **About spacing fix + roster update, YBVC page rework (2026-08-21)**: **About** — the "too close /
   overlapping" report was two separate things: (a) every section heading sat flush against its own
   body copy and against the next section (`gap-6` at the page root, no `mb` on any heading), and
@@ -247,40 +286,8 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   Previous members Lotus Wu and Leana Zhou also use placeholders. Drop
   `static/images/about/<firstname-lastinitial>.webp`, point `about.ts` at it, and move the member up out of
   the end "incomplete" group if they are in `team`.
-- **Two names to confirm with the user** (raised 2026-08-21, not yet answered): the roster they sent said
-  **"Michael Hung"** but the site has **Michael Huang** (photo + bio) — left as Huang pending confirmation;
-  and **Jack Li** is on the site but was *not* on their list — left in place, since they only asked for
-  additions plus the two explicit moves.
-- **Advisor Rian Caesar** has no photo and no bio (empty `description`).
-- **Events page still shows the 2025 Google-Drive video** (`src/lib/data/events.ts`) even though the /ybvc
-  page now uses `2025.webp`. Left as-is — only the /ybvc page was in scope. Swap for consistency if wanted.
+- **Advisor Rian Caesar** has no photo and no bio, and that is **intentional** — the user confirmed
+  2026-08-21 that "rian doesn't want anything". He keeps the `placeholder.svg` silhouette so his card
+  still lines up next to Jun Liu's. Don't chase a photo or bio for him.
 - **Position titles**: all current team show a dash (`-`) — real titles not yet provided.
 - **Big team photo** removed from About (was above Advisors) — re-add if a good group photo appears.
-
-### Site-wide issues spotted 2026-08-21 (reported, not fixed — all pre-existing)
-
-- **Article pages have no `<title>`**: `src/routes/articles/[slug]/+page.svelte` has no `<svelte:head>`,
-  so every `/articles/NNN` tab shows the raw URL. One-line fix, just needs the go-ahead.
-- **No `<meta name="description">` anywhere** on the site (nor OG/Twitter cards) — hurts search snippets
-  and link previews.
-- **`/impact` is client-render only** (globe.gl), so its SSR HTML is ~1KB with no title. Intentional, but
-  it means crawlers see an empty page.
-- **Footer has no YBVC link** — the navbar links `/ybvc` in all three menus, the footer column doesn't.
-- **Prettier is broken in this repo**: `npx prettier` on any `.svelte` file throws
-  `TypeError: getVisitorKeys is not a function` (prettier / prettier-plugin-svelte version mismatch).
-  `npm run build` is unaffected. Format `.ts` files only until the plugin is bumped.
-
-### Website-feedback items still BLOCKED on user-provided content (2026-06-22)
-
-- **"How it works" basics** — homepage says "community for high school students" but does NOT yet
-  state: is membership **free**? **eligibility** (anywhere / Bay Area only / grade levels)? **time
-  commitment**? Need these facts to add a proper short "How it works" line. (I avoided asserting
-  "free" without confirmation.)
-- **Trust signals (not started, need assets):**
-  - Org / nonprofit details: legal name, 501(c)(3) status, EIN — for the footer/about/donate.
-  - A real **contact** beyond the Gmail address (official email and/or mailing address).
-  - **Partner logos** — site name-drops Google Fiber + investors but shows no logos. Need logo image
-    files to build a partners strip (good fit for the homepage `businesses worked with` section).
-  - **Student testimonials** — 2–3 quotes + names/schools to add a testimonial section.
-- **UX (partially done):** added an early CTA + value section near the top; homepage is still long and
-  animation-heavy below the fold — could trim further if desired (subjective, left for direction).

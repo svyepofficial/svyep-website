@@ -1,0 +1,16 @@
+# Normalise line endings to LF in the repository.
+#
+# A number of files were originally committed with CRLF. Prettier's default
+# (`endOfLine: "lf"`) rewrites them to LF, which made every `npm run format`
+# produce a whole-file diff. Pinning LF here keeps formatting runs stable.
+# Files already committed with CRLF are converted as they are next touched.
+* text=auto eol=lf
+
+# Binary assets — never line-ending-converted or diffed as text.
+*.png binary
+*.webp binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.woff binary
+*.woff2 binary

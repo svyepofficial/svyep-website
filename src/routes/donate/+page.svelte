@@ -3,11 +3,13 @@
 	import Button from '$lib/components/Button.svelte';
 	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import home from '$lib/data/home';
+	import Seo from '$lib/components/Seo.svelte';
 </script>
 
-<svelte:head>
-	<title>Donate • SVYEP</title>
-</svelte:head>
+<Seo
+	title="Donate"
+	description="Support SVYEP. Donations fund pitch competitions, prize money, and free entrepreneurship programming for high school students."
+/>
 
 <div class="relative flex flex-col items-center py-40">
 	<StarsBackground class="fixed -z-10" starDensity={0.00003} />

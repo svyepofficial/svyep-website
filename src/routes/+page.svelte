@@ -11,6 +11,7 @@
 	import AnimateNumber from '$lib/components/AnimateNumber.svelte';
 	import AnimateText from '$lib/components/AnimateText.svelte';
 	import Marquee from '$lib/components/Marquee.svelte';
+	import Seo from '$lib/components/Seo.svelte';
 
 	let firstScroll: number = $state(0);
 	let secondScroll = $derived(firstScroll - 300);
@@ -65,9 +66,10 @@
 	}
 </script>
 
-<svelte:head>
-	<title>Home • SVYEP</title>
-</svelte:head>
+<Seo
+	title="Home"
+	description="SVYEP is a student-led community that helps high school students become social entrepreneurs — through mentorship, industry connections, pitch competitions, and real-world entrepreneurial education."
+/>
 
 <svelte:window bind:scrollY={firstScroll as number} />
 
@@ -118,8 +120,8 @@
 			<p
 				class="max-w-[460px] text-center text-base text-gray-300 sm:text-right sm:text-lg xl:text-right"
 			>
-				A community for high school students who want to use business as a force for good — connecting
-				them to the mentors, internships, and ideas to turn ambition into real-world
+				A community for high school students who want to use business as a force for good —
+				connecting them to the mentors, internships, and ideas to turn ambition into real-world
 				<span class="font-serif text-indigo-400 italic">impact</span>.
 			</p>
 			<Button href="/join" size="lg">Get started</Button>
@@ -131,9 +133,7 @@
 <section class="relative flex flex-col items-center gap-10 px-4 pb-24">
 	<StarsBackground starDensity={0.00003} class="-z-10" />
 	<div class="flex max-w-[760px] flex-col items-center gap-4 text-center">
-		<h2
-			class="text-shadow-glow-white text-4xl tracking-tighter text-white sm:text-6xl"
-		>
+		<h2 class="text-shadow-glow-white text-4xl tracking-tighter text-white sm:text-6xl">
 			What you get as a <span class="font-serif text-indigo-600 italic">member</span>.
 		</h2>
 		<p class="max-w-[560px] text-base text-gray-300 sm:text-lg">
@@ -235,9 +235,9 @@
 					>We've <span class="bg-indigo-700 font-serif text-white italic">raised</span>
 					${home.statistics.raised} through investors and partnerships, demonstrating the strength and
 					trust of our growing network.</span
-				> This level of backing and funding reflects the confidence our partners have in our mission
-				and the value we deliver. It shows that our community believes in what we're building and the
-				impact we have on bright minds of the future.
+				> This level of backing and funding reflects the confidence our partners have in our mission and
+				the value we deliver. It shows that our community believes in what we're building and the impact
+				we have on bright minds of the future.
 			</p>
 		</div>
 	</div>
@@ -265,8 +265,8 @@
 		<p class="max-w-[500px] px-2 text-center text-sm text-gray-400 lg:text-base">
 			<span class="text-white">
 				This is the total <span class="bg-indigo-700 font-serif text-white italic">reach</span> of the
-				events and pitch competitions we've hosted and co-hosted — the students, professionals, and
-				audiences we've connected to opportunity.
+				events and pitch competitions we've hosted and co-hosted — the students, professionals, and audiences
+				we've connected to opportunity.
 			</span> Most notably this year, SVYEP co-hosted the largest pitch event in Silicon Valley, drawing
 			thousands of attendees, 350+ VCs, and 100+ investors.
 		</p>

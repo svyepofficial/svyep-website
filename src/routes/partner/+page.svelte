@@ -3,6 +3,7 @@
 	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import { ArrowDown, ArrowUp } from 'phosphor-svelte';
 	import { fade } from 'svelte/transition';
+	import Seo from '$lib/components/Seo.svelte';
 
 	const logoName = (path: string) =>
 		path
@@ -36,9 +37,10 @@
 	let isFormOpen = $state(false);
 </script>
 
-<svelte:head>
-	<title>Partner • SVYEP</title>
-</svelte:head>
+<Seo
+	title="Partner"
+	description="Partner with SVYEP to reach and support the next generation of young founders through sponsorship, mentorship, and events."
+/>
 
 <div class="relative flex flex-col items-center pt-52">
 	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
@@ -102,7 +104,7 @@
 					<img
 						src={company.url}
 						alt={company.name}
-						class={`max-w-full select-none object-contain opacity-60 grayscale contrast-75 transition-transform duration-200 hover:scale-105 ${company.featured ? 'max-h-16' : 'max-h-12'}`}
+						class={`max-w-full object-contain opacity-60 contrast-75 grayscale transition-transform duration-200 select-none hover:scale-105 ${company.featured ? 'max-h-16' : 'max-h-12'}`}
 					/>
 				</div>
 			{/each}
@@ -119,7 +121,7 @@
 				We have supported these organizations through donation.
 			</p>
 		</div>
-		<div class="flex flex-wrap justify-center gap-12 opacity-60 grayscale contrast-75">
+		<div class="flex flex-wrap justify-center gap-12 opacity-60 contrast-75 grayscale">
 			{#each communityInitiatives as url}
 				<img src={url as string} alt={url as string} class="h-[100px] select-none" />
 			{/each}

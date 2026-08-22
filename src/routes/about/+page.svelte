@@ -1,11 +1,13 @@
 <script lang="ts">
 	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import about from '$lib/data/about';
+	import Seo from '$lib/components/Seo.svelte';
 </script>
 
-<svelte:head>
-	<title>About Us • SVYEP</title>
-</svelte:head>
+<Seo
+	title="About Us"
+	description="Meet the students behind SVYEP. Our vision, our mission, and the team building a platform for the next generation of purpose-driven entrepreneurs."
+/>
 
 <div class="relative flex h-full flex-col items-center gap-16 pt-40 sm:gap-24 sm:pt-44">
 	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
@@ -16,14 +18,18 @@
 		>
 			Our Vision<span class="text-indigo-600 text-shadow-none">.</span>
 		</h1>
-		<p class="text-center text-base leading-snug font-extralight tracking-tight sm:text-justify sm:text-3xl">
+		<p
+			class="text-center text-base leading-snug font-extralight tracking-tight sm:text-justify sm:text-3xl"
+		>
 			To inspire and empower the next generation of
-			<span class="font-serif font-medium text-indigo-600 italic">purpose-driven</span> entrepreneurs
-			who create <span class="font-serif font-medium text-indigo-600 italic">innovative</span> ventures,
-			lead with <span class="font-serif font-medium text-indigo-600 italic">integrity</span>, and build
+			<span class="font-serif font-medium text-indigo-600 italic">purpose-driven</span>
+			entrepreneurs who create
+			<span class="font-serif font-medium text-indigo-600 italic">innovative</span>
+			ventures, lead with
+			<span class="font-serif font-medium text-indigo-600 italic">integrity</span>, and build
 			businesses that generate lasting
-			<span class="font-serif font-medium text-indigo-600 italic">social impact</span> in their
-			communities and beyond.
+			<span class="font-serif font-medium text-indigo-600 italic">social impact</span> in their communities
+			and beyond.
 		</p>
 	</div>
 
@@ -33,16 +39,22 @@
 		>
 			Our Mission<span class="text-indigo-600 text-shadow-none">.</span>
 		</h1>
-		<p class="text-center text-sm leading-snug font-extralight tracking-tight sm:text-justify sm:text-2xl">
+		<p
+			class="text-center text-sm leading-snug font-extralight tracking-tight sm:text-justify sm:text-2xl"
+		>
 			At SVYEP, we empower high school students to become
 			<span class="font-serif font-medium text-indigo-600 italic">social entrepreneurs</span> who
 			identify real-world challenges, develop
-			<span class="font-serif font-medium text-indigo-600 italic">innovative and sustainable solutions</span>,
-			and create <span class="font-serif font-medium text-indigo-600 italic">meaningful impact</span> in
-			their communities. Through mentorship, real-world experiences, industry partnerships, and
-			entrepreneurial education, we equip students with the leadership, business, and problem-solving
-			skills to build ventures that create both
-			<span class="font-serif font-medium text-indigo-600 italic">economic value and positive social change</span>.
+			<span class="font-serif font-medium text-indigo-600 italic"
+				>innovative and sustainable solutions</span
+			>, and create
+			<span class="font-serif font-medium text-indigo-600 italic">meaningful impact</span>
+			in their communities. Through mentorship, real-world experiences, industry partnerships, and
+			entrepreneurial education, we equip students with the leadership, business, and
+			problem-solving skills to build ventures that create both
+			<span class="font-serif font-medium text-indigo-600 italic"
+				>economic value and positive social change</span
+			>.
 		</p>
 	</div>
 
@@ -61,7 +73,12 @@
 						class="mb-4 aspect-square w-full max-w-[22rem] overflow-hidden rounded-full"
 						style={member.wrapperStyle}
 					>
-						<img src={member.image} alt="" class="h-full w-full object-contain" style={member.imageStyle} />
+						<img
+							src={member.image}
+							alt=""
+							class="h-full w-full object-contain"
+							style={member.imageStyle}
+						/>
 					</div>
 					<h1 class="font-serif text-3xl tracking-tighter">{member.name}</h1>
 					<h2 class="text-base font-medium text-indigo-600">{member.position}</h2>

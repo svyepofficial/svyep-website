@@ -42,6 +42,7 @@
 			<div class="flex flex-col items-center gap-2">
 				<a href="/events" class="hover:text-shadow-glow-white transition hover:text-white">Events</a
 				>
+				<a href="/ybvc" class="hover:text-shadow-glow-white transition hover:text-white">YBVC</a>
 				<a href="/articles" class="hover:text-shadow-glow-white transition hover:text-white"
 					>Articles</a
 				>

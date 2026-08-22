@@ -3,11 +3,13 @@
 	import Star from 'phosphor-svelte/lib/Star';
 	import HandCoins from 'phosphor-svelte/lib/HandCoins';
 	import Envelope from 'phosphor-svelte/lib/Envelope';
+	import Seo from '$lib/components/Seo.svelte';
 </script>
 
-<svelte:head>
-	<title>Join • SVYEP</title>
-</svelte:head>
+<Seo
+	title="Join"
+	description="Apply to join SVYEP — a community of high school students building ventures, meeting industry leaders, and competing on a global stage."
+/>
 
 <div class="relative flex flex-col items-center pt-30 sm:pt-40">
 	<StarsBackground class="fixed -z-10" starDensity={0.00003} />

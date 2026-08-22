@@ -20,8 +20,8 @@ const events = {
 			subtitle: '(in partnership with Berkeley Summit House)',
 			description:
 				'A global pitch competition for high school students. Participants submitted proposals for a chance to win over $10,000 in prize money and pitch live at Stanford.',
-			thumbnail: '',
-			video: 'https://drive.google.com/file/d/1JimBjldxlsyK5QZZoebvYjo1qKg8dm0s/preview',
+			thumbnail: 'images/articles/ybvc/2025.webp',
+			video: '',
 			article: '024'
 		},
 		{

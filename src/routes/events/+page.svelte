@@ -3,11 +3,13 @@
 	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import events from '$lib/data/events';
 	import { cn } from '$lib/utils/cn';
+	import Seo from '$lib/components/Seo.svelte';
 </script>
 
-<svelte:head>
-	<title>Events • SVYEP</title>
-</svelte:head>
+<Seo
+	title="Events"
+	description="Pitch competitions, VC summits, and speaker events hosted and co-hosted by SVYEP, from Stanford to the Bay Area Founders Club."
+/>
 
 <div class="relative flex flex-col items-center gap-10 pt-30 pb-20 sm:pt-40">
 	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
