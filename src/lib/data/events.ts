@@ -1,6 +1,6 @@
 /*
-- 'video' field is optional. 
-- Only Google Drive links are accepted. 
+- 'video' field is optional.
+- Only Google Drive links are accepted.
 - You must replace the '/share' in the link with '/preview'
 */
 
@@ -17,15 +17,6 @@ const events = {
 			article: '020'
 		},
 		{
-			title: 'The Youth Business Venture Challenge',
-			subtitle: '(in partnership with Berkeley Summit House)',
-			description:
-				'LIVE NOW! A global pitch competition for high school students. Submit your proposal for a chance to win over $10,000 in prize money and a chance to pitch live at Stanford on September 28th. Visit ybvchallenge.org to learn more!',
-			thumbnail: 'images/events/featured/thumbnail.webp',
-			video: 'https://drive.google.com/file/d/1JimBjldxlsyK5QZZoebvYjo1qKg8dm0s/preview',
-			article: '024'
-		},
-		{
 			title: 'The Amino Entrepreneur Mindset Summit',
 			subtitle: '(in partnership with Amino Capital)',
 			description:
@@ -33,9 +24,7 @@ const events = {
 			thumbnail: 'images/events/E3.webp',
 			video: '',
 			article: '011'
-		}
-	],
-	past_events: [
+		},
 		{
 			title: 'GenAI in the Valley 2024',
 			subtitle: '',
@@ -52,7 +41,8 @@ const events = {
 			thumbnail: 'images/events/E5.webp',
 			article: '001'
 		}
-	]
+	],
+	past_events: []
 };
 
 export default events;

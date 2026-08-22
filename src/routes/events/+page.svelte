@@ -3,237 +3,66 @@
 	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import events from '$lib/data/events';
 	import { cn } from '$lib/utils/cn';
-	import { CaretLeft, CaretRight } from 'phosphor-svelte';
-
-	let eventsContainer = $state() as HTMLElement;
-	let focusedEvent = $state(1);
-
-	// let screenWidth = $state(window.screen.width);
-
-	$effect(() => {
-		if (window.screen.width <= 640) {
-			eventsContainer.style.left = '0px';
-			if (focusedEvent === 0) eventsContainer.style.left = '350px';
-			else if (focusedEvent === 1) eventsContainer.style.left = '0px';
-			else if (focusedEvent === 2) eventsContainer.style.left = '-350px';
-		} else {
-			eventsContainer.style.left = '0px';
-			if (focusedEvent === 0) eventsContainer.style.left = '500px';
-			else if (focusedEvent === 1) eventsContainer.style.left = '0px';
-			else if (focusedEvent === 2) eventsContainer.style.left = '-500px';
-		}
-	});
 </script>
 
 <svelte:head>
 	<title>Events • SVYEP</title>
 </svelte:head>
 
-<div class="relative flex flex-col items-center gap-10 pt-30 sm:pt-40">
+<div class="relative flex flex-col items-center gap-10 pt-30 pb-20 sm:pt-40">
 	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
 	<StarsBackground starDensity={0.00003} class="-z-10" />
 	<h1
-		class="text-shadow-glow-white text-center text-7xl tracking-tighter text-white select-none sm:text-9xl"
+		class="text-shadow-glow-white px-6 text-center text-7xl tracking-tighter text-white select-none sm:text-9xl"
 	>
-		Top 5 <span class="text-shadow-glow-blue font-serif text-indigo-600 italic">SVYEP</span> Events
+		Featured <span class="text-shadow-glow-blue font-serif text-indigo-600 italic">SVYEP</span>
+		Events
 	</h1>
-	<div class="relative flex items-center" bind:this={eventsContainer}>
-		<button
-			class={cn(
-				'relative flex h-[650px] w-[350px] scale-0 flex-col rounded-3xl border-2 border-white/50 bg-gray-800 transition duration-500 sm:w-[500px]',
-				focusedEvent === 1
-					? 'hover:shadow-glow-blue-hover left-10 scale-70 skew-y-6 opacity-30'
-					: focusedEvent === 2
-						? 'opacity-0'
-						: focusedEvent === 0
-							? 'shadow-glow-blue-hover scale-100'
-							: ''
-			)}
-			onclick={() => {
-				focusedEvent = 0;
-			}}
-		>
-			{#if events.featured_events[0].video}
-				<iframe
-					title={events.featured_events[0].title}
-					src={events.featured_events[0].video}
-					allowfullscreen
-					allow="encrypted-media *;"
-					class="aspect-video h-auto w-full rounded-t-3xl border-2 border-white/5 object-cover"
-				></iframe>
-			{:else}
-				<img
-					src={events.featured_events[0].thumbnail}
-					alt=""
-					class="h-[300px] w-full rounded-t-3xl border-2 border-white/5 object-cover"
-				/>
-			{/if}
-			<div class="-mt-4 flex h-full flex-col justify-center p-4">
-				<h2 class="font-serif text-xs font-light tracking-tighter text-indigo-400">
-					{events.featured_events[0].subtitle}
-				</h2>
-				<h1 class="z-10 mt-2 text-4xl font-semibold tracking-tighter text-white">
-					{events.featured_events[0].title}
-				</h1>
-				<p class="pt-4 font-light text-gray-400">
-					{events.featured_events[0].description}
-				</p>
-				{#if events.featured_events[0].article}
-					<Button href="/articles/{events.featured_events[0].article}" class="mx-auto mt-4"
-						>Read More</Button
-					>
-				{/if}
-			</div>
-		</button>
-		<button
-			class={cn(
-				'relative flex h-[650px] w-[350px] scale-0 flex-col rounded-3xl border-2 border-white/50 bg-gray-800 transition duration-500 sm:w-[500px]',
-				focusedEvent === 0
-					? 'hover:shadow-glow-blue-hover right-10 scale-70 -skew-y-6 opacity-30'
-					: focusedEvent === 2
-						? 'hover:shadow-glow-blue-hover left-10 scale-70 skew-y-6 opacity-30'
-						: focusedEvent === 1
-							? 'shadow-glow-blue-hover scale-100'
-							: ''
-			)}
-			onclick={() => {
-				focusedEvent = 1;
-			}}
-		>
-			{#if events.featured_events[1].video}
-				<iframe
-					title={events.featured_events[1].title}
-					src={events.featured_events[1].video}
-					allowfullscreen
-					allow="encrypted-media *;"
-					class="aspect-video h-auto w-full rounded-t-3xl border-2 border-white/5 object-cover"
-				></iframe>
-			{:else}
-				<img
-					src={events.featured_events[1].thumbnail}
-					alt=""
-					class=" h-[300px] w-full rounded-t-3xl border-2 border-white/5 object-cover"
-				/>
-			{/if}
-			<div class="-mt-4 flex h-full flex-col justify-center p-4">
-				<h2 class="font-serif text-xs font-light tracking-tighter text-indigo-400">
-					{events.featured_events[1].subtitle}
-				</h2>
-				<h1 class="z-10 mt-2 text-4xl font-semibold tracking-tighter text-white">
-					{events.featured_events[1].title}
-				</h1>
-				<p class="pt-4 font-light text-gray-400">
-					{events.featured_events[1].description}
-				</p>
-				<div class="mx-auto mt-4 flex gap-4">
-					<Button
-						variant="secondary"
-						target="_blank"
-						href="https://lightroom.adobe.com/shares/b68ae08650da484d8485673e59c454e3"
-						>Event photos</Button
-					>
-					{#if events.featured_events[1].article}
-						<Button href="/articles/{events.featured_events[1].article}">Read More</Button>
-					{/if}
-				</div>
-			</div>
-		</button>
-		<button
-			class={cn(
-				'relative flex h-[650px] w-[350px] scale-0 flex-col rounded-3xl border-2 border-white/50 bg-gray-800 transition duration-500 sm:w-[500px]',
-				focusedEvent === 1
-					? 'hover:shadow-glow-blue-hover right-10 scale-70 -skew-y-6 opacity-30'
-					: focusedEvent === 0
-						? 'opacity-0'
-						: focusedEvent === 2
-							? 'shadow-glow-blue-hover scale-100'
-							: ''
-			)}
-			onclick={() => {
-				focusedEvent = 2;
-			}}
-		>
-			{#if events.featured_events[2].video}
-				<iframe
-					title={events.featured_events[2].title}
-					src={events.featured_events[2].video}
-					allowfullscreen
-					allow="encrypted-media *;"
-					class="aspect-video h-auto w-full rounded-t-3xl border-2 border-white/5 object-cover"
-				></iframe>
-			{:else}
-				<img
-					src={events.featured_events[2].thumbnail}
-					alt=""
-					class=" h-[300px] w-full rounded-t-3xl border-2 border-white/5 object-cover"
-				/>
-			{/if}
-			<div class="-mt-4 flex h-full flex-col justify-center p-4">
-				<h2 class="font-serif text-xs font-light tracking-tighter text-indigo-400">
-					{events.featured_events[2].subtitle}
-				</h2>
-				<h1 class="z-10 mt-2 text-4xl font-semibold tracking-tighter text-white">
-					{events.featured_events[2].title}
-				</h1>
-				<p class="pt-4 font-light text-gray-400">
-					{events.featured_events[2].description}
-				</p>
-				{#if events.featured_events[2].article}
-					<Button href="/articles/{events.featured_events[2].article}" class="mx-auto mt-4"
-						>Read More</Button
-					>
-				{/if}
-			</div>
-		</button>
-	</div>
-	<div class="flex gap-2">
-		<Button
-			size="icon"
-			disabled={focusedEvent === 0}
-			onclick={() => {
-				focusedEvent--;
-			}}><CaretLeft weight="bold" size={24} /></Button
-		>
-		<Button
-			size="icon"
-			disabled={focusedEvent === 2}
-			onclick={() => {
-				focusedEvent++;
-			}}><CaretRight weight="bold" size={24} /></Button
-		>
-	</div>
-	<div class="flex max-w-[1200px] flex-col gap-10 p-10">
-		{#each events.past_events as event, index}
+	<div class="flex w-full max-w-[1500px] flex-col px-6 sm:px-10">
+		{#each events.featured_events as event, index}
 			<div
 				class={cn(
-					'flex flex-wrap items-center justify-center gap-10 md:flex-nowrap',
-					index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
+					'grid grid-cols-1 items-center gap-10 py-16 lg:grid-cols-2 lg:gap-16',
+					index % 2 === 0 ? '' : 'lg:[&>*:first-child]:order-2'
 				)}
 			>
-				<div>
-					<h2 class="font-serif font-light text-indigo-400">
-						{event.subtitle}
-					</h2>
-					<h1 class="z-10 mt-2 text-4xl font-semibold tracking-tighter text-white">
+				<div class="flex flex-col items-start">
+					{#if event.subtitle}
+						<h2 class="font-serif text-lg font-light tracking-tighter text-indigo-400">
+							{event.subtitle}
+						</h2>
+					{/if}
+					<h1 class="z-10 mt-2 text-5xl font-semibold tracking-tighter text-white md:text-6xl">
 						{event.title}
 					</h1>
-					<p class="mb-4 pt-4 font-light text-gray-400">
+					<p class="max-w-3xl pt-8 text-2xl leading-relaxed font-light text-gray-400">
 						{event.description}
 					</p>
 					{#if event.article}
-						<Button href="/articles/{event.article}">Read More</Button>
+						<Button href="/articles/{event.article}" size="lg" class="mt-8">Read More</Button>
 					{/if}
 				</div>
-				{#if event.thumbnail}
-					<!-- content here -->
-					<img
-						src={event.thumbnail}
-						alt={event.title}
-						class="hover:shadow-glow-blue-hover h-[300px] w-auto rounded-3xl outline-1 outline-indigo-600 transition"
-					/>
-				{/if}
+				<div class="flex justify-center">
+					{#if event.video}
+						<iframe
+							title={event.title}
+							src={event.video}
+							allowfullscreen
+							allow="encrypted-media *;"
+							class="hover:shadow-glow-blue-hover aspect-video w-full rounded-3xl border-2 border-indigo-600 object-cover transition"
+						></iframe>
+					{:else if event.thumbnail}
+						<img
+							src="/{event.thumbnail}"
+							alt={event.title}
+							class="hover:shadow-glow-blue-hover aspect-[3/2] w-full rounded-3xl border-2 border-indigo-600 object-cover transition"
+						/>
+					{/if}
+				</div>
 			</div>
-			<hr class="text-gray-400/20" />
+			{#if index !== events.featured_events.length - 1}
+				<hr class="border-gray-400/20" />
+			{/if}
 		{/each}
 	</div>
 </div>

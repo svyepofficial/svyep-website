@@ -20,7 +20,7 @@ left off:
 > preview has been opened and the user confirms it looks fine. Commit + push to `main` is the deploy step after that
 > approval. Don't commit the stray `package-lock.json` (bun-only project).
 
-Last updated: 2026-08-08.
+Last updated: 2026-08-21.
 
 ## What this is
 
@@ -139,6 +139,26 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 
 ## Done recently
 
+- **Partner logo wall experiment (2026-08-21, local pending review)**: pulled latest `main` (already up to date),
+  confirmed 44 existing company/organization logos, then locally replaced the moving Partner page marquee with a
+  static logo wall for preview. Added five screenshot-derived, transparent, theme-colored logos:
+  MagStone Law, Star One Credit Union, 7EDU, Stan's Donuts, and Philz Coffee. User then asked to restore original
+  logo colors, so the five screenshot-derived logos were regenerated in original colors and the Partner logo wall was
+  changed to full-color logos on light tiles instead of grayscale/opacity styling. User then reverted that direction:
+  the five screenshot-derived logos are back to themed white/indigo treatment and render slightly larger than the
+  other company logos. User then asked to make logos gray-ish again, so the Partner page now applies grayscale /
+  softened contrast / opacity styling to the logo displays. No commit/push until local preview is approved.
+- **YBVC page split (2026-08-21, local pending review)**: locally added a top-nav `YBVC` tab, moved the Youth Business
+  Venture Competition card out of Events into a new `/ybvc` page, and converted
+  `/Users/angelahe/Downloads/SVYEP-YBVC report.pdf` into a new article at `src/lib/articles/026.md` titled
+  `Youth Business Venture Competition 2026`, with extracted photos under `static/images/articles/ybvc-2026/`.
+  The `/ybvc` page now shows the 2025 and 2026 YBVC entries as matching compact cards in one desktop row; the
+  2025 title is `Youth Business Venture Challenge 2025`, and the 2026 card links to `/articles/026` with a
+  `Read More` button instead of linking to a PDF. No commit/push until local preview is approved.
+- **Events layout update (2026-08-21, local pending review)**: locally moved the two former `past_events` entries into
+  `featured_events` so the Events page has four featured events, then replaced the featured card grid with alternating
+  text/image rows matching the existing past-event format. YBVC remains on the separate `/ybvc` tab. No commit/push
+  until local preview is approved.
 - **Advisor copy/layout cleanup (2026-08-06)**: removed Bretton Lam's advisor description,
   added Rian Caesar as `Advisor` using `/images/about/placeholder.svg`, made advisor image/description rendering
   conditional in `src/routes/about/+page.svelte`, and changed Advisors to a four-column desktop grid so all four

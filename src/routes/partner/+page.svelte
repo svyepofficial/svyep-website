@@ -1,16 +1,30 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import Marquee from '$lib/components/Marquee.svelte';
 	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import { ArrowDown, ArrowUp } from 'phosphor-svelte';
 	import { fade } from 'svelte/transition';
 
-	const companiesAndOrganizations = Object.values(
+	const logoName = (path: string) =>
+		path
+			.split('/')
+			.at(-1)
+			?.replace(/\.png$/, '')
+			.replace(/^\d+\s+/, '')
+			.replace(/-/g, ' ')
+			.replace(/\b\w/g, (letter) => letter.toUpperCase()) ?? 'Partner logo';
+
+	const isAddedLogo = (path: string) => /\/4[5-9]\s/.test(path);
+
+	const companiesAndOrganizations = Object.entries(
 		import.meta.glob('/src/lib/logos/companies-and-organizations/*.png', {
 			eager: true,
 			import: 'default'
 		})
-	);
+	).map(([path, url]) => ({
+		name: logoName(path),
+		url: url as string,
+		featured: isAddedLogo(path)
+	}));
 
 	const communityInitiatives = Object.values(
 		import.meta.glob('/src/lib/logos/community-initiatives/*.png', {
@@ -80,28 +94,18 @@
 				representatives in SVYEP hosted events.
 			</p>
 		</div>
-		<div class="flex flex-col gap-4 opacity-50">
-			<Marquee class="[--duration:60s]">
-				{#each companiesAndOrganizations as url, index}
-					{#if index < companiesAndOrganizations.length / 3}
-						<img src={url as string} alt="" class="mx-6 h-[50px] select-none" />
-					{/if}
-				{/each}
-			</Marquee>
-			<Marquee class="[--duration:60s]" reverse={true}>
-				{#each companiesAndOrganizations as url, index}
-					{#if index >= companiesAndOrganizations.length / 3 && index < (companiesAndOrganizations.length / 3) * 2}
-						<img src={url as string} alt="" class="mx-6 h-[50px] select-none" />
-					{/if}
-				{/each}
-			</Marquee>
-			<Marquee class="[--duration:60s]">
-				{#each companiesAndOrganizations as url, index}
-					{#if index >= (companiesAndOrganizations.length / 3) * 2 && index < companiesAndOrganizations.length}
-						<img src={url as string} alt="" class="mx-6 h-[50px] select-none" />
-					{/if}
-				{/each}
-			</Marquee>
+		<div
+			class="mx-4 grid w-full max-w-6xl grid-cols-2 items-center gap-x-8 gap-y-8 rounded-lg border border-white/10 bg-white/[0.025] px-8 py-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7"
+		>
+			{#each companiesAndOrganizations as company}
+				<div class="flex h-16 items-center justify-center">
+					<img
+						src={company.url}
+						alt={company.name}
+						class={`max-w-full select-none object-contain opacity-60 grayscale contrast-75 transition-transform duration-200 hover:scale-105 ${company.featured ? 'max-h-16' : 'max-h-12'}`}
+					/>
+				</div>
+			{/each}
 		</div>
 	</div>
 	<div class="my-10 flex flex-col items-center gap-4">
@@ -115,7 +119,7 @@
 				We have supported these organizations through donation.
 			</p>
 		</div>
-		<div class="flex flex-wrap justify-center gap-12 opacity-50">
+		<div class="flex flex-wrap justify-center gap-12 opacity-60 grayscale contrast-75">
 			{#each communityInitiatives as url}
 				<img src={url as string} alt={url as string} class="h-[100px] select-none" />
 			{/each}
