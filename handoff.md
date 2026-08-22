@@ -152,8 +152,8 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   Venture Competition card out of Events into a new `/ybvc` page, and converted
   `/Users/angelahe/Downloads/SVYEP-YBVC report.pdf` into a new article at `src/lib/articles/026.md` titled
   `Youth Business Venture Competition 2026`, with extracted photos under `static/images/articles/ybvc-2026/`.
-  The `/ybvc` page now shows the 2025 and 2026 YBVC entries as matching compact cards in one desktop row; the
-  2025 title is `Youth Business Venture Challenge 2025`, and the 2026 card links to `/articles/026` with a
+  The `/ybvc` page now shows the 2026 and 2025 YBVC entries as matching compact cards in one desktop row, with
+  2026 on the left and 2025 on the right; the 2025 title is `Youth Business Venture Challenge 2025`, and the 2026 card links to `/articles/026` with a
   `Read More` button instead of linking to a PDF. No commit/push until local preview is approved.
 - **Events layout update (2026-08-21, local pending review)**: locally moved the two former `past_events` entries into
   `featured_events` so the Events page has four featured events, then replaced the featured card grid with alternating

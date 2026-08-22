@@ -14,6 +14,14 @@
 
 	const competitions: Competition[] = [
 		{
+			title: 'Youth Business Venture Competition 2026',
+			subtitle: 'Stanford University',
+			description:
+				'Fifteen student startup teams gathered at Stanford to pitch ventures, receive professional feedback, and explore the future of business innovation.',
+			image: '/images/articles/ybvc-2026/ArticleMainPhoto.webp',
+			article: '026'
+		},
+		{
 			title: 'Youth Business Venture Challenge 2025',
 			subtitle: '(in partnership with Berkeley Summit House)',
 			description:
@@ -21,14 +29,6 @@
 			video: 'https://drive.google.com/file/d/1JimBjldxlsyK5QZZoebvYjo1qKg8dm0s/preview',
 			article: '024',
 			photosUrl: 'https://lightroom.adobe.com/shares/b68ae08650da484d8485673e59c454e3'
-		},
-		{
-			title: 'Youth Business Venture Competition 2026',
-			subtitle: 'Stanford University',
-			description:
-				'Fifteen student startup teams gathered at Stanford to pitch ventures, receive professional feedback, and explore the future of business innovation.',
-			image: '/images/articles/ybvc-2026/ArticleMainPhoto.webp',
-			article: '026'
 		}
 	];
 </script>
