@@ -7,6 +7,24 @@
 const events = {
 	featured_events: [
 		{
+			title: 'Youth Business Venture Competition 2026',
+			subtitle: 'Stanford University',
+			description:
+				'Fifteen student startup teams gathered at Stanford to pitch ventures, receive professional feedback, and explore the future of business innovation.',
+			thumbnail: 'images/articles/ybvc-2026/ArticleMainPhoto.webp',
+			video: '',
+			article: '026'
+		},
+		{
+			title: 'Youth Business Venture Challenge 2025',
+			subtitle: '(in partnership with Berkeley Summit House)',
+			description:
+				'A global pitch competition for high school students. Participants submitted proposals for a chance to win over $10,000 in prize money and pitch live at Stanford.',
+			thumbnail: '',
+			video: 'https://drive.google.com/file/d/1JimBjldxlsyK5QZZoebvYjo1qKg8dm0s/preview',
+			article: '024'
+		},
+		{
 			title: 'The Global AI Pitch Summit: Silicon Valley 2025',
 			subtitle:
 				"(Silicon Valley's largest pitch event, in partnership with Bay Area Founders Club and Stanford Entrepreneurs)",

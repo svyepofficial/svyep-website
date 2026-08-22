@@ -156,9 +156,9 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   2026 on the left and 2025 on the right; the 2025 title is `Youth Business Venture Challenge 2025`, and the 2026 card links to `/articles/026` with a
   `Read More` button instead of linking to a PDF. No commit/push until local preview is approved.
 - **Events layout update (2026-08-21, local pending review)**: locally moved the two former `past_events` entries into
-  `featured_events` so the Events page has four featured events, then replaced the featured card grid with alternating
-  text/image rows matching the existing past-event format. YBVC remains on the separate `/ybvc` tab. No commit/push
-  until local preview is approved.
+  `featured_events`, replaced the featured card grid with alternating text/image rows matching the existing past-event
+  format, and added both YBVC entries back into the Events page as featured events while keeping the separate `/ybvc`
+  tab. No commit/push until local preview is approved.
 - **Advisor copy/layout cleanup (2026-08-06)**: removed Bretton Lam's advisor description,
   added Rian Caesar as `Advisor` using `/images/about/placeholder.svg`, made advisor image/description rendering
   conditional in `src/routes/about/+page.svelte`, and changed Advisors to a four-column desktop grid so all four
