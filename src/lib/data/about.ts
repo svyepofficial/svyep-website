@@ -123,7 +123,8 @@ const about = {
 		{
 			name: 'Lori Ji',
 			position: '-',
-			description: 'Member bio coming soon.',
+			description:
+				'Lori Ji is a sophomore at The Harker School in San Jose, California. She is interested in linguistics, journalism, and business. In her free time, she enjoys walking her dog and going on hikes. Through SVYEP, she hopes to create an inclusive environment where students can explore business in unique ways.',
 			image: '/images/about/placeholder.svg'
 		}
 	],

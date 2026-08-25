@@ -280,8 +280,9 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 
 ### Team (end-of-list "awaiting content" group: Cindy, Derek, Arun, Leo, Jaden, Lori)
 
-- **Placeholder images + bios needed**: **Derek Meng, Arun Banerjee, Leo Shi, Jaden Zhao, Lori Ji**
-  (added 2026-08-21, no photo and no bio yet) and **Cindy Zhang** (bio done; had a photo, user removed
+- **Placeholder images + bios needed**: **Derek Meng, Arun Banerjee, Leo Shi, Jaden Zhao**
+  (added 2026-08-21, no photo and no bio yet), **Lori Ji** (bio added 2026-08-25, still needs a photo)
+  and **Cindy Zhang** (bio done; had a photo, user removed
   it — `cindy-z.webp` still in repo, re-enable with `transform: scale(2.7) rotate(-18deg) translateY(11%);`).
   Previous members Lotus Wu and Leana Zhou also use placeholders. Drop
   `static/images/about/<firstname-lastinitial>.webp`, point `about.ts` at it, and move the member up out of
