@@ -168,6 +168,19 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > opened and the user confirms it looks fine. Push to `main` only after approval; Vercel auto-deploys that push.
 
 ## Done recently
+- **YBVC 2026 interview clips + YouTube channel link (2026-08-28)**: added
+  **`src/lib/components/YouTubeEmbed.svelte`** — a responsive 16:9 embed (`{id}`, `{title}` props) sized
+  to match the article images (`max-w-[600px]`, centred, `rounded-3xl`), `loading="lazy"`, and pointed at
+  **youtube-nocookie.com** so YouTube sets no tracking cookies until the viewer presses play. Embedded all
+  seven YBVC 2026 team interviews in `src/lib/articles/026.md`, each directly under its own award section
+  (SNAPRight 1st, Wasor 2nd, Avora 3rd, Nourishly Innovation Excellence, Droplet AI Business Strategy,
+  AutiLearn + Hapty Honorable Mentions) — the mapping was confirmed against each video's real title via the
+  YouTube oembed endpoint, not assumed. Added a "More From SVYEP" section at the end of the article linking
+  to **https://www.youtube.com/@svyep**. Verified in preview at 1280px (embeds 600x338, same width as the
+  article photos) and 375px (311px wide, flush with the photos, no horizontal overflow).
+  **mdsvex note:** a plain `<script>` block placed right after the frontmatter in a `.md` article becomes
+  the component's instance script — that is how `026.md` imports `YouTubeEmbed`. Only `005.md` and `026.md`
+  do anything like this, so it is easy to miss.
 - **SEO pass, prettier fix, roster/name corrections (2026-08-21, later same day)**:
   **New `src/lib/components/Seo.svelte`** — renders title, `meta description`, canonical, and
   OG/Twitter card tags; takes `title` (the " • SVYEP" suffix is added inside), `description`, optional
@@ -295,3 +308,11 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   still lines up next to Jun Liu's. Don't chase a photo or bio for him.
 - **Position titles**: all current team show a dash (`-`) — real titles not yet provided.
 - **Big team photo** removed from About (was above Advisors) — re-add if a good group photo appears.
+- **The YBVC site (ybvcompetition.org) is NOT in this repo** and is not on this machine — the
+  `svyepofficial` org has only `svyep-website`. The user asked on 2026-08-28 for interview clips to be
+  updated on "both the SVYEP and YBVC websites"; only the SVYEP side could be done. Whoever picks this up
+  needs to be pointed at wherever that site is managed.
+- **No interview clips anywhere else on the site yet** — the seven YBVC 2026 clips currently live only in
+  article `026.md`. The homepage still advertises "Interviews with industry leaders" as plain text on a
+  Join card (`src/routes/+page.svelte`) with nothing embedded; a clips section there is an obvious follow-up
+  if more interviews get published.
