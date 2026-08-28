@@ -130,13 +130,6 @@ const about = {
 	],
 	previous_members: [
 		{
-			name: 'Bretton Lam',
-			position: 'Co-Founder and Former CEO',
-			description:
-				'Bretton Lam is a freshman at Carnegie Mellon University and the co-founder of SVYEP, dedicated toward expanding business development opportunities for students around the world. Outside of SVYEP, he enjoys playing basketball and golf, cooking new recipes in the kitchen, and traveling to new destinations.',
-			image: '/images/about/bretton-l.webp'
-		},
-		{
 			name: 'Jeremy Peng',
 			position: 'Co-Founder and Assistant Coach',
 			description:
@@ -185,6 +178,13 @@ const about = {
 		}
 	],
 	advisors: [
+		{
+			name: 'Bretton Lam',
+			position: 'Co-Founder and Former CEO',
+			description:
+				'Bretton Lam is a freshman at Carnegie Mellon University and the co-founder of SVYEP, dedicated toward expanding business development opportunities for students around the world. Outside of SVYEP, he enjoys playing basketball and golf, cooking new recipes in the kitchen, and traveling to new destinations.',
+			image: '/images/about/bretton-l.webp'
+		},
 		{
 			name: 'Rian Caesar',
 			position: 'Advisor',

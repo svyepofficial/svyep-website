@@ -192,8 +192,11 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   headings, `mb-12` on Advisors/Previous Members, `leading-[1.15] pb-2` on the big serif headings so
   descenders stop clipping, grid `mt-12 gap-y-16`, and fluid circles. Advisors also switched from a
   4-col grid to centred flex-wrap — with only 2 advisors left the grid pinned them to the left half.
-  **Roster** — Bretton Lam + Jeremy Peng moved from `advisors` to `previous_members` (advisors is now
-  just Rian Caesar + Jun Liu); added Derek Meng, Arun Banerjee, Leo Shi, Jaden Zhao, Lori Ji to `team`
+  **Roster** — Bretton Lam + Jeremy Peng moved from `advisors` to `previous_members`
+  (**superseded 2026-08-25**: Bretton was moved back to `advisors`, as the first entry, at the user's
+  request — "just move him", so his `Co-Founder and Former CEO` title and bio are unchanged. Advisors is
+  now Bretton Lam, Rian Caesar, Jun Liu; Jeremy Peng stays in previous members. Note this entry has
+  flip-flopped several times — check `about.ts` rather than trusting older notes here); added Derek Meng, Arun Banerjee, Leo Shi, Jaden Zhao, Lori Ji to `team`
   (placeholder photo + "Member bio coming soon.", in the end group per the ordering rule). Team is now
   17. **YBVC page** (`src/routes/ybvc/+page.svelte`) — removed the "YBVC" `<h1>`, reordered so 2025 is
   the left card and 2026 the right, swapped 2025's Google-Drive iframe for
