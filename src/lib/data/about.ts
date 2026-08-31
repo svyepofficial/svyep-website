@@ -88,14 +88,15 @@ const about = {
 			image: '/images/about/michael-h.webp',
 			imageStyle: 'transform: scale(1.10) translateY(-5%);'
 		},
-		// --- Awaiting a bio and/or photo (moved to the end until complete) ---
 		{
 			name: 'Cindy Zhang',
 			position: '-',
 			description:
 				'Cindy is a junior at Palo Alto High School with an emphasized interest in the usage of Artificial Intelligence in business operations. Through SVYEP, she aims to help younger audiences with an interest in business explore their passions. Outside of school, she enjoys staying involved in her community, attending workout classes, traveling, and hanging out with friends.',
-			image: '/images/about/placeholder.svg'
+			image: '/images/about/cindy-z.webp',
+			imageStyle: 'transform: translateY(8%);'
 		},
+		// --- Awaiting a bio and/or photo (moved to the end until complete) ---
 		{
 			name: 'Derek Meng',
 			position: '-',

@@ -24,7 +24,7 @@ left off:
 > ("Silicon Valley Young Entrepreneurs and Professionals") on Apache — nothing to do with this repo. Older
 > notes in this file that say svyep.org are wrong; verify deploys against **svyep.com**.
 
-Last updated: 2026-08-21.
+Last updated: 2026-08-30.
 
 ## What this is
 
@@ -137,9 +137,7 @@ done purely via the CSS `imageStyle` transform (scale to zoom, translateY to shi
 - Jack Li: `transform: scale(1.7) translateY(18%);`
 - Tyrone Tan: `transform: scale(1.95);`
 - Camille Wang: none (photo frames fine with plain `object-contain`).
-- Cindy Zhang: photo currently removed (placeholder). Her `cindy-z.webp` is still in the repo; when
-  re-enabled it needed `transform: scale(2.7) rotate(-18deg) translateY(11%);` (source photo is slanted,
-  hence the CCW rotate). `rotate()` works inside the transform — good tool for tilted source photos.
+- Cindy Zhang: `transform: translateY(8%);`
 
 **Tuning workflow (useful, reused a lot):** to pick `scale`/`translateY`/`rotate` without guessing,
 run a Python (Pillow + optional OpenCV Haar face-detect) script from `static/images/about/` that
@@ -168,6 +166,11 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > opened and the user confirms it looks fine. Push to `main` only after approval; Vercel auto-deploys that push.
 
 ## Done recently
+- **Cindy Zhang headshot (2026-08-30, local pending review)**: pulled latest `main` (`85fdd5f..2ab9028`),
+  converted `/Users/angelahe/Downloads/IMG_0618.PNG` to `static/images/about/cindy-z.webp`, then generated a
+  transparent-background cutout from it and saved that back to `static/images/about/cindy-z.webp`. Cindy's team
+  entry points at `/images/about/cindy-z.webp` with `transform: translateY(8%);` so her head aligns better with
+  Tyrone and Michael. No commit/push until local preview is approved.
 - **YBVC 2026 interview clips + YouTube channel link (2026-08-28)**: added
   **`src/lib/components/YouTubeEmbed.svelte`** — a responsive 16:9 embed (`{id}`, `{title}` props) sized
   to match the article images (`max-w-[600px]`, centred, `rounded-3xl`), `loading="lazy"`, and pointed at
@@ -294,12 +297,10 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 
 ## Open / not done
 
-### Team (end-of-list "awaiting content" group: Cindy, Derek, Arun, Leo, Jaden, Lori)
+### Team (end-of-list "awaiting content" group: Derek, Arun, Leo, Jaden, Lori)
 
 - **Placeholder images + bios needed**: **Derek Meng, Arun Banerjee, Leo Shi, Jaden Zhao**
-  (added 2026-08-21, no photo and no bio yet), **Lori Ji** (bio added 2026-08-25, still needs a photo)
-  and **Cindy Zhang** (bio done; had a photo, user removed
-  it — `cindy-z.webp` still in repo, re-enable with `transform: scale(2.7) rotate(-18deg) translateY(11%);`).
+  (added 2026-08-21, no photo and no bio yet), and **Lori Ji** (bio added 2026-08-25, still needs a photo).
   Previous members Lotus Wu and Leana Zhou also use placeholders. Drop
   `static/images/about/<firstname-lastinitial>.webp`, point `about.ts` at it, and move the member up out of
   the end "incomplete" group if they are in `team`.
