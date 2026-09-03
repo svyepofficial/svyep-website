@@ -181,7 +181,7 @@ const about = {
 	advisors: [
 		{
 			name: 'Bretton Lam',
-			position: 'Co-Founder and Former CEO',
+			position: 'Co-Founder and CEO',
 			description:
 				'Bretton Lam is a student at Carnegie Mellon University and the co-founder of SVYEP, dedicated toward expanding business development opportunities for students around the world. Outside of SVYEP, he enjoys playing basketball and golf, cooking new recipes in the kitchen, and traveling to new destinations.',
 			image: '/images/about/bretton-l.webp'
