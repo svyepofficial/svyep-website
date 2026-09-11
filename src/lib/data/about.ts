@@ -10,19 +10,19 @@ const about = {
 			image: '/images/about/isabella-l.webp'
 		},
 		{
-			name: 'Camille Wang',
-			position: 'Vice President',
-			description:
-				'Camille Wang is a senior at Castilleja High School in California. With interests in sociology, education, and entrepreneurship, she enjoys finding ways to support students and make opportunities more accessible. Outside of school, she is involved in water polo, robotics, and community projects. Through SVYEP, Camille hopes to help more students explore their ideas and create meaningful impact.',
-			image: '/images/about/camille-w.webp'
-		},
-		{
 			name: 'Anthony Wang',
 			position: 'Vice President',
 			description:
 				'Anthony is a senior at Stratford Preparatory Blackford in San Jose, California. He is a competitive tennis player with strong interests in entrepreneurship, data science, physics, and day trading. In his free time, he enjoys powerlifting, playing piano, and reading. For the past three years, Anthony has been devoted to providing new opportunities and connections for high school students across the world through SVYEP.',
 			image: '/images/about/anthony-w.webp',
 			imageStyle: 'transform: translateY(6%);'
+		},
+		{
+			name: 'Camille Wang',
+			position: 'Vice President',
+			description:
+				'Camille Wang is a senior at Castilleja High School in California. With interests in sociology, education, and entrepreneurship, she enjoys finding ways to support students and make opportunities more accessible. Outside of school, she is involved in water polo, robotics, and community projects. Through SVYEP, Camille hopes to help more students explore their ideas and create meaningful impact.',
+			image: '/images/about/camille-w.webp'
 		},
 		{
 			name: 'Ethan Hao',
@@ -90,7 +90,7 @@ const about = {
 		},
 		{
 			name: 'Aiden Xue',
-			position: '-',
+			position: 'Youth Leader',
 			description:
 				'Aiden is a student at University Preparatory Academy in San Jose, California. He is very passionate about game design and boy scouts, and participates in sports such as track & field and swimming. Through SVYEP, he hopes to develop more visual design and entrepreneurial skills to both inspire and support others.',
 			image: '/images/about/aiden-x.webp',

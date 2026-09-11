@@ -167,6 +167,10 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > opened and the user confirms it looks fine. Push to `main` only after approval; Vercel auto-deploys that push.
 
 ## Done recently
+- **Aiden Xue titled, Anthony/Camille swapped (2026-09-11)**: Aiden is a **Youth Leader** (user confirmed),
+  so every team member now has a real title. **Anthony Wang now comes before Camille Wang** at the user's
+  request. That supersedes the older note about Camille being "pinned right after Isabella Liang". Each
+  person's `imageStyle` moved with them.
 - **Arun Banerjee removed from the team (2026-09-11)** at the user's request. He never had a photo, so
   there was no image file to delete. Team is now 15.
 - **Titles, removals, advisors, previous-member education (2026-09-11)**: removed **Jack Li** and
@@ -334,9 +338,6 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 - **Advisor Rian Caesar** has no photo and no bio, and that is **intentional** — the user confirmed
   2026-08-21 that "rian doesn't want anything". He keeps the `placeholder.svg` silhouette so his card
   still lines up next to Jun Liu's. Don't chase a photo or bio for him.
-- **Aiden Xue has no title**: he wasn't in the title list the user sent on 2026-09-11, so he still shows
-  `-` and sits last among members with photos. Arun Banerjee was also missing from that list, and the user
-  then asked for him to be removed; nothing has been decided for Aiden yet — ask.
 - **Tyrone Tan was listed under two titles** in that same message: Director of Finance *and* Youth Leader.
   The site shows **Director of Finance** (the higher role) until the user says otherwise.
 - **Bretton Lam's title reads "Co-Founder and CEO"** (set upstream in `47d44dd`) even though he is now under
