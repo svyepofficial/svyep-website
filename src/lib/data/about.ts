@@ -96,6 +96,14 @@ const about = {
 			image: '/images/about/cindy-z.webp',
 			imageStyle: 'transform: translateY(8%);'
 		},
+		{
+			name: 'Eric Cheung',
+			position: '-',
+			description:
+				'Eric is a junior at Crystal Springs Uplands School and competitive golfer who hopes to pursue business in college. Through SVYEP, he wants to acquire some basic business skills while also sharing and advancing his passion for entrepreneurship.',
+			image: '/images/about/eric-c.webp',
+			imageStyle: 'transform: translateY(12%);'
+		},
 		// --- Awaiting a bio and/or photo (moved to the end until complete) ---
 		{
 			name: 'Derek Meng',

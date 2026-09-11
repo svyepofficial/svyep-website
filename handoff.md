@@ -138,6 +138,8 @@ done purely via the CSS `imageStyle` transform (scale to zoom, translateY to shi
 - Tyrone Tan: `transform: scale(1.95);`
 - Camille Wang: none (photo frames fine with plain `object-contain`).
 - Cindy Zhang: `transform: translateY(8%);`
+- Eric Cheung: `transform: translateY(12%);` — source is a tight 200x200 cut-out with almost no headroom, so
+  it only needs pushing down (face centre 0.35 → 0.47, matching Michael/Camille); no scale.
 
 **Tuning workflow (useful, reused a lot):** to pick `scale`/`translateY`/`rotate` without guessing,
 run a Python (Pillow + optional OpenCV Haar face-detect) script from `static/images/about/` that
@@ -166,6 +168,18 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > opened and the user confirms it looks fine. Push to `main` only after approval; Vercel auto-deploys that push.
 
 ## Done recently
+- **Eric Cheung added to the team (2026-09-10)**: new member with bio + photo, so he goes at the end of the
+  *complete* group (after Cindy Zhang, before the placeholder group). Photo at
+  `static/images/about/eric-c.webp`. The user first dropped an opaque photo (foliage background), then
+  replaced it mid-task with a transparent-background version of the same shot; only the transparent one
+  is kept. **Gotcha found while framing the opaque version:** on a photo *without* transparency, any
+  `translateY` beyond `0.5·scale − 0.5` exposes a blank band at the top of the circle, because nothing of
+  the image sits above it. Cut-outs don't have this problem, since the page background shows through
+  either way. Framing was picked with the contact-sheet workflow and confirmed in `npm run preview`.
+  **Second gotcha — iCloud conflict copies:** the repo lives in `~/Documents`, which syncs. Overwriting
+  `eric-c.webp` with `mv -f` left the *old* file behind as `eric-c 2.webp` a few seconds later. After
+  replacing any file, run `find src static -name "* 2.*"` and remove the stray copy before committing
+  (compare with `cmp` first). `.svelte-kit/types/route_meta_data 2.json` is the same phenomenon.
 - **Cindy Zhang headshot (2026-08-30, local pending review)**: pulled latest `main` (`85fdd5f..2ab9028`),
   converted `/Users/angelahe/Downloads/IMG_0618.PNG` to `static/images/about/cindy-z.webp`, then generated a
   transparent-background cutout from it and saved that back to `static/images/about/cindy-z.webp`. Cindy's team
@@ -308,6 +322,10 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   2026-08-21 that "rian doesn't want anything". He keeps the `placeholder.svg` silhouette so his card
   still lines up next to Jun Liu's. Don't chase a photo or bio for him.
 - **Position titles**: all current team show a dash (`-`) — real titles not yet provided.
+- **Eric Cheung's photo is only 200x200** (every other headshot is 400–4000px). The circle is up to 352 CSS
+  px, i.e. ~700 device px on a retina screen, so his is upscaled ~3.5x and looks visibly softer than his
+  neighbours'. Swap in a higher-resolution cut-out when one is available; the `translateY(12%)` framing
+  should carry over if it's the same shot.
 - **Big team photo** removed from About (was above Advisors) — re-add if a good group photo appears.
 - **The YBVC site (ybvcompetition.org) is NOT in this repo** and is not on this machine — the
   `svyepofficial` org has only `svyep-website`. The user asked on 2026-08-28 for interview clips to be
