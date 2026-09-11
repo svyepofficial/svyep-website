@@ -155,8 +155,8 @@ put a fixed size back, re-check 1024px and 375px.
 
 **Team ordering rule:** in `about.ts`, members with a complete bio **and** a real photo are listed
 first (original order preserved); anyone still missing a bio or photo is grouped at the end until
-provided. Keep this when adding content. (Exception the user requested: **Camille Wang** is pinned to
-her original spot right after Isabella Liang even while her content was being filled in.)
+provided. Keep this when adding content. (Current top of the team, per the user on 2026-09-11: Isabella Liang, then **Anthony Wang**, then
+**Camille Wang**, then the rest by rank.)
 
 **Team circles are transparent** (no `bg-zinc-950` on the wrapper) — same look as the advisors /
 previous-members circles. Since the photos have transparent backgrounds, whatever is behind the page
