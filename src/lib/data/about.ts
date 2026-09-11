@@ -4,21 +4,21 @@ const about = {
 	team: [
 		{
 			name: 'Isabella Liang',
-			position: '-',
+			position: 'President',
 			description:
 				'Isabella Liang is a junior at Saint Francis High School in California. She is a dedicated volleyball player with a strong interest in business, investing, and entrepreneurship. Through SVYEP, Isabella hopes to help more students explore their ideas, connect with inspiring leaders, and gain the confidence to create something of their own.',
 			image: '/images/about/isabella-l.webp'
 		},
 		{
 			name: 'Camille Wang',
-			position: '-',
+			position: 'Vice President',
 			description:
 				'Camille Wang is a senior at Castilleja High School in California. With interests in sociology, education, and entrepreneurship, she enjoys finding ways to support students and make opportunities more accessible. Outside of school, she is involved in water polo, robotics, and community projects. Through SVYEP, Camille hopes to help more students explore their ideas and create meaningful impact.',
 			image: '/images/about/camille-w.webp'
 		},
 		{
 			name: 'Anthony Wang',
-			position: '-',
+			position: 'Vice President',
 			description:
 				'Anthony is a senior at Stratford Preparatory Blackford in San Jose, California. He is a competitive tennis player with strong interests in entrepreneurship, data science, physics, and day trading. In his free time, he enjoys powerlifting, playing piano, and reading. For the past three years, Anthony has been devoted to providing new opportunities and connections for high school students across the world through SVYEP.',
 			image: '/images/about/anthony-w.webp',
@@ -26,27 +26,67 @@ const about = {
 		},
 		{
 			name: 'Ethan Hao',
-			position: '-',
+			position: 'Executive Director',
 			description:
 				"Ethan Hao is a sophomore at The Harker School in California with a strong interest in AI, robotics, and business. Outside of the classroom, he is involved in his school's robotics club and swim team, where he enjoys challenging himself and working with others. Through SVYEP, he hopes to build meaningful connections, grow as a leader, and support other students' interests in exploring entrepreneurship.",
 			image: '/images/about/ethan-h.webp',
 			imageStyle: 'transform: scale(2.2) translateY(9%);'
 		},
 		{
+			name: 'Tyrone Tan',
+			position: 'Director of Finance',
+			description:
+				'Tyrone is a sophomore at Monta Vista High School in Cupertino, California. He is a passionate baseball player who has an interest in business. Through SVYEP, he hopes to build a foundation in business, obtain innovation skills, and to make an impact on other high schoolers.',
+			image: '/images/about/tyrone-t.webp',
+			imageStyle: 'transform: scale(1.95);'
+		},
+		{
+			name: 'Isabella Xia',
+			position: 'Director of Marketing',
+			description:
+				'Isabella is a senior at Saint Francis High School in Mountain View, CA. She plays club volleyball and is also passionate about art. She is interested in pursuing business, engineering, and design. She aims to help students work towards their goals through the many opportunities SVYEP offers.',
+			image: '/images/about/isabella-x.webp',
+			imageStyle: 'transform: scale(2.0);'
+		},
+		{
 			name: 'Ethan Chen',
-			position: '-',
+			position: 'Community Outreach Director',
 			description:
 				'Ethan C is a student at The Harker School in San Jose, California. He is a very committed swimmer and enjoys cooking, participating in DECA and doing triathlons in his free time. Through SVYEP, he hopes to further develop his leadership and communication skills while inspiring students by providing them with meaningful opportunities to learn, grow, and achieve their goals.',
 			image: '/images/about/ethan-c.webp',
 			imageStyle: 'transform: scale(2.0) translateY(-2%);'
 		},
 		{
-			name: 'Isabella Xia',
-			position: '-',
+			name: 'Elaine Luo',
+			position: 'Youth Leader',
 			description:
-				'Isabella is a senior at Saint Francis High School in Mountain View, CA. She plays club volleyball and is also passionate about art. She is interested in pursuing business, engineering, and design. She aims to help students work towards their goals through the many opportunities SVYEP offers.',
-			image: '/images/about/isabella-x.webp',
-			imageStyle: 'transform: scale(2.0);'
+				'Elaine is a junior at Saratoga High School in California who is involved in competitive speech, dance, and yearbook writing. Her background focuses heavily on communication and storytelling, which fuels her interest in exploring leadership and community impact. By participating in SVYEP, she aims to connect with a motivated network of peers, build a supportive environment for fresh ideas, and help young leaders drive meaningful change.',
+			image: '/images/about/elaine-l.webp',
+			imageStyle: 'transform: scale(1.05) translateY(10%);'
+		},
+		{
+			name: 'Michael Hung',
+			position: 'Youth Leader',
+			description:
+				'Michael Hung is a freshman at BASIS Independent Silicon Valley and a member of the varsity basketball team. He has a strong interest in artificial intelligence and long-term investing, which has inspired him to explore innovation and entrepreneurship. Through SVYEP, he hopes to develop and demonstrate his leadership skills while working alongside other motivated students. He is excited to collaborate with young entrepreneurs, contribute meaningful ideas, and gain valuable experience solving real-world challenges in a team environment.',
+			image: '/images/about/michael-h.webp',
+			imageStyle: 'transform: scale(1.10) translateY(-5%);'
+		},
+		{
+			name: 'Cindy Zhang',
+			position: 'Youth Leader',
+			description:
+				'Cindy is a junior at Palo Alto High School with an emphasized interest in the usage of Artificial Intelligence in business operations. Through SVYEP, she aims to help younger audiences with an interest in business explore their passions. Outside of school, she enjoys staying involved in her community, attending workout classes, traveling, and hanging out with friends.',
+			image: '/images/about/cindy-z.webp',
+			imageStyle: 'transform: translateY(8%);'
+		},
+		{
+			name: 'Eric Cheung',
+			position: 'Youth Leader',
+			description:
+				'Eric is a junior at Crystal Springs Uplands School and competitive golfer who hopes to pursue business in college. Through SVYEP, he wants to acquire some basic business skills while also sharing and advancing his passion for entrepreneurship.',
+			image: '/images/about/eric-c.webp',
+			imageStyle: 'transform: translateY(12%);'
 		},
 		{
 			name: 'Aiden Xue',
@@ -56,59 +96,24 @@ const about = {
 			image: '/images/about/aiden-x.webp',
 			imageStyle: 'transform: scale(2.3) translateY(7%);'
 		},
-		{
-			name: 'Elaine Luo',
-			position: '-',
-			description:
-				'Elaine is a junior at Saratoga High School in California who is involved in competitive speech, dance, and yearbook writing. Her background focuses heavily on communication and storytelling, which fuels her interest in exploring leadership and community impact. By participating in SVYEP, she aims to connect with a motivated network of peers, build a supportive environment for fresh ideas, and help young leaders drive meaningful change.',
-			image: '/images/about/elaine-l.webp',
-			imageStyle: 'transform: scale(1.05) translateY(10%);'
-		},
-		{
-			name: 'Jack Li',
-			position: '-',
-			description:
-				'Jack Li is a freshman at Saratoga High School in California. He enjoys music, entrepreneurship, and technology, and spends much of his free time playing drums and performing with his band. Through SVYEP, he hopes to develop his leadership skills and connect with other motivated students.',
-			image: '/images/about/jack-l.webp',
-			imageStyle: 'transform: scale(1.7) translateY(18%);'
-		},
-		{
-			name: 'Tyrone Tan',
-			position: '-',
-			description:
-				'Tyrone is a sophomore at Monta Vista High School in Cupertino, California. He is a passionate baseball player who has an interest in business. Through SVYEP, he hopes to build a foundation in business, obtain innovation skills, and to make an impact on other high schoolers.',
-			image: '/images/about/tyrone-t.webp',
-			imageStyle: 'transform: scale(1.95);'
-		},
-		{
-			name: 'Michael Hung',
-			position: '-',
-			description:
-				'Michael Hung is a freshman at BASIS Independent Silicon Valley and a member of the varsity basketball team. He has a strong interest in artificial intelligence and long-term investing, which has inspired him to explore innovation and entrepreneurship. Through SVYEP, he hopes to develop and demonstrate his leadership skills while working alongside other motivated students. He is excited to collaborate with young entrepreneurs, contribute meaningful ideas, and gain valuable experience solving real-world challenges in a team environment.',
-			image: '/images/about/michael-h.webp',
-			imageStyle: 'transform: scale(1.10) translateY(-5%);'
-		},
-		{
-			name: 'Cindy Zhang',
-			position: '-',
-			description:
-				'Cindy is a junior at Palo Alto High School with an emphasized interest in the usage of Artificial Intelligence in business operations. Through SVYEP, she aims to help younger audiences with an interest in business explore their passions. Outside of school, she enjoys staying involved in her community, attending workout classes, traveling, and hanging out with friends.',
-			image: '/images/about/cindy-z.webp',
-			imageStyle: 'transform: translateY(8%);'
-		},
-		{
-			name: 'Eric Cheung',
-			position: '-',
-			description:
-				'Eric is a junior at Crystal Springs Uplands School and competitive golfer who hopes to pursue business in college. Through SVYEP, he wants to acquire some basic business skills while also sharing and advancing his passion for entrepreneurship.',
-			image: '/images/about/eric-c.webp',
-			imageStyle: 'transform: translateY(12%);'
-		},
-		// --- Awaiting a bio and/or photo (moved to the end until complete) ---
+		// --- Awaiting a photo (grouped at the end until provided) ---
 		{
 			name: 'Derek Meng',
-			position: '-',
+			position: 'Youth Leader',
 			description: 'Member bio coming soon.',
+			image: '/images/about/placeholder.svg'
+		},
+		{
+			name: 'Leo Shi',
+			position: 'Youth Leader',
+			description: 'Member bio coming soon.',
+			image: '/images/about/placeholder.svg'
+		},
+		{
+			name: 'Lori Ji',
+			position: 'Youth Leader',
+			description:
+				'Lori Ji is a sophomore at The Harker School in San Jose, California. She is interested in linguistics, journalism, and business. In her free time, she enjoys walking her dog and going on hikes. Through SVYEP, she hopes to create an inclusive environment where students can explore business in unique ways.',
 			image: '/images/about/placeholder.svg'
 		},
 		{
@@ -116,31 +121,21 @@ const about = {
 			position: '-',
 			description: 'Member bio coming soon.',
 			image: '/images/about/placeholder.svg'
-		},
-		{
-			name: 'Leo Shi',
-			position: '-',
-			description: 'Member bio coming soon.',
-			image: '/images/about/placeholder.svg'
-		},
-		{
-			name: 'Jaden Zhao',
-			position: '-',
-			description: 'Member bio coming soon.',
-			image: '/images/about/placeholder.svg'
-		},
-		{
-			name: 'Lori Ji',
-			position: '-',
-			description:
-				'Lori Ji is a sophomore at The Harker School in San Jose, California. She is interested in linguistics, journalism, and business. In her free time, she enjoys walking her dog and going on hikes. Through SVYEP, she hopes to create an inclusive environment where students can explore business in unique ways.',
-			image: '/images/about/placeholder.svg'
 		}
 	],
 	previous_members: [
 		{
+			name: 'Bretton Lam',
+			position: 'Co-Founder and CEO',
+			education: 'Carnegie Mellon University',
+			description:
+				'Bretton Lam is a student at Carnegie Mellon University and the co-founder of SVYEP, dedicated toward expanding business development opportunities for students around the world. Outside of SVYEP, he enjoys playing basketball and golf, cooking new recipes in the kitchen, and traveling to new destinations.',
+			image: '/images/about/bretton-l.webp'
+		},
+		{
 			name: 'Jeremy Peng',
 			position: 'Co-Founder and Assistant Coach',
+			education: 'University of Chicago',
 			description:
 				'Jeremy is a freshman at The University of Chicago. He keenly enjoys the vitality of business, which he believes he can harness through his skills in writing and critical thinking. Jeremy wants to become an effective leader for SVYEP on its mission to guide youth into the professional world.',
 			image: '/images/about/jeremy-p.webp'
@@ -148,6 +143,7 @@ const about = {
 		{
 			name: 'Kevin Tang',
 			position: 'Chief Sales Officer',
+			education: 'USC',
 			description:
 				'Kevin is a senior student at Valley Christian High School in San Jose, California. He is passionate about a variety of subjects, including engineering, chemistry, and environmental science, with a strong desire to make a meaningful impact in these areas. Outside of academics, Kevin enjoys staying active through regular workouts and playing sports. Through SVYEP, he hopes to learn how to connect entrepreneurship with his academic interests, gaining inspiration for future innovation.',
 			image: '/images/about/kevin-t.webp'
@@ -155,6 +151,7 @@ const about = {
 		{
 			name: 'Justin Wong',
 			position: 'Director of Outreach and Engagement',
+			education: 'University of Chicago',
 			description:
 				'Justin is a senior at Crystal Springs Uplands School in California. He is passionate about rowing, debate, and, of course, business. At SVYEP, he hopes to create more transparency about the business world for other young entrepreneurs through hands-on learning experiences such as networking and speaker events. As the Director of Outreach and Engagement, he interviews CEOs from a vast range of companies to learn about their entrepreneurial journeys. He hopes that each story can inspire more hopeful entrepreneurs and leaves a lasting impact.',
 			image: '/images/about/justin-w.webp'
@@ -162,6 +159,7 @@ const about = {
 		{
 			name: 'Zibo Wang',
 			position: 'Secretary',
+			education: 'Stanford University',
 			description:
 				'Zibo is a senior at Skyline High School in Salt Lake City, Utah. He enrolls himself in a multitude of extracurriculars, ranging from entrepreneurial marketing to biomedical research to competitive piano. He hopes to implement his developed skills from being founders and leaders of school clubs into SVYEP to enhance the connection and education regarding entrepreneurship for future generations.',
 			image: '/images/about/zibo-w.webp'
@@ -176,24 +174,19 @@ const about = {
 		{
 			name: 'Lotus Wu',
 			position: 'Design Lead',
+			education: 'University of Washington',
 			description: 'Member bio coming soon.',
 			image: '/images/about/placeholder.svg'
 		},
 		{
 			name: 'Leana Zhou',
 			position: 'Chief Financial Officer',
+			education: 'Wharton',
 			description: 'Member bio coming soon.',
 			image: '/images/about/placeholder.svg'
 		}
 	],
 	advisors: [
-		{
-			name: 'Bretton Lam',
-			position: 'Co-Founder and CEO',
-			description:
-				'Bretton Lam is a student at Carnegie Mellon University and the co-founder of SVYEP, dedicated toward expanding business development opportunities for students around the world. Outside of SVYEP, he enjoys playing basketball and golf, cooking new recipes in the kitchen, and traveling to new destinations.',
-			image: '/images/about/bretton-l.webp'
-		},
 		{
 			name: 'Rian Caesar',
 			position: 'Advisor',
@@ -206,6 +199,34 @@ const about = {
 			description:
 				'Wharton Alum. Founder of the 7EDU Impact Academy and Leadways School. An education reformer with over 20 years of experience in K-G12 education.',
 			image: '/images/about/jun-l.webp'
+		},
+		{
+			name: 'Zixuan (Alex) An',
+			position: 'YBVC 2026 Judge',
+			description:
+				'Venture capitalist with 10 years of experience in early-stage investing and emerging technologies, currently focused on the commercialization of artificial intelligence and frontier hard technologies at R42 Group.',
+			image: '/images/about/placeholder.svg'
+		},
+		{
+			name: 'Bei Zhang',
+			position: 'YBVC 2026 Judge',
+			description:
+				'Education industry leader and investor with more than a decade of experience in industry operations and investment, with a portfolio that includes Nasdaq-listed GDS Holdings and education technology company MobLab.',
+			image: '/images/about/placeholder.svg'
+		},
+		{
+			name: 'Tianli Feng',
+			position: 'YBVC 2026 Judge',
+			description:
+				'Visiting professor at Stanford Graduate School of Education who has long focused on corporate social innovation, sustainable business, and social impact.',
+			image: '/images/about/placeholder.svg'
+		},
+		{
+			name: 'Bryant Art',
+			position: 'YBVC 2026 Judge',
+			description:
+				'Youth entrepreneurship coach and startup advisor with a cross-disciplinary background.',
+			image: '/images/about/placeholder.svg'
 		}
 	]
 };

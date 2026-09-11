@@ -134,7 +134,6 @@ done purely via the CSS `imageStyle` transform (scale to zoom, translateY to shi
 - Isabella Xia: `transform: scale(2.0);`
 - Aiden Xue: `transform: scale(2.3) translateY(7%);`
 - Elaine Luo: `transform: scale(1.05) translateY(10%);`
-- Jack Li: `transform: scale(1.7) translateY(18%);`
 - Tyrone Tan: `transform: scale(1.95);`
 - Camille Wang: none (photo frames fine with plain `object-contain`).
 - Cindy Zhang: `transform: translateY(8%);`
@@ -168,6 +167,18 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > opened and the user confirms it looks fine. Push to `main` only after approval; Vercel auto-deploys that push.
 
 ## Done recently
+- **Titles, removals, advisors, previous-member education (2026-09-11)**: removed **Jack Li** and
+  **Jaden Zhao** from `team`, and `git rm`'d `static/images/about/jack-l.webp` too, so the photo can't be
+  reached by direct URL (it's still in git history if they come back). Set real **position titles** for
+  the team: President, Vice President ×2, Executive Director, Director of Finance, Director of Marketing,
+  Community Outreach Director, Youth Leader. The **team is now ordered by rank** in the order the user
+  listed titles; the old rule of photo-less members going last still holds *within* that. Moved
+  **Bretton Lam** from `advisors` to the front of `previous_members` (again; see the history below).
+  Added the four other **YBVC 2026 judges** as advisors (Zixuan (Alex) An, Bei Zhang, Tianli Feng, Bryant
+  Art), with position `YBVC 2026 Judge`, a placeholder photo, and bios adapted from the published
+  `026.md` article (Jun Liu, also a judge, was already an advisor). New optional **`education`** field on
+  `previous_members`, rendered as a small grey line under the position on the About page; values kept
+  exactly as the user wrote them ("USC", "Wharton").
 - **Eric Cheung added to the team (2026-09-10)**: new member with bio + photo, so he goes at the end of the
   *complete* group (after Cindy Zhang, before the placeholder group). Photo at
   `static/images/about/eric-c.webp`. The user first dropped an opaque photo (foliage background), then
@@ -311,17 +322,24 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 
 ## Open / not done
 
-### Team (end-of-list "awaiting content" group: Derek, Arun, Leo, Jaden, Lori)
+### Team (end-of-list "awaiting a photo" group: Derek, Leo, Lori, Arun)
 
-- **Placeholder images + bios needed**: **Derek Meng, Arun Banerjee, Leo Shi, Jaden Zhao**
-  (added 2026-08-21, no photo and no bio yet), and **Lori Ji** (bio added 2026-08-25, still needs a photo).
+- **Placeholder images + bios needed**: **Derek Meng, Arun Banerjee, Leo Shi** (added 2026-08-21, no photo
+  and no bio yet), and **Lori Ji** (bio added 2026-08-25, still needs a photo).
   Previous members Lotus Wu and Leana Zhou also use placeholders. Drop
   `static/images/about/<firstname-lastinitial>.webp`, point `about.ts` at it, and move the member up out of
   the end "incomplete" group if they are in `team`.
 - **Advisor Rian Caesar** has no photo and no bio, and that is **intentional** — the user confirmed
   2026-08-21 that "rian doesn't want anything". He keeps the `placeholder.svg` silhouette so his card
   still lines up next to Jun Liu's. Don't chase a photo or bio for him.
-- **Position titles**: all current team show a dash (`-`) — real titles not yet provided.
+- **Two team members have no title**: **Aiden Xue** and **Arun Banerjee** weren't in the title list the
+  user sent on 2026-09-11, so they still show `-`. Each sits last in his group (Aiden after the Youth
+  Leaders with photos, Arun after the ones without). Nobody said to remove them — ask.
+- **Tyrone Tan was listed under two titles** in that same message: Director of Finance *and* Youth Leader.
+  The site shows **Director of Finance** (the higher role) until the user says otherwise.
+- **Bretton Lam's title reads "Co-Founder and CEO"** (set upstream in `47d44dd`) even though he is now under
+  Previous Members. It was "Co-Founder and Former CEO" before that. Left as-is, but worth confirming.
+- **Maya Sharma has no education line** — she was the only previous member not in the list.
 - **Eric Cheung's photo is only 200x200** (every other headshot is 400–4000px). The circle is up to 352 CSS
   px, i.e. ~700 device px on a retina screen, so his is upscaled ~3.5x and looks visibly softer than his
   neighbours'. Swap in a higher-resolution cut-out when one is available; the `translateY(12%)` framing

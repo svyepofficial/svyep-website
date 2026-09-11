@@ -49,9 +49,9 @@
 				>innovative and sustainable solutions</span
 			>, and create
 			<span class="font-serif font-medium text-indigo-600 italic">meaningful impact</span>
-			in their communities. Through mentorship, real-world experiences, industry partnerships, and
-			entrepreneurial education, we equip students with the leadership, business, and
-			problem-solving skills to build ventures that create both
+			in their communities. Through mentorship, real-world experiences, industry partnerships, and entrepreneurial
+			education, we equip students with the leadership, business, and problem-solving skills to build
+			ventures that create both
 			<span class="font-serif font-medium text-indigo-600 italic"
 				>economic value and positive social change</span
 			>.
@@ -124,7 +124,10 @@
 				<div class="flex max-w-80 flex-col items-center px-2">
 					<img src={member.image} alt="" class="mb-4 size-56 rounded-full object-cover" />
 					<h1 class="font-serif text-2xl tracking-tighter">{member.name}</h1>
-					<h2 class="font-medium text-indigo-600">{member.position}</h2>
+					<h2 class="text-center font-medium text-indigo-600">{member.position}</h2>
+					{#if member.education}
+						<p class="mt-1 text-center text-sm font-extralight text-gray-400">{member.education}</p>
+					{/if}
 				</div>
 			{/each}
 		</div>
