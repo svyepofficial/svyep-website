@@ -184,7 +184,7 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   Art), with position `YBVC 2026 Judge`, a placeholder photo, and bios adapted from the published
   `026.md` article (Jun Liu, also a judge, was already an advisor). New optional **`education`** field on
   `previous_members`, rendered as a small grey line under the position on the About page; values kept
-  exactly as the user wrote them ("USC", "Wharton").
+  close to how the user wrote them ("USC"; "Wharton" was changed to "UPenn Wharton" on 2026-09-11).
 - **Eric Cheung added to the team (2026-09-10)**: new member with bio + photo, so he goes at the end of the
   *complete* group (after Cindy Zhang, before the placeholder group). Photo at
   `static/images/about/eric-c.webp`. The user first dropped an opaque photo (foliage background), then

@@ -175,7 +175,7 @@ const about = {
 		{
 			name: 'Leana Zhou',
 			position: 'Chief Financial Officer',
-			education: 'Wharton',
+			education: 'UPenn Wharton',
 			description: 'Member bio coming soon.',
 			image: '/images/about/placeholder.svg'
 		}
