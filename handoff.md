@@ -24,7 +24,7 @@ left off:
 > ("Silicon Valley Young Entrepreneurs and Professionals") on Apache — nothing to do with this repo. Older
 > notes in this file that say svyep.org are wrong; verify deploys against **svyep.com**.
 
-Last updated: 2026-08-30.
+Last updated: 2026-10-17.
 
 ## What this is
 
@@ -167,6 +167,13 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > opened and the user confirms it looks fine. Push to `main` only after approval; Vercel auto-deploys that push.
 
 ## Done recently
+- **Volunteer activity + advisor placeholder (2026-10-17)**: added
+  `Silicon Valley Founders Club Volunteer Activity` to the top of Featured Events with a concise event summary and a
+  `Read More` link to full article `027.md`, "Behind the Scenes at the Fourth AI Researchers Roundtable and BBQ."
+  The user asked to remove the event-poster images from both the card and article; the image-free card now uses a
+  centered full-width layout instead of leaving an empty media column. Added Charles Ojei to Advisors as
+  `YBVC 2027 Advisor` with the standard placeholder portrait and no bio. `npm run build` passed, and `/events`,
+  `/articles/027`, and `/about` were verified locally. The user approved this version for deployment on 2026-10-17.
 - **Aiden Xue titled, Anthony/Camille swapped (2026-09-11)**: Aiden is a **Youth Leader** (user confirmed),
   so every team member now has a real title. **Anthony Wang now comes before Camille Wang** at the user's
   request. That supersedes the older note about Camille being "pinned right after Isabella Liang". Each

@@ -22,13 +22,20 @@
 	</h1>
 	<div class="flex w-full max-w-[1500px] flex-col px-6 sm:px-10">
 		{#each events.featured_events as event, index}
+			{@const hasMedia = Boolean(event.video || event.thumbnail)}
 			<div
 				class={cn(
-					'grid grid-cols-1 items-center gap-10 py-16 lg:grid-cols-2 lg:gap-16',
-					index % 2 === 0 ? '' : 'lg:[&>*:first-child]:order-2'
+					'grid grid-cols-1 items-center gap-10 py-16',
+					hasMedia ? 'lg:grid-cols-2 lg:gap-16' : '',
+					hasMedia && index % 2 !== 0 ? 'lg:[&>*:first-child]:order-2' : ''
 				)}
 			>
-				<div class="flex flex-col items-start">
+				<div
+					class={cn(
+						'flex flex-col items-start',
+						hasMedia ? '' : 'mx-auto w-full max-w-4xl items-center text-center'
+					)}
+				>
 					{#if event.subtitle}
 						<h2 class="font-serif text-lg font-light tracking-tighter text-indigo-400">
 							{event.subtitle}
@@ -44,23 +51,25 @@
 						<Button href="/articles/{event.article}" size="lg" class="mt-8">Read More</Button>
 					{/if}
 				</div>
-				<div class="flex justify-center">
-					{#if event.video}
-						<iframe
-							title={event.title}
-							src={event.video}
-							allowfullscreen
-							allow="encrypted-media *;"
-							class="hover:shadow-glow-blue-hover aspect-video w-full rounded-3xl border-2 border-indigo-600 object-cover transition"
-						></iframe>
-					{:else if event.thumbnail}
-						<img
-							src="/{event.thumbnail}"
-							alt={event.title}
-							class="hover:shadow-glow-blue-hover aspect-[3/2] w-full rounded-3xl border-2 border-indigo-600 object-cover transition"
-						/>
-					{/if}
-				</div>
+				{#if hasMedia}
+					<div class="flex justify-center">
+						{#if event.video}
+							<iframe
+								title={event.title}
+								src={event.video}
+								allowfullscreen
+								allow="encrypted-media *;"
+								class="hover:shadow-glow-blue-hover aspect-video w-full rounded-3xl border-2 border-indigo-600 object-cover transition"
+							></iframe>
+						{:else if event.thumbnail}
+							<img
+								src="/{event.thumbnail}"
+								alt={event.title}
+								class="hover:shadow-glow-blue-hover aspect-[3/2] w-full rounded-3xl border-2 border-indigo-600 object-cover transition"
+							/>
+						{/if}
+					</div>
+				{/if}
 			</div>
 			{#if index !== events.featured_events.length - 1}
 				<hr class="border-gray-400/20" />

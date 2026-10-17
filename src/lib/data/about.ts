@@ -221,6 +221,12 @@ const about = {
 			description:
 				'Youth entrepreneurship coach and startup advisor with a cross-disciplinary background.',
 			image: '/images/about/placeholder.svg'
+		},
+		{
+			name: 'Charles Ojei',
+			position: 'YBVC 2027 Advisor',
+			description: '',
+			image: '/images/about/placeholder.svg'
 		}
 	]
 };

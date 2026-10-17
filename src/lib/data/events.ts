@@ -7,6 +7,15 @@
 const events = {
 	featured_events: [
 		{
+			title: 'Silicon Valley Founders Club Volunteer Activity',
+			subtitle: 'Los Altos Hills',
+			description:
+				"SVYEP volunteers supported Bay Area Founders Club's fourth Top AI Researchers Roundtable and BBQ through guest check-in, venue setup, and event operations.",
+			thumbnail: '',
+			video: '',
+			article: '027'
+		},
+		{
 			title: 'Youth Business Venture Competition 2026',
 			subtitle: 'Stanford University',
 			description:
