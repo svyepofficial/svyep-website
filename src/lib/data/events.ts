@@ -11,7 +11,7 @@ const events = {
 			subtitle: 'Los Altos Hills',
 			description:
 				"SVYEP volunteers supported Bay Area Founders Club's fourth Top AI Researchers Roundtable and BBQ through guest check-in, venue setup, and event operations.",
-			thumbnail: '',
+			thumbnail: 'images/events/ai-researchers-roundtable-2026.webp',
 			video: '',
 			article: '027'
 		},

@@ -24,7 +24,7 @@ left off:
 > ("Silicon Valley Young Entrepreneurs and Professionals") on Apache — nothing to do with this repo. Older
 > notes in this file that say svyep.org are wrong; verify deploys against **svyep.com**.
 
-Last updated: 2026-10-17.
+Last updated: 2026-10-20.
 
 ## What this is
 
@@ -167,6 +167,11 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > opened and the user confirms it looks fine. Push to `main` only after approval; Vercel auto-deploys that push.
 
 ## Done recently
+- **Roundtable photo + title update (2026-10-20, approved for deployment)**: converted the user-provided
+  `/Users/angelahe/Downloads/20.JPG` to `static/images/events/ai-researchers-roundtable-2026.webp` and used it as
+  both the Featured Events cover and the lead image in article `027.md`. Changed the article title from "Fourth" to
+  "4th." `npm run build` passed, and `/events`, `/articles/027`, and the image were visually verified in the local
+  preview. The user approved the preview and requested the push on 2026-10-20.
 - **Volunteer activity + advisor placeholder (2026-10-17)**: added
   `Silicon Valley Founders Club Volunteer Activity` to the top of Featured Events with a concise event summary and a
   `Read More` link to full article `027.md`, "Behind the Scenes at the Fourth AI Researchers Roundtable and BBQ."
