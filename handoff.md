@@ -24,7 +24,7 @@ left off:
 > ("Silicon Valley Young Entrepreneurs and Professionals") on Apache — nothing to do with this repo. Older
 > notes in this file that say svyep.org are wrong; verify deploys against **svyep.com**.
 
-Last updated: 2026-10-20.
+Last updated: 2026-10-21.
 
 ## What this is
 
@@ -167,6 +167,19 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > opened and the user confirms it looks fine. Push to `main` only after approval; Vercel auto-deploys that push.
 
 ## Done recently
+- **5th AI roundtable event + article (2026-10-21, approved for deployment)**: created article `028.md` from the
+  user-provided draft with author `Zanda Zhu`, applied the approved grammar corrections, and added it as the first
+  Featured Events entry titled `Bay Area Founders Club's 5th Top AI Researchers Roundtable and BBQ`. Extracted the
+  two original photographs from the PDF and stored optimized WebP versions under `static/images/events/`; the panel
+  photo is the card/lead image, and the barbecue photo appears in the final article section. `npm run build` passed;
+  `/events`, `/articles/028`, and `/articles` were visually verified in the local preview, including the byline and
+  both photos. The user approved the preview and requested the push on 2026-10-21.
+- **4th AI roundtable event-card title (2026-10-20, approved for deployment)**: changed the Featured Events title from
+  `Silicon Valley Founders Club Volunteer Activity` to
+  `Bay Area Founders Club's 4th Top AI Researchers Roundtable and BBQ`. `npm run build` passed, and the longer title
+  was verified in the local `/events` preview without overlap. On 2026-10-21, changed article `027.md`'s author from
+  `SVYEP Team` to `Ethan Hao`; the build passed and the byline was verified on `/articles/027` and `/articles`.
+  The user approved the preview and requested the push on 2026-10-21.
 - **Roundtable photo + title update (2026-10-20, approved for deployment)**: converted the user-provided
   `/Users/angelahe/Downloads/20.JPG` to `static/images/events/ai-researchers-roundtable-2026.webp` and used it as
   both the Featured Events cover and the lead image in article `027.md`. Changed the article title from "Fourth" to

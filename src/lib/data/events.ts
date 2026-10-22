@@ -7,7 +7,16 @@
 const events = {
 	featured_events: [
 		{
-			title: 'Silicon Valley Founders Club Volunteer Activity',
+			title: "Bay Area Founders Club's 5th Top AI Researchers Roundtable and BBQ",
+			subtitle: 'Atherton',
+			description:
+				"SVYEP volunteers supported Bay Area Founders Club's fifth Top AI Researchers Roundtable and BBQ through event preparation and guest check-in.",
+			thumbnail: 'images/events/ai-researchers-roundtable-5-panel.webp',
+			video: '',
+			article: '028'
+		},
+		{
+			title: "Bay Area Founders Club's 4th Top AI Researchers Roundtable and BBQ",
 			subtitle: 'Los Altos Hills',
 			description:
 				"SVYEP volunteers supported Bay Area Founders Club's fourth Top AI Researchers Roundtable and BBQ through guest check-in, venue setup, and event operations.",
