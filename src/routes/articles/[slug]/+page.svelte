@@ -1,10 +1,15 @@
 <script lang="ts">
+	import { afterNavigate } from '$app/navigation';
 	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import ArrowLeft from 'phosphor-svelte/lib/ArrowLeft';
 	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
-	const { metadata, article: Article } = data;
+	let { metadata, article: Article } = $derived(data);
+	let backHref = $state('/articles');
+	afterNavigate(({ from }) => {
+		if (from?.url.pathname === '/articles') backHref = from.url.pathname + from.url.search;
+	});
 </script>
 
 <Seo
@@ -19,7 +24,7 @@
 	class="prose prose-lg prose-h1:font-serif prose-zinc dark:prose-invert mr-auto mb-32 ml-auto min-h-screen max-w-[900px] px-8 pt-40 text-white"
 >
 	<a
-		href="/articles"
+		href={backHref}
 		class="mb-10 flex items-center gap-2 text-gray-400 no-underline hover:underline"
 		><ArrowLeft size={20} weight="bold" />Back</a
 	>

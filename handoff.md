@@ -24,7 +24,7 @@ left off:
 > ("Silicon Valley Young Entrepreneurs and Professionals") on Apache — nothing to do with this repo. Older
 > notes in this file that say svyep.org are wrong; verify deploys against **svyep.com**.
 
-Last updated: 2026-10-21.
+Last updated: 2026-11-24.
 
 ## What this is
 
@@ -167,6 +167,16 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > opened and the user confirms it looks fine. Push to `main` only after approval; Vercel auto-deploys that push.
 
 ## Done recently
+- **Chronicle Archive (2026-11-24, approved for deployment).** The Chronicle uses the dates in
+  `src/lib/server/article-dates.ts`. Add the slug and Pacific publication day there with each new article.
+  Articles stay current through their first anniversary. The listing loads older summaries only when
+  Archive is opened, ten per page. Dates for 001-002 come from their original frontmatter, 003-018
+  from [SVYEP's original RSS feed](https://web.archive.org/web/20250708170913/https://www.svyep.com/blog-feed.xml),
+  and 019-025 use their first recorded site date (the November 24, 2025 import).
+- **6th AI roundtable (2026-11-24, approved for deployment).** Added Zanda Zhu's report at
+  `/articles/029` and as the first Featured Events entry. The first photo from the PDF is the cover.
+  The uploaded volunteer group portrait replaces the nametag photo in "SVYEP Volunteers Behind the Scenes."
+  The build passed, and the article, event link, and photos were verified on localhost.
 - **5th AI roundtable event + article (2026-10-21, approved for deployment)**: created article `028.md` from the
   user-provided draft with author `Zanda Zhu`, applied the approved grammar corrections, and added it as the first
   Featured Events entry titled `Bay Area Founders Club's 5th Top AI Researchers Roundtable and BBQ`. Extracted the

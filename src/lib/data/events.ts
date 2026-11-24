@@ -7,6 +7,15 @@
 const events = {
 	featured_events: [
 		{
+			title: "Bay Area Founders Club's 6th Top AI Researchers Roundtable and BBQ",
+			subtitle: 'Los Altos Hills',
+			description:
+				'SVYEP volunteers checked in guests and speakers, directed parking, and helped with setup and cleanup at a roundtable on AI infrastructure and development.',
+			thumbnail: 'images/events/ai-researchers-roundtable-6-audience.webp',
+			video: '',
+			article: '029'
+		},
+		{
 			title: "Bay Area Founders Club's 5th Top AI Researchers Roundtable and BBQ",
 			subtitle: 'Atherton',
 			description:
