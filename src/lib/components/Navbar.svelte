@@ -23,11 +23,14 @@
 				</div>
 			</a>
 		</div>
-		<div class="hidden gap-5 text-gray-400 xl:flex">
+		<div class="hidden gap-4 whitespace-nowrap text-gray-400 xl:flex">
 			<a href="/about" class="hover:text-shadow-glow-white transition hover:text-white">About Us</a>
 			<a href="/impact" class="hover:text-shadow-glow-white transition hover:text-white">Impact</a>
 			<a href="/events" class="hover:text-shadow-glow-white transition hover:text-white">Events</a>
 			<a href="/ybvc" class="hover:text-shadow-glow-white transition hover:text-white">YBVC</a>
+			<a href="/young-innovators" class="hover:text-shadow-glow-white transition hover:text-white"
+				>Young Innovators</a
+			>
 			<a href="/articles" class="hover:text-shadow-glow-white transition hover:text-white"
 				>Articles</a
 			>
@@ -85,6 +88,13 @@
 						onclick={() => {
 							isMenuOpen = false;
 						}}>YBVC</a
+					>
+					<a
+						href="/young-innovators"
+						class="hover:text-shadow-glow-white transition hover:text-white"
+						onclick={() => {
+							isMenuOpen = false;
+						}}>Young Innovators</a
 					>
 					<a
 						href="/articles"
@@ -165,6 +175,13 @@
 					onclick={() => {
 						isMobileMenuOpen = false;
 					}}>YBVC</a
+				>
+				<a
+					href="/young-innovators"
+					class="hover:text-shadow-glow-white transition hover:text-white"
+					onclick={() => {
+						isMobileMenuOpen = false;
+					}}>Young Innovators</a
 				>
 				<a
 					href="/articles"

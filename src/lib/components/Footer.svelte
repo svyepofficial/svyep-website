@@ -55,6 +55,11 @@
 					>Partner</a
 				>
 				<a href="/join" class="hover:text-shadow-glow-white transition hover:text-white">Join</a>
+				<a
+					href="/young-innovators"
+					class="hover:text-shadow-glow-white text-center transition hover:text-white"
+					>Young Innovators</a
+				>
 			</div>
 		</div>
 	</div>

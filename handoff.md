@@ -56,9 +56,10 @@ not hardcoded in components, so copy/roster/stats edits happen in `src/lib/data/
 incompatible with the installed prettier / `prettier-plugin-svelte`. Fix was a three-package bump
 (`prettier-plugin-tailwindcss` 0.6.14 → **0.8.1**, `prettier` 3.6.2 → **3.9.6**,
 `prettier-plugin-svelte` 3.4.0 → **3.5.2**). Notes for next time:
+
 - Bumping only `prettier-plugin-tailwindcss` swaps the crash for
   `TypeError: e.charCodeAt is not a function` — the other two must move with it.
-- Reordering the `plugins` array so tailwind comes first *does* stop the crash, but it **silently
+- Reordering the `plugins` array so tailwind comes first _does_ stop the crash, but it **silently
   disables Tailwind class sorting**. Don't do that. `prettier-plugin-tailwindcss` must stay last.
 - Formatting rewrote CRLF → LF on the many files originally committed with CRLF, producing whole-file
   diffs. A **`.gitattributes`** (`* text=auto eol=lf`) now pins LF so this doesn't recur. Files still
@@ -93,9 +94,11 @@ Live at https://svyep.com — DNS is managed separately; Vercel handles the buil
 
 ## Layout
 
-- `src/routes/<page>/+page.svelte` — one folder per page (about, articles, events, impact, donate, join, partner).
+- `src/routes/<page>/+page.svelte` — one folder per page (about, articles, events, impact, donate, join, partner,
+  ybvc, young-innovators).
   `+layout.svelte` is the shared shell. Some pages have `+page.ts` / `+page.server.ts` loaders (articles, impact).
-- `src/lib/data/*.ts` — **page content** (`about.ts`, `events.ts`, `home.ts`, `impact.ts`). Edit copy/rosters/stats here.
+- `src/lib/data/*.ts` — **page content** (`about.ts`, `events.ts`, `home.ts`, `impact.ts`, `young-innovators.ts`).
+  Edit copy/rosters/stats here.
 - `src/lib/components/` — shared components (Footer, etc.). `src/lib/articles/` — article `.md` sources.
 - `static/images/about/<slug>.webp` — team headshots, referenced from `about.ts` as `/images/about/<slug>.webp`.
 
@@ -148,7 +151,7 @@ center ~0.45 vertically matches the rest of the team. Scratch scripts lived in `
 
 **Grid sizing (current):** circles are **fluid** — `aspect-square w-full max-w-[22rem]`, NOT a fixed
 `size-[22rem]`. Grid `max-w-[1300px] gap-x-6 gap-y-16 px-8`, card `px-3 pb-2`, bio text `text-base`.
-**Gotcha (fixed 2026-08-21):** the old fixed `size-[22rem]` (352px) was *wider than its grid column*
+**Gotcha (fixed 2026-08-21):** the old fixed `size-[22rem]` (352px) was _wider than its grid column_
 between ~1024–1150px (column pitch there is ~328px), so adjacent circles physically overlapped, and on
 375px mobile the circle spilled past its card to the viewport edges. Keep the circle fluid — if you ever
 put a fixed size back, re-check 1024px and 375px.
@@ -167,6 +170,16 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 > opened and the user confirms it looks fine. Push to `main` only after approval; Vercel auto-deploys that push.
 
 ## Done recently
+
+- **Young Innovators Program page (2026-11-26).** New route `/young-innovators` built from the full content
+  draft the user pasted (11 sections: hero, about, why entrepreneurship, 3-lesson curriculum, the Young
+  Innovators Challenge, school visits, why partner, FAQ, request a workshop, about SVYEP, final CTA). Copy
+  lives in `src/lib/data/young-innovators.ts`; the route is layout only. Lessons and FAQs are accordions
+  (one open at a time, `aria-expanded` / `aria-controls` wired). Added "Young Innovators" to all three
+  Navbar menus and the Footer — the wide nav row needed `whitespace-nowrap` and `gap-4` (was `gap-5`) so a
+  7th link would not wrap it to two lines at 1280px. Verified at 1280px and 375px: no horizontal overflow,
+  accordions and anchors work, `svelte-check` clean for the new files.
+
 - **Chronicle Archive (2026-11-24, approved for deployment).** The Chronicle uses the dates in
   `src/lib/server/article-dates.ts`. Add the slug and Pacific publication day there with each new article.
   Articles stay current through their first anniversary. The listing loads older summaries only when
@@ -213,7 +226,7 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   reached by direct URL (it's still in git history if they come back). Set real **position titles** for
   the team: President, Vice President ×2, Executive Director, Director of Finance, Director of Marketing,
   Community Outreach Director, Youth Leader. The **team is now ordered by rank** in the order the user
-  listed titles; the old rule of photo-less members going last still holds *within* that. Moved
+  listed titles; the old rule of photo-less members going last still holds _within_ that. Moved
   **Bretton Lam** from `advisors` to the front of `previous_members` (again; see the history below).
   Added the four other **YBVC 2026 judges** as advisors (Zixuan (Alex) An, Bei Zhang, Tianli Feng, Bryant
   Art), with position `YBVC 2026 Judge`, a placeholder photo, and bios adapted from the published
@@ -221,15 +234,15 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   `previous_members`, rendered as a small grey line under the position on the About page; values kept
   close to how the user wrote them ("USC"; "Wharton" was changed to "UPenn Wharton" on 2026-09-11).
 - **Eric Cheung added to the team (2026-09-10)**: new member with bio + photo, so he goes at the end of the
-  *complete* group (after Cindy Zhang, before the placeholder group). Photo at
+  _complete_ group (after Cindy Zhang, before the placeholder group). Photo at
   `static/images/about/eric-c.webp`. The user first dropped an opaque photo (foliage background), then
   replaced it mid-task with a transparent-background version of the same shot; only the transparent one
-  is kept. **Gotcha found while framing the opaque version:** on a photo *without* transparency, any
+  is kept. **Gotcha found while framing the opaque version:** on a photo _without_ transparency, any
   `translateY` beyond `0.5·scale − 0.5` exposes a blank band at the top of the circle, because nothing of
   the image sits above it. Cut-outs don't have this problem, since the page background shows through
   either way. Framing was picked with the contact-sheet workflow and confirmed in `npm run preview`.
   **Second gotcha — iCloud conflict copies:** the repo lives in `~/Documents`, which syncs. Overwriting
-  `eric-c.webp` with `mv -f` left the *old* file behind as `eric-c 2.webp` a few seconds later. After
+  `eric-c.webp` with `mv -f` left the _old_ file behind as `eric-c 2.webp` a few seconds later. After
   replacing any file, run `find src static -name "* 2.*"` and remove the stray copy before committing
   (compare with `cmp` first). `.svelte-kit/types/route_meta_data 2.json` is the same phenomenon.
 - **Cindy Zhang headshot (2026-08-30, local pending review)**: pulled latest `main` (`85fdd5f..2ab9028`),
@@ -279,8 +292,7 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   request — "just move him", so his `Co-Founder and Former CEO` title and bio are unchanged. Advisors is
   now Bretton Lam, Rian Caesar, Jun Liu; Jeremy Peng stays in previous members. Note this entry has
   flip-flopped several times — check `about.ts` rather than trusting older notes here); added Derek Meng, Arun Banerjee, Leo Shi, Jaden Zhao, Lori Ji to `team`
-  (placeholder photo + "Member bio coming soon.", in the end group per the ordering rule). Team is now
-  17. **YBVC page** (`src/routes/ybvc/+page.svelte`) — removed the "YBVC" `<h1>`, reordered so 2025 is
+  (placeholder photo + "Member bio coming soon.", in the end group per the ordering rule). Team is now 17. **YBVC page** (`src/routes/ybvc/+page.svelte`) — removed the "YBVC" `<h1>`, reordered so 2025 is
   the left card and 2026 the right, swapped 2025's Google-Drive iframe for
   `/images/articles/ybvc/2025.webp`, rewrote 2025's blurb to past tense, and added a
   `ybvcompetition.org` link under the cards. Verified in `npm run preview` at 375/1024/1150/1280px:
@@ -373,7 +385,7 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 - **Advisor Rian Caesar** has no photo and no bio, and that is **intentional** — the user confirmed
   2026-08-21 that "rian doesn't want anything". He keeps the `placeholder.svg` silhouette so his card
   still lines up next to Jun Liu's. Don't chase a photo or bio for him.
-- **Tyrone Tan was listed under two titles** in that same message: Director of Finance *and* Youth Leader.
+- **Tyrone Tan was listed under two titles** in that same message: Director of Finance _and_ Youth Leader.
   The site shows **Director of Finance** (the higher role) until the user says otherwise.
 - **Bretton Lam's title reads "Co-Founder and CEO"** (set upstream in `47d44dd`) even though he is now under
   Previous Members. It was "Co-Founder and Former CEO" before that. Left as-is, but worth confirming.
@@ -382,6 +394,23 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   px, i.e. ~700 device px on a retina screen, so his is upscaled ~3.5x and looks visibly softer than his
   neighbours'. Swap in a higher-resolution cut-out when one is available; the `translateY(12%)` framing
   should carry over if it's the same shot.
+- **The Young Innovators interest form is an email fallback, not a real form.** `/join` and `/partner` embed
+  Google Forms; no form exists for this program yet, so the Request section lists the 10 fields from the
+  draft and ships a prefilled `mailto:` (subject + all fields as blank lines) to `svyep.official@gmail.com`.
+  `src/routes/young-innovators/+page.svelte` has a commented-out `<iframe>` right above that block — drop a
+  Google Form id in and delete the email card to switch over.
+- **No photos on the Young Innovators page.** The draft suggested a hero shot (students collaborating), an
+  about-section photo (students in a workshop), and a sample project-card visual for the Challenge section.
+  None exist in `static/images/`, so the page runs on the StarsBackground like `/ybvc` does. Add them under
+  `static/images/young-innovators/` when they're taken.
+- **Two different contact emails in the draft.** The body, FAQ and CTA all say `svyep.official@gmail.com`
+  (which matches the rest of the site); the draft's own footer says `info@svyep.com`. The page uses
+  `svyep.official@gmail.com` throughout — change `program.email` in the data file if `info@svyep.com` is
+  the real one.
+- **The draft's program-specific footer was not applied.** It specifies its own footer (tagline, "Quick
+  Links: About the Program | Our Lessons | For Schools | FAQs | Contact", `© SVYEP`). The site has one
+  global `Footer.svelte` shared by every page; only a "Young Innovators" link was added to it. Say so if a
+  per-page footer is actually wanted.
 - **Big team photo** removed from About (was above Advisors) — re-add if a good group photo appears.
 - **The YBVC site (ybvcompetition.org) is NOT in this repo** and is not on this machine — the
   `svyepofficial` org has only `svyep-website`. The user asked on 2026-08-28 for interview clips to be
