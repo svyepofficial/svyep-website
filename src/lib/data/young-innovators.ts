@@ -226,16 +226,6 @@ const program = {
 		}
 	],
 
-	projectCard: [
-		'The problem the team wants to solve.',
-		'Who experiences the problem.',
-		"The team's proposed solution.",
-		'A drawing or visual design of the idea.',
-		'Feedback received from others.',
-		'Improvements made to the solution.',
-		'One possible next step.'
-	],
-
 	offerings: [
 		{
 			title: 'Free Classroom Workshops',

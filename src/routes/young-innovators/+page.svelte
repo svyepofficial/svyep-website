@@ -402,31 +402,6 @@
 				</div>
 			{/each}
 		</div>
-
-		<div
-			class="shadow-glow-gray mt-10 flex w-full max-w-[860px] flex-col rounded-3xl border-2 border-white/5 bg-gray-800/80 p-8 text-white sm:p-10"
-		>
-			<h3 class="font-serif text-3xl tracking-tighter">
-				The Final Project<span class="text-indigo-600">.</span>
-			</h3>
-			<p class="mt-3 text-base leading-relaxed font-light text-gray-400">
-				Each student team creates a <span class="text-gray-200">Young Innovators Project Card</span> that
-				includes:
-			</p>
-			<ul class="mt-5 grid gap-2.5 sm:grid-cols-2">
-				{#each program.projectCard as item}
-					<li class="flex items-start gap-2.5 text-sm font-light text-gray-400">
-						<CheckCircle size={18} weight="fill" class="mt-0.5 shrink-0 text-indigo-400" />
-						<span>{item}</span>
-					</li>
-				{/each}
-			</ul>
-			<p class="mt-6 text-sm leading-relaxed font-light text-gray-400">
-				Students are not expected to start a business or build a fully functioning product. The
-				purpose of the project is to help students practice turning their ideas into thoughtful
-				solutions while developing confidence, creativity, and teamwork.
-			</p>
-		</div>
 	</section>
 
 	<!-- ====================== 6. OUR SCHOOL VISITS ====================== -->
