@@ -178,7 +178,10 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   (one open at a time, `aria-expanded` / `aria-controls` wired). Added "Young Innovators" to all three
   Navbar menus and the Footer — the wide nav row needed `whitespace-nowrap` and `gap-4` (was `gap-5`) so a
   7th link would not wrap it to two lines at 1280px. Verified at 1280px and 375px: no horizontal overflow,
-  accordions and anchors work, `svelte-check` clean for the new files.
+  accordions and anchors work, `svelte-check` clean for the new files (`e399b1e`). The user then asked for
+  the "The Final Project" card to go, so it and the `projectCard` array that only fed it were deleted — the
+  Challenge section now ends on the three Collaborate / Innovate / Improve steps (`1316f30`). Both verified
+  live on svyep.com.
 
 - **Chronicle Archive (2026-11-24, approved for deployment).** The Chronicle uses the dates in
   `src/lib/server/article-dates.ts`. Add the slug and Pacific publication day there with each new article.
@@ -399,10 +402,11 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
   draft and ships a prefilled `mailto:` (subject + all fields as blank lines) to `svyep.official@gmail.com`.
   `src/routes/young-innovators/+page.svelte` has a commented-out `<iframe>` right above that block — drop a
   Google Form id in and delete the email card to switch over.
-- **No photos on the Young Innovators page.** The draft suggested a hero shot (students collaborating), an
-  about-section photo (students in a workshop), and a sample project-card visual for the Challenge section.
-  None exist in `static/images/`, so the page runs on the StarsBackground like `/ybvc` does. Add them under
-  `static/images/young-innovators/` when they're taken.
+- **No photos on the Young Innovators page.** The draft suggested a hero shot (students collaborating) and
+  an about-section photo (students in a workshop). Neither exists in `static/images/`, so the page runs on
+  the StarsBackground like `/ybvc` does. Add them under `static/images/young-innovators/` when they're
+  taken. (The draft also suggested a sample project-card visual, but that box has since been removed, so
+  that one is moot.)
 - **Two different contact emails in the draft.** The body, FAQ and CTA all say `svyep.official@gmail.com`
   (which matches the rest of the site); the draft's own footer says `info@svyep.com`. The page uses
   `svyep.official@gmail.com` throughout — change `program.email` in the data file if `info@svyep.com` is
