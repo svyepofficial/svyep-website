@@ -27,8 +27,8 @@
 		><ArrowLeft size={18} />Back</a
 	>
 	<header class="not-prose mb-12 flex flex-col gap-3">
-		<p class="font-serif text-xl text-indigo-400">{metadata.type}</p>
-		<h1 class="font-serif text-4xl leading-tight sm:text-5xl">{metadata.title}</h1>
+		<p class="font-serif text-xl tracking-tighter text-indigo-400">{metadata.type}</p>
+		<h1 class="font-serif text-4xl leading-tight tracking-tighter sm:text-5xl">{metadata.title}</h1>
 		<p class="text-lg text-zinc-400">By {metadata.author}</p>
 	</header>
 	<Article />

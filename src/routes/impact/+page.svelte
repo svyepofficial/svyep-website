@@ -61,17 +61,17 @@
 			><HandPointing size={16} /> Hover and click the starred locations</span
 		>
 	</p>
-	<h1 class="mt-8 text-center text-6xl tracking-tight sm:text-8xl">
-		SVYEP is <span class="font-serif text-indigo-500 italic">global</span>
+	<h1 class="mt-8 text-center text-6xl tracking-tighter sm:text-8xl">
+		SVYEP is <span class="font-serif tracking-tighter text-indigo-500 italic">global</span>
 	</h1>
 	<p class="mt-4 text-2xl font-medium sm:text-4xl">
-		<span class="font-serif text-4xl text-indigo-400 sm:text-5xl">21</span> states,
-		<span class="font-serif text-4xl text-indigo-400 sm:text-5xl">17</span> countries
+		<span class="font-serif text-4xl tracking-tighter text-indigo-400 sm:text-5xl">21</span> states,
+		<span class="font-serif text-4xl tracking-tighter text-indigo-400 sm:text-5xl">17</span> countries
 	</p>
 	<div bind:this={globeElement} class="w-full max-w-full overflow-hidden"></div>
 	{#if selected}
 		<section aria-live="polite" class="card -mt-16 w-full max-w-[1000px] p-6 sm:p-8">
-			<h2 class="font-serif text-3xl">{selected.location}</h2>
+			<h2 class="font-serif text-3xl tracking-tighter">{selected.location}</h2>
 			<p class="mt-1 text-zinc-400">
 				{selected.number_of_schools}
 				{selected.number_of_schools === 1 ? 'school' : 'schools'}

@@ -78,8 +78,9 @@
 	<div
 		class="flex max-w-[520px] flex-col items-center gap-8 text-center lg:items-end lg:text-right"
 	>
-		<h1 class="text-5xl leading-[1.05] font-normal tracking-tight sm:text-7xl">
-			Empowering the <span class="font-serif text-indigo-500 italic">future</span> of entrepreneurs
+		<h1 class="text-5xl leading-[1.05] font-normal tracking-tighter sm:text-7xl">
+			Empowering the <span class="font-serif tracking-tighter text-indigo-500 italic">future</span> of
+			entrepreneurs
 		</h1>
 		<p class="text-lg text-zinc-300">
 			A community for high school students who want to use business as a force for good — connecting
@@ -92,8 +93,10 @@
 <!-- What you get -->
 <section class="mx-auto flex max-w-[1000px] flex-col items-center gap-12 px-6 py-24">
 	<div class="flex max-w-[760px] flex-col items-center gap-4 text-center">
-		<h2 class="text-4xl tracking-tight sm:text-6xl">
-			What you get as a <span class="font-serif text-indigo-500 italic">member</span>
+		<h2 class="text-4xl tracking-tighter sm:text-6xl">
+			What you get as a <span class="font-serif tracking-tighter text-indigo-500 italic"
+				>member</span
+			>
 		</h2>
 		<p class="text-lg text-zinc-300">
 			SVYEP is a community for high school students. Members get hands-on experience and a network
@@ -114,16 +117,18 @@
 
 <!-- By the numbers -->
 <section aria-labelledby="numbers" class="mx-auto max-w-[1200px] px-6 py-24">
-	<h2 id="numbers" class="sr-only">SVYEP by the numbers</h2>
+	<h2 id="numbers" class="sr-only tracking-tighter">SVYEP by the numbers</h2>
 	<div class="flex flex-col gap-24 sm:gap-32">
 		{#each stats as stat, i (stat.label)}
 			<div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
 				<div class={['flex flex-col gap-6', i % 2 === 1 && 'lg:order-2']}>
 					<p class="flex flex-col">
-						<span class="text-7xl font-semibold tracking-tight tabular-nums sm:text-9xl"
+						<span class="text-7xl font-black tracking-tighter tabular-nums sm:text-9xl"
 							>{stat.figure}</span
 						>
-						<span class="font-serif text-4xl text-indigo-500 italic sm:text-6xl">{stat.label}</span>
+						<span class="font-serif text-4xl tracking-tighter text-indigo-500 italic sm:text-6xl"
+							>{stat.label}</span
+						>
 					</p>
 					<p class="max-w-[520px] text-zinc-400">
 						<span class="text-zinc-100">{stat.lead}</span>
@@ -146,7 +151,7 @@
 <!-- Mission quote -->
 <section class="mx-auto flex max-w-[1100px] flex-col items-center gap-10 px-6 py-32">
 	<blockquote
-		class="max-w-[720px] text-center font-serif text-4xl leading-tight italic sm:text-6xl"
+		class="max-w-[720px] text-center font-serif text-4xl leading-tight tracking-tighter italic sm:text-6xl"
 	>
 		“To unite <span class="font-sans font-medium text-indigo-500 not-italic">today’s</span> youth
 		with
@@ -170,8 +175,10 @@
 <!-- What we offer -->
 <section class="mx-auto flex max-w-[1200px] flex-col items-center gap-16 px-6 py-24">
 	<div class="flex max-w-[900px] flex-col items-center gap-6 text-center">
-		<h2 class="text-5xl leading-[1.05] tracking-tight sm:text-8xl">
-			We offer resources for <span class="font-serif text-indigo-500 italic">your</span> success
+		<h2 class="text-5xl leading-[1.05] tracking-tighter sm:text-8xl">
+			We offer resources for <span class="font-serif tracking-tighter text-indigo-500 italic"
+				>your</span
+			> success
 		</h2>
 		<p class="max-w-[640px] text-lg text-zinc-300">
 			Everything we offer points the same direction — giving students the connections, experience,
@@ -182,8 +189,8 @@
 		{#each offerings as offering, i (offering.title)}
 			<li class="flex flex-col gap-5">
 				<div class="flex items-baseline gap-4">
-					<span class="text-6xl font-semibold tabular-nums">0{i + 1}</span>
-					<h3 class="font-serif text-3xl text-indigo-500">{offering.title}</h3>
+					<span class="text-6xl font-bold tracking-tighter tabular-nums">0{i + 1}</span>
+					<h3 class="font-serif text-3xl tracking-tighter text-indigo-500">{offering.title}</h3>
 				</div>
 				<img
 					src={offering.image.src}
@@ -215,8 +222,8 @@
 			/>
 		{/each}
 	</Marquee>
-	<h2 class="px-6 text-center text-6xl tracking-tight sm:text-8xl">
-		Get started <span class="font-serif text-indigo-500 italic">today</span>
+	<h2 class="px-6 text-center text-6xl tracking-tighter sm:text-8xl">
+		Get started <span class="font-serif tracking-tighter text-indigo-500 italic">today</span>
 	</h2>
 	<a href="/join" class="btn btn-primary btn-lg">Join as a student</a>
 	<div class="flex flex-col items-center gap-3">

@@ -17,8 +17,10 @@ Always say what was pushed and whether it is PREVIEW or LIVE. Verify live with `
 
 ## Design system (keep the existing identity)
 
-Dark zinc-950 page with one static star field, indigo accent, Urbanist + Baskervville (serif accents) + GFS Didot
-(wordmark, Chronicle masthead). The user wants this look kept and _deslopped_, not rebranded.
+Dark zinc-950 page with one static star field, indigo accent. Fonts are the originals and the user prefers them —
+don't swap or re-weight them: Urbanist (UI, tight `tracking-tighter` headings, black stat numbers, light/extralight
+body on About/Events/Young Innovators), Baskervville (serif accents, names), GFS Didot (wordmark), Cinzel Decorative
+(Chronicle masthead, `font-articles`). The user wants this look kept and _deslopped_, not rebranded.
 
 - Use the classes in `src/app.css`: `btn btn-primary|btn-secondary [btn-lg]`, `card`, `link`. Don't hand-roll buttons.
 - Text roles: `zinc-100` primary, `zinc-300`/`zinc-400` secondary. Small indigo text is `indigo-400`

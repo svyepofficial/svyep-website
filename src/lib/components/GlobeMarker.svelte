@@ -22,7 +22,7 @@
 	<span
 		class="invisible absolute -top-14 flex flex-col items-center rounded-lg border border-white/8 bg-zinc-900 px-3 py-1.5 text-center text-nowrap group-hover:visible group-focus-visible:visible"
 	>
-		<span class="font-serif text-lg leading-5">{location.location}</span>
+		<span class="font-serif text-lg leading-5 tracking-tighter">{location.location}</span>
 		<span class="text-sm text-zinc-400">{count} {count === 1 ? 'school' : 'schools'}</span>
 	</span>
 </button>

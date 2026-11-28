@@ -12,8 +12,8 @@
 />
 
 <div class="mx-auto flex max-w-[1200px] flex-col items-center px-6 pt-40 pb-32">
-	<h1 class="text-center text-6xl tracking-tight sm:text-8xl">
-		<span class="font-serif text-indigo-500 italic">Partner</span> with us
+	<h1 class="text-center text-6xl tracking-tighter sm:text-8xl">
+		<span class="font-serif tracking-tighter text-indigo-500 italic">Partner</span> with us
 	</h1>
 	<button
 		type="button"
@@ -38,7 +38,7 @@
 
 	<section class="mt-32 flex w-full flex-col items-center gap-8">
 		<div class="flex max-w-[760px] flex-col items-center gap-4 text-center">
-			<h2 class="font-serif text-4xl sm:text-6xl">Companies and organizations</h2>
+			<h2 class="font-serif text-4xl tracking-tighter sm:text-6xl">Companies and organizations</h2>
 			<p class="text-zinc-400">
 				The following companies and organizations are ones SVYEP has had the privilege of engaging
 				with in a variety of ways, including partnering with them to co-host events, featuring their
@@ -67,7 +67,7 @@
 
 	<section class="mt-24 flex flex-col items-center gap-8">
 		<div class="flex flex-col items-center gap-4 text-center">
-			<h2 class="font-serif text-4xl sm:text-6xl">Community initiatives</h2>
+			<h2 class="font-serif text-4xl tracking-tighter sm:text-6xl">Community initiatives</h2>
 			<p class="text-zinc-400">We have supported these organizations through donation.</p>
 		</div>
 		<ul class="flex flex-wrap justify-center gap-12">
@@ -86,7 +86,7 @@
 
 	<section class="mt-24 flex flex-col items-center gap-6 text-center">
 		<div class="flex flex-col items-center gap-4">
-			<h2 class="font-serif text-4xl sm:text-6xl">Charitable causes</h2>
+			<h2 class="font-serif text-4xl tracking-tighter sm:text-6xl">Charitable causes</h2>
 			<p class="text-zinc-400">We have supported these causes through donations.</p>
 		</div>
 		<p class="text-4xl font-medium text-zinc-400 sm:text-5xl">2025 LA Wildfires</p>

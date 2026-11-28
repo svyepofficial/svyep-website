@@ -12,8 +12,8 @@
 />
 
 <div class="mx-auto flex max-w-[900px] flex-col items-center px-6 pt-40 pb-32 text-center">
-	<h1 class="text-6xl tracking-tight sm:text-8xl">
-		Become a <span class="font-serif text-indigo-500 italic">donor</span>
+	<h1 class="text-6xl tracking-tighter sm:text-8xl">
+		Become a <span class="font-serif tracking-tighter text-indigo-500 italic">donor</span>
 	</h1>
 	<p class="mt-6 text-lg text-zinc-300">
 		The money we raise goes directly into running our events and programs, covering the venues,
@@ -23,10 +23,12 @@
 		youth entrepreneurs and giving them the opportunities they need to succeed.
 	</p>
 	<p class="mt-24 flex flex-col">
-		<span class="text-7xl font-semibold tracking-tight tabular-nums sm:text-9xl"
+		<span class="text-7xl font-black tracking-tighter tabular-nums sm:text-9xl"
 			>${raised.toLocaleString('en-US')}+</span
 		>
-		<span class="font-serif text-5xl text-indigo-500 italic sm:text-6xl">raised</span>
+		<span class="font-serif text-5xl tracking-tighter text-indigo-500 italic sm:text-6xl"
+			>raised</span
+		>
 	</p>
 	<a href={zelle} target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg mt-12"
 		>Donate with Zelle</a

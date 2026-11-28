@@ -171,7 +171,7 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 - **Full overhaul (2026-11-27, branch `overhaul`, PREVIEW only — not merged to `main`/live yet).** Plan, audit and
   decisions in `OVERHAUL.md`. User direction: keep the dark starry theme, indigo, layouts and all content; remove the
   "vibecoded" look (glows, gradients, gimmick motion, shouting copy) and the inefficiencies. In 6 commits:
-  shared design classes in `app.css`; one font `<link>` (Cinzel dropped); Navbar/Footer from `data/site.ts` with an
+  shared design classes in `app.css`; one font `<link>` (same four original fonts; the user asked to keep their original weights/tracking too); Navbar/Footer from `data/site.ts` with an
   accessible menu; one static star canvas instead of 2–6 animating ones per page; Lottie hero replaced by its final
   frame (`hero-globe.webp`); stats static (they rendered "0" without JS); events/YBVC one data source; partner logos
   named in `partners.ts`; Young Innovators accordions are native `<details name>`; /impact globe kept but fixed

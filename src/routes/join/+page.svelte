@@ -14,10 +14,12 @@
 	class="fixed inset-0 -z-10 h-lvh w-full object-cover opacity-15"
 />
 <div class="mx-auto flex max-w-[1000px] flex-col items-center px-6 pt-40 pb-24">
-	<h1 class="text-center text-6xl tracking-tight sm:text-8xl">
-		Join us as a <span class="font-serif text-indigo-500 italic">member</span>
+	<h1 class="text-center text-6xl tracking-tighter sm:text-8xl">
+		Join us as a <span class="font-serif tracking-tighter text-indigo-500 italic">member</span>
 	</h1>
-	<p class="mt-6 max-w-[760px] text-center font-serif text-xl text-zinc-300 sm:text-2xl">
+	<p
+		class="mt-6 max-w-[760px] text-center font-serif text-xl tracking-tighter text-zinc-300 sm:text-2xl"
+	>
 		As a member, students will receive exclusive resources and opportunities only available to them.
 	</p>
 	<ul class="mt-12 grid w-full gap-4 md:grid-cols-3">

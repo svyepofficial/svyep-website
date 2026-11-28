@@ -58,17 +58,19 @@
 <div class="relative flex flex-col items-center overflow-hidden px-6 pt-36 pb-24 sm:pt-44">
 	<!-- ============================ 1. HERO ============================ -->
 	<section class="flex w-full max-w-[1000px] flex-col items-center">
-		<p class="mb-4 font-serif text-lg text-indigo-400">Young Innovators Program</p>
-		<h1 class="text-center text-5xl leading-[1.05] sm:text-7xl">
+		<p class="mb-4 font-serif text-lg tracking-tighter text-indigo-400">Young Innovators Program</p>
+		<h1 class="text-center text-5xl leading-[1.05] tracking-tighter sm:text-7xl">
 			Small ideas.
-			<span class="font-serif text-indigo-500 italic">Big possibilities.</span>
+			<span class="font-serif tracking-tighter text-indigo-500 italic">Big possibilities.</span>
 		</h1>
-		<h2 class="mt-5 max-w-[800px] text-center font-serif text-lg text-zinc-200 sm:text-2xl">
+		<h2
+			class="mt-5 max-w-[800px] text-center font-serif text-lg tracking-tighter text-zinc-200 sm:text-2xl"
+		>
 			Empowering the next generation of innovators, leaders, and problem-solvers.
 		</h2>
 
 		<div
-			class="mt-8 flex max-w-[780px] flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400"
+			class="mt-8 flex max-w-[780px] flex-col gap-4 text-center text-lg leading-relaxed font-light text-zinc-400"
 		>
 			<p>
 				At SVYEP, we believe that young people have the potential to create meaningful change,
@@ -95,11 +97,11 @@
 
 	<!-- ====================== 2. ABOUT OUR PROGRAM ====================== -->
 	<section class="mt-32 flex w-full max-w-[1100px] flex-col items-center">
-		<h2 class="mb-6 max-w-[900px] text-center font-serif text-4xl sm:text-6xl">
+		<h2 class="mb-6 max-w-[900px] text-center font-serif text-4xl tracking-tighter sm:text-6xl">
 			Inspiring young minds through entrepreneurship
 		</h2>
 		<div
-			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400"
+			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-lg leading-relaxed font-light text-zinc-400"
 		>
 			<p>
 				Entrepreneurship is about more than starting a business. It is about noticing opportunities,
@@ -122,30 +124,30 @@
 
 		<div class="mt-12 grid w-full gap-6 md:grid-cols-2">
 			<div class="card flex flex-col p-8">
-				<h3 class="font-serif text-3xl">Our mission</h3>
-				<p class="mt-3 text-base leading-relaxed text-zinc-400">
+				<h3 class="font-serif text-3xl tracking-tighter">Our mission</h3>
+				<p class="mt-3 text-base leading-relaxed font-light text-zinc-400">
 					To make entrepreneurship education accessible to younger students by providing free,
 					interactive learning experiences that encourage creativity, collaboration, leadership, and
 					real-world problem-solving.
 				</p>
 			</div>
 			<div class="card flex flex-col p-8">
-				<h3 class="font-serif text-3xl">Our vision</h3>
-				<p class="mt-3 text-base leading-relaxed text-zinc-400">
+				<h3 class="font-serif text-3xl tracking-tighter">Our vision</h3>
+				<p class="mt-3 text-base leading-relaxed font-light text-zinc-400">
 					A future where young people feel empowered to think independently, collaborate with
 					others, and use their ideas to make a positive difference.
 				</p>
 			</div>
 		</div>
 
-		<h3 class="mt-16 text-center font-serif text-3xl sm:text-4xl">Our approach</h3>
+		<h3 class="mt-16 text-center font-serif text-3xl tracking-tighter sm:text-4xl">Our approach</h3>
 		<div class="mt-8 grid w-full gap-6 md:grid-cols-3">
 			{#each program.approach as item, index}
 				{@const Icon = approachIcons[index]}
 				<div class="card flex flex-col items-center gap-3 p-7 text-center">
 					<Icon size={32} class="text-indigo-400" />
-					<h4 class="text-lg leading-6 font-medium">{item.title}</h4>
-					<p class="text-sm leading-relaxed text-zinc-400">{item.description}</p>
+					<h4 class="text-lg leading-6 font-medium tracking-tighter">{item.title}</h4>
+					<p class="text-sm leading-relaxed font-light text-zinc-400">{item.description}</p>
 				</div>
 			{/each}
 		</div>
@@ -155,11 +157,11 @@
 
 	<!-- ==================== 3. WHY ENTREPRENEURSHIP? ==================== -->
 	<section class="mt-32 flex w-full max-w-[1200px] flex-col items-center">
-		<h2 class="mb-6 text-center font-serif text-4xl sm:text-6xl">
+		<h2 class="mb-6 text-center font-serif text-4xl tracking-tighter sm:text-6xl">
 			Entrepreneurship is for everyone
 		</h2>
 		<div
-			class="mt-4 flex max-w-[820px] flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400"
+			class="mt-4 flex max-w-[820px] flex-col gap-4 text-center text-lg leading-relaxed font-light text-zinc-400"
 		>
 			<p>You don't need to own a business to think like an entrepreneur.</p>
 			<p>
@@ -176,14 +178,14 @@
 					class="card flex w-full max-w-[320px] flex-col items-center gap-3 p-7 text-center sm:w-[320px]"
 				>
 					<Icon size={32} class="text-indigo-400" />
-					<h3 class="font-serif text-2xl">{skill.title}</h3>
-					<p class="text-sm leading-relaxed text-zinc-400">{skill.description}</p>
+					<h3 class="font-serif text-2xl tracking-tighter">{skill.title}</h3>
+					<p class="text-sm leading-relaxed font-light text-zinc-400">{skill.description}</p>
 				</div>
 			{/each}
 		</div>
 
 		<p
-			class="mt-12 max-w-[760px] text-center font-serif text-xl leading-snug text-zinc-200 sm:text-2xl"
+			class="mt-12 max-w-[760px] text-center font-serif text-xl leading-snug tracking-tighter text-zinc-200 sm:text-2xl"
 		>
 			Our goal is not to turn every child into a business owner. It is to help every child recognize
 			the <span class="text-indigo-400 italic">value of their ideas</span>.
@@ -192,9 +194,11 @@
 
 	<!-- ======================= 4. OUR CURRICULUM ======================= -->
 	<section id="lessons" class="mt-32 flex w-full max-w-[1000px] scroll-mt-32 flex-col items-center">
-		<h2 class="mb-6 text-center font-serif text-4xl sm:text-6xl">Explore our lessons</h2>
+		<h2 class="mb-6 text-center font-serif text-4xl tracking-tighter sm:text-6xl">
+			Explore our lessons
+		</h2>
 		<div
-			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400"
+			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-lg leading-relaxed font-light text-zinc-400"
 		>
 			<p>
 				The Young Innovators Program consists of three interactive, 30-minute workshops designed to
@@ -214,21 +218,23 @@
 			{#each program.lessons as lesson, index}
 				<article class="card flex flex-col overflow-hidden">
 					<div class="flex flex-col px-6 py-7 sm:px-9">
-						<p class="font-serif text-sm text-indigo-400 sm:text-base">
+						<p class="font-serif text-sm tracking-tighter text-indigo-400 sm:text-base">
 							{lesson.number}
 						</p>
-						<h3 class="mt-1 text-3xl font-semibold sm:text-4xl">
+						<h3 class="mt-1 text-3xl font-semibold tracking-tighter sm:text-4xl">
 							{lesson.title}
 						</h3>
 						<p class="mt-2 text-sm text-zinc-300">
 							<span class="text-zinc-400">Focus:</span>
 							{lesson.focus}
 						</p>
-						<p class="mt-4 font-serif text-lg leading-snug text-zinc-200 italic sm:text-xl">
+						<p
+							class="mt-4 font-serif text-lg leading-snug tracking-tighter text-zinc-200 italic sm:text-xl"
+						>
 							{lesson.hook}
 						</p>
 						{#each lesson.summary as paragraph}
-							<p class="mt-3 text-base leading-relaxed text-zinc-400">{paragraph}</p>
+							<p class="mt-3 text-base leading-relaxed font-light text-zinc-400">{paragraph}</p>
 						{/each}
 
 						<p class="mt-4 flex items-center gap-2 text-sm text-zinc-400">
@@ -246,7 +252,7 @@
 						</summary>
 						<div class="flex flex-col gap-7 px-6 pt-2 pb-8 sm:px-9">
 							<div>
-								<h4 class="font-serif text-xl">What students will learn</h4>
+								<h4 class="font-serif text-xl tracking-tighter">What students will learn</h4>
 								<ul class="mt-3 flex flex-col gap-2">
 									{#each lesson.outcomes as outcome}
 										<li class="flex items-start gap-2.5 text-sm text-zinc-400">
@@ -268,11 +274,11 @@
 											{segment.label}
 										</p>
 										{#if segment.name}
-											<h5 class="mt-1.5 font-serif text-lg leading-6">
+											<h5 class="mt-1.5 font-serif text-lg leading-6 tracking-tighter">
 												{segment.name}
 											</h5>
 										{/if}
-										<p class="mt-2 text-sm leading-relaxed text-zinc-400">
+										<p class="mt-2 text-sm leading-relaxed font-light text-zinc-400">
 											{segment.description}
 										</p>
 									</div>
@@ -281,7 +287,7 @@
 
 							<div class="rounded-xl border border-indigo-400/25 p-5">
 								<p class="text-sm text-indigo-400">Student takeaway</p>
-								<p class="mt-2 font-serif text-lg leading-snug text-zinc-200">
+								<p class="mt-2 font-serif text-lg leading-snug tracking-tighter text-zinc-200">
 									{lesson.takeaway}
 								</p>
 							</div>
@@ -299,11 +305,11 @@
 
 	<!-- ============== 5. THE YOUNG INNOVATORS CHALLENGE ================ -->
 	<section class="mt-32 flex w-full max-w-[1100px] flex-col items-center">
-		<h2 class="mb-6 text-center font-serif text-4xl sm:text-6xl">
+		<h2 class="mb-6 text-center font-serif text-4xl tracking-tighter sm:text-6xl">
 			From everyday problems to big ideas
 		</h2>
 		<div
-			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400"
+			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-lg leading-relaxed font-light text-zinc-400"
 		>
 			<p>
 				A unique part of the SVYEP Young Innovators Program is our connected student innovation
@@ -318,9 +324,9 @@
 		<div class="mt-12 grid w-full gap-6 md:grid-cols-3">
 			{#each program.challengeSteps as item}
 				<div class="card flex flex-col p-7">
-					<p class="font-serif text-sm text-indigo-400">{item.step}</p>
-					<h3 class="mt-1 font-serif text-2xl">{item.title}</h3>
-					<p class="mt-3 text-sm leading-relaxed text-zinc-400">{item.description}</p>
+					<p class="font-serif text-sm tracking-tighter text-indigo-400">{item.step}</p>
+					<h3 class="mt-1 font-serif text-2xl tracking-tighter">{item.title}</h3>
+					<p class="mt-3 text-sm leading-relaxed font-light text-zinc-400">{item.description}</p>
 				</div>
 			{/each}
 		</div>
@@ -328,11 +334,11 @@
 
 	<!-- ====================== 6. OUR SCHOOL VISITS ====================== -->
 	<section id="schools" class="mt-32 flex w-full max-w-[1200px] scroll-mt-32 flex-col items-center">
-		<h2 class="mb-6 max-w-[950px] text-center font-serif text-4xl sm:text-6xl">
+		<h2 class="mb-6 max-w-[950px] text-center font-serif text-4xl tracking-tighter sm:text-6xl">
 			Bringing learning directly to your classroom
 		</h2>
 		<div
-			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400"
+			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-lg leading-relaxed font-light text-zinc-400"
 		>
 			<p>We believe meaningful educational experiences should be accessible to students.</p>
 			<p>
@@ -345,32 +351,38 @@
 			</p>
 		</div>
 
-		<h3 class="mt-16 text-center font-serif text-3xl sm:text-4xl">What we offer</h3>
+		<h3 class="mt-16 text-center font-serif text-3xl tracking-tighter sm:text-4xl">
+			What we offer
+		</h3>
 		<div class="mt-8 grid w-full gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{#each program.offerings as offering, index}
 				{@const Icon = offeringIcons[index]}
 				<div class="card flex flex-col items-center gap-3 p-7 text-center">
 					<Icon size={32} class="text-indigo-400" />
-					<h4 class="text-lg leading-6 font-medium">{offering.title}</h4>
-					<p class="text-sm leading-relaxed text-zinc-400">{offering.description}</p>
+					<h4 class="text-lg leading-6 font-medium tracking-tighter">{offering.title}</h4>
+					<p class="text-sm leading-relaxed font-light text-zinc-400">{offering.description}</p>
 				</div>
 			{/each}
 		</div>
 
-		<h3 class="mt-16 text-center font-serif text-3xl sm:text-4xl">How school visits work</h3>
+		<h3 class="mt-16 text-center font-serif text-3xl tracking-tighter sm:text-4xl">
+			How school visits work
+		</h3>
 		<div class="mt-8 grid w-full gap-6 sm:grid-cols-2 lg:grid-cols-4">
 			{#each program.visitSteps as step, index}
 				<div class="card flex flex-col p-7">
-					<span class="font-serif text-3xl text-indigo-400 tabular-nums">{index + 1}</span>
-					<h4 class="mt-4 font-serif text-xl leading-6">{step.title}</h4>
-					<p class="mt-2 text-sm leading-relaxed text-zinc-400">{step.description}</p>
+					<span class="font-serif text-3xl tracking-tighter text-indigo-400 tabular-nums"
+						>{index + 1}</span
+					>
+					<h4 class="mt-4 font-serif text-xl leading-6 tracking-tighter">{step.title}</h4>
+					<p class="mt-2 text-sm leading-relaxed font-light text-zinc-400">{step.description}</p>
 				</div>
 			{/each}
 		</div>
 
 		<div class="mt-12 grid w-full max-w-[1000px] gap-6 md:grid-cols-2">
 			<div class="card flex flex-col p-8">
-				<h4 class="font-serif text-2xl">What schools provide</h4>
+				<h4 class="font-serif text-2xl tracking-tighter">What schools provide</h4>
 				<ul class="mt-4 flex flex-col gap-2.5">
 					{#each program.schoolsProvide as item}
 						<li class="flex items-start gap-2.5 text-sm text-zinc-400">
@@ -381,7 +393,7 @@
 				</ul>
 			</div>
 			<div class="card flex flex-col p-8">
-				<h4 class="font-serif text-2xl">What SVYEP provides</h4>
+				<h4 class="font-serif text-2xl tracking-tighter">What SVYEP provides</h4>
 				<ul class="mt-4 flex flex-col gap-2.5">
 					{#each program.svyepProvides as item}
 						<li class="flex items-start gap-2.5 text-sm text-zinc-400">
@@ -406,10 +418,10 @@
 
 	<!-- =================== 7. WHY PARTNER WITH SVYEP =================== -->
 	<section class="mt-32 flex w-full max-w-[1200px] flex-col items-center">
-		<h2 class="mb-6 text-center font-serif text-4xl sm:text-6xl">
+		<h2 class="mb-6 text-center font-serif text-4xl tracking-tighter sm:text-6xl">
 			Meaningful learning, at no cost
 		</h2>
-		<p class="mt-4 max-w-[820px] text-center text-lg leading-relaxed text-zinc-400">
+		<p class="mt-4 max-w-[820px] text-center text-lg leading-relaxed font-light text-zinc-400">
 			Our Young Innovators Program aims to make entrepreneurship education more accessible while
 			helping students develop practical skills they can apply throughout their lives.
 		</p>
@@ -421,8 +433,8 @@
 					class="card flex w-full max-w-[340px] flex-col items-center gap-3 p-7 text-center sm:w-[340px]"
 				>
 					<Icon size={32} class="text-indigo-400" />
-					<h3 class="text-lg leading-6 font-medium">{reason.title}</h3>
-					<p class="text-sm leading-relaxed text-zinc-400">{reason.description}</p>
+					<h3 class="text-lg leading-6 font-medium tracking-tighter">{reason.title}</h3>
+					<p class="text-sm leading-relaxed font-light text-zinc-400">{reason.description}</p>
 				</div>
 			{/each}
 		</div>
@@ -433,7 +445,9 @@
 
 	<!-- ========================= 8. FAQ ========================= -->
 	<section id="faq" class="mt-32 flex w-full max-w-[900px] scroll-mt-32 flex-col items-center">
-		<h2 class="mb-10 text-center font-serif text-4xl sm:text-6xl">Frequently asked questions</h2>
+		<h2 class="mb-10 text-center font-serif text-4xl tracking-tighter sm:text-6xl">
+			Frequently asked questions
+		</h2>
 
 		<div class="flex w-full flex-col gap-3">
 			{#each program.faqs as faq, index}
@@ -447,7 +461,7 @@
 							class="shrink-0 text-indigo-400 transition-transform group-open:rotate-180"
 						/>
 					</summary>
-					<p class="border-t border-white/8 px-6 py-5 leading-relaxed text-zinc-400">
+					<p class="border-t border-white/8 px-6 py-5 leading-relaxed font-light text-zinc-400">
 						{faq.answer}
 					</p>
 				</details>
@@ -457,11 +471,11 @@
 
 	<!-- ================== 9. REQUEST A FREE WORKSHOP ================== -->
 	<section id="request" class="mt-32 flex w-full max-w-[900px] scroll-mt-32 flex-col items-center">
-		<h2 class="mb-6 text-center font-serif text-4xl sm:text-6xl">
+		<h2 class="mb-6 text-center font-serif text-4xl tracking-tighter sm:text-6xl">
 			Bring Young Innovators to your school
 		</h2>
 		<div
-			class="mt-4 flex max-w-[800px] flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400"
+			class="mt-4 flex max-w-[800px] flex-col gap-4 text-center text-lg leading-relaxed font-light text-zinc-400"
 		>
 			<p>
 				Interested in introducing your students to teamwork, entrepreneurship, and creative
@@ -493,8 +507,10 @@
 			>
 		-->
 		<div class="card mt-10 flex w-full flex-col p-8 sm:p-10">
-			<h3 class="font-serif text-2xl sm:text-3xl">Request a free SVYEP workshop</h3>
-			<p class="mt-3 text-sm leading-relaxed text-zinc-400">
+			<h3 class="font-serif text-2xl tracking-tighter sm:text-3xl">
+				Request a free SVYEP workshop
+			</h3>
+			<p class="mt-3 text-sm leading-relaxed font-light text-zinc-400">
 				Email our team and we will follow up to discuss scheduling. So we can respond quickly,
 				please include:
 			</p>
@@ -520,7 +536,7 @@
 					or email <a href="mailto:{program.email}" class="link">{program.email}</a>
 				</span>
 			</div>
-			<p class="mt-6 text-sm leading-relaxed text-zinc-400">
+			<p class="mt-6 text-sm leading-relaxed font-light text-zinc-400">
 				Our team will review your request and reach out to discuss potential workshop opportunities
 				and scheduling. We look forward to the possibility of working with your school.
 			</p>
@@ -529,8 +545,10 @@
 
 	<!-- ======================== 10. ABOUT SVYEP ======================== -->
 	<section class="mt-32 flex w-full max-w-[900px] flex-col items-center">
-		<h2 class="mb-6 text-center font-serif text-4xl sm:text-6xl">About SVYEP</h2>
-		<div class="mt-4 flex flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400">
+		<h2 class="mb-6 text-center font-serif text-4xl tracking-tighter sm:text-6xl">About SVYEP</h2>
+		<div
+			class="mt-4 flex flex-col gap-4 text-center text-lg leading-relaxed font-light text-zinc-400"
+		>
 			<p>
 				The Silicon Valley Youth Entrepreneurship Program (SVYEP) is a student-led organization
 				dedicated to empowering young people through entrepreneurship, professional opportunities,
@@ -555,11 +573,11 @@
 
 	<!-- ===================== 11. FINAL CALL TO ACTION ===================== -->
 	<section class="mt-32 flex w-full max-w-[900px] flex-col items-center">
-		<h2 class="text-center text-4xl leading-tight sm:text-6xl">
+		<h2 class="text-center text-4xl leading-tight tracking-tighter sm:text-6xl">
 			Every big idea
-			<span class="font-serif text-indigo-500 italic">starts somewhere</span>
+			<span class="font-serif tracking-tighter text-indigo-500 italic">starts somewhere</span>
 		</h2>
-		<p class="mt-6 max-w-[760px] text-center text-lg leading-relaxed text-zinc-400">
+		<p class="mt-6 max-w-[760px] text-center text-lg leading-relaxed font-light text-zinc-400">
 			Help us inspire the next generation of innovators, leaders, and problem-solvers. Partner with
 			SVYEP to bring free, interactive entrepreneurship and leadership education to your students.
 		</p>
