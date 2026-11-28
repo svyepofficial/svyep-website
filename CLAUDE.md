@@ -15,28 +15,24 @@ the decisions behind the current architecture.
 Pushing `main` deploys svyep.com. Big changes go on a branch (Vercel preview URL) and merge only with the user's yes.
 Always say what was pushed and whether it is PREVIEW or LIVE. Verify live with `curl -sL https://svyep.com/<path>`.
 
-## Design system (keep the existing identity)
+## Design (the original look is the spec)
 
-Dark zinc-950 page with one static star field, indigo accent. Fonts are the originals and the user prefers them —
-don't swap or re-weight them: Urbanist (UI, tight `tracking-tighter` headings, black stat numbers, light/extralight
-body on About/Events/Young Innovators), Baskervville (serif accents, names), GFS Didot (wordmark), Cinzel Decorative
-(Chronicle masthead, `font-articles`). Sizes are the originals too (big 9xl/10rem headings and stats, 50px
-benefit icons, 48px logo, original nav/footer): the user found a smaller, "tidier" scale wimpy. Don't shrink them. The user wants this look kept and _deslopped_, not rebranded.
+The user tried a "deslopped" redesign in 2026-11 (fonts re-weighted, sizes shrunk, glows and animation removed) and
+rejected each step: the original look, with its animations, is what they want. Don't restyle, shrink, or remove
+motion/glows to "clean it up". Match the surrounding page when adding things.
 
-- Use the classes in `src/app.css`: `btn btn-primary|btn-secondary [btn-lg]`, `card`, `link`. Don't hand-roll buttons.
-- Text roles: `zinc-100` primary, `zinc-300`/`zinc-400` secondary. Small indigo text is `indigo-400`
-  (`indigo-600` fails contrast on zinc-950); large serif accents use `indigo-500`.
-- One serif-italic indigo accent word per headline at most; none in body copy.
-- Sentence case for headings, buttons and labels; no uppercase labels, no trailing periods on headings.
-- No glows, text-shadows, gradients (except the footer's original navy fade), `transition-all`, scroll-driven or looping decorative motion.
-  Hover = color change; `prefers-reduced-motion` is honoured globally.
-- One `<h1>` per page; images get `alt` (empty if decorative), `width`/`height`, and `loading="lazy"` below the fold.
+- Dark zinc-950 page, animated `StarsBackground`, indigo accent, glow text-shadows (`text-shadow-glow-*` in
+  `app.css`), `Spotlight` beams, the Lottie hero (`static/animation.json`), `AnimateNumber` count-ups,
+  `AnimateText` word fade-ins, `motion` scroll animations.
+- Fonts: Urbanist (UI, `tracking-tighter` headings), Baskervville (serif accents), GFS Didot (wordmark),
+  Cinzel Decorative (Chronicle masthead, `font-articles`).
+- Buttons: `Button.svelte` (tailwind-variants). Images get `alt` and `width`/`height` where you add them.
 
 ## Code conventions
 
-- Content lives in `src/lib/data/*.ts` (typed). Nav links and contacts: `data/site.ts`. Events feed both /events
-  and /ybvc. Partner logos are listed explicitly in `data/partners.ts`.
-- Conditional classes: Svelte `class={[...]}` (no clsx / tailwind-merge).
+- Content lives in `src/lib/data/*.ts`. Partner logos are globbed from `src/lib/logos/<group>/NN name.png`
+  (the number sets the order).
+- Conditional classes: `cn()` from `src/lib/utils/cn.ts` (clsx + tailwind-merge), as the existing code does.
 - Every route is prerendered except `/articles`. A new dynamic route needs `entries` or `prerender = false`.
 - New articles: add `src/lib/articles/NNN.md` and its date in `src/lib/server/article-dates.ts` (the build throws if
   missing). Prettier ignores articles on purpose: formatting them breaks mdsvex.

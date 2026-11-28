@@ -36,15 +36,13 @@ not hardcoded in components, so copy/roster/stats edits happen in `src/lib/data/
 ## Stack
 
 - **SvelteKit 2** (Svelte 5 runes) + **Vite 7** + **TypeScript**; **Tailwind CSS v4** + `@tailwindcss/typography`
-- **mdsvex** for articles. Runtime dependencies are only **`globe.gl`** (the /impact globe) and
-  **`phosphor-svelte`** (icons). `motion`, Lottie, `tailwind-variants`, `tailwind-merge` and `clsx` were removed in
-  the 2026-11 overhaul. Conditional classes use Svelte's native `class={[...]}`.
+- **mdsvex** for articles. Runtime: `globe.gl` (/impact), `phosphor-svelte` (icons),
+  `motion` + `@lottiefiles/dotlottie-svelte` (animations), `tailwind-variants` / `clsx` / `tailwind-merge` (`cn()`).
 - `@sveltejs/adapter-auto` (Vercel). **Every page is prerendered** (root `+layout.ts`) except `/articles`, which
   reads query params and a date-relative archive. `kit.prerender.origin` is `https://www.svyep.com`.
 - Package manager: **npm** (`package-lock.json` is the lockfile; `bun.lock` was deleted in the overhaul because
   bun isn't installed here and Vercel must see exactly one lockfile). Never commit a `bun.lock` again.
-- Design system: tokens and the shared `.btn` / `.btn-primary` / `.btn-secondary` / `.btn-lg` / `.card` / `.link`
-  classes live in `src/app.css`. Conventions are in the repo's `CLAUDE.md`.
+- Design: the original look (glows, animations, Lottie hero) is the spec — see the repo's `CLAUDE.md`.
 
 ### Prettier (fixed 2026-08-21 — was broken for months)
 
@@ -91,14 +89,13 @@ Live at https://svyep.com — DNS is managed separately; Vercel handles the buil
 
 ## Layout
 
-- `src/routes/<page>/+page.svelte` — one folder per page. `+layout.svelte` is the shell (skip link, one static
-  `StarsBackground`, Navbar, `<main>`, Footer). `+error.svelte` handles 404s.
-- `src/lib/data/*.ts` — **all page content**: `site.ts` (nav links, email, Instagram — Navbar + Footer read it),
-  `home.ts` (stats, member benefits shared with /join), `about.ts`, `events.ts` (also feeds /ybvc via `ybvc: true`),
-  `impact.ts`, `partners.ts` (logo names/order), `young-innovators.ts`.
-- `src/lib/components/` — Navbar, Footer, Logo, Seo, Marquee, StarsBackground, GlobeMarker, YouTubeEmbed.
+- `src/routes/<page>/+page.svelte` — one folder per page. `+layout.svelte` is the shell (Navbar, page, Footer);
+  pages place their own `StarsBackground`. `+error.svelte` handles 404s.
+- `src/lib/data/*.ts` — page content: `home.ts`, `about.ts`, `events.ts`, `impact.ts`, `young-innovators.ts`.
+- `src/lib/components/` — Navbar, Footer, Button, Seo, Marquee, StarsBackground, Spotlight, AnimateText,
+  AnimateNumber, GlobeMarker, YouTubeEmbed.
 - `src/lib/articles/NNN.md` — articles; publication dates in `src/lib/server/article-dates.ts`.
-- `src/lib/logos/<group>/<slug>.png` — partner logos (imported so Vite fingerprints them), listed in `partners.ts`.
+- `src/lib/logos/<group>/NN name.png` — partner logos, globbed by the partner page; the number sets the order.
 - `static/images/...` — photos. Keep new photos ≤1600px on the long side (WebP).
 
 ## Team roster (about page)
@@ -168,16 +165,12 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 
 ## Done recently
 
-- **Full overhaul (2026-11-27, branch `overhaul`, PREVIEW only — not merged to `main`/live yet).** Plan, audit and
-  decisions in `OVERHAUL.md`. User direction: keep the dark starry theme, indigo, layouts and all content; remove the
-  "vibecoded" look (glows, gradients, gimmick motion, shouting copy) and the inefficiencies. In 6 commits:
-  shared design classes in `app.css`; one font `<link>` (same four original fonts; the user asked to keep their original weights/tracking too); Navbar/Footer from `data/site.ts` with an
-  accessible menu; one static star canvas instead of 2–6 animating ones per page; Lottie hero replaced by its final
-  frame (`hero-globe.webp`); stats static (they rendered "0" without JS); events/YBVC one data source; partner logos
-  named in `partners.ts`; Young Innovators accordions are native `<details name>`; /impact globe kept but fixed
-  (local texture, unmounts, labelled markers); `/articles/<unknown>` 404s; `/api/articles` deleted; prerendering;
-  images >1600px downscaled (31 → 13 MB); bun → npm; deps 8 → 2 runtime. Home first load 3.0 MB/61 requests →
-  312 KB/31. svelte-check 3 errors → 0. California school count 61 → 60 (duplicate removed, user-approved).
+- **2026-11-27 overhaul, then visual rollback (branch `overhaul`, PREVIEW only — not merged to `main`/live yet).**
+  A "deslop" redesign (see `OVERHAUL.md`) was tried; the user preferred the original fonts, sizes and animations,
+  so every page, component, style and data file was restored to the pre-overhaul look. Kept from the overhaul (no
+  visible change): bun → npm; prerendering (`+layout.ts`, `kit.prerender.origin`); `/articles/<unknown>` 404s via
+  `entries()` + glob; `+error.svelte`; `/api/articles` deleted; images >1600px downscaled (31 → 13 MB); globe
+  texture served locally; California 61 → 60 (duplicate removed); "mentions" → "mentors"; svelte-check 0 errors.
 - Older history (2026-06 → 2026-11-26: roster edits, roundtable articles, Chronicle archive, Young Innovators page,
   SEO pass, Vercel setup) is in `git log`; it was pruned from here on 2026-11-27.
 

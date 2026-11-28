@@ -1,13 +1,4 @@
-export type Location = {
-	location: string;
-	lat: string;
-	lng: string;
-	/** Kept explicitly because some locations (e.g. Washington, D.C.) have no named schools. */
-	number_of_schools: number;
-	schools?: string[];
-};
-
-const impact: { locations: Location[] } = {
+const impact = {
 	locations: [
 		{
 			location: 'California',

@@ -1,28 +1,29 @@
 <script lang="ts">
-	import type { Location } from '$lib/data/impact';
-	import StarFour from 'phosphor-svelte/lib/StarFour';
-
-	let { location, onselect }: { location: Location; onselect: (location: Location) => void } =
-		$props();
-
-	const count = $derived(location.number_of_schools);
+	import { StarFour } from 'phosphor-svelte';
+	import { selectedLocation } from '../../routes/impact/state.svelte';
+	let { location } = $props();
 </script>
 
 <button
-	type="button"
-	class="group pointer-events-auto relative flex cursor-pointer flex-col items-center"
-	aria-label="{location.location}: {count} {count === 1 ? 'school' : 'schools'}"
-	onclick={() => onselect(location)}
+	class="pointer-events-auto flex cursor-pointer flex-col items-center"
+	onclick={() => {
+		selectedLocation.location = location;
+	}}
 >
 	<StarFour
 		weight="fill"
-		size={Math.min(8 + Math.log1p(count) * 10, 50)}
-		class="text-indigo-200 transition-colors group-hover:text-indigo-400"
+		size={Math.min(8 + Math.log1p(location.number_of_schools) * 10, 50)}
+		class="peer z-0 text-indigo-200 drop-shadow-2xl drop-shadow-indigo-600 transition hover:text-indigo-600"
 	/>
-	<span
-		class="invisible absolute -top-14 flex flex-col items-center rounded-lg border border-white/8 bg-zinc-900 px-3 py-1.5 text-center text-nowrap group-hover:visible group-focus-visible:visible"
+	<div
+		class="invisible absolute -top-12 z-50 flex flex-col items-center text-center text-nowrap text-white peer-hover:visible"
 	>
-		<span class="font-serif text-lg leading-5 tracking-tighter">{location.location}</span>
-		<span class="text-sm text-zinc-400">{count} {count === 1 ? 'school' : 'schools'}</span>
-	</span>
+		<h1 class="tracking-tigher w-fit bg-indigo-600 p-1 font-serif text-xl leading-5 italic">
+			{location.location}
+		</h1>
+		<h2 class="text-shadow-md/60">
+			{location.number_of_schools}
+			{location.number_of_schools > 1 ? 'schools' : 'school'}
+		</h2>
+	</div>
 </button>

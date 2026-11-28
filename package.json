@@ -31,7 +31,12 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@lottiefiles/dotlottie-svelte": "^0.12.2",
+		"clsx": "^2.1.1",
 		"globe.gl": "^2.43.0",
-		"phosphor-svelte": "^3.0.1"
+		"motion": "^12.43.0",
+		"phosphor-svelte": "^3.0.1",
+		"tailwind-merge": "^3.7.1",
+		"tailwind-variants": "^2.1.0"
 	}
 }

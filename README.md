@@ -42,12 +42,12 @@ npm run check && npx prettier --check . && npm run build
 
 ```
 src/
-├── app.css              # Design tokens and shared .btn / .card / .link classes
+├── app.css              # Tailwind theme, fonts, glow utilities
 ├── lib/
 │   ├── articles/        # Chronicle articles (Markdown + Svelte)
 │   ├── components/      # Navbar, Footer, Seo, Marquee, …
-│   ├── data/            # All page content: site links, home stats, team, events, partners, impact
-│   ├── logos/           # Partner logos (listed in data/partners.ts)
+│   ├── data/            # Page content: home stats, team, events, impact
+│   ├── logos/           # Partner logos (NN prefix sets the order)
 │   └── server/          # Chronicle listing and article dates
 └── routes/              # One folder per page
 static/images/           # Photos (WebP, ≤1600px)

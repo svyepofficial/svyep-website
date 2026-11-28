@@ -1,6 +1,6 @@
 # SVYEP overhaul — audit and plan
 
-Status: **implemented on branch `overhaul` (preview only, not merged to `main`/live).** Baseline is commit `ce6fb43`. Results in §11.
+Status: **implemented on branch `overhaul` (preview only, not merged to `main`/live).** Baseline is commit `ce6fb43`. Results in §11; visual changes rolled back in §12.
 
 ## 1. What exists
 
@@ -312,3 +312,13 @@ Deviations from the plan:
 - The globe was kept, per the owner.
 - `@types/node` was added as a dev dependency, because SvelteKit 2.62+'s generated tsconfig requires it.
 - The remaining `npm audit` items need SvelteKit 3 and are listed in `handoff.md`.
+
+## 12. Rollback of the visual changes (2026-11-27)
+
+After seeing the preview, the user preferred the original typography, then the original sizes, then the original
+animations ("the old website with the animations looks a lot better and smoother"), and chose to restore the old
+look entirely. All pages, components, `app.css`, `app.html`, data files and partner logo names are back to
+`ce6fb43`. What stays from this overhaul is invisible: npm, prerendering, article 404s, `+error.svelte`, `/api/articles`
+removal, downscaled images, the local globe texture, the California count and the "mentors" typo fix. The
+before/after numbers in §11 no longer apply to page weight: the Lottie hero, `motion` and the animated star canvases
+are back.
