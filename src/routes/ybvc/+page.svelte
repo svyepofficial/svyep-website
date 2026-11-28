@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 
 	type Competition = {
@@ -41,9 +40,6 @@
 />
 
 <div class="relative flex flex-col items-center gap-8 px-6 pt-36 pb-20 sm:pt-44">
-	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
-	<StarsBackground starDensity={0.00003} class="-z-10" />
-
 	<section class="flex w-full max-w-[1120px] flex-col items-center gap-8">
 		<div class="grid w-full gap-6 lg:grid-cols-2">
 			{#each competitions as competition}

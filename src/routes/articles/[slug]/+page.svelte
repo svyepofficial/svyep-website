@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { afterNavigate } from '$app/navigation';
-	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import ArrowLeft from 'phosphor-svelte/lib/ArrowLeft';
 	import Seo from '$lib/components/Seo.svelte';
 
@@ -19,7 +18,6 @@
 	type="article"
 />
 
-<StarsBackground class="-z-10" starDensity={0.00003} />
 <article
 	class="prose prose-lg prose-h1:font-serif prose-zinc dark:prose-invert mr-auto mb-32 ml-auto min-h-screen max-w-[900px] px-8 pt-40 text-white"
 >

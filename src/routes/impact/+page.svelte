@@ -1,5 +1,4 @@
 <script lang="ts">
-	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import { mount, onMount } from 'svelte';
 	import impact from '$lib/data/impact';
 	import GlobeMarker from '$lib/components/GlobeMarker.svelte';
@@ -48,8 +47,6 @@
 />
 
 <div class="relative flex flex-col items-center justify-center pt-40">
-	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
-	<StarsBackground starDensity={0.00003} class="-z-10" />
 	<h2 class="flex flex-wrap items-center justify-center gap-1 text-gray-400">
 		<div class="flex items-center gap-1">
 			<MouseScroll size={20} /> Drag to move around<span class="mx-2"></span>

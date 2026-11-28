@@ -1,5 +1,4 @@
 <script lang="ts">
-	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import about from '$lib/data/about';
 	import Seo from '$lib/components/Seo.svelte';
 </script>
@@ -10,8 +9,6 @@
 />
 
 <div class="relative flex h-full flex-col items-center gap-16 pt-40 sm:gap-24 sm:pt-44">
-	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
-	<StarsBackground starDensity={0.00003} class="-z-10" />
 	<div class="flex w-full max-w-[1200px] flex-col px-4 text-white">
 		<h1
 			class="text-shadow-glow-white mb-4 font-serif text-3xl leading-tight tracking-tighter sm:mb-6 sm:text-6xl"

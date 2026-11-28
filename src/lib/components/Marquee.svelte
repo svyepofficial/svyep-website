@@ -1,33 +1,18 @@
-<script>
-	import { cn } from '$lib/utils/cn';
-	let {
-		pauseOnHover = false,
-		vertical = false,
-		repeat = 4,
-		reverse = false,
-		class: className,
-		children
-	} = $props();
+<script lang="ts">
+	import type { Snippet } from 'svelte';
+
+	let { reverse = false, children }: { reverse?: boolean; children: Snippet } = $props();
 </script>
 
-<div
-	class={cn(
-		'group flex [gap:var(--gap)] overflow-hidden p-2 [--duration:2s] [--gap:1rem]',
-		{
-			'flex-row': !vertical,
-			'flex-col': vertical
-		},
-		className
-	)}
->
-	{#each { length: repeat } as _, i (i)}
+<!-- Two copies so the strip loops seamlessly; the second is hidden from assistive tech. -->
+<div class="group flex gap-(--gap) overflow-hidden [--duration:60s] [--gap:1rem]">
+	{#each [false, true] as hidden (hidden)}
 		<div
-			class={cn('flex shrink-0 justify-around [gap:var(--gap)]', {
-				'animate-marquee flex-row': !vertical,
-				'animate-marquee-vertical flex-col': vertical,
-				'group-hover:[animation-play-state:paused]': pauseOnHover,
-				'[animation-direction:reverse]': reverse
-			})}
+			aria-hidden={hidden || undefined}
+			class={[
+				'animate-marquee flex shrink-0 gap-(--gap) group-hover:[animation-play-state:paused]',
+				reverse && '[animation-direction:reverse]'
+			]}
 		>
 			{@render children()}
 		</div>

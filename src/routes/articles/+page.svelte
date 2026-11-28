@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import { cn } from '$lib/utils/cn.js';
 	import Seo from '$lib/components/Seo.svelte';
 
@@ -36,8 +35,6 @@
 	data-sveltekit-preload-data="off"
 	data-sveltekit-preload-code="off"
 >
-	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
-	<StarsBackground starDensity={0.00003} class="-z-10" />
 	<div class="flex w-full max-w-[1200px] flex-col items-center gap-4 px-4 sm:px-0">
 		<h1
 			class="font-articles text-shadow-glow-white w-full text-center text-4xl font-medium text-wrap sm:text-6xl lg:text-7xl"

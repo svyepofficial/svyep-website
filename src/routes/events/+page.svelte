@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import events from '$lib/data/events';
 	import { cn } from '$lib/utils/cn';
 	import Seo from '$lib/components/Seo.svelte';
@@ -12,8 +11,6 @@
 />
 
 <div class="relative flex flex-col items-center gap-10 pt-30 pb-20 sm:pt-40">
-	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
-	<StarsBackground starDensity={0.00003} class="-z-10" />
 	<h1
 		class="text-shadow-glow-white px-6 text-center text-7xl tracking-tighter text-white select-none sm:text-9xl"
 	>

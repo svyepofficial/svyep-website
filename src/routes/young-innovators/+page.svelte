@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import program from '$lib/data/young-innovators';
 
@@ -69,9 +68,6 @@
 />
 
 <div class="relative flex flex-col items-center overflow-hidden px-6 pt-36 pb-24 sm:pt-44">
-	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
-	<StarsBackground starDensity={0.00003} class="-z-10" />
-
 	<!-- ============================ 1. HERO ============================ -->
 	<section class="flex w-full max-w-[1000px] flex-col items-center">
 		<p class="mb-4 font-serif text-sm tracking-tighter text-indigo-400 uppercase sm:text-base">

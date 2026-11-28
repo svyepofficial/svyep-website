@@ -1,60 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
-@theme inline {
-	--font-sans: 'Urbanist', 'sans-serif';
-	--font-serif: 'Baskervville', 'sans-serif';
-	--font-display: 'GFS Didot', 'sans-serif';
-	--font-articles: 'Cinzel Decorative', 'sans-serrif';
-	--text-shadow-glow-white: rgba(255, 255, 255, 0.5) 0px 0px 4px;
-	--text-shadow-glow-blue: rgba(4, 51, 140, 1) 0px 0px 4px;
-	--shadow-glow-blue:
-		0px 0px 20px rgba(67, 56, 202, 0.5), 0px 5px 5px -1px rgba(165, 180, 252, 0.1),
-		inset 2px 2px 8px rgba(165, 180, 252, 0.5), inset -4px -4px 8px rgba(67, 56, 202, 0.35);
-	--shadow-glow-blue-hover:
-		0px 0px 30px rgba(67, 56, 202, 0.8), 0px 5px 5px -1px rgba(165, 180, 252, 0.1),
-		inset 2px 2px 8px rgba(165, 180, 252, 0.5), inset -4px -4px 8px rgba(55, 48, 163, 0.35);
-	--shadow-glow-gray:
-		0px 0px 20px rgba(31, 41, 55, 0.5), 0px 5px 5px -1px rgba(17, 24, 39, 0.1),
-		inset 2px 2px 8px rgba(55, 65, 81, 0.5), inset -4px -4px 8px rgba(17, 24, 39, 0.35);
+/* Fonts load from one <link> in app.html. Contrast notes: on zinc-950, indigo-600 is 3.2:1 (large
+   display text only), indigo-400 is 6.7:1 (any size). */
+@theme {
+	--font-sans: 'Urbanist', ui-sans-serif, system-ui, sans-serif;
+	--font-serif: 'Baskervville', ui-serif, Georgia, serif;
+	--font-display: 'GFS Didot', ui-serif, Georgia, serif;
+	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
 	--animate-marquee: marquee var(--duration) infinite linear;
-	--animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 	@keyframes marquee {
-		from {
-			transform: translateX(0);
-		}
 		to {
 			transform: translateX(calc(-100% - var(--gap)));
 		}
 	}
-	@keyframes marquee-vertical {
-		from {
-			transform: translateY(0);
-		}
-		to {
-			transform: translateY(calc(-100% - var(--gap)));
-		}
+}
+
+@layer base {
+	:focus-visible {
+		outline: 2px solid var(--color-indigo-400);
+		outline-offset: 3px;
 	}
 }
 
-::-webkit-scrollbar {
-	width: 1px;
+@layer components {
+	.btn {
+		@apply inline-flex w-fit cursor-pointer items-center justify-center gap-2 rounded-xl px-5 py-2 font-medium transition-[background-color,border-color,color,transform] duration-150 ease-out active:scale-[0.98];
+	}
+	.btn-primary {
+		@apply bg-indigo-600 text-white hover:bg-indigo-700;
+	}
+	.btn-secondary {
+		@apply border border-white/10 bg-zinc-800 text-zinc-100 hover:bg-zinc-700;
+	}
+	.btn-lg {
+		@apply px-6 py-3 text-lg;
+	}
+	.card {
+		@apply rounded-2xl border border-white/8 bg-zinc-900;
+	}
+	.link {
+		@apply text-indigo-400 underline decoration-indigo-400/40 underline-offset-4 transition-colors hover:decoration-indigo-400;
+	}
 }
 
-::-webkit-scrollbar-track {
-	background: #09090b;
-}
-
-::-webkit-scrollbar-thumb {
-	background: #c7d2fe;
-	border-radius: 1px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background: white;
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation: none !important;
+		transition-duration: 0s !important;
+		scroll-behavior: auto !important;
+	}
 }

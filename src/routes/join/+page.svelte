@@ -1,5 +1,4 @@
 <script lang="ts">
-	import StarsBackground from '$lib/components/StarsBackground.svelte';
 	import Star from 'phosphor-svelte/lib/Star';
 	import HandCoins from 'phosphor-svelte/lib/HandCoins';
 	import Envelope from 'phosphor-svelte/lib/Envelope';
@@ -12,8 +11,6 @@
 />
 
 <div class="relative flex flex-col items-center pt-30 sm:pt-40">
-	<StarsBackground class="fixed -z-10" starDensity={0.00003} />
-	<StarsBackground starDensity={0.00003} class="-z-10" />
 	<img
 		src="/images/join/01.webp"
 		alt=""

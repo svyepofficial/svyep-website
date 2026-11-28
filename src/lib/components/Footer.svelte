@@ -1,69 +1,50 @@
 <script lang="ts">
+	import { nav, actions, email, instagram } from '$lib/data/site';
+	import Logo from '$lib/components/Logo.svelte';
 	import EnvelopeSimple from 'phosphor-svelte/lib/EnvelopeSimple';
 	import InstagramLogo from 'phosphor-svelte/lib/InstagramLogo';
+
+	const links = [{ href: '/', label: 'Home' }, ...nav, actions.partner, actions.join];
 </script>
 
-<footer class="flex flex-col items-center gap-10 bg-linear-to-t from-[#120f35] to-zinc-950 pt-14">
-	<div class="flex w-full flex-col items-center justify-evenly gap-y-8 md:flex-row">
-		<div class="flex w-[300px] justify-center gap-4 text-gray-400">
-			<a
-				href="mailto:svyep.official@gmail.com"
-				class="hover:text-shadow-glow-white transition hover:text-white"
-				target="_blank"
-			>
-				<EnvelopeSimple size={30} weight="thin" />
-			</a>
-			<a
-				href="https://www.instagram.com/svyep/"
-				class="hover:text-shadow-glow-white transition hover:text-white"
-				target="_blank"
-			>
-				<InstagramLogo size={30} weight="thin" />
-			</a>
-		</div>
-		<a class="flex w-fit items-center gap-2" href="/">
-			<img src="/logo.png" alt="" class="mb-1 size-12" />
-			<div class="">
-				<h1 class="font-display mt-0.5 text-3xl leading-6 tracking-tight text-white">SVYEP</h1>
-				<p class=" text-[0.5rem] leading-tight font-extralight text-gray-300">
-					SILICON VALLEY YOUTH <br /> ENTREPRENEURSHIP PROGRAM
-				</p>
-			</div>
-		</a>
-		<div class="flex w-[300px] justify-center gap-8 text-sm font-extralight text-gray-400">
-			<div class="flex flex-col items-center gap-2">
-				<a href="/" class="hover:text-shadow-glow-white transition hover:text-white">Home</a>
-				<a href="/about" class="hover:text-shadow-glow-white transition hover:text-white"
-					>About Us</a
-				>
-				<a href="/impact" class="hover:text-shadow-glow-white transition hover:text-white">Impact</a
-				>
-			</div>
-			<div class="flex flex-col items-center gap-2">
-				<a href="/events" class="hover:text-shadow-glow-white transition hover:text-white">Events</a
-				>
-				<a href="/ybvc" class="hover:text-shadow-glow-white transition hover:text-white">YBVC</a>
-				<a href="/articles" class="hover:text-shadow-glow-white transition hover:text-white"
-					>Articles</a
-				>
-				<!-- <a href="/donate" class="hover:text-shadow-glow-white transition hover:text-white">Merch</a> -->
-				<a href="/donate" class="hover:text-shadow-glow-white transition hover:text-white">Donate</a
-				>
-			</div>
-			<div class="flex flex-col items-center gap-2">
-				<a href="/partner" class="hover:text-shadow-glow-white transition hover:text-white"
-					>Partner</a
-				>
-				<a href="/join" class="hover:text-shadow-glow-white transition hover:text-white">Join</a>
+<footer class="border-t border-white/8 px-6 pt-12 pb-8">
+	<div
+		class="mx-auto flex max-w-[1200px] flex-col items-center gap-10 md:flex-row md:items-start md:justify-between"
+	>
+		<div class="flex flex-col items-center gap-5 md:items-start">
+			<Logo />
+			<div class="flex gap-2 text-zinc-400">
 				<a
-					href="/young-innovators"
-					class="hover:text-shadow-glow-white text-center transition hover:text-white"
-					>Young Innovators</a
+					href="mailto:{email}"
+					aria-label="Email SVYEP"
+					class="rounded-lg p-2 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
 				>
+					<EnvelopeSimple size={22} />
+				</a>
+				<a
+					href={instagram}
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="SVYEP on Instagram"
+					class="rounded-lg p-2 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
+				>
+					<InstagramLogo size={22} />
+				</a>
 			</div>
 		</div>
+		<nav aria-label="Footer">
+			<ul
+				class="grid grid-cols-2 gap-x-12 gap-y-3 text-center text-sm text-zinc-400 sm:grid-cols-3 md:text-left"
+			>
+				{#each links as link (link.href)}
+					<li>
+						<a href={link.href} class="transition-colors hover:text-zinc-100">{link.label}</a>
+					</li>
+				{/each}
+			</ul>
+		</nav>
 	</div>
-	<div class="m-2 flex flex-col text-center text-xs text-gray-500">
-		<p>© 2025 by the Silicon Valley Youth Entrepreneur Program</p>
-	</div>
+	<p class="mt-12 text-center text-xs text-zinc-400">
+		© {new Date().getFullYear()} Silicon Valley Youth Entrepreneurship Program
+	</p>
 </footer>
