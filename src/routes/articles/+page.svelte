@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { cn } from '$lib/utils/cn.js';
 	import Seo from '$lib/components/Seo.svelte';
 
 	let { data } = $props();
@@ -31,104 +30,91 @@
 />
 
 <div
-	class="relative mr-auto ml-auto flex min-h-screen flex-col items-center pt-30 text-white sm:pt-40"
+	class="mx-auto flex min-h-screen max-w-[1200px] flex-col items-center px-6 pt-36 pb-24 sm:pt-44"
 	data-sveltekit-preload-data="off"
 	data-sveltekit-preload-code="off"
 >
-	<div class="flex w-full max-w-[1200px] flex-col items-center gap-4 px-4 sm:px-0">
-		<h1
-			class="font-articles text-shadow-glow-white w-full text-center text-4xl font-medium text-wrap sm:text-6xl lg:text-7xl"
-		>
-			The SVYEP Chronicle
-		</h1>
-		<nav
-			aria-label="Chronicle sections"
-			class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-gray-400 select-none sm:gap-x-8"
-		>
-			{#each sections as [label, href], index}
-				{#if index > 0}<span aria-hidden="true">|</span>{/if}
-				<a
-					{href}
-					aria-current={selected === label ? 'page' : undefined}
-					class={cn(
-						'hover:text-shadow-glow-white py-1 transition hover:text-white',
-						selected === label && 'text-shadow-glow-white text-white'
-					)}>{label}</a
-				>
-			{/each}
-		</nav>
-		<div class="flex w-full flex-col gap-1">
-			<hr class="text-indigo-600" />
-			<hr class="text-indigo-600" />
-		</div>
-	</div>
-	<div class="flex w-full max-w-[1200px] flex-col gap-10 p-6 sm:p-10">
-		{#each visibleArticles as article, index (article.slug)}
-			<div
-				class={cn(
-					'flex flex-wrap items-center justify-center gap-10 md:flex-nowrap',
-					index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-				)}
+	<h1 class="font-display text-center text-5xl sm:text-7xl">The SVYEP Chronicle</h1>
+	<nav
+		aria-label="Chronicle sections"
+		class="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-zinc-400 sm:gap-x-10"
+	>
+		{#each sections as [label, href] (label)}
+			<a
+				{href}
+				aria-current={selected === label ? 'page' : undefined}
+				class="py-1 transition-colors hover:text-zinc-100 aria-[current=page]:text-zinc-100 aria-[current=page]:underline aria-[current=page]:decoration-indigo-400 aria-[current=page]:underline-offset-8"
+				>{label}</a
 			>
-				<a href={`/articles/${article.slug}`} class="group flex cursor-pointer flex-col transition">
-					<div class="flex items-baseline gap-2 font-serif text-xl font-semibold text-indigo-600">
-						{article.type}
-						{#if data.archive}
-							<span aria-hidden="true">&middot;</span>
-							<time datetime={article.date}>{article.date.slice(0, 4)}</time>
-						{/if}
+		{/each}
+	</nav>
+	<div class="mt-6 flex w-full flex-col gap-1" aria-hidden="true">
+		<hr class="border-white/15" />
+		<hr class="border-white/15" />
+	</div>
+
+	<ul class="flex w-full flex-col divide-y divide-white/8">
+		{#each visibleArticles as article, index (article.slug)}
+			<li>
+				<a
+					href="/articles/{article.slug}"
+					class={[
+						'group flex flex-col items-center gap-8 py-12 md:flex-row md:gap-12',
+						index % 2 === 1 && 'md:flex-row-reverse'
+					]}
+				>
+					<div class="flex flex-1 flex-col gap-2">
+						<p class="flex items-baseline gap-2 font-serif text-lg text-indigo-400">
+							{article.type}
+							{#if data.archive}
+								<span aria-hidden="true">·</span>
+								<time datetime={article.date}>{article.date.slice(0, 4)}</time>
+							{/if}
+						</p>
+						<h2
+							class="font-serif text-3xl leading-tight transition-colors group-hover:text-indigo-300 sm:text-4xl"
+						>
+							{article.title}
+						</h2>
+						<p class="flex flex-wrap justify-between gap-x-4 text-zinc-400">
+							<span>By {article.author}</span>
+							<span class="tabular-nums"
+								>{Math.max(1, Math.round(article.wordcount / 255))} min read</span
+							>
+						</p>
+						<p class="mt-2 text-zinc-300">{article.subtitle}</p>
 					</div>
-					<h2
-						class="font-serif text-4xl font-semibold text-white transition group-hover:text-indigo-600 sm:text-5xl"
-					>
-						{article.title}
-					</h2>
-					<div
-						class="mt-1 flex flex-wrap justify-between gap-x-4 font-sans text-lg font-normal text-gray-400"
-					>
-						<p>By {article.author}</p>
-						<span class="text-gray-400">
-							{Math.max(1, Math.round(article.wordcount / 255))} minute read
-						</span>
-					</div>
-					<p class="mt-2">{article.subtitle}</p>
-				</a>
-				{#if article.cover}
-					<a href={`/articles/${article.slug}`} class="h-full w-full cursor-pointer sm:w-1/2">
+					{#if article.cover}
 						<img
 							src={article.cover}
-							alt={article.title}
+							alt=""
+							width="1200"
+							height="800"
 							loading={index === 0 ? 'eager' : 'lazy'}
 							decoding="async"
-							class="hover:shadow-glow-blue-hover rounded-3xl outline-1 outline-indigo-600 transition"
+							class="aspect-[3/2] w-full rounded-2xl object-cover md:w-[45%]"
 						/>
-					</a>
-				{/if}
-			</div>
-			<hr class="text-gray-400/20" />
+					{/if}
+				</a>
+			</li>
 		{:else}
-			<p class="py-10 text-center text-gray-400">
+			<li class="py-10 text-center text-zinc-400">
 				{data.archive ? 'No archived articles yet.' : 'No recent articles in this section.'}
-			</p>
+			</li>
 		{/each}
-		{#if data.archive && data.pages > 1}
-			<nav aria-label="Archive pages" class="flex items-center justify-center gap-6 text-gray-400">
-				{#if data.page > 1}
-					<a
-						rel="prev"
-						href={`/articles?view=archive&page=${data.page - 1}`}
-						class="text-white hover:underline">Previous</a
-					>
-				{/if}
-				<span>Page {data.page} of {data.pages}</span>
-				{#if data.page < data.pages}
-					<a
-						rel="next"
-						href={`/articles?view=archive&page=${data.page + 1}`}
-						class="text-white hover:underline">Next</a
-					>
-				{/if}
-			</nav>
-		{/if}
-	</div>
+	</ul>
+	{#if data.archive && data.pages > 1}
+		<nav
+			aria-label="Archive pages"
+			class="mt-8 flex items-center justify-center gap-6 text-zinc-400"
+		>
+			{#if data.page > 1}
+				<a rel="prev" href="/articles?view=archive&page={data.page - 1}" class="link">Previous</a>
+			{/if}
+			<span class="tabular-nums">Page {data.page} of {data.pages}</span>
+			{#if data.page < data.pages}
+				<a rel="next" href="/articles?view=archive&page={data.page + 1}" class="link">Next</a>
+			{/if}
+		</nav>
+	{/if}
 </div>

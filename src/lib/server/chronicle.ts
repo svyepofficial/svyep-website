@@ -22,11 +22,6 @@ async function readArticle({ slug, date, loadMetadata }: (typeof index)[number])
 	return { slug, metadata: { ...(await loadMetadata()), date } };
 }
 
-export function getAllArticles() {
-	// Preserve the complete, newest-slug-first feed for callers of /api/articles.
-	return Promise.all([...index].reverse().map(readArticle));
-}
-
 function archiveCutoff(now: Date) {
 	const parts = pacificCalendar.formatToParts(now);
 	const value = (key: 'year' | 'month' | 'day') => Number(parts.find((p) => p.type === key)?.value);

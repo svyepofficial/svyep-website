@@ -1,36 +1,10 @@
 <script lang="ts">
-	import Button from '$lib/components/Button.svelte';
+	import events from '$lib/data/events';
 	import Seo from '$lib/components/Seo.svelte';
+	import ArrowUpRight from 'phosphor-svelte/lib/ArrowUpRight';
 
-	type Competition = {
-		title: string;
-		subtitle: string;
-		description: string;
-		article: string;
-		video?: string;
-		image?: string;
-		photosUrl?: string;
-	};
-
-	const competitions: Competition[] = [
-		{
-			title: 'Youth Business Venture Challenge 2025',
-			subtitle: '(in partnership with Berkeley Summit House)',
-			description:
-				'A global pitch competition for high school students. Participants submitted proposals for a chance to win over $10,000 in prize money and pitch live at Stanford.',
-			image: '/images/articles/ybvc/2025.webp',
-			article: '024',
-			photosUrl: 'https://lightroom.adobe.com/shares/b68ae08650da484d8485673e59c454e3'
-		},
-		{
-			title: 'Youth Business Venture Competition 2026',
-			subtitle: 'Stanford University',
-			description:
-				'Fifteen student startup teams gathered at Stanford to pitch ventures, receive professional feedback, and explore the future of business innovation.',
-			image: '/images/articles/ybvc-2026/ArticleMainPhoto.webp',
-			article: '026'
-		}
-	];
+	// Oldest edition first.
+	const competitions = events.filter((event) => event.ybvc).reverse();
 </script>
 
 <Seo
@@ -39,63 +13,45 @@
 	image="/images/articles/ybvc-2026/ArticleMainPhoto.webp"
 />
 
-<div class="relative flex flex-col items-center gap-8 px-6 pt-36 pb-20 sm:pt-44">
-	<section class="flex w-full max-w-[1120px] flex-col items-center gap-8">
-		<div class="grid w-full gap-6 lg:grid-cols-2">
-			{#each competitions as competition}
-				<article
-					class="shadow-glow-blue-hover flex min-h-full flex-col overflow-hidden rounded-3xl border-2 border-white/50 bg-gray-800"
-				>
-					{#if competition.video}
-						<iframe
-							title={competition.title}
-							src={competition.video}
-							allowfullscreen
-							allow="encrypted-media *;"
-							class="aspect-video w-full border-2 border-white/5 object-cover"
-						></iframe>
-					{:else if competition.image}
-						<a href="/articles/{competition.article}" class="block">
-							<img
-								src={competition.image}
-								alt={competition.title}
-								class="aspect-video w-full border-2 border-white/5 object-cover"
-							/>
-						</a>
-					{/if}
-
-					<div class="flex flex-1 flex-col items-center px-5 py-6 text-center sm:px-7">
-						<p class="font-serif text-sm font-light tracking-tighter text-indigo-400 sm:text-base">
-							{competition.subtitle}
-						</p>
-						<h2 class="mt-3 text-3xl font-semibold tracking-tighter text-white sm:text-4xl">
-							{competition.title}
-						</h2>
-						<p class="mt-4 max-w-xl text-base leading-relaxed font-light text-gray-400 sm:text-lg">
-							{competition.description}
-						</p>
-						<div class="mt-auto flex flex-wrap justify-center gap-3 pt-6">
-							{#if competition.photosUrl}
-								<Button variant="secondary" target="_blank" href={competition.photosUrl}>
-									Event photos
-								</Button>
-							{/if}
-							<Button href="/articles/{competition.article}">Read More</Button>
-						</div>
+<div class="mx-auto flex max-w-[1120px] flex-col items-center gap-10 px-6 pt-40 pb-24 sm:pt-44">
+	<h1 class="text-center text-5xl tracking-tight sm:text-7xl">
+		Youth Business Venture <span class="font-serif text-indigo-500 italic">Competition</span>
+	</h1>
+	<ul class="grid w-full gap-6 lg:grid-cols-2">
+		{#each competitions as competition (competition.article)}
+			<li class="card flex flex-col overflow-hidden">
+				<a href="/articles/{competition.article}" tabindex="-1">
+					<img
+						src={competition.image}
+						alt=""
+						width="1200"
+						height="675"
+						class="aspect-video w-full object-cover"
+					/>
+				</a>
+				<div class="flex flex-1 flex-col items-center gap-3 px-6 py-8 text-center sm:px-8">
+					<p class="font-serif text-indigo-400">{competition.subtitle}</p>
+					<h2 class="text-3xl font-medium tracking-tight sm:text-4xl">{competition.title}</h2>
+					<p class="max-w-xl text-lg leading-relaxed text-zinc-400">{competition.description}</p>
+					<div class="mt-auto flex flex-wrap justify-center gap-3 pt-4">
+						{#if competition.photosUrl}
+							<a
+								href={competition.photosUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="btn btn-secondary">Event photos <ArrowUpRight size={16} /></a
+							>
+						{/if}
+						<a href="/articles/{competition.article}" class="btn btn-primary">Read more</a>
 					</div>
-				</article>
-			{/each}
-		</div>
-
-		<p class="text-center text-base font-light text-gray-400 sm:text-lg">
-			For more information about the competition, visit
-			<a
-				href="https://ybvcompetition.org"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="text-indigo-400 underline underline-offset-4 transition hover:text-indigo-300"
-				>ybvcompetition.org</a
-			>.
-		</p>
-	</section>
+				</div>
+			</li>
+		{/each}
+	</ul>
+	<p class="text-center text-lg text-zinc-400">
+		For more information about the competition, visit
+		<a href="https://ybvcompetition.org" target="_blank" rel="noopener noreferrer" class="link"
+			>ybvcompetition.org</a
+		>.
+	</p>
 </div>

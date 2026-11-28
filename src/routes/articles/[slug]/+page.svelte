@@ -19,21 +19,17 @@
 />
 
 <article
-	class="prose prose-lg prose-h1:font-serif prose-zinc dark:prose-invert mr-auto mb-32 ml-auto min-h-screen max-w-[900px] px-8 pt-40 text-white"
+	class="prose prose-lg prose-invert prose-zinc prose-headings:font-medium prose-a:text-indigo-400 mx-auto max-w-[760px] px-6 pt-40 pb-32"
 >
 	<a
 		href={backHref}
-		class="mb-10 flex items-center gap-2 text-gray-400 no-underline hover:underline"
-		><ArrowLeft size={20} weight="bold" />Back</a
+		class="not-prose mb-10 inline-flex items-center gap-2 text-zinc-400 transition-colors hover:text-zinc-100"
+		><ArrowLeft size={18} />Back</a
 	>
-	<div class="flex font-serif text-2xl font-semibold text-indigo-600">
-		{metadata.type}
-	</div>
-	<h1 class="text-white">
-		{metadata.title}
-		<div class="flex justify-between font-sans text-lg font-normal text-gray-400">
-			<p>By {metadata.author}</p>
-		</div>
-	</h1>
+	<header class="not-prose mb-12 flex flex-col gap-3">
+		<p class="font-serif text-xl text-indigo-400">{metadata.type}</p>
+		<h1 class="font-serif text-4xl leading-tight sm:text-5xl">{metadata.title}</h1>
+		<p class="text-lg text-zinc-400">By {metadata.author}</p>
+	</header>
 	<Article />
 </article>

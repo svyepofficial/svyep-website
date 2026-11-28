@@ -1,4 +1,14 @@
-const about = {
+type Person = {
+	name: string;
+	position: string;
+	description?: string;
+	education?: string;
+	image: string;
+	/** Per-photo framing for cut-out headshots inside the circle crop. */
+	imageStyle?: string;
+};
+
+const about: { team: Person[]; previous_members: Person[]; advisors: Person[] } = {
 	// Members with a complete bio + real photo come first (current order preserved);
 	// members still missing a bio or photo are grouped at the end until provided.
 	team: [
