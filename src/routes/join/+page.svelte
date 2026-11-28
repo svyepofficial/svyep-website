@@ -25,7 +25,7 @@
 	<ul class="mt-12 grid w-full gap-4 md:grid-cols-3">
 		{#each benefits as benefit (benefit.title)}
 			<li class="card flex flex-col items-center gap-3 p-6 text-center">
-				<benefit.icon size={32} class="text-indigo-400" />
+				<benefit.icon size={50} weight={benefit.weight} />
 				<h2 class="text-lg font-medium">{benefit.title}</h2>
 				<p class="text-sm text-zinc-400">{benefit.description}</p>
 			</li>

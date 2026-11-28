@@ -61,12 +61,12 @@
 			><HandPointing size={16} /> Hover and click the starred locations</span
 		>
 	</p>
-	<h1 class="mt-8 text-center text-6xl tracking-tighter sm:text-8xl">
+	<h1 class="mt-8 text-center text-7xl tracking-tighter sm:text-9xl">
 		SVYEP is <span class="font-serif tracking-tighter text-indigo-500 italic">global</span>
 	</h1>
 	<p class="mt-4 text-2xl font-medium sm:text-4xl">
-		<span class="font-serif text-4xl tracking-tighter text-indigo-400 sm:text-5xl">21</span> states,
-		<span class="font-serif text-4xl tracking-tighter text-indigo-400 sm:text-5xl">17</span> countries
+		<span class="font-serif text-5xl tracking-tighter text-indigo-500">21</span> states,
+		<span class="font-serif text-5xl tracking-tighter text-indigo-500">17</span> countries
 	</p>
 	<div bind:this={globeElement} class="w-full max-w-full overflow-hidden"></div>
 	{#if selected}

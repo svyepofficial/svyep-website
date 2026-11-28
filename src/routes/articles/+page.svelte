@@ -34,7 +34,7 @@
 	data-sveltekit-preload-data="off"
 	data-sveltekit-preload-code="off"
 >
-	<h1 class="font-articles text-center text-5xl font-medium tracking-tighter sm:text-7xl">
+	<h1 class="font-articles text-center text-4xl font-medium sm:text-6xl lg:text-7xl">
 		The SVYEP Chronicle
 	</h1>
 	<nav
@@ -66,9 +66,7 @@
 					]}
 				>
 					<div class="flex flex-1 flex-col gap-2">
-						<p
-							class="flex items-baseline gap-2 font-serif text-lg font-semibold tracking-tighter text-indigo-400"
-						>
+						<p class="flex items-baseline gap-2 font-serif text-xl font-semibold text-indigo-400">
 							{article.type}
 							{#if data.archive}
 								<span aria-hidden="true">·</span>
@@ -76,7 +74,7 @@
 							{/if}
 						</p>
 						<h2
-							class="font-serif text-3xl leading-tight font-semibold tracking-tighter transition-colors group-hover:text-indigo-300 sm:text-4xl"
+							class="font-serif text-4xl leading-tight font-semibold transition-colors group-hover:text-indigo-400 sm:text-5xl"
 						>
 							{article.title}
 						</h2>

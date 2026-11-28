@@ -20,14 +20,15 @@ Always say what was pushed and whether it is PREVIEW or LIVE. Verify live with `
 Dark zinc-950 page with one static star field, indigo accent. Fonts are the originals and the user prefers them —
 don't swap or re-weight them: Urbanist (UI, tight `tracking-tighter` headings, black stat numbers, light/extralight
 body on About/Events/Young Innovators), Baskervville (serif accents, names), GFS Didot (wordmark), Cinzel Decorative
-(Chronicle masthead, `font-articles`). The user wants this look kept and _deslopped_, not rebranded.
+(Chronicle masthead, `font-articles`). Sizes are the originals too (big 9xl/10rem headings and stats, 50px
+benefit icons, 48px logo, original nav/footer): the user found a smaller, "tidier" scale wimpy. Don't shrink them. The user wants this look kept and _deslopped_, not rebranded.
 
 - Use the classes in `src/app.css`: `btn btn-primary|btn-secondary [btn-lg]`, `card`, `link`. Don't hand-roll buttons.
 - Text roles: `zinc-100` primary, `zinc-300`/`zinc-400` secondary. Small indigo text is `indigo-400`
   (`indigo-600` fails contrast on zinc-950); large serif accents use `indigo-500`.
 - One serif-italic indigo accent word per headline at most; none in body copy.
 - Sentence case for headings, buttons and labels; no uppercase labels, no trailing periods on headings.
-- No glows, text-shadows, gradients, `transition-all`, scroll-driven or looping decorative motion.
+- No glows, text-shadows, gradients (except the footer's original navy fade), `transition-all`, scroll-driven or looping decorative motion.
   Hover = color change; `prefers-reduced-motion` is honoured globally.
 - One `<h1>` per page; images get `alt` (empty if decorative), `width`/`height`, and `loading="lazy"` below the fold.
 

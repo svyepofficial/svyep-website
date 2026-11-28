@@ -14,14 +14,14 @@
 
 <svelte:window onkeydown={(e) => e.key === 'Escape' && (open = false)} />
 
-<header class="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-8 sm:pt-6">
+<header class="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:pt-10">
 	<nav
 		aria-label="Main"
-		class="mx-auto flex max-w-[1600px] items-center justify-between gap-6 rounded-full border border-white/8 bg-zinc-950/80 py-2 pr-2 pl-4 backdrop-blur-md sm:pl-6"
+		class="mx-auto flex max-w-[1600px] items-center justify-between gap-6 rounded-full border-2 border-white/5 bg-zinc-950/70 py-1 pr-3 pl-4 backdrop-blur-xl sm:w-10/12 sm:pl-6"
 	>
 		<Logo />
 
-		<ul class="hidden gap-6 text-[15px] whitespace-nowrap text-zinc-400 xl:flex">
+		<ul class="hidden gap-4 whitespace-nowrap text-gray-400 xl:flex">
 			{#each nav as link (link.href)}
 				<li>
 					<a
@@ -35,10 +35,10 @@
 		</ul>
 
 		<div class="flex items-center gap-2">
-			<a href={actions.partner.href} class="btn btn-secondary hidden py-1.5 sm:inline-flex"
+			<a href={actions.partner.href} class="btn btn-secondary hidden py-1 sm:inline-flex"
 				>{actions.partner.label}</a
 			>
-			<a href={actions.join.href} class="btn btn-primary hidden py-1.5 sm:inline-flex"
+			<a href={actions.join.href} class="btn btn-primary hidden py-1 sm:inline-flex"
 				>{actions.join.label}</a
 			>
 			<button
@@ -49,7 +49,7 @@
 				aria-label={open ? 'Close menu' : 'Open menu'}
 				onclick={() => (open = !open)}
 			>
-				{#if open}<X size={20} />{:else}<List size={20} />{/if}
+				{#if open}<X size={24} />{:else}<List size={24} />{/if}
 			</button>
 		</div>
 	</nav>
@@ -57,14 +57,14 @@
 	{#if open}
 		<div
 			id="site-menu"
-			class="card mx-auto mt-2 max-w-[1600px] p-2 shadow-xl shadow-black/40 xl:hidden"
+			class="card mx-auto mt-2 max-w-[1600px] p-2 shadow-xl shadow-black/40 sm:w-10/12 xl:hidden"
 		>
 			<ul class="grid gap-1 sm:grid-cols-2">
 				{#each [{ href: '/', label: 'Home' }, ...nav] as link (link.href)}
 					<li>
 						<a
 							href={link.href}
-							class="block rounded-lg px-4 py-3 text-zinc-300 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
+							class="block rounded-xl px-4 py-3 text-lg text-zinc-300 transition-colors hover:bg-gray-700 hover:text-zinc-100"
 							>{link.label}</a
 						>
 					</li>

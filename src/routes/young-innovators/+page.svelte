@@ -145,7 +145,7 @@
 			{#each program.approach as item, index}
 				{@const Icon = approachIcons[index]}
 				<div class="card flex flex-col items-center gap-3 p-7 text-center">
-					<Icon size={32} class="text-indigo-400" />
+					<Icon size={44} class="text-indigo-400" />
 					<h4 class="text-lg leading-6 font-medium tracking-tighter">{item.title}</h4>
 					<p class="text-sm leading-relaxed font-light text-zinc-400">{item.description}</p>
 				</div>
@@ -177,7 +177,7 @@
 				<div
 					class="card flex w-full max-w-[320px] flex-col items-center gap-3 p-7 text-center sm:w-[320px]"
 				>
-					<Icon size={32} class="text-indigo-400" />
+					<Icon size={48} weight="fill" class="text-indigo-400" />
 					<h3 class="font-serif text-2xl tracking-tighter">{skill.title}</h3>
 					<p class="text-sm leading-relaxed font-light text-zinc-400">{skill.description}</p>
 				</div>
@@ -358,7 +358,7 @@
 			{#each program.offerings as offering, index}
 				{@const Icon = offeringIcons[index]}
 				<div class="card flex flex-col items-center gap-3 p-7 text-center">
-					<Icon size={32} class="text-indigo-400" />
+					<Icon size={42} class="text-indigo-400" />
 					<h4 class="text-lg leading-6 font-medium tracking-tighter">{offering.title}</h4>
 					<p class="text-sm leading-relaxed font-light text-zinc-400">{offering.description}</p>
 				</div>
@@ -432,7 +432,7 @@
 				<div
 					class="card flex w-full max-w-[340px] flex-col items-center gap-3 p-7 text-center sm:w-[340px]"
 				>
-					<Icon size={32} class="text-indigo-400" />
+					<Icon size={42} weight="fill" class="text-indigo-400" />
 					<h3 class="text-lg leading-6 font-medium tracking-tighter">{reason.title}</h3>
 					<p class="text-sm leading-relaxed font-light text-zinc-400">{reason.description}</p>
 				</div>

@@ -27,19 +27,19 @@
 
 @layer components {
 	.btn {
-		@apply inline-flex w-fit cursor-pointer items-center justify-center gap-2 rounded-xl px-5 py-2 font-medium transition-[background-color,border-color,color,transform] duration-150 ease-out active:scale-[0.98];
+		@apply inline-flex w-fit cursor-pointer items-center justify-center gap-2 rounded-xl border-2 border-white/5 px-4 py-1.5 font-medium transition-[background-color,border-color,color,transform] duration-150 ease-out active:scale-[0.98];
 	}
 	.btn-primary {
 		@apply bg-indigo-600 text-white hover:bg-indigo-700;
 	}
 	.btn-secondary {
-		@apply border border-white/10 bg-zinc-800 text-zinc-100 hover:bg-zinc-700;
+		@apply bg-gray-800 text-gray-200 hover:bg-gray-700;
 	}
 	.btn-lg {
-		@apply px-6 py-3 text-lg;
+		@apply rounded-2xl px-6 py-2 text-xl;
 	}
 	.card {
-		@apply rounded-2xl border border-white/8 bg-zinc-900;
+		@apply rounded-3xl border-2 border-white/5 bg-gray-800/80;
 	}
 	.link {
 		@apply text-indigo-400 underline decoration-indigo-400/40 underline-offset-4 transition-colors hover:decoration-indigo-400;

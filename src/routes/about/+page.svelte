@@ -40,7 +40,7 @@
 	</section>
 
 	<section class="flex w-full max-w-[1300px] flex-col items-center gap-16">
-		<h2 class="text-center font-serif text-5xl tracking-tighter sm:text-8xl">Meet the team</h2>
+		<h2 class="text-center font-serif text-4xl tracking-tighter sm:text-8xl">Meet the team</h2>
 		<ul class="grid w-full grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
 			{#each about.team as member (member.name)}
 				<li class="flex flex-col items-center gap-2 text-center">
@@ -64,7 +64,7 @@
 	</section>
 
 	<section class="flex w-full max-w-[1300px] flex-col items-center gap-16">
-		<h2 class="text-center font-serif text-5xl tracking-tighter sm:text-8xl">Advisors</h2>
+		<h2 class="text-center font-serif text-6xl tracking-tighter sm:text-9xl">Advisors</h2>
 		<ul class="flex flex-wrap justify-center gap-x-8 gap-y-16">
 			{#each about.advisors as advisor (advisor.name)}
 				<li class="flex w-full max-w-72 flex-col items-center text-center">
@@ -85,7 +85,7 @@
 	</section>
 
 	<section class="flex w-full max-w-[1200px] flex-col items-center gap-16">
-		<h2 class="text-center font-serif text-5xl tracking-tighter sm:text-8xl">Previous members</h2>
+		<h2 class="text-center font-serif text-5xl tracking-tighter sm:text-9xl">Previous members</h2>
 		<ul class="flex flex-wrap justify-center gap-x-12 gap-y-14">
 			{#each about.previous_members as member (member.name)}
 				<li class="flex max-w-80 flex-col items-center px-2 text-center">

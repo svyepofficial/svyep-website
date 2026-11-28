@@ -65,7 +65,7 @@
 
 <!-- Hero -->
 <section
-	class="mx-auto flex min-h-svh max-w-[1400px] flex-col items-center justify-center gap-8 px-6 pt-28 pb-16 lg:flex-row lg:gap-16"
+	class="mx-auto flex min-h-svh max-w-[1400px] flex-col items-center justify-center gap-8 px-6 pt-28 pb-16 xl:flex-row xl:gap-8"
 >
 	<img
 		src="/images/home/hero-globe.webp"
@@ -73,10 +73,10 @@
 		width="1225"
 		height="1225"
 		fetchpriority="high"
-		class="hero-in w-full max-w-[320px] sm:max-w-[480px] lg:max-w-[600px]"
+		class="hero-in w-[400px] max-w-full sm:w-[600px] xl:w-[700px]"
 	/>
 	<div
-		class="flex max-w-[520px] flex-col items-center gap-8 text-center lg:items-end lg:text-right"
+		class="flex max-w-[520px] flex-col items-center gap-10 text-center xl:items-end xl:text-right"
 	>
 		<h1 class="text-5xl leading-[1.05] font-normal tracking-tighter sm:text-7xl">
 			Empowering the <span class="font-serif tracking-tighter text-indigo-500 italic">future</span> of
@@ -106,8 +106,8 @@
 	<ul class="grid w-full gap-4 md:grid-cols-3">
 		{#each benefits as benefit (benefit.title)}
 			<li class="card flex flex-col items-center gap-3 p-6 text-center">
-				<benefit.icon size={32} class="text-indigo-400" />
-				<h3 class="text-lg font-medium">{benefit.title}</h3>
+				<benefit.icon size={50} weight={benefit.weight} />
+				<h3 class="text-lg leading-5 font-medium">{benefit.title}</h3>
 				<p class="text-sm text-zinc-400">{benefit.description}</p>
 			</li>
 		{/each}
@@ -116,17 +116,24 @@
 </section>
 
 <!-- By the numbers -->
-<section aria-labelledby="numbers" class="mx-auto max-w-[1200px] px-6 py-24">
+<section aria-labelledby="numbers" class="mx-auto max-w-[1440px] px-6 py-24">
 	<h2 id="numbers" class="sr-only tracking-tighter">SVYEP by the numbers</h2>
 	<div class="flex flex-col gap-24 sm:gap-32">
 		{#each stats as stat, i (stat.label)}
-			<div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+			<div
+				class={[
+					'grid items-center gap-8 lg:gap-16',
+					i % 2 === 1 ? 'lg:grid-cols-[2fr_3fr]' : 'lg:grid-cols-[3fr_2fr]'
+				]}
+			>
 				<div class={['flex flex-col gap-6', i % 2 === 1 && 'lg:order-2']}>
 					<p class="flex flex-col">
-						<span class="text-7xl font-black tracking-tighter tabular-nums sm:text-9xl"
+						<span
+							class="text-[4rem] leading-none font-black tracking-tighter tabular-nums sm:text-8xl md:text-9xl lg:text-8xl xl:text-9xl 2xl:text-[10rem]"
 							>{stat.figure}</span
 						>
-						<span class="font-serif text-4xl tracking-tighter text-indigo-500 italic sm:text-6xl"
+						<span
+							class="font-serif text-5xl font-medium tracking-tighter text-indigo-500 italic sm:text-7xl"
 							>{stat.label}</span
 						>
 					</p>
@@ -173,9 +180,9 @@
 </section>
 
 <!-- What we offer -->
-<section class="mx-auto flex max-w-[1200px] flex-col items-center gap-16 px-6 py-24">
+<section class="mx-auto flex max-w-[1400px] flex-col items-center gap-16 px-6 py-24">
 	<div class="flex max-w-[900px] flex-col items-center gap-6 text-center">
-		<h2 class="text-5xl leading-[1.05] tracking-tighter sm:text-8xl">
+		<h2 class="text-6xl leading-[1.05] tracking-tighter sm:text-9xl sm:leading-[0.95]">
 			We offer resources for <span class="font-serif tracking-tighter text-indigo-500 italic"
 				>your</span
 			> success
@@ -188,9 +195,16 @@
 	<ol class="grid w-full gap-12 md:grid-cols-3 md:gap-8">
 		{#each offerings as offering, i (offering.title)}
 			<li class="flex flex-col gap-5">
-				<div class="flex items-baseline gap-4">
-					<span class="text-6xl font-bold tracking-tighter tabular-nums">0{i + 1}</span>
-					<h3 class="font-serif text-3xl tracking-tighter text-indigo-500">{offering.title}</h3>
+				<div class="flex flex-col">
+					<span
+						class="text-[7rem] leading-none font-bold tracking-tighter tabular-nums sm:text-[9rem]"
+						>0{i + 1}</span
+					>
+					<h3
+						class="font-serif text-4xl font-semibold tracking-tighter text-indigo-500 sm:text-5xl"
+					>
+						{offering.title}
+					</h3>
 				</div>
 				<img
 					src={offering.image.src}
@@ -200,7 +214,7 @@
 					loading="lazy"
 					class="aspect-[4/3] w-full rounded-2xl object-cover"
 				/>
-				<ul class="flex list-disc flex-col gap-2 pl-5 text-lg text-zinc-300">
+				<ul class="flex list-disc flex-col gap-2 pl-5 text-lg text-zinc-300 sm:text-xl">
 					{#each offering.items as item (item)}<li>{item}</li>{/each}
 				</ul>
 			</li>
@@ -218,11 +232,11 @@
 				{width}
 				{height}
 				loading="lazy"
-				class="h-[200px] w-auto rounded-2xl sm:h-[300px]"
+				class="h-[220px] w-auto rounded-3xl sm:h-[300px]"
 			/>
 		{/each}
 	</Marquee>
-	<h2 class="px-6 text-center text-6xl tracking-tighter sm:text-8xl">
+	<h2 class="px-6 text-center text-7xl tracking-tighter sm:text-9xl">
 		Get started <span class="font-serif tracking-tighter text-indigo-500 italic">today</span>
 	</h2>
 	<a href="/join" class="btn btn-primary btn-lg">Join as a student</a>
@@ -241,7 +255,7 @@
 				{width}
 				{height}
 				loading="lazy"
-				class="h-[200px] w-auto rounded-2xl sm:h-[300px]"
+				class="h-[220px] w-auto rounded-3xl sm:h-[300px]"
 			/>
 		{/each}
 	</Marquee>

@@ -9,7 +9,7 @@
 />
 
 <div class="mx-auto flex max-w-[1400px] flex-col items-center px-6 pt-40 pb-24 sm:px-10">
-	<h1 class="text-center text-6xl tracking-tighter sm:text-8xl">
+	<h1 class="text-center text-7xl tracking-tighter sm:text-9xl">
 		Featured <span class="font-serif tracking-tighter text-indigo-500 italic">SVYEP</span> events
 	</h1>
 	<ul class="mt-16 flex w-full flex-col divide-y divide-white/8">
@@ -19,8 +19,8 @@
 					{#if event.subtitle}
 						<p class="font-serif text-lg tracking-tighter text-indigo-400">{event.subtitle}</p>
 					{/if}
-					<h2 class="text-4xl font-semibold tracking-tighter md:text-5xl">{event.title}</h2>
-					<p class="text-xl leading-relaxed font-light text-zinc-400">{event.description}</p>
+					<h2 class="text-5xl font-semibold tracking-tighter md:text-6xl">{event.title}</h2>
+					<p class="pt-4 text-2xl leading-relaxed font-light text-zinc-400">{event.description}</p>
 					<a href="/articles/{event.article}" class="btn btn-primary btn-lg mt-4">Read more</a>
 				</div>
 				<img

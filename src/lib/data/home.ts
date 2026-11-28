@@ -8,16 +8,19 @@ export const raised = 315000;
 export const benefits = [
 	{
 		icon: HandCoins,
+		weight: 'fill' as const,
 		title: 'AI internship opportunities',
 		description: 'Real, paid work at AI and tech startups across Silicon Valley.'
 	},
 	{
 		icon: Star,
+		weight: 'fill' as const,
 		title: 'Interviews with industry leaders',
 		description: 'Exclusive conversations with founders, investors, and changemakers.'
 	},
 	{
 		icon: EnvelopeSimple,
+		weight: 'regular' as const,
 		title: 'Invites to SVYEP events',
 		description: 'Speaker nights, workshops, and the biggest pitch events in the Valley.'
 	}
