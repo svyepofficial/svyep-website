@@ -35,21 +35,21 @@ const program = {
 	email: 'svyep.official@gmail.com',
 
 	/** Shown as pills under the hero. */
-	highlights: ['Completely Free', 'Grades 3–8', '30-Minute Workshops'],
+	highlights: ['Completely free', 'Grades 3–8', '30-minute workshops'],
 
 	approach: [
 		{
-			title: 'Learn Through Participation',
+			title: 'Learn through participation',
 			description:
 				'Our workshops combine short presentations, live demonstrations, and interactive questions to make learning engaging and understandable.'
 		},
 		{
-			title: 'Create Through Collaboration',
+			title: 'Create through collaboration',
 			description:
 				'Students work together on hands-on challenges that encourage communication, teamwork, and creativity.'
 		},
 		{
-			title: 'Think Beyond the Classroom',
+			title: 'Think beyond the classroom',
 			description:
 				'Our activities connect entrepreneurship to relatable situations, helping students understand how their ideas and skills can be useful in everyday life.'
 		}
@@ -72,7 +72,7 @@ const program = {
 				'Students explore how taking initiative, listening to others, and supporting teammates can make a positive difference.'
 		},
 		{
-			title: 'Problem-Solving',
+			title: 'Problem-solving',
 			description:
 				'Students identify challenges, brainstorm possible solutions, and learn to improve their ideas.'
 		},
@@ -101,18 +101,18 @@ const program = {
 			],
 			segments: [
 				{
-					label: 'Interactive Lesson',
+					label: 'Interactive lesson',
 					description:
 						'An introduction to teamwork, leadership, and effective communication, including a live visual demonstration.'
 				},
 				{
-					label: 'Hands-On Activity',
+					label: 'Hands-on activity',
 					name: 'The Teamwork Tower',
 					description:
 						'Students work in small groups to construct a freestanding tower using paper and tape. Teams practice planning, collaboration, and creative problem-solving.'
 				},
 				{
-					label: 'Educational Game',
+					label: 'Educational game',
 					name: 'Mystery Drawing',
 					description:
 						'One team member describes a hidden picture while teammates try to recreate it, reinforcing communication and active listening.'
@@ -120,7 +120,7 @@ const program = {
 			],
 			takeaway:
 				'Successful teamwork requires cooperation, communication, and respect for different ideas.',
-			duration: '30 Minutes',
+			duration: '30 minutes',
 			materials: 'Paper, tape, pencils, and printed drawing cards.'
 		},
 		{
@@ -141,18 +141,18 @@ const program = {
 			],
 			segments: [
 				{
-					label: 'Interactive Lesson',
+					label: 'Interactive lesson',
 					description:
 						'Students explore entrepreneurship through relatable examples and a live problem-solving demonstration.'
 				},
 				{
-					label: 'Hands-On Activity',
+					label: 'Hands-on activity',
 					name: 'The Young Innovators Challenge',
 					description:
 						'Teams identify a real-world problem, brainstorm possible solutions, and design an original idea.'
 				},
 				{
-					label: 'Educational Game',
+					label: 'Educational game',
 					name: 'Guess the Problem!',
 					description:
 						'Students act out familiar everyday frustrations while classmates identify the problem and suggest possible solutions.'
@@ -160,7 +160,7 @@ const program = {
 			],
 			takeaway:
 				'Young people can make a difference by noticing problems and thinking creatively about how to solve them.',
-			duration: '30 Minutes',
+			duration: '30 minutes',
 			materials: 'Worksheets, paper, pencils, markers, and problem scenario cards.'
 		},
 		{
@@ -181,18 +181,18 @@ const program = {
 			],
 			segments: [
 				{
-					label: 'Interactive Lesson',
+					label: 'Interactive lesson',
 					description:
 						'Students discover the importance of feedback and communication through a live product-pitch demonstration.'
 				},
 				{
-					label: 'Hands-On Activity',
+					label: 'Hands-on activity',
 					name: 'The Innovation Workshop',
 					description:
 						'Teams review their solutions, exchange feedback, and improve their original designs.'
 				},
 				{
-					label: 'Interactive Showcase',
+					label: 'Interactive showcase',
 					name: 'Young Innovators Showcase',
 					description:
 						'Students present their improved ideas and explain how their solutions could help others.'
@@ -200,7 +200,7 @@ const program = {
 			],
 			takeaway:
 				'Great ideas develop through creativity, communication, feedback, and continuous improvement.',
-			duration: '30 Minutes',
+			duration: '30 minutes',
 			materials: 'Innovation worksheets, paper, pencils, markers, and peer feedback cards.'
 		}
 	] satisfies Lesson[],
@@ -220,7 +220,7 @@ const program = {
 		},
 		{
 			step: 'Step 3',
-			title: 'Improve and Share',
+			title: 'Improve and share',
 			description:
 				'During Ideas Into Action, students refine their solutions using peer feedback and present their ideas during the Young Innovators Showcase.'
 		}
@@ -228,31 +228,31 @@ const program = {
 
 	offerings: [
 		{
-			title: 'Free Classroom Workshops',
+			title: 'Free classroom workshops',
 			description:
 				'All Young Innovators Program lessons are offered at no charge to participating schools and students.'
 		},
 		{
-			title: '30-Minute Sessions',
+			title: '30-minute sessions',
 			description:
 				'Our short, focused workshops are designed to fit into existing classroom and enrichment schedules.'
 		},
 		{
-			title: 'Interactive Instruction',
+			title: 'Interactive instruction',
 			description:
 				'Students participate in visual demonstrations, hands-on challenges, classroom games, and discussions.'
 		},
 		{
-			title: 'Materials Provided',
+			title: 'Materials provided',
 			description: 'SVYEP prepares and supplies the materials needed for the workshops.'
 		},
 		{
-			title: 'Grade-Appropriate Learning',
+			title: 'Grade-appropriate learning',
 			description:
 				'Activities are adapted to meet the needs of elementary and middle school students.'
 		},
 		{
-			title: 'Flexible Participation',
+			title: 'Flexible participation',
 			description:
 				'Schools can begin with one workshop and request additional lessons if interested.'
 		}
@@ -260,21 +260,21 @@ const program = {
 
 	visitSteps: [
 		{
-			title: 'Request a Workshop',
+			title: 'Request a workshop',
 			description: 'A teacher or school representative contacts SVYEP through our inquiry form.'
 		},
 		{
-			title: 'Coordinate the Visit',
+			title: 'Coordinate the visit',
 			description:
 				'Our team discusses the grade level, number of students, preferred schedule, classroom setup, and school requirements.'
 		},
 		{
-			title: 'Enjoy the Workshop',
+			title: 'Enjoy the workshop',
 			description:
 				'SVYEP facilitators visit the classroom and lead the interactive lesson alongside school staff.'
 		},
 		{
-			title: 'Explore Additional Lessons',
+			title: 'Explore additional lessons',
 			description:
 				'Schools interested in continuing may request the remaining Young Innovators workshops.'
 		}
@@ -297,27 +297,27 @@ const program = {
 
 	partnerReasons: [
 		{
-			title: 'Engaging Educational Experiences',
+			title: 'Engaging educational experiences',
 			description:
 				'Our lessons emphasize active participation and collaborative learning rather than lengthy lectures.'
 		},
 		{
-			title: 'Skills Beyond the Classroom',
+			title: 'Skills beyond the classroom',
 			description:
 				'Students practice teamwork, leadership, communication, and creative thinking through familiar situations and hands-on experiences.'
 		},
 		{
-			title: 'Positive Youth Role Models',
+			title: 'Positive youth role models',
 			description:
 				'As a student-led organization, SVYEP hopes to inspire younger students by showing them that young people can take initiative, develop ideas, and make a positive difference.'
 		},
 		{
-			title: 'A Simple Experience for Schools',
+			title: 'A simple experience for schools',
 			description:
 				'Our team provides the lesson plans and supplies, making it easier for teachers to host an engaging enrichment workshop.'
 		},
 		{
-			title: 'Completely Free',
+			title: 'Completely free',
 			description:
 				'SVYEP does not charge schools or students for its Young Innovators workshops. Our goal is to give back to the community by expanding access to educational opportunities.'
 		}
@@ -387,19 +387,19 @@ const program = {
 	 * fallback while no Google Form is linked.
 	 */
 	formFields: [
-		{ label: 'Your Name', required: true },
-		{ label: 'School or Organization Name', required: true },
-		{ label: 'Your Role — Teacher, Principal, Coordinator, or Other', required: true },
-		{ label: 'School Email Address', required: true },
-		{ label: 'School City', required: true },
-		{ label: 'Grade Level(s)', required: true },
-		{ label: 'Approximate Number of Students', required: true },
+		{ label: 'Your name', required: true },
+		{ label: 'School or organization name', required: true },
+		{ label: 'Your role — teacher, principal, coordinator, or other', required: true },
+		{ label: 'School email address', required: true },
+		{ label: 'School city', required: true },
+		{ label: 'Grade level(s)', required: true },
+		{ label: 'Approximate number of students', required: true },
 		{
-			label: 'Workshop Interest — The Power of Teamwork / Full Three-Lesson Series / Not Sure Yet',
+			label: 'Workshop interest — The Power of Teamwork / full three-lesson series / not sure yet',
 			required: true
 		},
-		{ label: 'Preferred Date or General Timeframe', required: false },
-		{ label: 'Additional Questions or Classroom Needs', required: false }
+		{ label: 'Preferred date or general timeframe', required: false },
+		{ label: 'Additional questions or classroom needs', required: false }
 	]
 };
 

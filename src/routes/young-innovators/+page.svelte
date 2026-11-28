@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Button from '$lib/components/Button.svelte';
 	import Seo from '$lib/components/Seo.svelte';
 	import program from '$lib/data/young-innovators';
 
@@ -13,7 +12,7 @@
 	import RocketLaunch from 'phosphor-svelte/lib/RocketLaunch';
 	import Gift from 'phosphor-svelte/lib/Gift';
 	import Clock from 'phosphor-svelte/lib/Clock';
-	import Sparkle from 'phosphor-svelte/lib/Sparkle';
+	import ChalkboardTeacher from 'phosphor-svelte/lib/ChalkboardTeacher';
 	import Package from 'phosphor-svelte/lib/Package';
 	import GraduationCap from 'phosphor-svelte/lib/GraduationCap';
 	import FlowArrow from 'phosphor-svelte/lib/FlowArrow';
@@ -28,19 +27,8 @@
 	/* Icons live here rather than in the data module — they are presentation. */
 	const skillIcons = [Lightbulb, UsersThree, Compass, PuzzlePiece, ChatsCircle];
 	const approachIcons = [Presentation, Handshake, RocketLaunch];
-	const offeringIcons = [Gift, Clock, Sparkle, Package, GraduationCap, FlowArrow];
-	const partnerIcons = [Sparkle, Target, Star, Toolbox, HandHeart];
-
-	/* Accordions: one open at a time, all closed to start. */
-	let openLesson = $state<number | null>(null);
-	let openFaq = $state<number | null>(null);
-
-	const toggleLesson = (index: number) => {
-		openLesson = openLesson === index ? null : index;
-	};
-	const toggleFaq = (index: number) => {
-		openFaq = openFaq === index ? null : index;
-	};
+	const offeringIcons = [Gift, Clock, ChalkboardTeacher, Package, GraduationCap, FlowArrow];
+	const partnerIcons = [Lightbulb, Target, Star, Toolbox, HandHeart];
 
 	/*
 	 * Email fallback for the interest form. The rest of the site collects
@@ -70,26 +58,17 @@
 <div class="relative flex flex-col items-center overflow-hidden px-6 pt-36 pb-24 sm:pt-44">
 	<!-- ============================ 1. HERO ============================ -->
 	<section class="flex w-full max-w-[1000px] flex-col items-center">
-		<p class="mb-4 font-serif text-sm tracking-tighter text-indigo-400 uppercase sm:text-base">
-			Young Innovators Program
-		</p>
-		<h1
-			class="text-shadow-glow-white text-center text-5xl leading-[1.05] tracking-tighter text-white sm:text-7xl"
-		>
-			Small Ideas.
-			<span class="text-shadow-glow-blue font-bold text-indigo-600">Big Possibilities.</span>
+		<p class="mb-4 font-serif text-lg text-indigo-400">Young Innovators Program</p>
+		<h1 class="text-center text-5xl leading-[1.05] sm:text-7xl">
+			Small ideas.
+			<span class="font-serif text-indigo-500 italic">Big possibilities.</span>
 		</h1>
-		<h2
-			class="mt-5 max-w-[800px] text-center font-serif text-lg tracking-tighter text-gray-200 sm:text-2xl"
-		>
-			Empowering the next generation of
-			<span class="text-white">innovators</span>,
-			<span class="text-white">leaders</span>, and
-			<span class="text-white">problem-solvers</span>.
+		<h2 class="mt-5 max-w-[800px] text-center font-serif text-lg text-zinc-200 sm:text-2xl">
+			Empowering the next generation of innovators, leaders, and problem-solvers.
 		</h2>
 
 		<div
-			class="mt-8 flex max-w-[780px] flex-col gap-4 text-center text-base leading-relaxed font-light text-gray-400 sm:text-lg"
+			class="mt-8 flex max-w-[780px] flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400"
 		>
 			<p>
 				At SVYEP, we believe that young people have the potential to create meaningful change,
@@ -106,31 +85,21 @@
 			</p>
 		</div>
 
-		<div class="mt-8 flex flex-wrap justify-center gap-3">
-			{#each program.highlights as highlight}
-				<span
-					class="rounded-full border-2 border-white/5 bg-indigo-400/5 px-4 py-1 text-sm font-light text-gray-300 backdrop-blur-xl"
-				>
-					{highlight}
-				</span>
-			{/each}
-		</div>
+		<p class="mt-8 text-zinc-300">{program.highlights.join(' · ')}</p>
 
 		<div class="mt-10 flex flex-wrap items-center justify-center gap-3">
-			<Button size="lg" href="#request">Request a Free Workshop</Button>
-			<Button size="lg" variant="secondary" href="#lessons">Explore Our Lessons</Button>
+			<a href="#request" class="btn btn-primary btn-lg">Request a free workshop</a>
+			<a href="#lessons" class="btn btn-secondary btn-lg">Explore our lessons</a>
 		</div>
 	</section>
 
 	<!-- ====================== 2. ABOUT OUR PROGRAM ====================== -->
 	<section class="mt-32 flex w-full max-w-[1100px] flex-col items-center">
-		<h2
-			class="mb-6 max-w-[900px] text-center font-serif text-4xl font-medium tracking-tighter text-white underline decoration-indigo-600 decoration-[5px] underline-offset-8 sm:text-6xl"
-		>
-			Inspiring Young Minds Through Entrepreneurship
+		<h2 class="mb-6 max-w-[900px] text-center font-serif text-4xl sm:text-6xl">
+			Inspiring young minds through entrepreneurship
 		</h2>
 		<div
-			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-base leading-relaxed font-light text-gray-400 sm:text-lg"
+			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400"
 		>
 			<p>
 				Entrepreneurship is about more than starting a business. It is about noticing opportunities,
@@ -152,83 +121,69 @@
 		</div>
 
 		<div class="mt-12 grid w-full gap-6 md:grid-cols-2">
-			<div
-				class="shadow-glow-gray flex flex-col rounded-3xl border-2 border-white/5 bg-gray-800/80 p-8 text-white"
-			>
-				<h3 class="font-serif text-3xl tracking-tighter">
-					Our Mission<span class="text-indigo-600">.</span>
-				</h3>
-				<p class="mt-3 text-base leading-relaxed font-light text-gray-400">
+			<div class="card flex flex-col p-8">
+				<h3 class="font-serif text-3xl">Our mission</h3>
+				<p class="mt-3 text-base leading-relaxed text-zinc-400">
 					To make entrepreneurship education accessible to younger students by providing free,
 					interactive learning experiences that encourage creativity, collaboration, leadership, and
 					real-world problem-solving.
 				</p>
 			</div>
-			<div
-				class="shadow-glow-gray flex flex-col rounded-3xl border-2 border-white/5 bg-gray-800/80 p-8 text-white"
-			>
-				<h3 class="font-serif text-3xl tracking-tighter">
-					Our Vision<span class="text-indigo-600">.</span>
-				</h3>
-				<p class="mt-3 text-base leading-relaxed font-light text-gray-400">
+			<div class="card flex flex-col p-8">
+				<h3 class="font-serif text-3xl">Our vision</h3>
+				<p class="mt-3 text-base leading-relaxed text-zinc-400">
 					A future where young people feel empowered to think independently, collaborate with
 					others, and use their ideas to make a positive difference.
 				</p>
 			</div>
 		</div>
 
-		<h3 class="mt-16 text-center font-serif text-3xl tracking-tighter text-white sm:text-4xl">
-			Our Approach<span class="text-indigo-600">.</span>
-		</h3>
+		<h3 class="mt-16 text-center font-serif text-3xl sm:text-4xl">Our approach</h3>
 		<div class="mt-8 grid w-full gap-6 md:grid-cols-3">
 			{#each program.approach as item, index}
 				{@const Icon = approachIcons[index]}
-				<div
-					class="shadow-glow-gray flex flex-col items-center gap-3 rounded-3xl border-2 border-white/5 bg-gray-800/80 p-7 text-center text-white transition-all hover:border-white/50 hover:bg-gray-700"
-				>
-					<Icon size={44} class="text-indigo-400" />
+				<div class="card flex flex-col items-center gap-3 p-7 text-center">
+					<Icon size={32} class="text-indigo-400" />
 					<h4 class="text-lg leading-6 font-medium">{item.title}</h4>
-					<p class="text-sm leading-relaxed font-light text-gray-400">{item.description}</p>
+					<p class="text-sm leading-relaxed text-zinc-400">{item.description}</p>
 				</div>
 			{/each}
 		</div>
 
-		<Button size="lg" href="#lessons" class="mt-10">Discover Our Curriculum</Button>
+		<a href="#lessons" class="btn btn-primary btn-lg mt-10">Discover our curriculum</a>
 	</section>
 
 	<!-- ==================== 3. WHY ENTREPRENEURSHIP? ==================== -->
 	<section class="mt-32 flex w-full max-w-[1200px] flex-col items-center">
-		<h2
-			class="mb-6 text-center font-serif text-4xl font-medium tracking-tighter text-white underline decoration-indigo-600 decoration-[5px] underline-offset-8 sm:text-6xl"
-		>
-			Entrepreneurship Is for Everyone
+		<h2 class="mb-6 text-center font-serif text-4xl sm:text-6xl">
+			Entrepreneurship is for everyone
 		</h2>
 		<div
-			class="mt-4 flex max-w-[820px] flex-col gap-4 text-center text-base leading-relaxed font-light text-gray-400 sm:text-lg"
+			class="mt-4 flex max-w-[820px] flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400"
 		>
 			<p>You don't need to own a business to think like an entrepreneur.</p>
 			<p>
 				Entrepreneurial thinking helps students approach challenges with curiosity, confidence,
 				creativity, and a willingness to explore new solutions.
 			</p>
-			<p class="text-gray-300">Our program focuses on five foundational skills:</p>
+			<p class="text-zinc-300">Our program focuses on five foundational skills:</p>
 		</div>
 
 		<div class="mt-10 flex flex-wrap justify-center gap-6">
 			{#each program.skills as skill, index}
 				{@const Icon = skillIcons[index]}
 				<div
-					class="shadow-glow-gray flex w-full max-w-[320px] flex-col items-center gap-3 rounded-3xl border-2 border-white/5 bg-gray-800/80 p-7 text-center text-white transition-all hover:border-white/50 hover:bg-gray-700 sm:w-[320px]"
+					class="card flex w-full max-w-[320px] flex-col items-center gap-3 p-7 text-center sm:w-[320px]"
 				>
-					<Icon size={48} weight="fill" class="text-indigo-400" />
-					<h3 class="font-serif text-2xl tracking-tighter">{skill.title}</h3>
-					<p class="text-sm leading-relaxed font-light text-gray-400">{skill.description}</p>
+					<Icon size={32} class="text-indigo-400" />
+					<h3 class="font-serif text-2xl">{skill.title}</h3>
+					<p class="text-sm leading-relaxed text-zinc-400">{skill.description}</p>
 				</div>
 			{/each}
 		</div>
 
 		<p
-			class="mt-12 max-w-[760px] text-center font-serif text-xl leading-snug tracking-tighter text-gray-200 sm:text-2xl"
+			class="mt-12 max-w-[760px] text-center font-serif text-xl leading-snug text-zinc-200 sm:text-2xl"
 		>
 			Our goal is not to turn every child into a business owner. It is to help every child recognize
 			the <span class="text-indigo-400 italic">value of their ideas</span>.
@@ -237,13 +192,9 @@
 
 	<!-- ======================= 4. OUR CURRICULUM ======================= -->
 	<section id="lessons" class="mt-32 flex w-full max-w-[1000px] scroll-mt-32 flex-col items-center">
-		<h2
-			class="mb-6 text-center font-serif text-4xl font-medium tracking-tighter text-white underline decoration-indigo-600 decoration-[5px] underline-offset-8 sm:text-6xl"
-		>
-			Explore Our Lessons
-		</h2>
+		<h2 class="mb-6 text-center font-serif text-4xl sm:text-6xl">Explore our lessons</h2>
 		<div
-			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-base leading-relaxed font-light text-gray-400 sm:text-lg"
+			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400"
 		>
 			<p>
 				The Young Innovators Program consists of three interactive, 30-minute workshops designed to
@@ -261,65 +212,44 @@
 
 		<div class="mt-12 flex w-full flex-col gap-6">
 			{#each program.lessons as lesson, index}
-				<article
-					class="shadow-glow-blue-hover flex flex-col overflow-hidden rounded-3xl border-2 border-white/50 bg-gray-800"
-				>
+				<article class="card flex flex-col overflow-hidden">
 					<div class="flex flex-col px-6 py-7 sm:px-9">
-						<p class="font-serif text-sm tracking-tighter text-indigo-400 sm:text-base">
+						<p class="font-serif text-sm text-indigo-400 sm:text-base">
 							{lesson.number}
 						</p>
-						<h3 class="mt-1 text-3xl font-semibold tracking-tighter text-white sm:text-4xl">
+						<h3 class="mt-1 text-3xl font-semibold sm:text-4xl">
 							{lesson.title}
 						</h3>
-						<p class="mt-2 text-sm font-light text-gray-300">
-							<span class="text-gray-500">Focus:</span>
+						<p class="mt-2 text-sm text-zinc-300">
+							<span class="text-zinc-400">Focus:</span>
 							{lesson.focus}
 						</p>
-						<p
-							class="mt-4 font-serif text-lg leading-snug tracking-tighter text-gray-200 italic sm:text-xl"
-						>
+						<p class="mt-4 font-serif text-lg leading-snug text-zinc-200 italic sm:text-xl">
 							{lesson.hook}
 						</p>
 						{#each lesson.summary as paragraph}
-							<p class="mt-3 text-base leading-relaxed font-light text-gray-400">{paragraph}</p>
+							<p class="mt-3 text-base leading-relaxed text-zinc-400">{paragraph}</p>
 						{/each}
 
-						<div class="mt-5 flex flex-wrap gap-2">
-							<span
-								class="flex items-center gap-1.5 rounded-full border-2 border-white/5 bg-indigo-400/5 px-3 py-1 text-xs font-light text-gray-300"
-							>
-								<Clock size={14} />
-								{lesson.duration}
-							</span>
-						</div>
-
-						<button
-							type="button"
-							class="mt-6 flex w-fit cursor-pointer items-center gap-2 rounded-xl border-2 border-white/5 bg-gray-900/60 px-4 py-1.5 text-sm font-medium text-gray-300 transition-all hover:border-white/30 hover:text-white active:scale-[0.96]"
-							aria-expanded={openLesson === index}
-							aria-controls="lesson-detail-{index}"
-							onclick={() => toggleLesson(index)}
-						>
-							{openLesson === index ? 'Hide Lesson Details' : 'Learn About This Lesson'}
-							<CaretDown
-								size={14}
-								class="transition-transform duration-300 {openLesson === index ? 'rotate-180' : ''}"
-							/>
-						</button>
+						<p class="mt-4 flex items-center gap-2 text-sm text-zinc-400">
+							<Clock size={16} />
+							{lesson.duration}
+						</p>
 					</div>
 
-					{#if openLesson === index}
-						<div
-							id="lesson-detail-{index}"
-							class="flex flex-col gap-7 border-t-2 border-white/5 bg-gray-900/40 px-6 py-8 sm:px-9"
+					<details name="lesson" class="group border-t border-white/8">
+						<summary
+							class="flex cursor-pointer list-none items-center gap-2 px-6 py-4 text-sm font-medium text-zinc-300 transition-colors hover:text-zinc-100 sm:px-9 [&::-webkit-details-marker]:hidden"
 						>
+							Lesson details
+							<CaretDown size={14} class="transition-transform group-open:rotate-180" />
+						</summary>
+						<div class="flex flex-col gap-7 px-6 pt-2 pb-8 sm:px-9">
 							<div>
-								<h4 class="font-serif text-xl tracking-tighter text-white">
-									What Students Will Learn
-								</h4>
+								<h4 class="font-serif text-xl">What students will learn</h4>
 								<ul class="mt-3 flex flex-col gap-2">
 									{#each lesson.outcomes as outcome}
-										<li class="flex items-start gap-2.5 text-sm font-light text-gray-400">
+										<li class="flex items-start gap-2.5 text-sm text-zinc-400">
 											<CheckCircle
 												size={18}
 												weight="fill"
@@ -333,35 +263,35 @@
 
 							<div class="grid gap-4 md:grid-cols-3">
 								{#each lesson.segments as segment}
-									<div class="rounded-2xl border-2 border-white/5 bg-gray-800/60 p-5">
-										<p class="text-xs tracking-wide text-indigo-400 uppercase">
+									<div class="rounded-xl border border-white/8 bg-zinc-950/60 p-5">
+										<p class="text-sm text-indigo-400">
 											{segment.label}
 										</p>
 										{#if segment.name}
-											<h5 class="mt-1.5 font-serif text-lg leading-6 tracking-tighter text-white">
+											<h5 class="mt-1.5 font-serif text-lg leading-6">
 												{segment.name}
 											</h5>
 										{/if}
-										<p class="mt-2 text-sm leading-relaxed font-light text-gray-400">
+										<p class="mt-2 text-sm leading-relaxed text-zinc-400">
 											{segment.description}
 										</p>
 									</div>
 								{/each}
 							</div>
 
-							<div class="rounded-2xl border-2 border-indigo-500/20 bg-indigo-500/5 p-5">
-								<p class="text-xs tracking-wide text-indigo-400 uppercase">Student Takeaway</p>
-								<p class="mt-2 font-serif text-lg leading-snug tracking-tighter text-gray-200">
+							<div class="rounded-xl border border-indigo-400/25 p-5">
+								<p class="text-sm text-indigo-400">Student takeaway</p>
+								<p class="mt-2 font-serif text-lg leading-snug text-zinc-200">
 									{lesson.takeaway}
 								</p>
 							</div>
 
-							<div class="flex flex-col gap-2 text-sm font-light text-gray-400">
-								<p><span class="text-gray-500">Duration:</span> {lesson.duration}</p>
-								<p><span class="text-gray-500">Materials:</span> {lesson.materials}</p>
+							<div class="flex flex-col gap-2 text-sm text-zinc-400">
+								<p><span class="text-zinc-400">Duration:</span> {lesson.duration}</p>
+								<p><span class="text-zinc-400">Materials:</span> {lesson.materials}</p>
 							</div>
 						</div>
-					{/if}
+					</details>
 				</article>
 			{/each}
 		</div>
@@ -369,13 +299,11 @@
 
 	<!-- ============== 5. THE YOUNG INNOVATORS CHALLENGE ================ -->
 	<section class="mt-32 flex w-full max-w-[1100px] flex-col items-center">
-		<h2
-			class="mb-6 text-center font-serif text-4xl font-medium tracking-tighter text-white underline decoration-indigo-600 decoration-[5px] underline-offset-8 sm:text-6xl"
-		>
-			From Everyday Problems to Big Ideas
+		<h2 class="mb-6 text-center font-serif text-4xl sm:text-6xl">
+			From everyday problems to big ideas
 		</h2>
 		<div
-			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-base leading-relaxed font-light text-gray-400 sm:text-lg"
+			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400"
 		>
 			<p>
 				A unique part of the SVYEP Young Innovators Program is our connected student innovation
@@ -389,12 +317,10 @@
 
 		<div class="mt-12 grid w-full gap-6 md:grid-cols-3">
 			{#each program.challengeSteps as item}
-				<div
-					class="shadow-glow-gray flex flex-col rounded-3xl border-2 border-white/5 bg-gray-800/80 p-7 text-white transition-all hover:border-white/50 hover:bg-gray-700"
-				>
-					<p class="font-serif text-sm tracking-tighter text-indigo-400">{item.step}</p>
-					<h3 class="mt-1 font-serif text-2xl tracking-tighter">{item.title}</h3>
-					<p class="mt-3 text-sm leading-relaxed font-light text-gray-400">{item.description}</p>
+				<div class="card flex flex-col p-7">
+					<p class="font-serif text-sm text-indigo-400">{item.step}</p>
+					<h3 class="mt-1 font-serif text-2xl">{item.title}</h3>
+					<p class="mt-3 text-sm leading-relaxed text-zinc-400">{item.description}</p>
 				</div>
 			{/each}
 		</div>
@@ -402,13 +328,11 @@
 
 	<!-- ====================== 6. OUR SCHOOL VISITS ====================== -->
 	<section id="schools" class="mt-32 flex w-full max-w-[1200px] scroll-mt-32 flex-col items-center">
-		<h2
-			class="mb-6 max-w-[950px] text-center font-serif text-4xl font-medium tracking-tighter text-white underline decoration-indigo-600 decoration-[5px] underline-offset-8 sm:text-6xl"
-		>
-			Bringing Learning Directly to Your Classroom
+		<h2 class="mb-6 max-w-[950px] text-center font-serif text-4xl sm:text-6xl">
+			Bringing learning directly to your classroom
 		</h2>
 		<div
-			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-base leading-relaxed font-light text-gray-400 sm:text-lg"
+			class="mt-4 flex max-w-[860px] flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400"
 		>
 			<p>We believe meaningful educational experiences should be accessible to students.</p>
 			<p>
@@ -421,62 +345,46 @@
 			</p>
 		</div>
 
-		<h3 class="mt-16 text-center font-serif text-3xl tracking-tighter text-white sm:text-4xl">
-			What We Offer<span class="text-indigo-600">.</span>
-		</h3>
+		<h3 class="mt-16 text-center font-serif text-3xl sm:text-4xl">What we offer</h3>
 		<div class="mt-8 grid w-full gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{#each program.offerings as offering, index}
 				{@const Icon = offeringIcons[index]}
-				<div
-					class="shadow-glow-gray flex flex-col items-center gap-3 rounded-3xl border-2 border-white/5 bg-gray-800/80 p-7 text-center text-white transition-all hover:border-white/50 hover:bg-gray-700"
-				>
-					<Icon size={42} class="text-indigo-400" />
+				<div class="card flex flex-col items-center gap-3 p-7 text-center">
+					<Icon size={32} class="text-indigo-400" />
 					<h4 class="text-lg leading-6 font-medium">{offering.title}</h4>
-					<p class="text-sm leading-relaxed font-light text-gray-400">{offering.description}</p>
+					<p class="text-sm leading-relaxed text-zinc-400">{offering.description}</p>
 				</div>
 			{/each}
 		</div>
 
-		<h3 class="mt-16 text-center font-serif text-3xl tracking-tighter text-white sm:text-4xl">
-			How School Visits Work<span class="text-indigo-600">.</span>
-		</h3>
+		<h3 class="mt-16 text-center font-serif text-3xl sm:text-4xl">How school visits work</h3>
 		<div class="mt-8 grid w-full gap-6 sm:grid-cols-2 lg:grid-cols-4">
 			{#each program.visitSteps as step, index}
-				<div
-					class="shadow-glow-gray flex flex-col rounded-3xl border-2 border-white/5 bg-gray-800/80 p-7 text-white"
-				>
-					<span
-						class="shadow-glow-blue flex size-10 items-center justify-center rounded-full border-2 border-white/5 bg-linear-[325deg] from-indigo-700 via-indigo-500 to-indigo-700 font-serif text-lg"
-					>
-						{index + 1}
-					</span>
-					<h4 class="mt-4 font-serif text-xl leading-6 tracking-tighter">{step.title}</h4>
-					<p class="mt-2 text-sm leading-relaxed font-light text-gray-400">{step.description}</p>
+				<div class="card flex flex-col p-7">
+					<span class="font-serif text-3xl text-indigo-400 tabular-nums">{index + 1}</span>
+					<h4 class="mt-4 font-serif text-xl leading-6">{step.title}</h4>
+					<p class="mt-2 text-sm leading-relaxed text-zinc-400">{step.description}</p>
 				</div>
 			{/each}
 		</div>
 
 		<div class="mt-12 grid w-full max-w-[1000px] gap-6 md:grid-cols-2">
-			<div
-				class="shadow-glow-gray flex flex-col rounded-3xl border-2 border-white/5 bg-gray-800/80 p-8 text-white"
-			>
-				<h4 class="font-serif text-2xl tracking-tighter">What Schools Provide</h4>
+			<div class="card flex flex-col p-8">
+				<h4 class="font-serif text-2xl">What schools provide</h4>
 				<ul class="mt-4 flex flex-col gap-2.5">
 					{#each program.schoolsProvide as item}
-						<li class="flex items-start gap-2.5 text-sm font-light text-gray-400">
-							<CheckCircle size={18} weight="fill" class="mt-0.5 shrink-0 text-gray-500" />
+						<li class="flex items-start gap-2.5 text-sm text-zinc-400">
+							<CheckCircle size={18} weight="fill" class="mt-0.5 shrink-0 text-zinc-500" />
 							<span>{item}</span>
 						</li>
 					{/each}
 				</ul>
 			</div>
-			<div
-				class="shadow-glow-gray flex flex-col rounded-3xl border-2 border-white/5 bg-gray-800/80 p-8 text-white"
-			>
-				<h4 class="font-serif text-2xl tracking-tighter">What SVYEP Provides</h4>
+			<div class="card flex flex-col p-8">
+				<h4 class="font-serif text-2xl">What SVYEP provides</h4>
 				<ul class="mt-4 flex flex-col gap-2.5">
 					{#each program.svyepProvides as item}
-						<li class="flex items-start gap-2.5 text-sm font-light text-gray-400">
+						<li class="flex items-start gap-2.5 text-sm text-zinc-400">
 							<CheckCircle size={18} weight="fill" class="mt-0.5 shrink-0 text-indigo-400" />
 							<span>{item}</span>
 						</li>
@@ -485,27 +393,23 @@
 			</div>
 		</div>
 
-		<p class="mt-8 max-w-[760px] text-center text-sm font-light text-gray-500">
+		<p class="mt-8 max-w-[760px] text-center text-sm text-zinc-400">
 			All visits are subject to school approval and applicable supervision, visitor, and safety
 			requirements.
 		</p>
 
 		<div class="mt-10 flex flex-wrap items-center justify-center gap-3">
-			<Button size="lg" href="#request">Request a Free Workshop</Button>
-			<Button size="lg" variant="secondary" href="mailto:{program.email}">Contact Our Team</Button>
+			<a href="#request" class="btn btn-primary btn-lg">Request a free workshop</a>
+			<a href="mailto:{program.email}" class="btn btn-secondary btn-lg">Contact our team</a>
 		</div>
 	</section>
 
 	<!-- =================== 7. WHY PARTNER WITH SVYEP =================== -->
 	<section class="mt-32 flex w-full max-w-[1200px] flex-col items-center">
-		<h2
-			class="mb-6 text-center font-serif text-4xl font-medium tracking-tighter text-white underline decoration-indigo-600 decoration-[5px] underline-offset-8 sm:text-6xl"
-		>
-			Meaningful Learning. No Cost.
+		<h2 class="mb-6 text-center font-serif text-4xl sm:text-6xl">
+			Meaningful learning, at no cost
 		</h2>
-		<p
-			class="mt-4 max-w-[820px] text-center text-base leading-relaxed font-light text-gray-400 sm:text-lg"
-		>
+		<p class="mt-4 max-w-[820px] text-center text-lg leading-relaxed text-zinc-400">
 			Our Young Innovators Program aims to make entrepreneurship education more accessible while
 			helping students develop practical skills they can apply throughout their lives.
 		</p>
@@ -514,68 +418,50 @@
 			{#each program.partnerReasons as reason, index}
 				{@const Icon = partnerIcons[index]}
 				<div
-					class="shadow-glow-gray flex w-full max-w-[340px] flex-col items-center gap-3 rounded-3xl border-2 border-white/5 bg-gray-800/80 p-7 text-center text-white transition-all hover:border-white/50 hover:bg-gray-700 sm:w-[340px]"
+					class="card flex w-full max-w-[340px] flex-col items-center gap-3 p-7 text-center sm:w-[340px]"
 				>
-					<Icon size={42} weight="fill" class="text-indigo-400" />
+					<Icon size={32} class="text-indigo-400" />
 					<h3 class="text-lg leading-6 font-medium">{reason.title}</h3>
-					<p class="text-sm leading-relaxed font-light text-gray-400">{reason.description}</p>
+					<p class="text-sm leading-relaxed text-zinc-400">{reason.description}</p>
 				</div>
 			{/each}
 		</div>
 
-		<Button size="lg" href="#request" class="mt-10">Bring Young Innovators to Your School</Button>
+		<a href="#request" class="btn btn-primary btn-lg mt-10">Bring Young Innovators to your school</a
+		>
 	</section>
 
 	<!-- ========================= 8. FAQ ========================= -->
 	<section id="faq" class="mt-32 flex w-full max-w-[900px] scroll-mt-32 flex-col items-center">
-		<h2
-			class="mb-10 text-center font-serif text-4xl font-medium tracking-tighter text-white underline decoration-indigo-600 decoration-[5px] underline-offset-8 sm:text-6xl"
-		>
-			Frequently Asked Questions
-		</h2>
+		<h2 class="mb-10 text-center font-serif text-4xl sm:text-6xl">Frequently asked questions</h2>
 
 		<div class="flex w-full flex-col gap-3">
 			{#each program.faqs as faq, index}
-				<div
-					class="overflow-hidden rounded-2xl border-2 border-white/5 bg-gray-800/80 transition-all hover:border-white/20"
-				>
-					<button
-						type="button"
-						class="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left"
-						aria-expanded={openFaq === index}
-						aria-controls="faq-answer-{index}"
-						onclick={() => toggleFaq(index)}
+				<details name="faq" class="group card">
+					<summary
+						class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 text-left text-lg font-medium [&::-webkit-details-marker]:hidden"
 					>
-						<span class="text-base font-medium text-white sm:text-lg">{faq.question}</span>
+						{faq.question}
 						<CaretDown
 							size={18}
-							class="shrink-0 text-indigo-400 transition-transform duration-300 {openFaq === index
-								? 'rotate-180'
-								: ''}"
+							class="shrink-0 text-indigo-400 transition-transform group-open:rotate-180"
 						/>
-					</button>
-					{#if openFaq === index}
-						<p
-							id="faq-answer-{index}"
-							class="border-t-2 border-white/5 px-6 py-5 text-sm leading-relaxed font-light text-gray-400 sm:text-base"
-						>
-							{faq.answer}
-						</p>
-					{/if}
-				</div>
+					</summary>
+					<p class="border-t border-white/8 px-6 py-5 leading-relaxed text-zinc-400">
+						{faq.answer}
+					</p>
+				</details>
 			{/each}
 		</div>
 	</section>
 
 	<!-- ================== 9. REQUEST A FREE WORKSHOP ================== -->
 	<section id="request" class="mt-32 flex w-full max-w-[900px] scroll-mt-32 flex-col items-center">
-		<h2
-			class="mb-6 text-center font-serif text-4xl font-medium tracking-tighter text-white underline decoration-indigo-600 decoration-[5px] underline-offset-8 sm:text-6xl"
-		>
-			Bring Young Innovators to Your School
+		<h2 class="mb-6 text-center font-serif text-4xl sm:text-6xl">
+			Bring Young Innovators to your school
 		</h2>
 		<div
-			class="mt-4 flex max-w-[800px] flex-col gap-4 text-center text-base leading-relaxed font-light text-gray-400 sm:text-lg"
+			class="mt-4 flex max-w-[800px] flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400"
 		>
 			<p>
 				Interested in introducing your students to teamwork, entrepreneurship, and creative
@@ -583,20 +469,12 @@
 				classroom.
 			</p>
 			<p>
-				Our introductory workshop, <span class="text-gray-200">The Power of Teamwork</span>, offers
+				Our introductory workshop, <span class="text-zinc-200">The Power of Teamwork</span>, offers
 				a fun, hands-on learning experience focused on communication, collaboration, and leadership.
 			</p>
 		</div>
 
-		<div class="mt-8 flex flex-wrap justify-center gap-3">
-			{#each ['30 Minutes', 'Completely Free', 'All Materials Provided'] as item}
-				<span
-					class="rounded-full border-2 border-white/5 bg-indigo-400/5 px-4 py-1 text-sm font-light text-gray-300 backdrop-blur-xl"
-				>
-					{item}
-				</span>
-			{/each}
-		</div>
+		<p class="mt-8 text-zinc-300">30 minutes · Completely free · All materials provided</p>
 
 		<!--
 			The interest form. Other sign-ups on the site are embedded Google Forms
@@ -614,43 +492,35 @@
 				marginwidth="0">Loading...</iframe
 			>
 		-->
-		<div
-			class="shadow-glow-gray mt-10 flex w-full flex-col rounded-3xl border-2 border-white/5 bg-gray-800/80 p-8 text-white sm:p-10"
-		>
-			<h3 class="font-serif text-2xl tracking-tighter sm:text-3xl">
-				Request a Free SVYEP Workshop
-			</h3>
-			<p class="mt-3 text-sm leading-relaxed font-light text-gray-400">
+		<div class="card mt-10 flex w-full flex-col p-8 sm:p-10">
+			<h3 class="font-serif text-2xl sm:text-3xl">Request a free SVYEP workshop</h3>
+			<p class="mt-3 text-sm leading-relaxed text-zinc-400">
 				Email our team and we will follow up to discuss scheduling. So we can respond quickly,
 				please include:
 			</p>
 			<ul class="mt-5 grid gap-2.5 sm:grid-cols-2">
 				{#each program.formFields as field}
-					<li class="flex items-start gap-2.5 text-sm font-light text-gray-400">
+					<li class="flex items-start gap-2.5 text-sm text-zinc-400">
 						<CheckCircle size={18} weight="fill" class="mt-0.5 shrink-0 text-indigo-400" />
 						<span>
 							{field.label}
 							{#if !field.required}
-								<span class="text-gray-600">(optional)</span>
+								<span class="text-zinc-400">(optional)</span>
 							{/if}
 						</span>
 					</li>
 				{/each}
 			</ul>
 			<div class="mt-8 flex flex-wrap items-center gap-3">
-				<Button size="lg" href={requestMailto} class="flex items-center gap-2">
+				<a href={requestMailto} class="btn btn-primary btn-lg flex items-center gap-2">
 					<EnvelopeSimple size={20} />
-					Send Workshop Request
-				</Button>
-				<span class="text-sm font-light text-gray-500">
-					or email <a
-						href="mailto:{program.email}"
-						class="text-indigo-400 underline underline-offset-4 transition hover:text-indigo-300"
-						>{program.email}</a
-					>
+					Send workshop request
+				</a>
+				<span class="text-sm text-zinc-400">
+					or email <a href="mailto:{program.email}" class="link">{program.email}</a>
 				</span>
 			</div>
-			<p class="mt-6 text-sm leading-relaxed font-light text-gray-500">
+			<p class="mt-6 text-sm leading-relaxed text-zinc-400">
 				Our team will review your request and reach out to discuss potential workshop opportunities
 				and scheduling. We look forward to the possibility of working with your school.
 			</p>
@@ -659,14 +529,8 @@
 
 	<!-- ======================== 10. ABOUT SVYEP ======================== -->
 	<section class="mt-32 flex w-full max-w-[900px] flex-col items-center">
-		<h2
-			class="mb-6 text-center font-serif text-4xl font-medium tracking-tighter text-white underline decoration-indigo-600 decoration-[5px] underline-offset-8 sm:text-6xl"
-		>
-			About SVYEP
-		</h2>
-		<div
-			class="mt-4 flex flex-col gap-4 text-center text-base leading-relaxed font-light text-gray-400 sm:text-lg"
-		>
+		<h2 class="mb-6 text-center font-serif text-4xl sm:text-6xl">About SVYEP</h2>
+		<div class="mt-4 flex flex-col gap-4 text-center text-lg leading-relaxed text-zinc-400">
 			<p>
 				The Silicon Valley Youth Entrepreneurship Program (SVYEP) is a student-led organization
 				dedicated to empowering young people through entrepreneurship, professional opportunities,
@@ -686,28 +550,22 @@
 				confidence, curiosity, and a willingness to take initiative.
 			</p>
 		</div>
-		<Button size="lg" variant="secondary" href="/about" class="mt-10">
-			Learn More About SVYEP
-		</Button>
+		<a href="/about" class="btn btn-secondary btn-lg mt-10"> Learn more about SVYEP </a>
 	</section>
 
 	<!-- ===================== 11. FINAL CALL TO ACTION ===================== -->
 	<section class="mt-32 flex w-full max-w-[900px] flex-col items-center">
-		<h2
-			class="text-shadow-glow-white text-center text-4xl leading-tight tracking-tighter text-white sm:text-6xl"
-		>
+		<h2 class="text-center text-4xl leading-tight sm:text-6xl">
 			Every big idea
-			<span class="text-shadow-glow-blue font-bold text-indigo-600">starts somewhere.</span>
+			<span class="font-serif text-indigo-500 italic">starts somewhere</span>
 		</h2>
-		<p
-			class="mt-6 max-w-[760px] text-center text-base leading-relaxed font-light text-gray-400 sm:text-lg"
-		>
+		<p class="mt-6 max-w-[760px] text-center text-lg leading-relaxed text-zinc-400">
 			Help us inspire the next generation of innovators, leaders, and problem-solvers. Partner with
 			SVYEP to bring free, interactive entrepreneurship and leadership education to your students.
 		</p>
 		<div class="mt-10 flex flex-wrap items-center justify-center gap-3">
-			<Button size="lg" href="#request">Request a Free Workshop</Button>
-			<Button size="lg" variant="secondary" href="mailto:{program.email}">Email Our Team</Button>
+			<a href="#request" class="btn btn-primary btn-lg">Request a free workshop</a>
+			<a href="mailto:{program.email}" class="btn btn-secondary btn-lg">Email our team</a>
 		</div>
 	</section>
 </div>
