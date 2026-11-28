@@ -16,15 +16,16 @@ left off:
 - **Keep it tight**: this is a pointer, not a changelog. Prune stale items. Carry this section forward — never delete it.
 - Use the real current date for `Last updated`.
 
-> **Pushing to `main` auto-deploys to the live site (Vercel).** Current user rule: do not push changes until a local
-> preview has been opened and the user confirms it looks fine. Commit + push to `main` is the deploy step after that
-> approval. Don't commit the stray `package-lock.json` (bun-only project).
+> **Pushing to `main` auto-deploys to the live site (Vercel).** Small edits: commit + push to `main` when done.
+> Large work (like the 2026-11 overhaul) goes on a branch; every push there gets a Vercel **preview** URL, and
+> `main` is merged only with the user's explicit yes. Always tell the user what you pushed and whether it is the
+> PREVIEW or LIVE.
 >
 > **The live site is https://svyep.com, NOT svyep.org.** `svyep.org` is a different organisation's site
 > ("Silicon Valley Young Entrepreneurs and Professionals") on Apache — nothing to do with this repo. Older
 > notes in this file that say svyep.org are wrong; verify deploys against **svyep.com**.
 
-Last updated: 2026-11-24.
+Last updated: 2026-11-27.
 
 ## What this is
 
@@ -34,20 +35,16 @@ not hardcoded in components, so copy/roster/stats edits happen in `src/lib/data/
 
 ## Stack
 
-- **SvelteKit** (Svelte 5 runes) + **Vite 7** + **TypeScript**
-- **Tailwind CSS v4** (`@tailwindcss/vite`) + `@tailwindcss/typography`; `tailwind-variants` / `tailwind-merge` / `clsx`
-- **mdsvex** (`.md` as Svelte components — used for articles), `phosphor-svelte` icons, `motion` (animations),
-  `globe.gl`, `@lottiefiles/dotlottie-svelte`
-- `@sveltejs/adapter-auto` (Vercel auto-detected at build)
-- Package manager: **bun** (`bun.lock` is the committed lockfile). A stray untracked `package-lock.json` may appear if
-  npm was run — prefer bun. Don't commit `package-lock.json`.
-- **bun is NOT installed on this machine.** `npm` works for running scripts, but it will not update
-  `bun.lock`. If you must change a dependency, grab a throwaway bun binary rather than installing it
-  system-wide:
-  `curl -fsSL -o bun.zip https://github.com/oven-sh/bun/releases/latest/download/bun-darwin-aarch64.zip`
-  (unzip it in a temp dir, then run `<dir>/bun-darwin-aarch64/bun add ...` with cwd set to the project).
-  Afterwards **always** confirm with `bun install --frozen-lockfile` — Vercel installs from `bun.lock`,
-  so a lockfile out of sync with `package.json` can fail the production build.
+- **SvelteKit 2** (Svelte 5 runes) + **Vite 7** + **TypeScript**; **Tailwind CSS v4** + `@tailwindcss/typography`
+- **mdsvex** for articles. Runtime dependencies are only **`globe.gl`** (the /impact globe) and
+  **`phosphor-svelte`** (icons). `motion`, Lottie, `tailwind-variants`, `tailwind-merge` and `clsx` were removed in
+  the 2026-11 overhaul. Conditional classes use Svelte's native `class={[...]}`.
+- `@sveltejs/adapter-auto` (Vercel). **Every page is prerendered** (root `+layout.ts`) except `/articles`, which
+  reads query params and a date-relative archive. `kit.prerender.origin` is `https://www.svyep.com`.
+- Package manager: **npm** (`package-lock.json` is the lockfile; `bun.lock` was deleted in the overhaul because
+  bun isn't installed here and Vercel must see exactly one lockfile). Never commit a `bun.lock` again.
+- Design system: tokens and the shared `.btn` / `.btn-primary` / `.btn-secondary` / `.btn-lg` / `.card` / `.link`
+  classes live in `src/app.css`. Conventions are in the repo's `CLAUDE.md`.
 
 ### Prettier (fixed 2026-08-21 — was broken for months)
 
@@ -94,18 +91,20 @@ Live at https://svyep.com — DNS is managed separately; Vercel handles the buil
 
 ## Layout
 
-- `src/routes/<page>/+page.svelte` — one folder per page (about, articles, events, impact, donate, join, partner,
-  ybvc, young-innovators).
-  `+layout.svelte` is the shared shell. Some pages have `+page.ts` / `+page.server.ts` loaders (articles, impact).
-- `src/lib/data/*.ts` — **page content** (`about.ts`, `events.ts`, `home.ts`, `impact.ts`, `young-innovators.ts`).
-  Edit copy/rosters/stats here.
-- `src/lib/components/` — shared components (Footer, etc.). `src/lib/articles/` — article `.md` sources.
-- `static/images/about/<slug>.webp` — team headshots, referenced from `about.ts` as `/images/about/<slug>.webp`.
+- `src/routes/<page>/+page.svelte` — one folder per page. `+layout.svelte` is the shell (skip link, one static
+  `StarsBackground`, Navbar, `<main>`, Footer). `+error.svelte` handles 404s.
+- `src/lib/data/*.ts` — **all page content**: `site.ts` (nav links, email, Instagram — Navbar + Footer read it),
+  `home.ts` (stats, member benefits shared with /join), `about.ts`, `events.ts` (also feeds /ybvc via `ybvc: true`),
+  `impact.ts`, `partners.ts` (logo names/order), `young-innovators.ts`.
+- `src/lib/components/` — Navbar, Footer, Logo, Seo, Marquee, StarsBackground, GlobeMarker, YouTubeEmbed.
+- `src/lib/articles/NNN.md` — articles; publication dates in `src/lib/server/article-dates.ts`.
+- `src/lib/logos/<group>/<slug>.png` — partner logos (imported so Vite fingerprints them), listed in `partners.ts`.
+- `static/images/...` — photos. Keep new photos ≤1600px on the long side (WebP).
 
 ## Team roster (about page)
 
 `src/lib/data/about.ts` exports `{ team, previous_members, advisors }`, each an array of
-`{ name, position, description, image, imageStyle?, wrapperStyle? }`. To add a member: drop
+`{ name, position, description?, education?, image, imageStyle? }` (typed as `Person`). To add a member: drop
 `static/images/about/<slug>.webp` and add an entry pointing `image` at `/images/about/<slug>.webp`.
 `description: 'Member bio coming soon.'` is the placeholder for a blank bio.
 
@@ -116,12 +115,10 @@ Members without a photo use `/images/about/placeholder.svg` (a grey silhouette) 
 
 ### Per-member photo adjustments
 
-The template in `src/routes/about/+page.svelte` supports two optional fields per member:
+The template in `src/routes/about/+page.svelte` supports one optional framing field per member:
 
-- `imageStyle` — inline style on the `<img>` (e.g. `transform: scale(1.25)` to zoom in, `object-fit: contain` to
-  prevent cropping). Overrides the default `object-cover` class.
-- `wrapperStyle` — inline style on the circle wrapper `<div>`. Use `background: #09090b` when scaling down so the
-  gap between the image and circle edge is invisible (matches page background).
+- `imageStyle` — inline style on the `<img>` inside the transparent circle (e.g. `transform: scale(2) translateY(9%)`)
+  to frame cut-out headshots consistently. Circles are deliberately transparent (user decision, 2026-06-20).
 
 **Approach: NO cropping of source files.** The team grid uses `object-contain` (no base zoom on the
 `<img>` class), so every headshot is shown whole inside the circle (transparent bg blends with
@@ -171,212 +168,34 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 
 ## Done recently
 
-- **Young Innovators Program page (2026-11-26).** New route `/young-innovators` built from the full content
-  draft the user pasted (11 sections: hero, about, why entrepreneurship, 3-lesson curriculum, the Young
-  Innovators Challenge, school visits, why partner, FAQ, request a workshop, about SVYEP, final CTA). Copy
-  lives in `src/lib/data/young-innovators.ts`; the route is layout only. Lessons and FAQs are accordions
-  (one open at a time, `aria-expanded` / `aria-controls` wired). Added "Young Innovators" to all three
-  Navbar menus and the Footer — the wide nav row needed `whitespace-nowrap` and `gap-4` (was `gap-5`) so a
-  7th link would not wrap it to two lines at 1280px. Verified at 1280px and 375px: no horizontal overflow,
-  accordions and anchors work, `svelte-check` clean for the new files (`e399b1e`). The user then asked for
-  the "The Final Project" card to go, so it and the `projectCard` array that only fed it were deleted — the
-  Challenge section now ends on the three Collaborate / Innovate / Improve steps (`1316f30`). Both verified
-  live on svyep.com.
-
-- **Chronicle Archive (2026-11-24, approved for deployment).** The Chronicle uses the dates in
-  `src/lib/server/article-dates.ts`. Add the slug and Pacific publication day there with each new article.
-  Articles stay current through their first anniversary. The listing loads older summaries only when
-  Archive is opened, ten per page. Dates for 001-002 come from their original frontmatter, 003-018
-  from [SVYEP's original RSS feed](https://web.archive.org/web/20250708170913/https://www.svyep.com/blog-feed.xml),
-  and 019-025 use their first recorded site date (the November 24, 2025 import).
-- **6th AI roundtable (2026-11-24, approved for deployment).** Added Zanda Zhu's report at
-  `/articles/029` and as the first Featured Events entry. The first photo from the PDF is the cover.
-  The uploaded volunteer group portrait replaces the nametag photo in "SVYEP Volunteers Behind the Scenes."
-  The build passed, and the article, event link, and photos were verified on localhost.
-- **5th AI roundtable event + article (2026-10-21, approved for deployment)**: created article `028.md` from the
-  user-provided draft with author `Zanda Zhu`, applied the approved grammar corrections, and added it as the first
-  Featured Events entry titled `Bay Area Founders Club's 5th Top AI Researchers Roundtable and BBQ`. Extracted the
-  two original photographs from the PDF and stored optimized WebP versions under `static/images/events/`; the panel
-  photo is the card/lead image, and the barbecue photo appears in the final article section. `npm run build` passed;
-  `/events`, `/articles/028`, and `/articles` were visually verified in the local preview, including the byline and
-  both photos. The user approved the preview and requested the push on 2026-10-21.
-- **4th AI roundtable event-card title (2026-10-20, approved for deployment)**: changed the Featured Events title from
-  `Silicon Valley Founders Club Volunteer Activity` to
-  `Bay Area Founders Club's 4th Top AI Researchers Roundtable and BBQ`. `npm run build` passed, and the longer title
-  was verified in the local `/events` preview without overlap. On 2026-10-21, changed article `027.md`'s author from
-  `SVYEP Team` to `Ethan Hao`; the build passed and the byline was verified on `/articles/027` and `/articles`.
-  The user approved the preview and requested the push on 2026-10-21.
-- **Roundtable photo + title update (2026-10-20, approved for deployment)**: converted the user-provided
-  `/Users/angelahe/Downloads/20.JPG` to `static/images/events/ai-researchers-roundtable-2026.webp` and used it as
-  both the Featured Events cover and the lead image in article `027.md`. Changed the article title from "Fourth" to
-  "4th." `npm run build` passed, and `/events`, `/articles/027`, and the image were visually verified in the local
-  preview. The user approved the preview and requested the push on 2026-10-20.
-- **Volunteer activity + advisor placeholder (2026-10-17)**: added
-  `Silicon Valley Founders Club Volunteer Activity` to the top of Featured Events with a concise event summary and a
-  `Read More` link to full article `027.md`, "Behind the Scenes at the Fourth AI Researchers Roundtable and BBQ."
-  The user asked to remove the event-poster images from both the card and article; the image-free card now uses a
-  centered full-width layout instead of leaving an empty media column. Added Charles Ojei to Advisors as
-  `YBVC 2027 Advisor` with the standard placeholder portrait and no bio. `npm run build` passed, and `/events`,
-  `/articles/027`, and `/about` were verified locally. The user approved this version for deployment on 2026-10-17.
-- **Aiden Xue titled, Anthony/Camille swapped (2026-09-11)**: Aiden is a **Youth Leader** (user confirmed),
-  so every team member now has a real title. **Anthony Wang now comes before Camille Wang** at the user's
-  request. That supersedes the older note about Camille being "pinned right after Isabella Liang". Each
-  person's `imageStyle` moved with them.
-- **Arun Banerjee removed from the team (2026-09-11)** at the user's request. He never had a photo, so
-  there was no image file to delete. Team is now 15.
-- **Titles, removals, advisors, previous-member education (2026-09-11)**: removed **Jack Li** and
-  **Jaden Zhao** from `team`, and `git rm`'d `static/images/about/jack-l.webp` too, so the photo can't be
-  reached by direct URL (it's still in git history if they come back). Set real **position titles** for
-  the team: President, Vice President ×2, Executive Director, Director of Finance, Director of Marketing,
-  Community Outreach Director, Youth Leader. The **team is now ordered by rank** in the order the user
-  listed titles; the old rule of photo-less members going last still holds _within_ that. Moved
-  **Bretton Lam** from `advisors` to the front of `previous_members` (again; see the history below).
-  Added the four other **YBVC 2026 judges** as advisors (Zixuan (Alex) An, Bei Zhang, Tianli Feng, Bryant
-  Art), with position `YBVC 2026 Judge`, a placeholder photo, and bios adapted from the published
-  `026.md` article (Jun Liu, also a judge, was already an advisor). New optional **`education`** field on
-  `previous_members`, rendered as a small grey line under the position on the About page; values kept
-  close to how the user wrote them ("USC"; "Wharton" was changed to "UPenn Wharton" on 2026-09-11).
-- **Eric Cheung added to the team (2026-09-10)**: new member with bio + photo, so he goes at the end of the
-  _complete_ group (after Cindy Zhang, before the placeholder group). Photo at
-  `static/images/about/eric-c.webp`. The user first dropped an opaque photo (foliage background), then
-  replaced it mid-task with a transparent-background version of the same shot; only the transparent one
-  is kept. **Gotcha found while framing the opaque version:** on a photo _without_ transparency, any
-  `translateY` beyond `0.5·scale − 0.5` exposes a blank band at the top of the circle, because nothing of
-  the image sits above it. Cut-outs don't have this problem, since the page background shows through
-  either way. Framing was picked with the contact-sheet workflow and confirmed in `npm run preview`.
-  **Second gotcha — iCloud conflict copies:** the repo lives in `~/Documents`, which syncs. Overwriting
-  `eric-c.webp` with `mv -f` left the _old_ file behind as `eric-c 2.webp` a few seconds later. After
-  replacing any file, run `find src static -name "* 2.*"` and remove the stray copy before committing
-  (compare with `cmp` first). `.svelte-kit/types/route_meta_data 2.json` is the same phenomenon.
-- **Cindy Zhang headshot (2026-08-30, local pending review)**: pulled latest `main` (`85fdd5f..2ab9028`),
-  converted `/Users/angelahe/Downloads/IMG_0618.PNG` to `static/images/about/cindy-z.webp`, then generated a
-  transparent-background cutout from it and saved that back to `static/images/about/cindy-z.webp`. Cindy's team
-  entry points at `/images/about/cindy-z.webp` with `transform: translateY(8%);` so her head aligns better with
-  Tyrone and Michael. No commit/push until local preview is approved.
-- **YBVC 2026 interview clips + YouTube channel link (2026-08-28)**: added
-  **`src/lib/components/YouTubeEmbed.svelte`** — a responsive 16:9 embed (`{id}`, `{title}` props) sized
-  to match the article images (`max-w-[600px]`, centred, `rounded-3xl`), `loading="lazy"`, and pointed at
-  **youtube-nocookie.com** so YouTube sets no tracking cookies until the viewer presses play. Embedded all
-  seven YBVC 2026 team interviews in `src/lib/articles/026.md`, each directly under its own award section
-  (SNAPRight 1st, Wasor 2nd, Avora 3rd, Nourishly Innovation Excellence, Droplet AI Business Strategy,
-  AutiLearn + Hapty Honorable Mentions) — the mapping was confirmed against each video's real title via the
-  YouTube oembed endpoint, not assumed. Added a "More From SVYEP" section at the end of the article linking
-  to **https://www.youtube.com/@svyep**. Verified in preview at 1280px (embeds 600x338, same width as the
-  article photos) and 375px (311px wide, flush with the photos, no horizontal overflow).
-  **mdsvex note:** a plain `<script>` block placed right after the frontmatter in a `.md` article becomes
-  the component's instance script — that is how `026.md` imports `YouTubeEmbed`. Only `005.md` and `026.md`
-  do anything like this, so it is easy to miss.
-- **SEO pass, prettier fix, roster/name corrections (2026-08-21, later same day)**:
-  **New `src/lib/components/Seo.svelte`** — renders title, `meta description`, canonical, and
-  OG/Twitter card tags; takes `title` (the " • SVYEP" suffix is added inside), `description`, optional
-  `image` (root-relative; converted to absolute, since crawlers reject relative OG images) and
-  `type`. **Every** route now uses it, including `articles/[slug]`, which previously had no
-  `<svelte:head>` at all so article tabs showed the raw URL. Article pages feed it `metadata.title` /
-  `metadata.subtitle` / `metadata.images[0]`.
-  **`/impact` now server-renders**: `+page.server.ts` had `export const ssr = false`, so crawlers got a
-  ~1KB empty shell. globe.gl is already lazily imported inside `onMount`, so it never touches the
-  server — flipping to `ssr = true` gives a ~14KB SSR page and the globe still mounts fine (verified
-  visually in preview).
-  **Prettier is fixed** — see the Prettier section below.
-  **Events page** now shows `2025.webp` for YBVC 2025 instead of the Drive iframe, matching /ybvc.
-  **Footer** gained the missing `/ybvc` link. **Michael Huang → Michael Hung** (user confirmed the
-  correct spelling); `michael-h.webp` is unchanged since the convention is firstname-lastinitial.
-  Jack Li stays on the team (user confirmed).
-- **About spacing fix + roster update, YBVC page rework (2026-08-21)**: **About** — the "too close /
-  overlapping" report was two separate things: (a) every section heading sat flush against its own
-  body copy and against the next section (`gap-6` at the page root, no `mb` on any heading), and
-  (b) the fixed-size team circles genuinely overlapped at ~1024–1150px (see the Grid sizing gotcha
-  above). Fixed both: root `gap-16 pt-40 sm:gap-24 sm:pt-44`, `mb-4 sm:mb-6` on Vision/Mission
-  headings, `mb-12` on Advisors/Previous Members, `leading-[1.15] pb-2` on the big serif headings so
-  descenders stop clipping, grid `mt-12 gap-y-16`, and fluid circles. Advisors also switched from a
-  4-col grid to centred flex-wrap — with only 2 advisors left the grid pinned them to the left half.
-  **Roster** — Bretton Lam + Jeremy Peng moved from `advisors` to `previous_members`
-  (**superseded 2026-08-25**: Bretton was moved back to `advisors`, as the first entry, at the user's
-  request — "just move him", so his `Co-Founder and Former CEO` title and bio are unchanged. Advisors is
-  now Bretton Lam, Rian Caesar, Jun Liu; Jeremy Peng stays in previous members. Note this entry has
-  flip-flopped several times — check `about.ts` rather than trusting older notes here); added Derek Meng, Arun Banerjee, Leo Shi, Jaden Zhao, Lori Ji to `team`
-  (placeholder photo + "Member bio coming soon.", in the end group per the ordering rule). Team is now 17. **YBVC page** (`src/routes/ybvc/+page.svelte`) — removed the "YBVC" `<h1>`, reordered so 2025 is
-  the left card and 2026 the right, swapped 2025's Google-Drive iframe for
-  `/images/articles/ybvc/2025.webp`, rewrote 2025's blurb to past tense, and added a
-  `ybvcompetition.org` link under the cards. Verified in `npm run preview` at 375/1024/1150/1280px:
-  no horizontal overflow, no circle overlap, all pages 200, no broken images.
-
-- **Partner logo wall experiment (2026-08-21, local pending review)**: pulled latest `main` (already up to date),
-  confirmed 44 existing company/organization logos, then locally replaced the moving Partner page marquee with a
-  static logo wall for preview. Added five screenshot-derived, transparent, theme-colored logos:
-  MagStone Law, Star One Credit Union, 7EDU, Stan's Donuts, and Philz Coffee. User then asked to restore original
-  logo colors, so the five screenshot-derived logos were regenerated in original colors and the Partner logo wall was
-  changed to full-color logos on light tiles instead of grayscale/opacity styling. User then reverted that direction:
-  the five screenshot-derived logos are back to themed white/indigo treatment and render slightly larger than the
-  other company logos. User then asked to make logos gray-ish again, so the Partner page now applies grayscale /
-  softened contrast / opacity styling to the logo displays. No commit/push until local preview is approved.
-- **YBVC page split (2026-08-21, local pending review)**: locally added a top-nav `YBVC` tab, moved the Youth Business
-  Venture Competition card out of Events into a new `/ybvc` page, and converted
-  `/Users/angelahe/Downloads/SVYEP-YBVC report.pdf` into a new article at `src/lib/articles/026.md` titled
-  `Youth Business Venture Competition 2026`, with extracted photos under `static/images/articles/ybvc-2026/`.
-  The `/ybvc` page now shows the 2026 and 2025 YBVC entries as matching compact cards in one desktop row, with
-  2026 on the left and 2025 on the right; the 2025 title is `Youth Business Venture Challenge 2025`, and the 2026 card links to `/articles/026` with a
-  `Read More` button instead of linking to a PDF. No commit/push until local preview is approved.
-- **Events layout update (2026-08-21, local pending review)**: locally moved the two former `past_events` entries into
-  `featured_events`, replaced the featured card grid with alternating text/image rows matching the existing past-event
-  format, and added both YBVC entries back into the Events page as featured events while keeping the separate `/ybvc`
-  tab. No commit/push until local preview is approved.
-- **Advisor copy/layout cleanup (2026-08-06)**: removed Bretton Lam's advisor description,
-  added Rian Caesar as `Advisor` using `/images/about/placeholder.svg`, made advisor image/description rendering
-  conditional in `src/routes/about/+page.svelte`, and changed Advisors to a four-column desktop grid so all four
-  advisors sit on one row. Local preview was approved before push per current user rule.
-- **Michael Huang headshot + Bretton bio (2026-08-08)**: created
-  `static/images/about/michael-h.webp` from `/Users/angelahe/Downloads/IMG_0168.heic`, removed the wall background,
-  pointed Michael's team entry at the new image with `transform: scale(1.10) translateY(-5%);`, moved him out of
-  the end placeholder group, and added Bretton Lam's advisor description. Local preview was approved before push per
-  current user rule.
-- **Bretton Lam advisor move (2026-08-05)**: moved Bretton from `previous_members` to `advisors` in
-  `src/lib/data/about.ts` and changed his role to `Co-Founder and Former CEO`. Local preview was approved before
-  push per current user rule.
-- **About page hero compaction (2026-06-27)**: reduced the Vision/Mission headings and body copy, tightened
-  vertical gaps, and lowered the "Meet the Team" heading size so part of the first team-photo row is visible
-  above the fold in the local preview. Added a small top-padding bump after review so "Our Vision" has more
-  breathing room below the navbar. Verified with `npm run build` and `npm run preview` at
-  `http://127.0.0.1:4173/about`; build still shows the pre-existing article-route Svelte warning.
-- **Michael Huang bio added (2026-06-27)**: replaced his placeholder bio in `src/lib/data/about.ts`; he still
-  uses the placeholder image until a real photo is provided.
-- **About Vision/Mission + team content (2026-07-11)**: rewrote the About **"Our Vision"**
-  statement and added a new **"Our Mission"** section below it (`591efb0`; Mission is one size smaller
-  than Vision for hierarchy — later further compacted, see above). Added real photos for **Elaine, Jack,
-  Cindy** (then **removed Cindy's** per request — back to placeholder, moved to end). Added bios for
-  **Cindy, Camille, Tyrone** and moved each into the complete group as they filled in; **Camille** pinned
-  to her original spot. Enlarged team circles to `size-[22rem]` and bio text to `text-base`, tightened
-  grid to `gap-6`/`max-w-[1300px]`. Tuned framing (zoom/lower/rotate) for the new photos. Note: homepage
-  hero word **"future"** is `text-indigo-600` = **#4F46E5**.
-- **Website feedback pass (2026-06-22)**: (1) Stats fixed in `home.ts` — `raised` 305k→**120k**
-  (true value, headline+body share the var so they match); `impacted_students` (215k) **reframed** on
-  the homepage as "students & attendees reached" with copy explaining it counts event/pitch reach,
-  not members. (2) Homepage: added a "What you get as a member" section near the top (the 3 Join cards
-  — AI internships / leader interviews / event invites) + early student CTA; hero subhead added;
-  three-pillars intro + About vision rewritten to thread the **social-impact mission**; closing CTA
-  split into "Join as a student" vs secondary Partner/Donate. (3) Team: reordered (complete profiles
-  first), added Cindy Zhang's bio, removed advisor Wanting Chen, dropped Bretton Lam's "Co-Founder and
-  CEO" title. (4) Join form subhead readability bump. Commits `4b42259`, `8e13507`.
-- **About page polish + deploy (2026-06-20, latest)**: made team circles transparent (removed
-  `bg-zinc-950` wrapper, matches advisors/previous); removed the `bg-zinc-950` highlight behind
-  "Our Vision" + its description; removed the Isabella-Liang full-page background that was briefly
-  added. Per-member `imageStyle` transforms tuned interactively (see "Current per-member
-  adjustments"); grid spacing settled at `max-w-[1200px] gap-8` card `px-4`. Earlier: added Isabella
-  Xia's bio; removed the large `teamphoto.webp` block above Advisors.
-- **(superseded) Team grid no-crop layout (2026-06-20)**: reverted the earlier square-crop experiment
-  to original uncropped photos. Removed the large `teamphoto.webp` block above
-  Advisors; added Isabella Xia's bio. Source webp files were restored from git (originals untouched).
-  Build verified.
-- **About page overhaul (2026-06-20)**: added bios for Aiden Xue, Isabella Liang, Anthony Wang; renamed all headshot
-  files to `firstname-lastinitial` convention; fixed all `about.ts` image paths; added `placeholder.svg` for 6 members
-  without photos; added Previous Members section; updated README; removed designer credit from Footer (`b33063e`).
-- **Anthony Wang headshot updated + photo adjustments (2026-06-20)**: new photo committed. Added `imageStyle` /
-  `wrapperStyle` support to the about template. Ethan Hao and Aiden Xue zoomed in (scale 1.25); Anthony Wang zoomed
-  out with contain + translateY to prevent cropping (`5cda1bf`).
-- **Vercel deployment fixed (2026-06-20)**: repo was private (blocking Hobby plan deploys) — made public. Vercel
-  Authentication ("Require Log In") was enabled — disabled it. Auto-deploy on push to `main` now works.
+- **Full overhaul (2026-11-27, branch `overhaul`, PREVIEW only — not merged to `main`/live yet).** Plan, audit and
+  decisions in `OVERHAUL.md`. User direction: keep the dark starry theme, indigo, layouts and all content; remove the
+  "vibecoded" look (glows, gradients, gimmick motion, shouting copy) and the inefficiencies. In 6 commits:
+  shared design classes in `app.css`; one font `<link>` (Cinzel dropped); Navbar/Footer from `data/site.ts` with an
+  accessible menu; one static star canvas instead of 2–6 animating ones per page; Lottie hero replaced by its final
+  frame (`hero-globe.webp`); stats static (they rendered "0" without JS); events/YBVC one data source; partner logos
+  named in `partners.ts`; Young Innovators accordions are native `<details name>`; /impact globe kept but fixed
+  (local texture, unmounts, labelled markers); `/articles/<unknown>` 404s; `/api/articles` deleted; prerendering;
+  images >1600px downscaled (31 → 13 MB); bun → npm; deps 8 → 2 runtime. Home first load 3.0 MB/61 requests →
+  312 KB/31. svelte-check 3 errors → 0. California school count 61 → 60 (duplicate removed, user-approved).
+- Older history (2026-06 → 2026-11-26: roster edits, roundtable articles, Chronicle archive, Young Innovators page,
+  SEO pass, Vercel setup) is in `git log`; it was pruned from here on 2026-11-27.
 
 ## Open / not done
+
+### From the 2026-11 overhaul
+
+- **Merge `overhaul` → `main` needs the user's explicit yes** (that is the production deploy). Merge `main` into the
+  branch first if anything landed there meanwhile (new articles need their date in `article-dates.ts`).
+- **`npm audit` still reports SvelteKit advisories fixed only in SvelteKit 3** (enhanced forms, remote functions,
+  query.batch, prerender cache-control). The site uses none of those features; upgrading to Kit 3 is a separate,
+  deliberate migration.
+- **"21 states, 17 countries" on /impact is hard-coded.** `impact.ts` has 21 US entries (incl. D.C.) but only 15
+  non-US countries (16 with the US). Confirm the real figure with the user before changing it.
+- **Washington, D.C. has `number_of_schools: 2` but no school names** in `impact.ts`.
+- **Unreferenced images kept on purpose:** `about/teamphoto.webp`, `about/wanting-c.webp`,
+  `articles/ybvc/TeamPhoto for AboutUs.webp` (possible future group photo). Delete if not wanted.
+- **Default OG image is still `logo.png`.** A wide event photo would preview better when links are shared.
 
 ### Team (end-of-list "awaiting a photo" group: Derek, Leo, Lori)
 

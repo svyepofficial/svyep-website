@@ -1,101 +1,58 @@
 # SVYEP — Silicon Valley Youth Entrepreneurship Program
 
-The official website for the **Silicon Valley Youth Entrepreneurship Program (SVYEP)**, a student-run nonprofit connecting high school students with entrepreneurship resources, networking events, internships, and industry professionals across Silicon Valley and beyond.
+The official website for the **Silicon Valley Youth Entrepreneurship Program (SVYEP)**, a student-run nonprofit
+connecting high school students with entrepreneurship resources, networking events, internships, and industry
+professionals across Silicon Valley and beyond.
 
-🌐 **Live site:** [svyep.org](https://svyep.org)
-
----
+**Live site:** [svyep.com](https://svyep.com)
 
 ## About SVYEP
 
-SVYEP empowers the next generation of entrepreneurs by providing:
- 
-- **Connections** — In-person speaker events, networking sessions, and Zoom webinars with industry leaders
-- **Experience** — Paid internships, volunteer opportunities at local Silicon Valley startups, and hands-on work with professionals
-- **Education** — Student-led workshops and access to a nationwide network of schools
+- **Connections** — in-person speaker events, networking sessions, and Zoom webinars with industry leaders
+- **Experience** — paid internships, volunteer opportunities at Silicon Valley startups, and hands-on work with
+  professionals
+- **Education** — student-led workshops, the Young Innovators classroom program, and a nationwide network of schools
 
-**By the numbers:**
-- 1,900+ members
-- $305,000+ raised
-- 215,000+ students impacted
-- 25+ internships facilitated
-- 60+ businesses partnered with
+The current figures shown on the site live in `src/lib/data/home.ts`.
 
----
+## Tech stack
 
-## Tech Stack
+- [SvelteKit](https://svelte.dev/docs/kit) (Svelte 5) with TypeScript, prerendered and deployed on
+  [Vercel](https://vercel.com/)
+- [Tailwind CSS v4](https://tailwindcss.com/) — design tokens and shared classes in `src/app.css`
+- [mdsvex](https://mdsvex.pngwn.io/) for articles, [globe.gl](https://globe.gl/) for the impact globe,
+  [Phosphor](https://phosphoricons.com/) icons
 
-- **Framework:** [SvelteKit](https://kit.svelte.dev/) (Svelte 5)
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
-- **Language:** TypeScript
-- **Animations:** [Motion](https://motion.dev/), [Lottie](https://lottiefiles.com/)
-- **Content:** MDsveX (Markdown)
-- **Deployment:** [Vercel](https://vercel.com/)
+## Getting started
 
----
-
-## Getting Started
-
-### Prerequisites
-
-- Node.js `v20.19` or higher
-- npm
-
-### Installation
+Requires Node.js 20.19+ and npm.
 
 ```bash
-npm install --legacy-peer-deps
+npm install
+npm run build && npm run preview   # http://localhost:4173
 ```
 
-### Development
+`npm run dev` also works on most machines (see `handoff.md` if it hangs). Before committing:
 
 ```bash
-npm run dev
+npm run check && npx prettier --check . && npm run build
 ```
 
-Then open [http://localhost:5173](http://localhost:5173) in your browser.
-
-### Build
-
-```bash
-npm run build
-```
-
-### Preview Production Build
-
-```bash
-npm run preview
-```
-
----
-
-## Project Structure
+## Project structure
 
 ```
 src/
+├── app.css              # Design tokens and shared .btn / .card / .link classes
 ├── lib/
-│   ├── articles/        # Markdown article files
-│   ├── components/      # Reusable Svelte components
-│   ├── data/            # Static site data (team, events, stats)
-│   └── logos/           # Partner and sponsor logos
-├── routes/              # SvelteKit pages
-│   ├── about/
-│   ├── articles/
-│   ├── events/
-│   ├── impact/
-│   ├── join/
-│   ├── donate/
-│   └── partner/
-static/
-└── images/              # Static images and assets
+│   ├── articles/        # Chronicle articles (Markdown + Svelte)
+│   ├── components/      # Navbar, Footer, Seo, Marquee, …
+│   ├── data/            # All page content: site links, home stats, team, events, partners, impact
+│   ├── logos/           # Partner logos (listed in data/partners.ts)
+│   └── server/          # Chronicle listing and article dates
+└── routes/              # One folder per page
+static/images/           # Photos (WebP, ≤1600px)
 ```
-
----
 
 ## Deployment
 
-The site is deployed on **Vercel**. Pushing to the `main` branch triggers an automatic deployment.
-
----
-
-© 2025 Silicon Valley Youth Entrepreneurship Program
+Vercel builds every push. Pushes to `main` deploy to svyep.com; other branches get a preview URL.

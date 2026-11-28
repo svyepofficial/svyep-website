@@ -39,9 +39,7 @@
 		<ul class="grid w-full grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
 			{#each about.team as member (member.name)}
 				<li class="flex flex-col items-center gap-2 text-center">
-					<div
-						class="mb-4 aspect-square w-full max-w-[22rem] overflow-hidden rounded-full bg-zinc-900"
-					>
+					<div class="mb-4 aspect-square w-full max-w-[22rem] overflow-hidden rounded-full">
 						<img
 							src={member.image}
 							alt=""
@@ -69,7 +67,7 @@
 						src={advisor.image}
 						alt=""
 						loading="lazy"
-						class="mb-4 size-56 rounded-full bg-zinc-900 object-cover"
+						class="mb-4 size-56 rounded-full object-cover"
 					/>
 					<h3 class="font-serif text-2xl">{advisor.name}</h3>
 					<p class="font-medium text-indigo-400">{advisor.position}</p>
@@ -90,7 +88,7 @@
 						src={member.image}
 						alt=""
 						loading="lazy"
-						class="mb-4 size-56 rounded-full bg-zinc-900 object-cover"
+						class="mb-4 size-56 rounded-full object-cover"
 					/>
 					<h3 class="font-serif text-2xl">{member.name}</h3>
 					<p class="font-medium text-indigo-400">{member.position}</p>

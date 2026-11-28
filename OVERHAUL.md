@@ -1,6 +1,6 @@
 # SVYEP overhaul — audit and plan
 
-Status: **approved 2026-11-27, being implemented on branch `overhaul`.** Baseline is commit `ce6fb43`.
+Status: **implemented on branch `overhaul` (preview only, not merged to `main`/live).** Baseline is commit `ce6fb43`. Results in §11.
 
 ## 1. What exists
 
@@ -286,3 +286,29 @@ Three reviewers read this plan against the code: simplicity, code accuracy, and 
 - The hero image is 2400px.
 - California's count changing to 60 is called out.
 - Google Fonts is acknowledged as remaining third-party.
+
+## 11. Results (verified 2026-11-27)
+
+| Measure (home page, production build) | Before (live)                                       | After                             |
+| ------------------------------------- | --------------------------------------------------- | --------------------------------- |
+| First-load transfer                   | ~3.0 MB, 61 requests                                | 312 KB, 31 requests               |
+| Full scroll (all lazy photos loaded)  | —                                                   | 1.97 MB, 54 requests              |
+| Always-animating canvases             | 6                                                   | 0 (1 static star field)           |
+| Third-party runtime hosts             | Google Fonts, jsdelivr (Lottie WASM, globe texture) | Google Fonts only                 |
+| `<h1>` on home                        | 18                                                  | 1                                 |
+| Runtime dependencies                  | 8                                                   | 2 (`globe.gl`, `phosphor-svelte`) |
+| `svelte-check`                        | 3 errors                                            | 0 errors, 0 warnings              |
+| `static/images`                       | 31 MB                                               | 13 MB                             |
+
+- Every route was checked at 375px and 820px (in an iframe in Chrome) and at desktop width. No horizontal overflow,
+  1 `h1`, every `<img>` has `alt`, and no console errors.
+- `/articles/999` and `/nope` return 404. Archive pagination works. The menu opens, closes on Escape and closes on
+  navigation. The Young Innovators accordions open one at a time.
+- Prerendered HTML has `https://www.svyep.com` canonical and OG URLs.
+
+Deviations from the plan:
+
+- The light rebrand was declined (§4 polish mode), so `Dateline` and the article-date frontmatter move were dropped.
+- The globe was kept, per the owner.
+- `@types/node` was added as a dev dependency, because SvelteKit 2.62+'s generated tsconfig requires it.
+- The remaining `npm audit` items need SvelteKit 3 and are listed in `handoff.md`.
