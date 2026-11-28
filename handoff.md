@@ -165,7 +165,7 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 
 ## Done recently
 
-- **2026-11-27 overhaul, then visual rollback (branch `overhaul`, PREVIEW only — not merged to `main`/live yet).**
+- **2026-11-27 overhaul, then visual rollback (merged to `main` and LIVE on 2026-11-27).**
   A "deslop" redesign (see `OVERHAUL.md`) was tried; the user preferred the original fonts, sizes and animations,
   so every page, component, style and data file was restored to the pre-overhaul look. Kept from the overhaul (no
   visible change): bun → npm; prerendering (`+layout.ts`, `kit.prerender.origin`); `/articles/<unknown>` 404s via
@@ -178,8 +178,6 @@ background (an Isabella-Liang `object-fill` backdrop was tried and removed per r
 
 ### From the 2026-11 overhaul
 
-- **Merge `overhaul` → `main` needs the user's explicit yes** (that is the production deploy). Merge `main` into the
-  branch first if anything landed there meanwhile (new articles need their date in `article-dates.ts`).
 - **`npm audit` still reports SvelteKit advisories fixed only in SvelteKit 3** (enhanced forms, remote functions,
   query.batch, prerender cache-control). The site uses none of those features; upgrading to Kit 3 is a separate,
   deliberate migration.

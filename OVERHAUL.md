@@ -1,6 +1,6 @@
 # SVYEP overhaul — audit and plan
 
-Status: **implemented on branch `overhaul` (preview only, not merged to `main`/live).** Baseline is commit `ce6fb43`. Results in §11; visual changes rolled back in §12.
+Status: **visual changes rolled back; invisible fixes merged to `main` and live 2026-11-27.** Baseline is commit `ce6fb43`. Results in §11; visual changes rolled back in §12.
 
 ## 1. What exists
 
