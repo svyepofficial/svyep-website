@@ -1,43 +1,51 @@
 <script lang="ts">
-	import { mount, onMount } from 'svelte';
-	import impact from '$lib/data/impact';
+	import { mount, unmount } from 'svelte';
+	import impact, { type Location } from '$lib/data/impact';
 	import GlobeMarker from '$lib/components/GlobeMarker.svelte';
-	import { HandPointing, MouseScroll } from 'phosphor-svelte';
-	import { selectedLocation } from './state.svelte';
 	import Seo from '$lib/components/Seo.svelte';
+	import HandPointing from 'phosphor-svelte/lib/HandPointing';
+	import ArrowsOutCardinal from 'phosphor-svelte/lib/ArrowsOutCardinal';
 
 	let globeElement: HTMLElement;
+	let selected = $state<Location | null>(null);
 
-	$inspect(selectedLocation);
+	$effect(() => {
+		let globe: { _destructor(): void } | undefined;
+		const markers: ReturnType<typeof mount>[] = [];
+		let cancelled = false;
 
-	onMount(async () => {
-		const Globe = (await import('globe.gl')).default;
-		const globe = new Globe(globeElement)
-			.globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg')
-			.pointOfView({ lat: 36, lng: -95 })
-			.htmlElementsData(impact.locations)
-			.htmlElement((location) => {
-				const globeMarkerContainer = document.createElement('div');
-				globeMarkerContainer.style.transition = 'opacity 250ms';
-				mount(GlobeMarker, {
-					target: globeMarkerContainer,
-					props: {
-						location: location
-					}
-				});
-				return globeMarkerContainer;
-			})
-			.htmlElementVisibilityModifier((el, isVisible) => {
-				if (isVisible) {
-					el.style.opacity = '1';
-				} else {
-					el.style.opacity = '0';
-				}
-			})
-			.backgroundColor('#00000000')
-			.atmosphereColor('#4338ca');
-		globe.controls().enableZoom = false;
-		globe.controls().maxDistance = 250;
+		// globe.gl pulls in three.js, so it loads only in the browser, after first paint.
+		import('globe.gl').then(({ default: Globe }) => {
+			if (cancelled) return;
+			const instance = new Globe(globeElement)
+				.globeImageUrl('/images/impact/earth-night.webp')
+				.pointOfView({ lat: 36, lng: -95 })
+				.htmlElementsData(impact.locations)
+				.htmlElement((data) => {
+					const target = document.createElement('div');
+					target.style.transition = 'opacity 250ms';
+					markers.push(
+						mount(GlobeMarker, {
+							target,
+							props: { location: data as Location, onselect: (l) => (selected = l) }
+						})
+					);
+					return target;
+				})
+				.htmlElementVisibilityModifier((el, isVisible) => {
+					el.style.opacity = isVisible ? '1' : '0';
+				})
+				.backgroundColor('#00000000')
+				.atmosphereColor('#4338ca');
+			instance.controls().enableZoom = false;
+			globe = instance;
+		});
+
+		return () => {
+			cancelled = true;
+			markers.forEach((marker) => unmount(marker));
+			globe?._destructor();
+		};
 	});
 </script>
 
@@ -46,32 +54,35 @@
 	description="The reach of SVYEP's work so far — students and attendees reached, funds raised, and the events and partnerships behind those numbers."
 />
 
-<div class="relative flex flex-col items-center justify-center pt-40">
-	<h2 class="flex flex-wrap items-center justify-center gap-1 text-gray-400">
-		<div class="flex items-center gap-1">
-			<MouseScroll size={20} /> Drag to move around<span class="mx-2"></span>
-		</div>
-		<div class="flex items-center gap-1">
-			<HandPointing /> Hover & click on starred locations
-		</div>
-	</h2>
-	<h1
-		class="text-shadow-glow-white sm:y-10 my-10 text-center text-7xl leading-16 tracking-tighter text-white select-none sm:text-9xl sm:leading-24"
-	>
-		SVYEP is <span class="text-shadow-glow-blue font-serif text-indigo-600 italic">global.</span>
+<div class="flex flex-col items-center px-6 pt-40 pb-24">
+	<p class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-zinc-400">
+		<span class="flex items-center gap-2"><ArrowsOutCardinal size={16} /> Drag to move around</span>
+		<span class="flex items-center gap-2"
+			><HandPointing size={16} /> Hover and click the starred locations</span
+		>
+	</p>
+	<h1 class="mt-8 text-center text-6xl tracking-tight sm:text-8xl">
+		SVYEP is <span class="font-serif text-indigo-500 italic">global</span>
 	</h1>
-	<h2 class="-mb-4 text-2xl font-medium tracking-tighter text-white sm:text-4xl">
-		<span class="font-serif text-5xl text-indigo-600">21</span> states,
-		<span class="font-serif text-5xl text-indigo-600">17</span> countries
-	</h2>
-	<div bind:this={globeElement}></div>
-	{#if selectedLocation.location}
-		<p class="z-10 -mt-20 mb-40 w-10/12 text-center text-sm text-gray-400">
-			{#each selectedLocation.location.schools as school}
-				{school},{' '}
-			{/each}
-		</p>
+	<p class="mt-4 text-2xl font-medium sm:text-4xl">
+		<span class="font-serif text-4xl text-indigo-400 sm:text-5xl">21</span> states,
+		<span class="font-serif text-4xl text-indigo-400 sm:text-5xl">17</span> countries
+	</p>
+	<div bind:this={globeElement} class="w-full max-w-full overflow-hidden"></div>
+	{#if selected}
+		<section aria-live="polite" class="card -mt-16 w-full max-w-[1000px] p-6 sm:p-8">
+			<h2 class="font-serif text-3xl">{selected.location}</h2>
+			<p class="mt-1 text-zinc-400">
+				{selected.number_of_schools}
+				{selected.number_of_schools === 1 ? 'school' : 'schools'}
+			</p>
+			{#if selected.schools?.length}
+				<ul class="mt-6 grid gap-x-8 gap-y-2 text-sm text-zinc-300 sm:grid-cols-2 lg:grid-cols-3">
+					{#each selected.schools as school (school)}
+						<li>{school}</li>
+					{/each}
+				</ul>
+			{/if}
+		</section>
 	{/if}
 </div>
-
-<!-- move this under -->

@@ -1,10 +1,19 @@
-const impact = {
+export type Location = {
+	location: string;
+	lat: string;
+	lng: string;
+	/** Kept explicitly because some locations (e.g. Washington, D.C.) have no named schools. */
+	number_of_schools: number;
+	schools?: string[];
+};
+
+const impact: { locations: Location[] } = {
 	locations: [
 		{
 			location: 'California',
 			lat: '36.44820697000031',
 			lng: '-119.42799489020969',
-			number_of_schools: 61,
+			number_of_schools: 60,
 			schools: [
 				'California Crosspoint Academy — Hayward',
 				'Moreau Catholic High School — Hayward',
@@ -43,7 +52,6 @@ const impact = {
 				'Cupertino High School — Cupertino',
 				'Homestead High School — Cupertino',
 				'Faria Elementary School — Cupertino',
-				'John F. Kennedy High School — Fremont',
 				'De Anza College — Cupertino',
 				'Milpitas High School — Milpitas',
 				'The King’s Academy — Sunnyvale',
